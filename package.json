@@ -20,6 +20,7 @@
     "verify-snippet": "tsx scripts/verify-snippet.ts",
     "proposals:merge": "tsx scripts/merge-proposals.ts",
     "seed:supabase": "tsx scripts/seed-supabase.ts",
+    "seed:sql": "tsx scripts/build-seed-sql.ts",
     "icons": "tsx scripts/make-icons.ts",
     "seed:supabase:check": "tsx scripts/seed-supabase.ts --dry-run"
   },

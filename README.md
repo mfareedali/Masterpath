@@ -64,16 +64,26 @@ Optional environment variables (copy `.env.example` to `.env.local`):
 
 ### Supabase
 
-1. Create a project at supabase.com and run `supabase/migrations/20261124000000_init.sql` (SQL editor, or `supabase db push`).
+1. Create a project at supabase.com and apply every file in `supabase/migrations/` in name order (`supabase db push`,
+   or paste them into the SQL editor one by one):
+   * `20261124000000_init.sql`: tables (one jsonb column per fact), CHECK constraints, row level security.
+   * `20261125000001_schema.sql`: `program_facts` (every fact as rows, with its evidence), confidence computed on read,
+     and the `program_fact_conflicts` view.
+   * `20261125000002_rls.sql`: read-only access to those views; explicit deny-all on the service-only tables.
+   * `20261125000003_functions.sql`: indexes, `rank_programs` and `rank_countries` (missing data is always listed last).
+   * `20261125000004_seed.sql`: the reviewed seed data, generated from `data/*.seed.json` by `npm run seed:sql` (idempotent).
 2. Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` and `SUPABASE_SERVICE_ROLE_KEY` (in `.env.local` and on Vercel).
-3. Load the data: `npm run seed:supabase` (safe to re-run; `npm run seed:supabase:check` validates without writing).
+3. After editing `data/*.seed.json`, push the changes with `npm run seed:supabase` (upsert by id; safe to re-run;
+   `npm run seed:supabase:check` validates without writing).
 4. In **Supabase → Auth → URL Configuration**, set the Site URL and add `https://<your-domain>/auth/callback` and
    `http://localhost:3000/auth/callback` to Redirect URLs (without this, magic links never reach the app).
 5. Optional: add `{{ .Token }}` to the Magic Link email template so people can type the code when a link opens in another browser.
 6. After changing data in the database, pages refresh within an hour (or call `revalidateTag('masterspath-data')`).
 
 Row-level security is on for every table. Users can read and write only their own profile; public data is read-only;
-reports are insert-only. No passport or ID numbers are stored anywhere. "Delete my account" is a hard delete.
+data reports are written only by the server, after `/api/report` has validated them. No passport or ID numbers are
+stored anywhere. "Delete my account" is a hard delete. Server code talks to the database through typed helpers in
+`src/lib/queries.ts` (types generated into `src/types/supabase.ts`).
 
 ### Deploy (Vercel)
 
@@ -100,7 +110,9 @@ src/lib/                 confidence, fit, rank, cost, shortlist, planb, citizens
 src/components/ui/       badges, buttons, chips, cards, evidence rows
 src/app/                 screens (App Router) and API routes
 scripts/                 seed validator, ingestion, link checker, snippet verifier, Supabase seeding
-supabase/migrations/     schema + RLS
+supabase/migrations/     schema, RLS, evidence views, ranking functions, seed
+src/lib/queries.ts       typed Supabase queries (rankings, program + facts, profile, strengths, reports)
+src/types/supabase.ts    generated database types
 DECISIONS.md             every judgement call made while building, and how to undo it
 ```
 

@@ -8,16 +8,20 @@ import 'server-only';
 import { createServerClient } from '@supabase/ssr';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
+import type { Database } from '@/types/supabase';
 import { supabaseAnonKey, supabaseUrl } from './env';
 
 export { isSupabaseConfigured, isSupabaseAdminConfigured, accountsEnabled } from './env';
 
-export async function createSupabaseServerClient(): Promise<SupabaseClient> {
+/** Typed with the generated schema (src/types/supabase.ts). Row level security applies: it acts as the signed-in user. */
+export type TypedSupabaseClient = SupabaseClient<Database>;
+
+export async function createSupabaseServerClient(): Promise<TypedSupabaseClient> {
   const url = supabaseUrl();
   const key = supabaseAnonKey();
   if (!url || !key) throw new Error('Supabase is not configured (NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY).');
   const cookieStore = await cookies();
-  return createServerClient(url, key, {
+  return createServerClient<Database>(url, key, {
     cookies: {
       getAll() {
         return cookieStore.getAll();

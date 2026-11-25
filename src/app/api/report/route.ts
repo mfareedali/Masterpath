@@ -10,9 +10,9 @@
  *   otherwise 202 { stored: false }.
  * Responses are JSON with fixed text only: the message is never echoed back.
  */
-import { createClient } from '@supabase/supabase-js';
 import { isSameOrigin } from '@/lib/supabase/auth';
 import { getPrograms } from '@/lib/data';
+import { createReport } from '@/lib/queries';
 import { clientIp, createRateLimiter, hashIp } from '@/lib/program/rate-limit';
 import { isJsonContentType, parseReportBody, readBodyWithLimit } from '@/lib/program/report';
 import {
@@ -70,24 +70,13 @@ export async function POST(request: Request): Promise<Response> {
   const result = parseReportBody(raw, programIds);
   if (!result.ok) return json(result.status, { stored: false, error: result.error });
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !serviceKey) {
-    return json(202, { stored: false, message: REPORT_NOT_STORED_MESSAGE });
+  // Validated above; createReport (src/lib/queries.ts) inserts with the service role. It never logs the text or the IP.
+  const { program_id, field, message } = result.data;
+  const stored = await createReport({ program_id, field, message });
+  if (!stored.stored) {
+    return stored.reason === 'not_configured'
+      ? json(202, { stored: false, message: REPORT_NOT_STORED_MESSAGE })
+      : json(503, { stored: false, error: REPORT_ERRORS.storeFailed });
   }
-
-  try {
-    const supabase = createClient(url, serviceKey, {
-      auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
-    });
-    const { program_id, field, message } = result.data;
-    const { error } = await supabase.from('reports').insert({ program_id, field, message, status: 'open' });
-    if (error) throw new Error(error.message);
-  } catch (err) {
-    // Never log the report text or the IP.
-    console.error('[api/report] insert failed:', err instanceof Error ? err.message : 'unknown error');
-    return json(503, { stored: false, error: REPORT_ERRORS.storeFailed });
-  }
-
   return json(201, { stored: true, message: REPORT_STORED_MESSAGE });
 }

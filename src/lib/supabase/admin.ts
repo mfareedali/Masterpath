@@ -5,17 +5,18 @@
  */
 import 'server-only';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import type { Database } from '@/types/supabase';
 import { supabaseUrl } from './env';
 
 export { isSupabaseAdminConfigured } from './env';
 
-export function createSupabaseAdminClient(): SupabaseClient {
+export function createSupabaseAdminClient(): SupabaseClient<Database> {
   const url = supabaseUrl();
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
   if (!url || !serviceKey) {
     throw new Error('Supabase admin is not configured (NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY).');
   }
-  return createClient(url, serviceKey, {
+  return createClient<Database>(url, serviceKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
   });
 }

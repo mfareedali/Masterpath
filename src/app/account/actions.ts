@@ -10,16 +10,8 @@ import { redirect } from 'next/navigation';
 import type { AuthError } from '@supabase/supabase-js';
 import { emailSchema, originFromHeaders, otpCodeSchema, verifyTurnstileToken } from '@/lib/supabase/auth';
 import { accountsEnabled, turnstileSecretKey, turnstileSiteKey } from '@/lib/supabase/env';
-import {
-  PROFILE_ROW_COLUMNS,
-  STRENGTHS_ROW_COLUMNS,
-  parseStrengths,
-  profileToRow,
-  rowToProfile,
-  rowToStrengths,
-  strengthsAreEmpty,
-  strengthsToRow,
-} from '@/lib/supabase/profile-rows';
+import { getOwnProfile, getUserSession, replaceStrengths, upsertProfile } from '@/lib/queries';
+import { parseStrengths, profileToRow, strengthsAreEmpty } from '@/lib/supabase/profile-rows';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import type { Profile, Strengths } from '@/lib/types';
 
@@ -114,26 +106,20 @@ export type SaveResult =
   | { ok: true; savedAt: string; strengths: 'saved' | 'none' | 'invalid' }
   | { ok: false; error: string };
 
-async function requireUser() {
-  const supabase = await createSupabaseServerClient();
-  const { data, error } = await supabase.auth.getUser();
-  return { supabase, user: error ? null : (data.user ?? null) };
-}
-
-/** Copies the profile (and strengths, if any) from this device into the signed-in user's own rows. */
+/**
+ * Copies the profile (and strengths, if any) from this device into the signed-in user's own rows.
+ * Reads and writes go through src/lib/queries.ts with the user's session, so row level security applies.
+ */
 export async function saveProfileAction(input: { profile: unknown; strengths: unknown }): Promise<SaveResult> {
   if (!accountsEnabled()) return { ok: false, error: NOT_ENABLED };
-  const { supabase, user } = await requireUser();
-  if (!user) return { ok: false, error: 'You are signed out. Please sign in again.' };
+  const session = await getUserSession();
+  if (!session) return { ok: false, error: 'You are signed out. Please sign in again.' };
 
-  const row = profileToRow(input?.profile, user.id);
-  if (!row) return { ok: false, error: 'There is no complete profile on this device yet. Fill in your profile first.' };
-
-  const { error } = await supabase.from('profiles').upsert(row, { onConflict: 'user_id' });
-  if (error) {
-    console.error('[account] profile save failed:', error.message);
-    return { ok: false, error: 'We could not save your profile. Please try again.' };
+  if (!profileToRow(input?.profile, session.userId)) {
+    return { ok: false, error: 'There is no complete profile on this device yet. Fill in your profile first.' };
   }
+  const saved = await upsertProfile(input?.profile, session);
+  if (!saved.ok) return saved;
 
   let strengths: 'saved' | 'none' | 'invalid' = 'none';
   const parsed = input?.strengths == null ? null : parseStrengths(input.strengths);
@@ -141,13 +127,9 @@ export async function saveProfileAction(input: { profile: unknown; strengths: un
     strengths = 'invalid';
   } else if (strengthsAreEmpty(parsed)) {
     // The device has no strengths: the account copy should not keep old ones.
-    await supabase.from('profile_strengths').delete().eq('user_id', user.id);
+    await replaceStrengths(null, session);
   } else {
-    const sRow = strengthsToRow(parsed, user.id);
-    const { error: sError } = sRow
-      ? await supabase.from('profile_strengths').upsert(sRow, { onConflict: 'user_id' })
-      : { error: { message: 'invalid' } };
-    strengths = sError ? 'invalid' : 'saved';
+    strengths = (await replaceStrengths(parsed, session)).ok ? 'saved' : 'invalid';
   }
   return { ok: true, savedAt: new Date().toISOString(), strengths };
 }
@@ -159,13 +141,5 @@ export type LoadResult =
 /** Reads the signed-in user's own saved profile (to copy it onto this device). */
 export async function loadProfileAction(): Promise<LoadResult> {
   if (!accountsEnabled()) return { ok: false, error: NOT_ENABLED };
-  const { supabase, user } = await requireUser();
-  if (!user) return { ok: false, error: 'You are signed out. Please sign in again.' };
-
-  const [p, s] = await Promise.all([
-    supabase.from('profiles').select(PROFILE_ROW_COLUMNS).eq('user_id', user.id).maybeSingle(),
-    supabase.from('profile_strengths').select(STRENGTHS_ROW_COLUMNS).eq('user_id', user.id).maybeSingle(),
-  ]);
-  if (p.error || s.error) return { ok: false, error: 'We could not load your saved profile. Please try again.' };
-  return { ok: true, profile: rowToProfile(p.data), strengths: rowToStrengths(s.data) };
+  return getOwnProfile();
 }
