@@ -1,0 +1,769 @@
+{
+  "area": "programs-europe",
+  "generated_at": "2026-11-24",
+  "reviewed_at": "2026-11-24",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "official_url",
+      "value": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "The Master’s in Informatics is a research-oriented degree that builds on the fundamentals of computer science you have acquired during your undergraduate studies.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "TUM School of Computation, Information and Technology (CIT) program page on tum.de. The central TUM degree page https://www.tum.de/en/studies/degree-programs/detail/informatics-master-of-science-msc is JS-rendered (program facts not in raw HTML), so the CIT page is proposed instead.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official TUM page (cit.tum.de) for M.Sc. Informatics; snippet verbatim; value is that page's own https URL; id exists."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "deadline",
+      "value": "2027-05-31",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "For the winter semester: February 1 – March 31: recommended application deadline for applicants who need a visa February 1 – May 31: compulsory application deadline",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Winter semester 2027/28 intake. Page gives dates without a year; 31 May is the next occurrence of the compulsory deadline (2027). Pakistani applicants need a visa, so TUM RECOMMENDS applying by 31 March 2027. Summer semester window: 1 October - 30 November. Apply via TUMonline; uni-assist VPD required for non-German bachelor's.",
+      "review": {
+        "verdict": "accept",
+        "checks": "basis=inferred (flagged): CIT page and tum.de program page give the winter window 01.02.-31.05. with no year; 2027-05-31 is the WS 2027/28 compulsory deadline (visa applicants recommended by 31 Mar, see notes)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "duration_months",
+      "value": 24,
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "Standard Duration of Studies: 4 semesters Credits: 120 ECTS",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "4 semesters = 24 months (standard duration).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official CIT page 'Standard Duration of Studies: 4 semesters' (tum.de page: 4 semesters full-time); 4 x 6-month semesters = 24, exact unit conversion."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "tests_required",
+      "value": "GRE General required for applicants with a degree from Pakistan: minimum Quantitative reasoning 164 and Analytical writing 4.0 (Verbal not taken into account). Indian GATE (Computer Science) scorecard accepted as an alternative.",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "Applicants with a Degree from Bangladesh, China, India, Iran or Pakistan have to submit a GRE (General) Test. We have defined required minimum scores, lower scores will not be accepted! The required scores are: Verbal reasoning: (will not be taken into account anymore) Quantitative reasoning: 164 Analytical writing: 4.0",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applies to applicants whose B.Sc. is from Pakistan. Same page: 'Alternatively, students can submit a scorecard of the Indian GATE test (Computer Science...)'. GRE institution code 7806, department 5199.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official CIT page: GRE General required for Pakistan degrees, QR 164, AW 4.0, verbal ignored; GATE (CS) alternative is verbatim on the same page outside the snippet."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "intake",
+      "value": "Winter semester (October start) or Summer semester (April start)",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "Start of Degree Program: Summer or Winter semester Language of Instruction: English",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Same page lists lecture start 'Winter semester: October' and 'Summer semester: April'. Target intake for current applicants: winter semester 2027/28.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official CIT page: start in summer or winter semester; October/April starts are verbatim on the same page under 'Start of program (lecture period)'."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "sop_requirements",
+      "value": "Statement of reasons in English, max two DIN-A4 pages, plus a scientific essay of approx. 1,000 words in English (stage 1 of the aptitude assessment).",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "The statement of reasons, submitted along with the online application, should not be longer than two DIN-A4 pages and must be written in English.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Essay requirement on the same page: 'The scientific essay / paper, submitted along with the online application, should be approximately 1,000 words in length and must be written in English.' Stage 2 may be a 90-minute written test.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official CIT page: statement of reasons max two DIN-A4 pages in English; ~1,000-word English essay verbatim on same page; tum.de program page says written documents are scored in the initial stage."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "official_url",
+      "value": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "evidence_snippet": "The Master's degree programe in Computer Science at ETH Zurich offers a profound and in-depth education in several core areas of computer science.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Typo 'programe' is on the official page. Application-documents page for this programme: https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ethz.ch CS MSc programme page; snippet verbatim (typo 'programe' is on the page); value is the page URL."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "deadline",
+      "value": "2026-11-30",
+      "source_url": "https://www.lehrbetrieb.ethz.ch/eApply/",
+      "evidence_snippet": "The application period for Master's degree programmes lasts from 1 November 2026 00:00 to 30 November 2026 12:00 CET \"(noon)\". Late applications are not possible.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "For Master's starting autumn semester 2027 (eApply portal). Closes at NOON CET on 30 Nov 2026 - only 6 days after this research date. ETH-wide Master's window; per ETH CS brochure (PDF, not used) the April window is only for Swiss bachelor's holders, so the November window is the one for Pakistani applicants. eApply URL redirects to a session login page; the text is in the raw HTML.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ETH eApply portal: Master's window 1 Nov 2026 to 30 Nov 2026 noon CET; ETH Dates page confirms it is mandatory for international Bachelor's holders for Autumn Semester 2027."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": null,
+        "toefl_ibt": null,
+        "waiver": null,
+        "text": "English, Level C1; proof of proficiency required by the application deadline (see ETH Language requirements)."
+      },
+      "source_url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "evidence_snippet": "English, proof of proficiency required by the application deadline: Level C1, see Language requirements",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "No numeric IELTS/TOEFL minimum in the raw HTML (score list on https://ethz.ch/en/studies/master/application/language-requirements.html is not in the static text). Exemption on that page (human reviewer may add as waiver): 'Applicants who complete a Bachelor’s degree programme completely taught in English. The language of instruction must be officially confirmed by the university.' Certificates (TOEFL, IELTS, CAE) must be no more than two years old.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ETH CS application page, 'International Bachelor's degree' tab: English C1 proof by the deadline; no numeric scores on the page so nulls are right; English-taught-bachelor exemption (ETH language page) is kept in notes."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "lor_count",
+      "value": 2,
+      "source_url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "evidence_snippet": "Two recommendation letters in English. We strongly prefer letters from academia, or from referees with an academic background.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applies to applicants with a non-ETH bachelor's degree.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ETH CS application page, International Bachelor's degree tab: 'Two recommendation letters in English' = 2."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "sop_requirements",
+      "value": "Motivation letter of approximately one A4 page in English stating motivation for choosing this specific Master's programme at ETH Zurich.",
+      "source_url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "evidence_snippet": "Approximately one A4 page in the language of instruction of the chosen programme, stating your motivation for choosing this specific Master's degree programme at ETH Zurich.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Language of instruction is English.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ETH CS application page, International Bachelor's tab: about one A4 page motivation letter in the language of instruction (English on the same page)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "duration_months",
+      "value": 24,
+      "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "evidence_snippet": "Credits | duration 120 ECTS | 2 years",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "2 years = 24 months.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ETH programme page: '120 ECTS | 2 years' = 24 months."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "tuition",
+      "value": {
+        "amount": 2190,
+        "currency": "CHF",
+        "period": "semester"
+      },
+      "source_url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+      "evidence_snippet": "Threefold tuition fee: CHF 2190 / semester All students who do not fulfil the criteria for simple tuition fee will be assigned to the second group paying a threefold tuition fee.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applies since autumn semester 2025 to students who are not Swiss/Liechtenstein citizens and were not resident in CH/LI when they obtained their university entrance qualification, i.e. typical Pakistani applicants (ETH checks the group during admission). Simple fee is CHF 730/semester. Tuition only; semester fees are extra. Section marked 'updated 19.11.2025'. CONFLICT: see the CHF 804 proposal from https://ethz.ch/en/studies/financial.html.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official ETH tuition-fees page: threefold fee CHF 2190/semester for non-Swiss students not resident in CH/LI at entrance qualification (typical Pakistani applicant), in force since AS 2025; tuition only."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "official_url",
+      "value": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+      "evidence_snippet": "Master Computer Science Brief overview Degree: Master of Science Standard length of programme: 4 semester (120 ECTS)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Institute of Computer Science programme page. Application details: https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official JMU Institute of Computer Science page for Master Computer Science; snippet verbatim."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "deadline",
+      "value": "2027-03-15",
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "evidence_snippet": "The application deadline for the winter semester is from the end of January to March 15",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Winter semester 2027/28. Page gives no year; 15 March is the next occurrence (2027). Programme page also shows 'application deadline winter semester: 15.3.' Summer semester: end of August to 31 October. Non-German bachelor's holders need a uni-assist VPD issued for Würzburg, so start early.",
+      "review": {
+        "verdict": "accept",
+        "checks": "basis=inferred (flagged): application page 'end of January to March 15' and programme page '15.3.' give no year; next winter deadline is 2027-03-15 (summer deadline 31 Oct 2026 has passed)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": null,
+        "toefl_ibt": null,
+        "waiver": "Medium of instruction certificate proving the Bachelor's degree programme was entirely taught in English or German",
+        "text": "Either German B2 or English C1 language proficiency"
+      },
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "evidence_snippet": "Either German B2 or English C1 language proficiency (alternative a medium of instruction certificate that proves that your Bachelor's degree programme was entirely taught in English or German)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "No numeric IELTS/TOEFL score stated; page mentions IELTS only as an example of a C1 certificate.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official application page: German B2 or English C1, with a medium-of-instruction certificate stated verbatim as an alternative (waiver); no numeric IELTS/TOEFL so nulls are right."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "duration_months",
+      "value": 24,
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+      "evidence_snippet": "Standard length of programme: 4 semester (120 ECTS)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "4 semesters = 24 months.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official programme page 'Standard length of programme: 4 semester (120 ECTS)' = 24 months."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "admissions_email",
+      "value": "master.informatik@uni-wuerzburg.de",
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "evidence_snippet": "Please direct any questions regarding your application or any additional documents after the deadline to master.informatik@uni-wuerzburg.de.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Departmental contact for CS MSc applications.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official application page sends application questions to master.informatik@uni-wuerzburg.de."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "tuition",
+      "value": {
+        "amount": 0,
+        "currency": "EUR",
+        "period": "semester"
+      },
+      "source_url": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/degree-programmes/before-arrival/costs-and-financing",
+      "evidence_snippet": "There are no tuition fees at the University of Würzburg. But you have to pay the semester contribution each semester for enrolment or re-enrolment.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "University-wide statement on the page for international degree-seeking students (no nationality restriction stated). The semester contribution (student contribution + semester ticket) is still payable each semester; the amount is not on this page (it points to the Unit for Student Affairs).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official JMU costs page for international degree-seeking students: 'There are no tuition fees' = 0 EUR (semester contribution extra). Verifier timed out (15s) on the first run and printed FOUND on two reruns; the URL 301-redirects to the same page."
+      }
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "living_cost",
+      "value": {
+        "amount": 1000,
+        "currency": "EUR",
+        "period": "month"
+      },
+      "source_url": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/degree-programmes/before-arrival/costs-and-financing",
+      "evidence_snippet": "Of course this also depends strongly on the individual life style, but you should expect monthly costs of about €1000.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Breakdown on the same page: Eating €275, Living €375, Health Insurance €110, Other €222 (plus broadcasting fee). This is a university estimate, not the German student-visa blocked-account amount.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official JMU costs page: 'monthly costs of about €1000' = 1000 EUR/month, the university's own single figure, not rounded. Verifier timed out on the first run and printed FOUND on two reruns."
+      }
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "official_url",
+      "value": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "evidence_snippet": "Suitable for graduates of disciplines other than computing, this one-year programme is tailored towards those looking to add computing qualifications to their portfolio.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "IMPORTANT for matching: this is a CONVERSION MSc - minimum entry is a First-Class degree in a subject WITHOUT substantial computing content, so BSCS graduates are not the target audience (Imperial's specialist MSc Computing streams are separate courses).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official imperial.ac.uk course page for MSc Computing; snippet verbatim. It is a conversion course for non-computing graduates (flagged in notes)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 7,
+        "toefl_ibt": null,
+        "waiver": null,
+        "text": "Higher university requirement: IELTS Academic 7.0 overall (minimum 6.5 in all elements)"
+      },
+      "source_url": "https://www.imperial.ac.uk/study/apply/english-language/",
+      "evidence_snippet": "IELTS – Academic (Test-Centre/UKVI SELT/Online) Standard Higher 6.5 overall (minimum 6.0 in all elements) 7.0 overall (minimum 6.5 in all elements)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Course page states: 'For admission to this course, you must achieve the higher university requirement in the appropriate English language qualification.' TOEFL iBT moved to a new 1-6 band scale on 21 Jan 2026, so no iBT number proposed.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official Imperial English page: higher level is IELTS 7.0 overall (6.5 in each element); course page requires the higher level; Pakistan is not on the exemption list, so waiver null is right."
+      }
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "tuition",
+      "value": {
+        "amount": 48300,
+        "currency": "GBP",
+        "period": "year"
+      },
+      "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "evidence_snippet": "Overseas fee 2027 entry £48,300",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Overseas fee, 2027 entry, one-year programme (so year = total). Home fee £25,850. Application fee £90.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page: Overseas fee 2027 entry £48,300; 1-year course so the yearly fee is the whole fee."
+      }
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "duration_months",
+      "value": 12,
+      "source_url": "https://www.imperial.ac.uk/computing/prospective-students/courses/pg/msc-computing/",
+      "evidence_snippet": "The programme is full time and is taken over 12 months, with a single entry-point in October.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Department of Computing page. Course page key facts: 'Duration 1 year', 'Start date October 2027'.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official Department of Computing page: full time over 12 months, single October entry; course page key facts say 'Duration 1 year'."
+      }
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "admissions_email",
+      "value": "doc-mscadmissions@imperial.ac.uk",
+      "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "evidence_snippet": "Email: doc-mscadmissions@imperial.ac.uk",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Department of Computing MSc admissions contact on the course page.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page contact block: doc-mscadmissions@imperial.ac.uk."
+      }
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "intake",
+      "value": "October 2027",
+      "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "evidence_snippet": "Duration 1 year Start date October 2027",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Single October entry point. The department page says 'Admissions for September 2027 are now open' (refers to the admissions cycle; same page says single entry-point in October).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page key facts: 'Start date October 2027'."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "official_url",
+      "value": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "evidence_snippet": "Our MSc Advanced Computer Science opens doors for you to specialised roles across various industries.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "REVIEWER: Oxford Brookes has no course titled 'MSc Computer Science'. MSc Advanced Computer Science is the route for computing graduates (MSc Computing Science is the conversion course). Seed name may need updating.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official brookes.ac.uk MSc Advanced Computer Science page. Brookes has no 'MSc Computer Science' (/courses/postgraduate/computer-science gives 404), so the CS-graduate course is accepted, but a human must correct the seed name."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 2.7,
+        "text": "Pakistan four-year bachelor's: 2:2 (direct entry) = 60% or GPA 2.7; 2:1 = 65% or GPA 3.0."
+      },
+      "source_url": "https://www.brookes.ac.uk/study/international-students/your-country/pakistan/entry-requirements",
+      "evidence_snippet": "Bachelor degree requirement Equivalent grading 2:1 (for direct entry) 65% or GP 3.0 2:2 (for direct entry) 60% or GPA 2.7",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Course requires a 2:2 UK bachelor's in a computer-related subject, so the 2:2 row applies. Page does not state the GPA scale (assumed /4.0). Page shows 'GP 3.0' (likely typo for GPA). Pass grade for a pre-master's course: 40% or GPA 1.0.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official Brookes Pakistan entry page: 2:2 (direct entry) = 60% or GPA 2.7, and the course needs a 2:2. Scale cgpa_4 is assumed because the page does not print it (Pakistani HEC CGPA is out of 4.0)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6,
+        "toefl_ibt": null,
+        "waiver": null,
+        "text": "IELTS 6.0 overall with 6.0 in all skills"
+      },
+      "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "evidence_snippet": "IELTS 6.0 overall with 6.0 in all skills. For more information, please see our English language requirements.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Course-specific requirement. Separately, Brookes applies a higher pre-CAS interview threshold for Pakistan (see status_note).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page: IELTS 6.0 overall with 6.0 in all skills."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "tuition",
+      "value": {
+        "amount": 20800,
+        "currency": "GBP",
+        "period": "year"
+      },
+      "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "evidence_snippet": "International full-time £19,600 £20,800 Fees quoted are for the first year only.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Fee table columns are 2026/27 then 2027/28: £20,800 is the 2027/28 international full-time fee (£19,600 for 2026/27). First year only; September-start MSc is 12 months.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page fee table (columns 2026/27 then 2027/28): international full-time £20,800 for 2027/28; first year is the whole 12-month MSc."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "duration_months",
+      "value": 12,
+      "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "evidence_snippet": "Full time: MSc - September Start - 1 year (12 months); January Start - 1.5 years (18 months)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "September start = 12 months; January start = 18 months.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page: 'September Start - 1 year (12 months)'."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "intake",
+      "value": "January 2027, September 2027",
+      "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "evidence_snippet": "Starts January 2027, September 2027",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Two intakes.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official course page: 'Starts January 2027, September 2027'. January 2027 is effectively closed to Pakistan applicants (see status_note)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "status_note",
+      "value": "Extra compliance measures for Pakistan applicants (January 2027 entry timeline): no offers beyond 23 October 2026, no CAS issuance beyond 11 December 2026, higher pre-CAS interview threshold (7.0 overall).",
+      "source_url": "https://www.brookes.ac.uk/study/international-students/applying-to-arriving/how-to-apply",
+      "evidence_snippet": "Pakistan No offers beyond 23 October 2026 No CAS issuance beyond 11 December 2026 Higher pre-CAS interview threshold (7.0 overall required with 7.0 in the four core questions)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Published under the January 2027 entry timeline; September 2027 timeline not yet published. Same page: Student visa sponsorship is paused for 'Pakistan (foundation and Pre-Masters only)' - direct MSc entry is not paused. Applicants from Azad Jammu and Kashmir, Khyber Pakhtunkhwa and Punjab must pay the full first-year tuition fee to release their CAS (£3,000 to accept the offer).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official Brookes how-to-apply page: Pakistan compliance measures sit under the 'International applicant standard timeline for January 2027 entry' heading. The value summarises them correctly but not completely; the 7-day visa-evidence rule and the full-fee CAS deposit for AJK/KP/Punjab are in notes."
+      }
+    },
+    {
+      "target": "program",
+      "id": "qmul-premasters-cs",
+      "field": "official_url",
+      "value": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "evidence_snippet": "Designed for international and EU students, this Pre-Masters pathway provides progression to postgraduate degrees in Humanities and Social Sciences subjects.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "QMUL's in-house Pre-Masters (GradDip). The CS route is the Humanities and Social Sciences Pre-Masters, whose progression degrees include 'MSc Computer Science (Conversion)' (https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/computer-science-conversion-msc/). QMUL's Pre-Masters overview lists only Finance and Economics, Humanities and Social Sciences and Integrated pathways; no CS integrated two-year option was listed.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official qmul.ac.uk Humanities and Social Sciences Pre-Masters page; MSc Computer Science (Conversion) is listed as a progression degree."
+      }
+    },
+    {
+      "target": "program",
+      "id": "qmul-premasters-cs",
+      "field": "progression_requirement",
+      "value": "Students must meet specific requirements to progress onto the Master's; MSc Computer Science (Conversion) is a listed progression degree. Specific progression marks are not published on the page.",
+      "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "evidence_snippet": "You will need to meet specific requirements to progress onto your Master’s degree programme. Progression degrees MSc Accounting and Management MSc Computer Science (Conversion)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "The numeric progression grade was not found on any official HTML page checked; ask QMUL. Progression is to the CONVERSION MSc (for non-CS graduates), not MSc Advanced Computer Science.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official page: 'You will need to meet specific requirements to progress'; MSc Computer Science (Conversion) is listed; no marks are published. Faithful."
+      }
+    },
+    {
+      "target": "program",
+      "id": "qmul-premasters-cs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 5.5,
+        "toefl_ibt": null,
+        "waiver": null,
+        "text": "Band 2: IELTS (Academic) 5.5 overall with 5.5 in each of Writing, Listening, Reading and Speaking"
+      },
+      "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "evidence_snippet": "Band 2: IELTS (Academic) minimum score of 5.5 overall with 5.5 in each of Writing, Listening, Reading and Speaking",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Entry to the Pre-Masters Graduate Diploma, not to the MSc.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official page: Band 2, IELTS (Academic) 5.5 overall with 5.5 in each skill (entry to the Pre-Masters GradDip, which is the entry point of the route)."
+      }
+    },
+    {
+      "target": "program",
+      "id": "qmul-premasters-cs",
+      "field": "intake",
+      "value": "January 2027 and September 2027",
+      "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "evidence_snippet": "Start dates - January 2027 and September 2027",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "January start: 25/01/2027 to 16/07/2027.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Official page key information: 'Start dates - January 2027 and September 2027'."
+      }
+    }
+  ],
+  "not_found": [
+    {
+      "id": "tum-msc-informatics",
+      "field": "min_gpa_rule",
+      "reason": "No fixed minimum grade published; admission via a two-stage aptitude assessment."
+    },
+    {
+      "id": "tum-msc-informatics",
+      "field": "admissions_email",
+      "reason": "No admissions email published on the program page."
+    },
+    {
+      "id": "ethz-msc-cs",
+      "field": "min_gpa_rule",
+      "reason": "No fixed minimum GPA; ETH says admission is highly selective and holistic (performance, university ranking, letters, statement)."
+    },
+    {
+      "id": "ethz-msc-cs",
+      "field": "tests_required",
+      "reason": "ETH application page mentions 'scores in standardized tests (like GRE, if required)' generically; no CS-specific GRE requirement found on HTML pages."
+    },
+    {
+      "id": "ethz-msc-cs",
+      "field": "admissions_email",
+      "reason": "No admissions email found on the pages checked."
+    },
+    {
+      "id": "imperial-msc-computing",
+      "field": "tests_required",
+      "reason": "No GRE/GMAT requirement mentioned on the course page."
+    },
+    {
+      "id": "brookes-msc-cs",
+      "field": "deadline",
+      "reason": "No September 2027 application deadline published. The January 2027 timeline gives Pakistan-specific cut-offs (no offers beyond 23 October 2026, no CAS beyond 11 December 2026) - see status_note."
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "field": "deadline",
+      "reason": "No application deadline published on the Pre-Masters pages checked."
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "field": "min_gpa_rule",
+      "reason": "Pakistan entry on https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/pmp-entry-requirements/ only says 'Bachelor degree (minimum 4 years) awarded from selected institutions.'; general requirement is 'At least a pass in a full first degree'. No CGPA stated."
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "field": "progression_requirement",
+      "reason": "Numeric progression mark (e.g. % needed in the GradDip) not published on HTML pages checked; only the conditional statement was proposed."
+    },
+    {
+      "id": "ljmu-msc-cs",
+      "field": "official_url",
+      "reason": "No LJMU course titled 'MSc Computer Science' found for 2027 entry (LJMU lists e.g. Computing and Information Systems MSc, Cyber Security MSc, AI (Machine Learning) MSc). Not proposed."
+    },
+    {
+      "id": "ljmu-msc-cs",
+      "field": "deadline",
+      "reason": "Not researched further - programme is ruled out for Pakistani applicants per LJMU statement."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "official_url",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value=\"https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start\"; source_url=https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start; snippet=\"Designed for computing graduates who wish to differentiate themselves further through an advanced mastery of the discipline, this flagship programme offers exposure to contemporary topics that are driving key technological developments and trends.\"; basis=verbatim; notes: REVIEWER: Cardiff has no course titled 'MSc Computer Science'. Closest for CS graduates is Advanced Computer Science (MSc), full-time September start. (Computing MSc is a conversion course for non-computing graduates.) Seed program name may need updating."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "deadline",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value=\"2027-08-31\"; source_url=https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start; snippet=\"We allocate places on a first-come, first-served basis, so we recommend you apply as early as possible. Applications normally close at the end of August but may close sooner if all places are filled.\"; basis=inferred; notes: September 2027 entry (start 27 September 2027). No exact date or year given: 'end of August' -> 31 Aug 2027 inferred. Rolling admissions, may close earlier; visa applicants should apply much earlier."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "min_gpa_rule",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value={\"scale\":\"cgpa_4\",\"min\":2.5,\"text\":\"Pakistan: CGPA in the region of 2.5 or above for programmes requiring a 2:2 (about 3.0 for a 2:1); decided by the admissions tutor.\"}; source_url=https://www.cardiff.ac.uk/study/international/your-country/asia/pakistan/entry-requirements; snippet=\"As a general guideline, we will consider applicants with a CGPA in the region of 3.0 or above (for programmes requiring a 2:1 honours degree comparable) or CGPA in the region of 2.5 or above (for programmes requiring a 2:2 honours degree comparable), although this will be decided upon by the admissions tutor at the time of application.\"; basis=verbatim; notes: Advanced Computer Science MSc requires a 2:2 honours degree in a relevant subject (course page), so the 2:2 guideline (CGPA ~2.5) applies. Requires a four-year bachelor's (honours) from a recognised Pakistani institution. Scale assumed /4.0 (page says CGPA without stating the scale)."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "language_req",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value={\"ielts_overall\":6.5,\"toefl_ibt\":null,\"waiver\":null,\"text\":\"IELTS overall 6.5 with 6.0 in all subskills, or an accepted equivalent\"}; source_url=https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start; snippet=\"A copy of your IELTS certificate with an overall score of 6.5 with 6.0 in all subskills, or evidence of an accepted equivalent.\"; basis=verbatim; notes: Student-visa applicants must present an acceptable English qualification meeting UKVI requirements."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "tuition",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value={\"amount\":33950,\"currency\":\"GBP\",\"period\":\"year\"}; source_url=https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start; snippet=\"Fees for overseas status Year Tuition fee Deposit Year one £33,950 £3,000\"; basis=verbatim; notes: Tuition fees for 2027 entry, overseas status, year one (one-year course). £3,000 deposit. Home fee £12,700."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "duration_months",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value=12; source_url=https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start; snippet=\"Duration: 1 year - September start Mode: Full time\"; basis=verbatim; notes: Full-time September start. Other options: with sandwich year (2 years), part time (3 years)."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "intake",
+      "reason": "Removed from proposals: scripts/verify-snippet.ts gets HTTP 403 (Cloudflare challenge) for every cardiff.ac.uk URL, so it cannot print FOUND. The snippet WAS present in the raw page fetched today with curl + htmlToText. Candidate for manual verification: value=\"September 2027 (start date 27 September 2027)\"; source_url=https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/advanced-computer-science-msc-full-time-september-start; snippet=\"Full time (1 year - September start) Full time with sandwich year (2 years)Part time (3 years) Start date 27 September 2027\"; basis=verbatim; notes: Full-time September start route."
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "field": "admissions_email",
+      "reason": "No admissions email in the text of the course page (cardiff.ac.uk is also blocked for the verifier)."
+    }
+  ],
+  "conflicts_noticed": [
+    "ETH Zurich tuition (ethz-msc-cs): https://ethz.ch/en/studies/financial.html says 'ETH tuition and semester fees sum up to CHF 804/semester.' (no fee groups mentioned), while https://ethz.ch/students/en/studies/financial/tuition-fees.html says 'Threefold tuition fee: CHF 2190 / semester' for everyone who does not qualify for the simple fee (CHF 730), which includes typical Pakistani applicants. Both are proposed. The 804 figure appears to be the simple-fee total and is likely outdated or misleading for international applicants.",
+    "TUM tuition (tum-msc-informatics), a pending change rather than a second value: the program page states 6,000 euros per semester, but https://www.tum.de/en/studies/fees/tuition says Master's fees for non-EU students rise for the winter semester 2027/28 to 4,600 or 6,800 euros per semester. Neither band equals 6,000, and the fee page does not say which band Informatics falls in. Only 6,000 is proposed; WS 2027/28 starters will probably pay a different amount."
+  ],
+  "rejected": [
+    {
+      "id": "tum-msc-informatics",
+      "field": "tuition",
+      "reason": "Official TUM fee page (tum.de/en/studies/fees/tuition) says non-EU Master's fees for students starting in WS 2027/28 rise to 4,600 or 6,800 EUR/semester. 6,000 is the current rate, not valid for the WS 2027/28 intake this deadline targets, and the page does not say which band Informatics gets."
+    },
+    {
+      "id": "tum-msc-informatics",
+      "field": "language_req",
+      "reason": "The cited TUM language page explicitly accepts proof of English through an English-taught Bachelor's (at least 50%) and, for CIT programmes, an English Bachelor's thesis. The value sets waiver null and the notes wrongly say no such route exists, which would push Pakistani applicants into a paid test they may not need."
+    },
+    {
+      "id": "ethz-msc-cs",
+      "field": "living_cost",
+      "reason": "The value keeps only the lower bound of the published CHF 20,000-26,000 p.a. range, and that range is for 'living and study costs', not living alone. It understates the cost and can double-count with tuition."
+    },
+    {
+      "id": "ethz-msc-cs",
+      "field": "tuition",
+      "reason": "Not the same field or applicant group. CHF 804 is tuition plus semester fees and matches the simple-fee group (CHF 730 + fees); Pakistani applicants pay the threefold fee of CHF 2190 per the official tuition-fees page. Not a genuine conflict."
+    },
+    {
+      "id": "wuerzburg-msc-cs",
+      "field": "min_gpa_rule",
+      "reason": "2.5 is only the direct-admission threshold. The page says applicants with a worse grade can still be admitted through an oral aptitude test (its table covers grades up to 4.0). GpaRule.min means the worst acceptable grade, so 2.5 would wrongly mark eligible students 'Below minimum'."
+    },
+    {
+      "id": "imperial-msc-computing",
+      "field": "deadline",
+      "reason": "The course page lists a Round 4 (opens 11 Mar 2027, closes 28 Apr 2027), and the notes wrongly call Round 3 the final round. 10 Mar 2027 is neither the next deadline (6 Jan 2027) nor the final one (28 Apr 2027)."
+    },
+    {
+      "id": "imperial-msc-computing",
+      "field": "min_gpa_rule",
+      "reason": "75% is Imperial's university-wide floor for Pakistan. The course page says those standards 'are the minimum for entry to Imperial, and not specifically this Department', and the course needs a First-Class degree in a non-computing subject. It would show 'Meets minimum' to students who do not qualify."
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "field": "progression_guaranteed",
+      "reason": "The inference is unsupported. 'Need to meet specific requirements to progress' describes conditional progression and says nothing about whether a place is guaranteed once the requirements are met. No QMUL page checked states either way, so this should stay Not verified."
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "field": "duration_months",
+      "reason": "12 months covers only the Pre-Masters stage, and its own term dates run about 6-7 months. The seed program is the whole 'Pre-Master's + MSc' route (about 24 months with the 1-year Conversion MSc), so the value understates study time."
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "field": "tuition",
+      "reason": "£25,950 is the Pre-Masters fee only. With period 'total' the app would treat it as the whole route's tuition and leave out the £33,150 overseas fee for MSc Computer Science (Conversion, Sept 2027), so it understates tuition by more than half."
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MastersPath grade conversion rules seed",
+  "description": "Matches src/lib/types.ts (ConversionRule). A rule without an official source_url never decides fit (Competitive range unknown).",
+  "type": "object",
+  "required": [
+    "version",
+    "conversion_rules"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "conversion_rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conversion_rule"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "description": "Stable id: lowercase letters, digits and hyphens.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 80
+    },
+    "gradeScale": {
+      "enum": [
+        "cgpa_4",
+        "cgpa_5",
+        "percent",
+        "german"
+      ]
+    },
+    "httpsUrl": {
+      "description": "An https URL of an official page, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
+    "snippet": {
+      "description": "Text copied word-for-word from the official page (12-600 characters, plain text, no HTML). Null when there is no verbatim quote yet.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 12,
+      "maxLength": 600
+    },
+    "isoDateOrTimestamp": {
+      "description": "ISO date (YYYY-MM-DD) or full ISO timestamp, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:\\d{2})?)?$"
+    },
+    "plainText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "numberOrRange": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 2
+        }
+      ]
+    },
+    "conversion_rule": {
+      "type": "object",
+      "required": [
+        "id",
+        "scope",
+        "from_scale",
+        "to_scale",
+        "formula",
+        "source_url"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "scope": {
+          "description": "e.g. \"PK->DE\" or \"PK->*\".",
+          "type": "string",
+          "pattern": "^[A-Z]{2}->([A-Z]{2}|\\*)$"
+        },
+        "from_scale": {
+          "$ref": "#/$defs/gradeScale"
+        },
+        "to_scale": {
+          "$ref": "#/$defs/gradeScale"
+        },
+        "formula": {
+          "enum": [
+            "identity",
+            "modified_bavarian",
+            "linear"
+          ]
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/numberOrRange"
+          }
+        },
+        "source_url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "evidence_snippet": {
+          "$ref": "#/$defs/snippet"
+        },
+        "fetched_at": {
+          "$ref": "#/$defs/isoDateOrTimestamp"
+        },
+        "notes": {
+          "$ref": "#/$defs/plainText"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "required": [
+              "formula"
+            ],
+            "properties": {
+              "formula": {
+                "const": "modified_bavarian"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "params"
+            ],
+            "properties": {
+              "params": {
+                "required": [
+                  "nmax",
+                  "nmin"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": [
+              "formula"
+            ],
+            "properties": {
+              "formula": {
+                "const": "linear"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "params"
+            ],
+            "properties": {
+              "params": {
+                "required": [
+                  "a",
+                  "b"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

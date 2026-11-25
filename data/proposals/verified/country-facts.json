@@ -1,0 +1,153 @@
+{
+  "area": "country-facts",
+  "generated_at": "2026-11-24",
+  "verified_at": "2026-11-24",
+  "proposals": [
+    {
+      "target": "country_fact",
+      "id": "ca-citizenship-rule",
+      "field": "value",
+      "value": {
+        "text": "You must have been physically present in Canada for at least 1,095 days during the 5 years before you apply.",
+        "sort_months": 36,
+        "clock_note": "Days spent in Canada as a temporary resident (for example as a student or worker) count as half days, up to a maximum of 365 days."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/adult-minor/who.html",
+      "evidence_snippet": "You must have been physically in Canada for at least 1,095 days (3 years) during your 5-year eligibility period.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Adult applicants (grant of citizenship). Value kept identical to the seed: the official wording matches it. SOURCE URL CORRECTED: the seeded URL (.../become-canadian-citizen/eligibility.html) now redirects to this 'Who can apply' page (canonical URL). The page defines the eligibility period as '5 years before the date you sign your application' and says it 'must include at least 730 days as a permanent resident'. The half-day rule is backed by the companion proposal below (same value, same URL).",
+      "review": {
+        "verdict": "accept",
+        "checks": "verify-snippet FOUND (12/12 on two clean reruns; earlier runs had transient network ERRORs) and re-confirmed via own curl + htmlToText; canada.ca official (seed URL 301-redirects here); adult section, page modified 2026-04-21: '1,095 days (3 years)' in '5 years before the date you sign your application' = text + sort_months 36; clock_note matches the 0.5-day / max 365-day rule; value identical to seed -> evidence_added."
+      }
+    },
+    {
+      "target": "country_fact",
+      "id": "ca-citizenship-rule",
+      "field": "value",
+      "value": {
+        "text": "You must have been physically present in Canada for at least 1,095 days during the 5 years before you apply.",
+        "sort_months": 36,
+        "clock_note": "Days spent in Canada as a temporary resident (for example as a student or worker) count as half days, up to a maximum of 365 days."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/adult-minor/who.html",
+      "evidence_snippet": "Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada. You can use a maximum of 365 days of physical presence as temporary resident or protected person.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet for the clock_note (same value and URL as the proposal above, so it merges as no-op evidence). The page adds: 'This is equal to 730 calendar days (730 days x 0.5 = 365 days of physical presence).' and lists visitor, student and worker as temporary residents.",
+      "review": {
+        "verdict": "accept",
+        "checks": "verify-snippet FOUND (12/12 on two clean reruns; earlier runs had transient network ERRORs) and re-confirmed via own curl + htmlToText; same canada.ca page and identical value; snippet backs the clock_note verbatim (0.5 days per temporary-resident day, max 365 days; page lists visitor, student, worker); merges as a no-op companion."
+      }
+    },
+    {
+      "target": "country_fact",
+      "id": "de-citizenship-rule",
+      "field": "value",
+      "value": {
+        "text": "At least 5 years of legal residence in Germany before applying for naturalisation.",
+        "sort_months": 60,
+        "clock_note": "The clock counts years of legal residence in Germany. Check which permits count."
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "evidence_snippet": "As a general rule, non Germans have the right to become naturalised after five years of legal residence in the Federal Republic of Germany, provided they meet certain additional conditions.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Federal Foreign Office (Auswaertiges Amt, a German federal ministry) English page 'Law on Nationality'. Value kept identical to the seed. SOURCE URL CORRECTED: the seeded bundesregierung.de/breg-en/news/modernisation-of-citizenship-law-2059392 now redirects to a login page (cvd.bundesregierung.de/cvd-de/login), and bmi.bund.de English pages sit behind a cookie-check that the verifier cannot pass. The Federal Government's own German page https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620 confirms: 'Zukünftig gilt für alle Antragstellenden eine Mindestaufenthaltszeit von fünf Jahren'. Other conditions named on the AA page: sufficient German, naturalisation test, clean record, self-support.",
+      "review": {
+        "verdict": "accept",
+        "checks": "verify-snippet FOUND (12/12 on two clean reruns; earlier runs had transient network ERRORs) and re-confirmed via own curl + htmlToText; auswaertiges-amt.de is the German Federal Foreign Office (government; not on ingest allowlist, so link-check only warns); page dated 12.11.2025, after the 30 Oct 2025 reform, and has no 3-year route; 'five years of legal residence' = text + sort_months 60; clock_note's 'Check which permits count' is a caution, not a claim; identical to seed."
+      }
+    },
+    {
+      "target": "country_fact",
+      "id": "de-dual-nationality-destination",
+      "field": "value",
+      "value": {
+        "text": "Germany generally allows dual citizenship since 27 June 2024."
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "evidence_snippet": "As of 27 June 2024, citizens of all countries who are naturalised in Germany are allowed to hold multiple citizenship.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Federal Foreign Office English page 'Law on Nationality'. Value kept identical to the seed. SOURCE URL CORRECTED (seeded bundesregierung.de English URL now redirects to a login page). The page adds: 'Applicants must find out in advance whether the laws of their country of origin also permit multiple citizenship.' (Pakistan's side is deliberately left 'Not verified yet' per product owner.)",
+      "review": {
+        "verdict": "accept",
+        "checks": "verify-snippet FOUND (12/12 on two clean reruns; earlier runs had transient network ERRORs) and re-confirmed via own curl + htmlToText; Federal Foreign Office page dated 12.11.2025: 'As of 27 June 2024, citizens of all countries who are naturalised in Germany are allowed to hold multiple citizenship' backs the text; this covers Germany's side only (Pakistan's side stays unverified); identical to seed."
+      }
+    },
+    {
+      "target": "country_fact",
+      "id": "de-citizenship-update",
+      "field": "value",
+      "value": {
+        "text": "The 3-year fast-track route to German citizenship ended in October 2025."
+      },
+      "source_url": "https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620",
+      "evidence_snippet": "Die bisherige Möglichkeit einer sogenannten „Turboeinbürgerung“ nach 3 Jahren entfällt. Das Gesetz ist am 30. Oktober 2025 in Kraft getreten.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Official Federal Government page (German; English value is a direct rendering). Page dated Thursday 30 October 2025, title 'Staatsangehörigkeit frühestens nach fünf Jahren'; it also says 'Eine Einbürgerung ist frühestens nach fünf Jahren möglich.' Replaces the seed's news-report basis with an official source; value kept identical to the seed. Supporting official page: Bundestag vote record https://www.bundestag.de/parlament/plenum/abstimmung/abstimmung?id=962 ('Der Bundestag hat am Mittwoch, 8. Oktober 2025, den Gesetzentwurf der Bundesregierung ... verabschiedet'). NOTE: BAMF's English naturalisation page still describes the 3-year route - see the conflicting proposal below and conflicts_noticed.",
+      "review": {
+        "verdict": "accept",
+        "checks": "verify-snippet FOUND (12/12 on two clean reruns; earlier runs had transient network ERRORs) and re-confirmed via own curl + htmlToText; bundesregierung.de official, dated Donnerstag 30. Oktober 2025: 'Turboeinbürgerung nach 3 Jahren entfällt' + 'am 30. Oktober 2025 in Kraft getreten' (adjacent sentences); English value is a faithful rendering; Bundestag record confirms the 8 Oct 2025 vote (450 yes); replaces the seed's news-only basis; identical to seed."
+      }
+    },
+    {
+      "target": "country_fact",
+      "id": "uk-post-study-work",
+      "field": "value",
+      "value": {
+        "text": "Graduate visa: 2 years if you apply by 31 December 2026; 18 months if you apply from 1 January 2027.",
+        "sort_months": 18,
+        "clock_note": "The length depends on the date you apply for the Graduate visa, not the date you started studying. A Masters starting in 2027 finishes after 1 January 2027, so 18 months is used for ranking."
+      },
+      "source_url": "https://www.gov.uk/graduate-visa",
+      "evidence_snippet": "A Graduate visa lasts for: 2 years if you apply on or before 31 December 2026 18 months if you apply on or after 1 January 2027",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Non-PhD graduates (the page adds 'If you have a PhD or other doctoral qualification, it will last for 3 years.'). Value kept identical to the seed (seed wording 'by'/'from' = page wording 'on or before'/'on or after'). The page also says 'Your visa will start from the day your application is approved.' The clock_note's 2027-intake reasoning is the seed's own inference, not page text.",
+      "review": {
+        "verdict": "accept",
+        "checks": "verify-snippet FOUND (12/12 on two clean reruns; earlier runs had transient network ERRORs) and re-confirmed via own curl + htmlToText; gov.uk official: '2 years if you apply on or before 31 December 2026 / 18 months if you apply on or after 1 January 2027' matches the text exactly; non-PhD; sort_months 18 is the length for 2027-intake applicants; clock_note's 2nd sentence is app ranking logic (flagged in notes), not page text; identical to seed."
+      }
+    }
+  ],
+  "not_found": [],
+  "conflicts_noticed": [
+    "Reviewer: no conflict accepted. The researcher's de-citizenship-update conflict (BAMF English page still describing the 3-year route) was rejected as stale: that page is dated 30/06/2025, before the law in force on 30 Oct 2025. The BAMF page should be flagged as outdated, not recorded as a competing official value."
+  ],
+  "rejected": [
+    {
+      "id": "de-citizenship-update",
+      "field": "value",
+      "reason": "Not a genuine conflict. The BAMF English page is stamped 'Date: 30/06/2025', before the amending law came into force on 30 Oct 2025 (bundesregierung.de; Bundestag vote 8 Oct 2025), so it describes the superseded 2024 rule. The value adds 'still possible', which the page does not say. Accepting it would downgrade the verified fact to Conflict and show an abolished 3-year route as current. (verify-snippet: fetch ERROR on run 1, FOUND on reruns.)"
+    },
+    {
+      "id": "uk-pr-route",
+      "field": "value",
+      "reason": "The value goes beyond the snippets while marked basis 'verbatim'. '2 November 2026' comes from a different page (the consultation landing page). 'for most migrants' and 'The start date has not been published yet' are not on the page. The earnings tiers are in no snippet and are misstated: the page requires GBP 50,271 in 3 of the 5 years before applying (5-year path) and GBP 125,141 in 3 of the 4 years (3-year path), on eligible routes only, not '5 years earning at least GBP 50,271'. The value text also differs from the seed (seed URL is the Home Office homepage, no evidence), so merge would record a spurious Conflict. A human should rewrite and replace the seed value."
+    },
+    {
+      "id": "uk-pr-route",
+      "field": "value",
+      "reason": "Companion of the rejected uk-pr-route proposal above, with the same flawed value. Its snippet (time on temporary routes will not count towards settlement; Student and Graduate are listed) is verbatim and accurate, and can back a corrected resubmission."
+    },
+    {
+      "id": "us-post-study-work",
+      "field": "value",
+      "reason": "The value text says 'OPT: 12 months', but the USCIS page says 'up to 12 months' and deducts pre-completion OPT from post-completion OPT, so the value turns a maximum into a fixed entitlement. Resubmit as 'up to 12 months'. The STEM 24-month extension and the E-Verify employer condition check out. Page last reviewed 11/25/2024."
+    },
+    {
+      "id": "us-post-study-work",
+      "field": "value",
+      "reason": "Companion of the rejected us-post-study-work proposal above, with the same value ('12 months' where the page says 'up to 12 months'). Its STEM 24-month snippet is verbatim and accurate."
+    },
+    {
+      "id": "pk-cgpa4-to-german-modified-bavarian",
+      "field": "source",
+      "reason": "Wrong context and applicant group. The Leuphana page is the university's own rule for recognising grades its outgoing free-mover students earn abroad ('the following regulations for free mover have been made by the university'), not an admissions rule for international or Pakistani applicants. With scope 'PK->*' it would switch on fit decisions for every German programme. The page also adds Leuphana-specific rounding, and leuphana.de is not on the ingest allowlist. Use an admissions-context official source that prints the formula (KMK/anabin or the admitting university). (verify-snippet: timeout ERROR on run 1, FOUND on reruns.)"
+    }
+  ]
+}

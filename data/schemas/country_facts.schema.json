@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MastersPath country facts seed",
+  "description": "Matches src/lib/types.ts (CountryFact). One row per (country, key). Not legal or immigration advice: copy the official wording, never summarise beyond it.",
+  "type": "object",
+  "required": [
+    "version",
+    "country_facts"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "country_facts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/country_fact"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "description": "Stable id: lowercase letters, digits and hyphens.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 80
+    },
+    "countryCode": {
+      "description": "ISO-3166 alpha-2 country code (UK is used instead of GB).",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "currency": {
+      "description": "ISO-4217 currency code, e.g. EUR.",
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "httpsUrl": {
+      "description": "An https URL of an official page, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
+    "snippet": {
+      "description": "Text copied word-for-word from the official page (12-600 characters, plain text, no HTML). Null when there is no verbatim quote yet.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 12,
+      "maxLength": 600
+    },
+    "isoDateOrTimestamp": {
+      "description": "ISO date (YYYY-MM-DD) or full ISO timestamp, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:\\d{2})?)?$"
+    },
+    "plainText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "basis": {
+      "description": "How the value relates to its source: 'verbatim' (default when a snippet exists), 'summary' or 'inferred' (both at most Likely).",
+      "enum": [
+        "verbatim",
+        "summary",
+        "inferred"
+      ]
+    },
+    "factBase": {
+      "description": "Evidence fields shared by every fact. Confidence is COMPUTED in code (src/lib/confidence.ts) and never stored as truth.",
+      "type": "object",
+      "required": [
+        "value",
+        "source_url",
+        "evidence_snippet",
+        "fetched_at"
+      ],
+      "properties": {
+        "source_url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "evidence_snippet": {
+          "$ref": "#/$defs/snippet"
+        },
+        "fetched_at": {
+          "$ref": "#/$defs/isoDateOrTimestamp"
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        },
+        "note": {
+          "$ref": "#/$defs/plainText"
+        },
+        "confidence": {
+          "description": "Deprecated and ignored: confidence is computed in code. The validator rejects a hand-written \"Verified\" that lacks source_url or evidence_snippet.",
+          "enum": [
+            "Verified",
+            "Likely",
+            "Unverified",
+            "Conflict"
+          ]
+        },
+        "review_note": {
+          "description": "Internal reviewer note (provenance, caveats for maintainers). Never shown to students.",
+          "$ref": "#/$defs/plainText"
+        }
+      }
+    },
+    "value_money": {
+      "description": "An amount of money as stated on the official page.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "amount",
+        "currency",
+        "period"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "$ref": "#/$defs/currency"
+        },
+        "period": {
+          "enum": [
+            "year",
+            "semester",
+            "month",
+            "total"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "countryFactKey": {
+      "enum": [
+        "citizenship_rule",
+        "citizenship_update",
+        "dual_nationality_destination",
+        "post_study_work",
+        "pr_route",
+        "pakistan_dual_nationality",
+        "tuition_typical",
+        "living_cost_typical",
+        "proof_of_funds"
+      ]
+    },
+    "value_country_fact": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "description": "The exact rule in plain words.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "sort_months": {
+          "description": "Numeric key for ranking, in months. Null when the rule cannot be reduced to a number.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 600
+        },
+        "money": {
+          "$ref": "#/$defs/value_money"
+        },
+        "clock_note": {
+          "$ref": "#/$defs/plainText"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourced_country_fact": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_country_fact"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "country_fact": {
+      "$ref": "#/$defs/factBase",
+      "required": [
+        "id",
+        "country",
+        "key"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "country": {
+          "$ref": "#/$defs/countryCode"
+        },
+        "key": {
+          "$ref": "#/$defs/countryFactKey"
+        },
+        "value": {
+          "$ref": "#/$defs/value_country_fact"
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_country_fact"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    }
+  }
+}

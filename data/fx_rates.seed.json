@@ -1,0 +1,61 @@
+{
+  "$schema": "./schemas/fx_rates.schema.json",
+  "version": 1,
+  "fx_rates": [
+    {
+      "id": "eur-pkr",
+      "currency": "EUR",
+      "pkr_per_unit": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+      }
+    },
+    {
+      "id": "gbp-pkr",
+      "currency": "GBP",
+      "pkr_per_unit": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+      }
+    },
+    {
+      "id": "usd-pkr",
+      "currency": "USD",
+      "pkr_per_unit": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+      }
+    },
+    {
+      "id": "cad-pkr",
+      "currency": "CAD",
+      "pkr_per_unit": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+      }
+    },
+    {
+      "id": "chf-pkr",
+      "currency": "CHF",
+      "pkr_per_unit": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+      }
+    }
+  ]
+}

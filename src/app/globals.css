@@ -1,0 +1,167 @@
+@import "tailwindcss";
+/* All colour/font/radius values come from src/theme.ts via the generated file below. */
+@import "./tokens.css";
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background: var(--color-page-end);
+  }
+  body {
+    /* Warm stone page with a subtle gradient. Painted once; no fixed attachment (cheap on phones). */
+    background: linear-gradient(180deg, var(--color-page) 0%, var(--color-page-end) 100%);
+    color: var(--color-ink);
+    font-family: var(--font-ui);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3 {
+    color: var(--color-heading);
+    font-family: var(--font-ui);
+    font-weight: var(--btn-heading-weight);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  /* Internal links are olive. Blue is reserved for official sources (see below). */
+  a {
+    color: var(--color-primary-ink);
+    text-underline-offset: 2px;
+  }
+  /* Every link built from data (official pages) carries rel="nofollow" (product rule 9): blue = official source. */
+  a[rel~="nofollow"] {
+    color: var(--color-link);
+  }
+  /* Inputs must be >= 16px so mobile browsers do not zoom on focus. */
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    font-size: max(16px, 1em);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  /* On the dark bars the focus ring must stay visible. */
+  .on-chrome :focus-visible {
+    outline-color: var(--color-on-chrome);
+  }
+  /* Respect reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    z-index: 100;
+    background: var(--color-surface);
+    color: var(--color-heading);
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--spacing-tap);
+    padding: 8px 16px;
+    border-radius: 12px;
+  }
+  .skip-link:focus {
+    left: 8px;
+  }
+  /* Horizontally scrollable chip rows (Rank by / filters) without a visible scrollbar. */
+  .chip-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 2px;
+  }
+  .chip-row::-webkit-scrollbar {
+    display: none;
+  }
+  .chip-row > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+  /* Skeleton loader shimmer (CSS only). */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--color-stone-200) 25%,
+      var(--color-page) 50%,
+      var(--color-stone-200) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+    border-radius: 10px;
+  }
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  /* Evidence quotes from official pages: blue tint (= official source). Plain text only, never HTML. */
+  .evidence-quote {
+    border-left: 3px solid var(--color-evidence-bar);
+    background: var(--color-evidence-bg);
+    color: var(--color-ink);
+    padding: 10px 14px;
+    border-radius: 0 12px 12px 0;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  /* Hero wordmark: the only place the thin display face is used (always >= 40px). */
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: var(--btn-display-weight);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .btn-primary-type {
+    font-family: var(--font-button-primary);
+    font-weight: var(--btn-primary-weight);
+    letter-spacing: var(--btn-primary-tracking);
+  }
+  .btn-secondary-type {
+    font-family: var(--font-button-secondary);
+    font-weight: var(--btn-secondary-weight);
+    letter-spacing: var(--btn-secondary-tracking);
+  }
+  .btn-danger-type {
+    font-family: var(--font-button-danger);
+    font-weight: var(--btn-danger-weight);
+    letter-spacing: var(--btn-danger-tracking);
+  }
+  /* Arrow icon on primary buttons (CSS mask of an inline SVG; takes the text colour). */
+  .btn-arrow::after {
+    content: "";
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    flex: 0 0 auto;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
+

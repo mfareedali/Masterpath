@@ -1,0 +1,226 @@
+{
+  "area": "needs-human",
+  "generated_at": "2026-11-24",
+  "how_to": "Open each source_url in a normal browser. If the evidence_snippet is on the page and the value matches it, change review.verdict to \"accept\". Then run: npx tsx scripts/merge-proposals.ts data/proposals/needs-human/robots-blocked-and-conflict.json && npm run validate:seed",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "ljmu-msc-cs",
+      "field": "status_note",
+      "value": "LJMU will not be accepting applications from Pakistan for the academic year 2026/27.",
+      "source_url": "https://www.ljmu.ac.uk/study/courses/international-entry-requirements/pakistan",
+      "evidence_snippet": "Please note: The university will not be accepting applications from Pakistan for the academic year 2026/27.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Official LJMU Pakistan entry-requirements page. Statement covers 2026/27; no statement found for 2027/28 (September 2027 intake). LJMU's visa page (https://www.ljmu.ac.uk/discover/student-support/international-student-support/study-visas) also says, undated: 'In addition to the visa brake countries listed above, LJMU has stopped accepting applications from Bangladesh, Ghana, Pakistan, Iran and Iraq.' Reviewer should confirm with LJMU before treating 2027/28 as ruled out.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Official LJMU Pakistan entry page: not accepting applications from Pakistan for 2026/27; LJMU visa page also says it stopped accepting Pakistan applications. The seed already holds an unsourced paraphrase, so the merge will log this as a conflict with the same meaning."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "official_url",
+      "value": "https://www.csudh.edu/csc/programs/computer-science-programs/ms-computer-science/",
+      "source_url": "https://www.csudh.edu/csc/programs/computer-science-programs/ms-computer-science/",
+      "evidence_snippet": "The Master’s Program in Computer Science is a two-year program in which a student must complete a required core of courses and additional concentration and general computer science elective courses.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "CSUDH Computer Science department MS page.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Official CSUDH Computer Science MS page (csudh.edu); value is the page URL."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "deadline",
+      "value": "2027-06-01",
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/",
+      "evidence_snippet": "Fall 2027 Deadlines Program On-Campus or Online Application and Document Deadline MS Accounting On-Campus June 1 MS Biology On-Campus March 1 MS Computer Science On-Campus June 1",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Table is headed 'Fall 2027 Deadlines' but the date has no year; June 1 = 2027-06-01 (application and document deadline are the same day). No separate international graduate deadline is published: the international checklist says 'Document deadlines for graduate students vary by program.' International applicants should allow extra time for I-20/visa.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "basis=inferred (flagged): CSUDH \"Fall 2027 Deadlines\" table, MS Computer Science On-Campus June 1 (no year) = 2027-06-01. International checklist only ENCOURAGES applicants outside the USA to send documents by May 1 for Fall; not in notes."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "tests_required",
+      "value": "GRE required (listed under Test for MS Computer Science).",
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/applied",
+      "evidence_snippet": "MS Computer Science 2.75 Not Required Fall / Spring GRE ✓ 3 letters NSM A-133",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Graduate Studies table lists GRE in the Test column for MS Computer Science. The university catalog (AWS WAF-protected, not machine-verifiable) adds a minimum: \"A minimum Graduate Examination (GRE) General Test score of 293 (combined verbal and quantitative)\", but the same catalog page also cites old-scale figures (\"minimum GRE score of 900\", \"GRE score below 191\") - internal inconsistency; reviewer should confirm with the department.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Official CSUDH Graduate Studies table: Test column = GRE for MS Computer Science (cells parsed from HTML); official catalog page (fetched with a browser agent) also requires GRE (combined 293)."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "tuition",
+      "value": {
+        "amount": 17463,
+        "currency": "USD",
+        "period": "year"
+      },
+      "source_url": "https://www.csudh.edu/future-students/international/financial-certification",
+      "evidence_snippet": "Estimated Annual Student Expenses* Expenses Undergraduate (24 units/year) Graduate (18 units/year) Cybersecurity (18 units/year) OTD (20 units/year) Ed.D (20 units/year) Tuition & Fees $18,513 $17,463",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "International 'Fall 2027 and onward' financial-affidavit estimate, Graduate column (18 units/year) = $17,463 tuition & fees per year (second value in the row). Estimates, subject to change. Cybersecurity column ($13,662) is a different program.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Official CSUDH financial-certification page, Graduate (18 units/year) Tuition & Fees $17,463; identical figure in the linked \"Fall 2027 UG GD Affidavit\" PDF, so it is the Fall 2027 international estimate; per year, USD."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "living_cost",
+      "value": {
+        "amount": 26442,
+        "currency": "USD",
+        "period": "year"
+      },
+      "source_url": "https://www.csudh.edu/future-students/international/financial-certification",
+      "evidence_snippet": "Housing & Living Expenses $26,442 $26,442 $26,442 $26,442 $26,442 Mandatory Health Insurance (12-month coverage) $1,956",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Estimated annual housing & living expenses for I-20 (same for all levels); mandatory health insurance $1,956/year is additional. Total required for I-20 (graduate): $45,861.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Same official page and Fall 2027 affidavit PDF: Housing & Living Expenses $26,442 per year (health insurance $1,956 separate, noted)."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "duration_months",
+      "value": 24,
+      "source_url": "https://www.csudh.edu/csc/programs/computer-science-programs/ms-computer-science/",
+      "evidence_snippet": "The Master’s Program in Computer Science is a two-year program in which a student must complete a required core of courses and additional concentration and general computer science elective courses.",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Page states 'two-year program' (36 semester credit units); converted to 24 months.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "basis=inferred (flagged): official MS CS page \"two-year program\" (36 semester units) converted to 24 months."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/applied",
+      "evidence_snippet": "MS Computer Science 2.75 Not Required Fall / Spring GRE ✓ 3 letters NSM A-133",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Graduate Studies table: \"3 letters\" in the Recommendation Letter column for MS Computer Science; the catalog also says three letters of recommendation (catalog not machine-verifiable due to WAF). Personal statement also required (checkmark).",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Official Graduate Studies table \"3 letters\" in the Recommendation Letter column; official catalog also says three letters of recommendation."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "admissions_email",
+      "value": "int-admissions@csudh.edu",
+      "source_url": "https://www.csudh.edu/future-students/international/application-checklist",
+      "evidence_snippet": "please contact the Office of International Education at int-admissions@csudh.edu.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Office of International Education (international admissions). Domestic/general transcript address on the graduate admissions page is admissions@csudh.edu.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "The source site’s robots.txt disallows automated fetching (User-agent: * / Disallow: /). Open source_url in your browser, confirm the snippet and the value, then change verdict to \"accept\".",
+        "previous": {
+          "verdict": "accept",
+          "checks": "Official CSUDH international application checklist: Office of International Education int-admissions@csudh.edu (international admissions office)."
+        }
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6.5,
+        "toefl_ibt": 90,
+        "waiver": null,
+        "text": "MS Computer Science catalog: TOEFL 90 or IELTS 6.5 for applicants whose native language is not English."
+      },
+      "source_url": "https://catalog.csudh.edu/academics/computer-science/computer-science-ms/",
+      "evidence_snippet": "A minimum TOEFL score of 90 or ITLES score of 6.5 (for applicants whose native language is not English).",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Expected wording on the program catalog page (\"ITLES\" is the page’s own typo). Reported by the research reviewer; the catalog blocks automated access, so confirm it in a browser. If the university-wide page still says TOEFL iBT 80 (the other csudh-mscs.language_req entry in this file), accepting both creates a Conflict badge with both links.",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "Confirm in a browser. Accept together with the TOEFL 80 entry only if the two pages still disagree."
+      }
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6.5,
+        "toefl_ibt": 80,
+        "waiver": null,
+        "text": "University-wide international page: graduate applicants who do not qualify for a waiver need TOEFL iBT 80 or IELTS 6.5. Waivers cover at least three full-time years of study in the US or in a listed country where English is the sole language of instruction."
+      },
+      "source_url": "https://www.csudh.edu/future-students/international/english-proficiency",
+      "evidence_snippet": "do not qualify for a waiver are required to submit one of the following before an admissions decision can be made: Exam Minimum Passing Score TOEFL iBT 80 IELTS 6.5",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "University-wide graduate table. The program catalog page may say TOEFL 90 (other csudh-mscs.language_req entry in this file).",
+      "review": {
+        "verdict": "needs_human",
+        "checks": "Confirm in a browser. Accept together with the TOEFL 90 entry only if the two pages still disagree."
+      }
+    }
+  ]
+}

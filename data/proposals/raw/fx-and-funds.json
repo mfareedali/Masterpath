@@ -1,0 +1,329 @@
+{
+  "area": "fx-and-funds",
+  "generated_at": "2026-11-24",
+  "proposals": [
+    {
+      "target": "new_country_fact",
+      "id": "uk-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "UK",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a Student visa you must show money for your course fees for 1 academic year (up to 9 months), as shown on your CAS, plus living costs of £1,529 per month for courses in London or £1,171 per month for courses outside London, for up to 9 months. You need extra money for each family member who comes with you.",
+          "clock_note": "You must have held the money for at least 28 days in a row, and the 28-day period must end within 31 days of the date you apply."
+        }
+      },
+      "source_url": "https://www.gov.uk/student-visa/money",
+      "evidence_snippet": "£1,529 per month (for up to 9 months) for courses in London £1,171 per month (for up to 9 months) for courses outside London",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applicants applying from outside the UK (for example from Pakistan). money left out on purpose: two living-cost amounts apply (London vs outside London), and the seeded UK programmes include both (Imperial and QMUL in London; Cardiff, Oxford Brookes and LJMU outside London). The course-fee part also differs per CAS. 'London means the City of London and the 32 London boroughs.' The page also says people who have lived in the UK with a valid visa for at least 12 months do not need to show this money, which does not apply to first-time applicants from Pakistan. Same page lists the visa fee from outside the UK as £558 (not proposed here)."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "uk-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "UK",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a Student visa you must show money for your course fees for 1 academic year (up to 9 months), as shown on your CAS, plus living costs of £1,529 per month for courses in London or £1,171 per month for courses outside London, for up to 9 months. You need extra money for each family member who comes with you.",
+          "clock_note": "You must have held the money for at least 28 days in a row, and the 28-day period must end within 31 days of the date you apply."
+        }
+      },
+      "source_url": "https://www.gov.uk/student-visa/money",
+      "evidence_snippet": "You need enough money to pay for your course for 1 academic year (up to 9 months). The amount you need to pay will be on your Confirmation of Acceptance for Studies (CAS).",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet for the course-fee part of the same value (same URL, same value)."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "uk-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "UK",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a Student visa you must show money for your course fees for 1 academic year (up to 9 months), as shown on your CAS, plus living costs of £1,529 per month for courses in London or £1,171 per month for courses outside London, for up to 9 months. You need extra money for each family member who comes with you.",
+          "clock_note": "You must have held the money for at least 28 days in a row, and the 28-day period must end within 31 days of the date you apply."
+        }
+      },
+      "source_url": "https://www.gov.uk/student-visa/money",
+      "evidence_snippet": "You must have this money for at least 28 days in a row. The end date of the 28-day period must be within 31 days of the date you apply for your visa.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet for the clock_note (same URL, same value). The page also says: 'You’ll need to prove you have extra money for each family member you bring with you.'"
+    },
+    {
+      "target": "new_country_fact",
+      "id": "de-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "DE",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a German student visa you must show you can pay your living costs. With a blocked account (Sperrkonto), the German Embassy in Pakistan presumes €11,904 a year (€992 a month) must be paid in, for visa applications from 1 January 2025. The Embassy may ask for up to two years in particular cases. Other accepted ways: a deed of obligation (Verpflichtungserklärung) from a sponsor living in Germany, or an official German or foreign scholarship (a scholarship from a Pakistani university is not enough; an HEC scholarship can be accepted).",
+          "money": { "amount": 11904, "currency": "EUR", "period": "year" },
+          "clock_note": "Your signature on the blocked-account documents must be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore. The provider must give the mission a way to check the account."
+        }
+      },
+      "source_url": "https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+      "evidence_snippet": "From 1 January 2025 the presumed annual requirement that must be paid into the blocked account when applying for a visa will increase to 992,00 Euros monthly or 11.904,00 Euros yearly. This increased amount applies to all visa applications submitted from 1 January 2025.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "German Embassy Islamabad page 'How to finance your stay', on pakistan.diplo.de, the Federal Foreign Office's own site for its missions in Pakistan. Article dated 27.11.2025. The federal page https://www.auswaertiges-amt.de/en/sperrkonto/388600 gives no amount and points to the competent mission's website (companion snippet below). diplo.de is NOT on data/ingest.allowlist.json yet (validator warning only); a maintainer may add 'diplo.de'. money kept: one yearly amount applies to a single Masters student applying from Pakistan. The page is about a year old: a human reviewer should check whether a 2026 or 2027 increase has been announced. (A Make it in Germany PDF also states €11,904 for 2026, but PDFs are not used as evidence here.) Bank fees are extra; attestation fee at the Embassy is €25 per the same page."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "de-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "DE",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a German student visa you must show you can pay your living costs. With a blocked account (Sperrkonto), the German Embassy in Pakistan presumes €11,904 a year (€992 a month) must be paid in, for visa applications from 1 January 2025. The Embassy may ask for up to two years in particular cases. Other accepted ways: a deed of obligation (Verpflichtungserklärung) from a sponsor living in Germany, or an official German or foreign scholarship (a scholarship from a Pakistani university is not enough; an HEC scholarship can be accepted).",
+          "money": { "amount": 11904, "currency": "EUR", "period": "year" },
+          "clock_note": "Your signature on the blocked-account documents must be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore. The provider must give the mission a way to check the account."
+        }
+      },
+      "source_url": "https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+      "evidence_snippet": "The Embassy and Consulate General reserve the right to request a blocked amount for up to two years in particular cases.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet (same URL, same value): the 'up to two years' caveat."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "de-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "DE",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a German student visa you must show you can pay your living costs. With a blocked account (Sperrkonto), the German Embassy in Pakistan presumes €11,904 a year (€992 a month) must be paid in, for visa applications from 1 January 2025. The Embassy may ask for up to two years in particular cases. Other accepted ways: a deed of obligation (Verpflichtungserklärung) from a sponsor living in Germany, or an official German or foreign scholarship (a scholarship from a Pakistani university is not enough; an HEC scholarship can be accepted).",
+          "money": { "amount": 11904, "currency": "EUR", "period": "year" },
+          "clock_note": "Your signature on the blocked-account documents must be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore. The provider must give the mission a way to check the account."
+        }
+      },
+      "source_url": "https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+      "evidence_snippet": "Please note that a scholarship awarded by a Pakistani University is not sufficient, only a scholarship awarded by HEC can be accepted.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet (same URL, same value): the scholarship route for Pakistani applicants."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "de-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "DE",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a German student visa you must show you can pay your living costs. With a blocked account (Sperrkonto), the German Embassy in Pakistan presumes €11,904 a year (€992 a month) must be paid in, for visa applications from 1 January 2025. The Embassy may ask for up to two years in particular cases. Other accepted ways: a deed of obligation (Verpflichtungserklärung) from a sponsor living in Germany, or an official German or foreign scholarship (a scholarship from a Pakistani university is not enough; an HEC scholarship can be accepted).",
+          "money": { "amount": 11904, "currency": "EUR", "period": "year" },
+          "clock_note": "Your signature on the blocked-account documents must be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore. The provider must give the mission a way to check the account."
+        }
+      },
+      "source_url": "https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+      "evidence_snippet": "Your signature on the documents to open a blocked account has to be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet (same URL, same value) for the clock_note. Same page: 'please ensure that the provider offers a login code for authorities which allows us to verify the blocked account or provides a contact in order to do so.'"
+    },
+    {
+      "target": "new_country_fact",
+      "id": "de-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "DE",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a German student visa you must show you can pay your living costs. With a blocked account (Sperrkonto), the German Embassy in Pakistan presumes €11,904 a year (€992 a month) must be paid in, for visa applications from 1 January 2025. The Embassy may ask for up to two years in particular cases. Other accepted ways: a deed of obligation (Verpflichtungserklärung) from a sponsor living in Germany, or an official German or foreign scholarship (a scholarship from a Pakistani university is not enough; an HEC scholarship can be accepted).",
+          "money": { "amount": 11904, "currency": "EUR", "period": "year" },
+          "clock_note": "Your signature on the blocked-account documents must be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore. The provider must give the mission a way to check the account."
+        }
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/sperrkonto/388600",
+      "evidence_snippet": "You can find out what amount has to be paid in to the blocked account based on the purpose of your stay on the website of the competent mission abroad or in the Consular Services Portal.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Federal Foreign Office page 'Blocked account'. It gives no amount itself; it sends applicants to the competent mission's website, which for Pakistan is the pakistan.diplo.de page used above. Included so a reviewer can see why the mission page is the source."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "ca-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "CA",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a study permit you must prove, without working in Canada, that you can pay your tuition fees, your living expenses, and travel to and from Canada. If you apply on or after 1 September 2026 to study outside Quebec, the living-expenses amount for a student coming alone is CAN$23,448 for the first year. Tuition and travel are on top of this. Quebec uses its own amounts (CAQ).",
+          "money": { "amount": 23448, "currency": "CAD", "period": "year" },
+          "clock_note": "The amount is for the first year of study and depends on the date you apply; IRCC updates it every year."
+        }
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+      "evidence_snippet": "If you apply on or after September 1, 2026 All provinces and territories except Quebec Number of family members (including the applicant) Amount required per year (excluding tuition and transportation costs) (in CAN$) 1 $23,448",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applicant alone (family size 1), any province or territory except Quebec, applications on or after 1 Sep 2026. The only seeded Canadian institution is the University of Toronto (Ontario), so this one amount applies. money is living expenses ONLY; tuition and travel are extra. The previous amount (applications 1 Jan 2025 to 31 Aug 2026) was $22,895. Same page: 'If your country uses foreign exchange controls, you must prove that you’ll be allowed to export funds for all of your expenses.' The page also says to check the visa office instructions for your country or region for local requirements."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "ca-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "CA",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a study permit you must prove, without working in Canada, that you can pay your tuition fees, your living expenses, and travel to and from Canada. If you apply on or after 1 September 2026 to study outside Quebec, the living-expenses amount for a student coming alone is CAN$23,448 for the first year. Tuition and travel are on top of this. Quebec uses its own amounts (CAQ).",
+          "money": { "amount": 23448, "currency": "CAD", "period": "year" },
+          "clock_note": "The amount is for the first year of study and depends on the date you apply; IRCC updates it every year."
+        }
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+      "evidence_snippet": "You must prove that you have enough money, without working in Canada, to pay for all the following: tuition fees for the course or program of studies living expenses for yourself and the family members who come with you while you’re in Canada transportation to and from Canada for yourself and your accompanying family members",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet (same URL, same value): the three things the money must cover."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "ca-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "CA",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "For a study permit you must prove, without working in Canada, that you can pay your tuition fees, your living expenses, and travel to and from Canada. If you apply on or after 1 September 2026 to study outside Quebec, the living-expenses amount for a student coming alone is CAN$23,448 for the first year. Tuition and travel are on top of this. Quebec uses its own amounts (CAQ).",
+          "money": { "amount": 23448, "currency": "CAD", "period": "year" },
+          "clock_note": "The amount is for the first year of study and depends on the date you apply; IRCC updates it every year."
+        }
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+      "evidence_snippet": "This chart tells you how much money you will need to support yourself and your family members in Canada for the first year of your program of studies. These amounts are updated each year.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet (same URL, same value) for 'first year' and the clock_note."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "ch-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "CH",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "The cantonal migration office where you will study publishes the amount, and the two cantons checked differ. Canton of Zurich (for example ETH Zurich): CHF 21,000 for twelve months, confirmed by a bank licensed in Switzerland. Canton of Geneva: CHF 20,000 a year or CHF 2,500 a month.",
+          "clock_note": "Students who need a visa apply in person at the Swiss representation abroad, which sends the file to the cantonal migration office (in Zurich, the Migrationsamt Zürich)."
+        }
+      },
+      "source_url": "https://www.zh.ch/de/migration-integration/aufenthalt/aufenthalt-ohne-erwerbstaetigkeit-fuer-drittstaatsangehoerige.html",
+      "evidence_snippet": "Der Nachweis über ausreichende finanziellen Mittel muss erbracht werden. Als ausreichende finanzielle Mittel für den Lebensunterhalt gelten Fr. 21’000 für zwölf Monate. Die Bestätigung muss von einer in der Schweiz zugelassenen Bank ausgestellt sein.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Canton of Zurich government page (Migrationsamt), section on education and training for third-country nationals (German; English value is a direct rendering: 'Proof of sufficient financial means must be provided. CHF 21,000 for twelve months counts as sufficient means for living costs. The confirmation must be issued by a bank licensed in Switzerland.'). money left out on purpose: the amount is cantonal, not federal, and Zurich and Geneva differ. The only seeded Swiss programme is ETH Zurich, so the Zurich figure is the one that matters today; a maintainer could attach CHF 21,000/year to that programme or canton instead. Zurich's page also says third-country students may in principle not work, with limited exceptions (not proposed here). zh.ch and ge.ch are NOT on data/ingest.allowlist.json yet (validator warning only)."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "ch-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "CH",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "The cantonal migration office where you will study publishes the amount, and the two cantons checked differ. Canton of Zurich (for example ETH Zurich): CHF 21,000 for twelve months, confirmed by a bank licensed in Switzerland. Canton of Geneva: CHF 20,000 a year or CHF 2,500 a month.",
+          "clock_note": "Students who need a visa apply in person at the Swiss representation abroad, which sends the file to the cantonal migration office (in Zurich, the Migrationsamt Zürich)."
+        }
+      },
+      "source_url": "https://www.zh.ch/de/migration-integration/aufenthalt/aufenthalt-ohne-erwerbstaetigkeit-fuer-drittstaatsangehoerige.html",
+      "evidence_snippet": "Die Gesuchsunterlagen werden anschliessend von der Schweizer Vertretung an das Migrationsamt Zürich weitergeleitet.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet (same URL, same value) for the clock_note. The preceding sentence on the page says visa-required pupils and students must submit a personal entry application at the competent Swiss representation abroad."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "ch-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "CH",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "The cantonal migration office where you will study publishes the amount, and the two cantons checked differ. Canton of Zurich (for example ETH Zurich): CHF 21,000 for twelve months, confirmed by a bank licensed in Switzerland. Canton of Geneva: CHF 20,000 a year or CHF 2,500 a month.",
+          "clock_note": "Students who need a visa apply in person at the Swiss representation abroad, which sends the file to the cantonal migration office (in Zurich, the Migrationsamt Zürich)."
+        }
+      },
+      "source_url": "https://www.ge.ch/en/ask-student-permit/frequently-asked-questions",
+      "evidence_snippet": "How much is required to justify enough financial means ? CHF 20'000 a year or CHF 2'500 a month.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Republic and Canton of Geneva FAQ 'Ask for a student permit', last updated 11 November 2026. Companion snippet for the Geneva figure. Same page accepts 'A statement of account, in your name, of a recognised bank in Switzerland, justifying a minimum amount of CHF 20'000 for a year of study' or a guarantor's certificate; a guarantor may live outside Switzerland only if first-degree family (father, mother, sibling)."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "us-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "US",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "You must show that you or a sponsor have enough money to pay tuition, books, living expenses and travel for your intended period of study. Your school checks this evidence before it issues your Form I-20, and the I-20 lists the tuition, other expenses and your financial resources. Bring the evidence to your visa interview.",
+          "clock_note": "The school's designated school official (DSO) checks your evidence before issuing the I-20; you then bring it to the visa interview and it is advised to carry it when you enter the US."
+        }
+      },
+      "source_url": "https://studyinthestates.dhs.gov/students/prepare/financial-ability",
+      "evidence_snippet": "Prospective F-1 or M-1 students must have the financial resources to live and study in the United States. This includes being able to cover the cost of tuition, books, living expenses and travel. Designated school officials (DSOs) must collect evidence of the student’s financial ability before issuing a Form I-20, “Certificate of Eligibility for Nonimmigrant Student Status.”",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "US Department of Homeland Security 'Study in the States' page (last updated May 25, 2023). money left out: these government pages give no dollar amount; the amount comes from each school's costs on its own I-20. Neither page says in so many words that 'there is no single amount', so the text does not claim that. travel.state.gov returned HTTP 403 to the honest user agent (bot wall, respected) and fam.state.gov could not be fetched, so State Department wording is not used. Same DHS page: 'Additionally, prospective students must bring their evidence of financial ability when applying for their student visa with the U.S. Department of State.' Acceptable evidence listed there includes family bank statements, sponsor documents, financial aid letters, scholarship letters and an employer letter showing annual salary. studyinthestates.dhs.gov is NOT on data/ingest.allowlist.json yet (validator warning only)."
+    },
+    {
+      "target": "new_country_fact",
+      "id": "us-proof-of-funds",
+      "field": "value",
+      "value": {
+        "country": "US",
+        "key": "proof_of_funds",
+        "value": {
+          "text": "You must show that you or a sponsor have enough money to pay tuition, books, living expenses and travel for your intended period of study. Your school checks this evidence before it issues your Form I-20, and the I-20 lists the tuition, other expenses and your financial resources. Bring the evidence to your visa interview.",
+          "clock_note": "The school's designated school official (DSO) checks your evidence before issuing the I-20; you then bring it to the visa interview and it is advised to carry it when you enter the US."
+        }
+      },
+      "source_url": "https://studyinthestates.dhs.gov/2025/07/sevp-form-series-understanding-the-form-i-20",
+      "evidence_snippet": "The Form I-20 includes the following information: Personal and academic details about the student. Student and Exchange Visitor Information System (SEVIS) ID number for the student. SEVIS code for the SEVP-certified school. Start and end dates for the student’s program of study. Details on school tuition and other expenses and the student’s financial resources.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "DHS SEVP explainer 'Understanding the Form I-20' (July 22, 2025). Companion snippet (same value) for 'the I-20 lists the tuition, other expenses and your financial resources'."
+    }
+  ],
+  "not_found": [
+    {
+      "id": "usd-pkr",
+      "field": "pkr_per_unit",
+      "reason": "NOT VERIFIED, so not proposed. On 24 Nov 2026 scripts/peek-page.ts (honest user agent) once read the SBP home page rate box (the old URLs ecodata/rates/m2m/m2m-current.asp and ecodata/rates/war/WAR-Current.asp now show the same page) as 'USD/ PKR Rates As on 24- Nov - 2026 M2M Revaluation Rate 276.4708'. That is a mark-to-market revaluation rate, which SBP issues for banks to revalue their books, not a customer buying or selling rate. scripts/verify-snippet.ts then got HTTP 403 from the SBP firewall twice (https://www.sbp.org.pk/), so the snippet could not be verified. The bot wall was respected (no other user agent, no other site). A human can check the box by hand in a browser; it changes every working day, so a verified row needs that day's figure and date. SBP's other daily rate files are PDFs (see eur-pkr)."
+    },
+    {
+      "id": "eur-pkr",
+      "field": "pkr_per_unit",
+      "reason": "State Bank of Pakistan publishes EUR/PKR only in PDF files (daily 'weighted-average-customer-exchange-rates-<date>.pdf' and 'mark-to-market-revaluation-exchange-rate-<date>.pdf' under sbp.org.pk/assets/document/). No HTML page with a dated EUR rate was found: the old HTML pages (ecodata/rates/m2m/m2m-current.asp, ecodata/rates/war/WAR-Current.asp) now show the home page, whose rate box lists USD only. PDFs are out of scope for this pass, and no other site was used. Also: sbp.org.pk/robots.txt returns HTTP 403 'Access Denied', and the SBP firewall answered some honest requests with 403 (e.g. ecodata/index2.asp); those pages were not retried or worked around."
+    },
+    {
+      "id": "gbp-pkr",
+      "field": "pkr_per_unit",
+      "reason": "Same as eur-pkr: SBP publishes GBP/PKR only in PDFs (weighted-average customer rates and M2M revaluation rates); the only HTML rate on sbp.org.pk is the USD box on the home page."
+    },
+    {
+      "id": "cad-pkr",
+      "field": "pkr_per_unit",
+      "reason": "Same as eur-pkr: SBP publishes CAD/PKR only in PDFs; the only HTML rate on sbp.org.pk is the USD box on the home page."
+    },
+    {
+      "id": "chf-pkr",
+      "field": "pkr_per_unit",
+      "reason": "Same as eur-pkr: SBP publishes CHF/PKR only in PDFs; the only HTML rate on sbp.org.pk is the USD box on the home page."
+    }
+  ]
+}

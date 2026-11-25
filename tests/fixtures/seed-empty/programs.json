@@ -1,0 +1,2501 @@
+{
+  "version": 1,
+  "institutions": [
+    {
+      "id": "tum",
+      "name": "Technical University of Munich",
+      "country": "DE",
+      "kind": "destination",
+      "website": "https://www.tum.de",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "ethz",
+      "name": "ETH Zurich",
+      "country": "CH",
+      "kind": "destination",
+      "website": "https://ethz.ch",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "uni-wuerzburg",
+      "name": "Julius-Maximilians-Universität Würzburg",
+      "country": "DE",
+      "kind": "destination",
+      "website": "https://www.uni-wuerzburg.de",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "imperial",
+      "name": "Imperial College London",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.imperial.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "cardiff",
+      "name": "Cardiff University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.cardiff.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "oxford-brookes",
+      "name": "Oxford Brookes University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.brookes.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "qmul",
+      "name": "Queen Mary University of London",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.qmul.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "utoronto",
+      "name": "University of Toronto",
+      "country": "CA",
+      "kind": "destination",
+      "website": "https://www.utoronto.ca",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "cmu",
+      "name": "Carnegie Mellon University",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.cmu.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "uiuc",
+      "name": "University of Illinois Urbana-Champaign",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://illinois.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "csudh",
+      "name": "California State University, Dominguez Hills",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.csudh.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "nyit",
+      "name": "New York Institute of Technology",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.nyit.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "usf",
+      "name": "University of South Florida",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.usf.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "uccs",
+      "name": "University of Colorado Colorado Springs",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.uccs.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "ljmu",
+      "name": "Liverpool John Moores University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.ljmu.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "demo-private-university",
+      "name": "Demo Private University (fictional, for the demo persona)",
+      "country": "PK",
+      "kind": "home",
+      "website": null,
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": "Fictional institution used only by the demo persona. Not a real university."
+    }
+  ],
+  "programs": [
+    {
+      "id": "tum-msc-informatics",
+      "institution_id": "tum",
+      "name": "MSc Informatics",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "ethz-msc-cs",
+      "institution_id": "ethz",
+      "name": "MSc Computer Science",
+      "country": "CH",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "wuerzburg-msc-cs",
+      "institution_id": "uni-wuerzburg",
+      "name": "MSc Computer Science",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "imperial-msc-computing",
+      "institution_id": "imperial",
+      "name": "MSc Computing",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "institution_id": "cardiff",
+      "name": "MSc Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "brookes-msc-cs",
+      "institution_id": "oxford-brookes",
+      "name": "MSc Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "institution_id": "qmul",
+      "name": "Pre-Master's route to MSc Computer Science",
+      "country": "UK",
+      "degree": "Pre-Master's + MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "pre_masters",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "utoronto-mscac",
+      "institution_id": "utoronto",
+      "name": "Master of Science in Applied Computing (MScAC)",
+      "country": "CA",
+      "degree": "MScAC",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "cmu-mscs",
+      "institution_id": "cmu",
+      "name": "MS in Computer Science (MSCS)",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "uiuc-mscs",
+      "institution_id": "uiuc",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "csudh-mscs",
+      "institution_id": "csudh",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "nyit-mscs",
+      "institution_id": "nyit",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "usf-mscs",
+      "institution_id": "usf",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "uccs-mscs",
+      "institution_id": "uccs",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "ljmu-msc-cs",
+      "institution_id": "ljmu",
+      "name": "MSc Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "ruled_out",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": "Not accepting Pakistan applicants for 2026/27 (verify on the official page).",
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Reported, not yet verified. Verify before relying on it."
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    }
+  ],
+  "_fixture": "Frozen copy of the seed as of 24 Nov 2026 before any evidence was merged (all program facts Unverified). Used by tests that check behaviour with empty data. Do not update."
+}
