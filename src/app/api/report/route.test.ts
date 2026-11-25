@@ -7,7 +7,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const insert = vi.fn(async () => ({ error: null }));
 const getPrograms = vi.fn(async () => [{ id: 'brookes-msc-cs' }]);
 
-vi.mock('@/lib/data', () => ({ getPrograms }));
+vi.mock('server-only', () => ({}));
+vi.mock('@/lib/data', () => ({ getPrograms, stripInternal: <T>(v: T) => v }));
 vi.mock('@supabase/supabase-js', () => ({ createClient: () => ({ from: () => ({ insert }) }) }));
 
 const { POST } = await import('./route');

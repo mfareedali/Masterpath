@@ -24,6 +24,18 @@ const PUBLIC_TABLES = ['institutions', 'programs', 'country_facts', 'conversion_
 const OWNER_TABLES = ['profiles', 'profile_strengths'];
 const EXPECTED_TABLES = [...PUBLIC_TABLES, ...OWNER_TABLES, 'reports', 'chat_usage'];
 
+/**
+ * A service-role-only table may carry RESTRICTIVE deny-all policies (they grant nothing; they state the intent and
+ * clear Supabase's "RLS enabled, no policy" notice) but never a permissive one.
+ */
+function expectOnlyDenyAllPolicies(table: string): void {
+  for (const p of allPolicies.filter((x) => x.table === table)) {
+    expect(p.text, `${table}: "${p.name}" must be restrictive`).toMatch(/\bas\s+restrictive\b/i);
+    expect(p.text, `${table}: "${p.name}" must deny reads`).toMatch(/\busing\s*\(\s*false\s*\)/i);
+    expect(p.text, `${table}: "${p.name}" must deny writes`).toMatch(/\bwith\s+check\s*\(\s*false\s*\)/i);
+  }
+}
+
 /** auth.uid() = user_id, optionally wrapped as (select auth.uid()) for per-statement caching. */
 const OWNER_CHECK = /\(\s*(?:\(\s*select\s+auth\.uid\(\)\s*\)|auth\.uid\(\))\s*=\s*user_id\s*\)/i;
 const ID_DOCUMENT = /passport|cnic|nicop|national_?id|id_?number|identity_?(?:card|number|document)|ssn|social_security/i;
@@ -95,7 +107,7 @@ describe('row level security', () => {
   it('reports: service role only (no direct PostgREST inserts with the public anon key)', () => {
     // Review finding: anon/authenticated could INSERT straight into public.reports, skipping every check in
     // /api/report (Origin, rate limit, known program id and field, control-character stripping).
-    expect(allPolicies.filter((p) => p.table === 'reports')).toEqual([]);
+    expectOnlyDenyAllPolicies('reports');
     expect(sql).not.toMatch(/grant\s+[^;]*\bon\s+(?:table\s+)?[^;]*public\.reports\b[^;]*\bto\s+[^;]*\b(anon|authenticated|public)\b/i);
     expect(sql).toMatch(/revoke\s+all\s+on\s+public\.reports\s+from\s+anon,\s*authenticated/i);
     // Re-running the file on a database made from the old version removes the old insert policy.
@@ -105,8 +117,8 @@ describe('row level security', () => {
     expect(tableColumns(sql, 'reports').get('message')).toMatch(/char_length\(message\) between 10 and 1000/i);
   });
 
-  it('chat_usage: no policies at all (service role only)', () => {
-    expect(allPolicies.filter((p) => p.table === 'chat_usage')).toEqual([]);
+  it('chat_usage: service role only (no permissive policy)', () => {
+    expectOnlyDenyAllPolicies('chat_usage');
     expect(sql).toMatch(/revoke\s+all\s+on\s+public\.chat_usage\s+from\s+anon,\s*authenticated/i);
     expect(sql).toMatch(/primary key \(client_id, day\)/i);
   });
@@ -169,5 +181,49 @@ describe('the app only reads columns that exist', () => {
   it.each(cases)('%s', (table, columns) => {
     const cols = tableColumns(sql, table);
     for (const c of columns) expect(cols.has(c), `${table}.${c}`).toBe(true);
+  });
+});
+
+describe('evidence views and ranking functions (20261125 migrations)', () => {
+  const views = [...sql.matchAll(/create\s+or\s+replace\s+view\s+public\.([a-z_]+)\s+with\s*\(([^)]*)\)/gi)];
+  const viewNames = [...sql.matchAll(/create\s+(?:or\s+replace\s+)?view\s+public\.([a-z_]+)/gi)].map((m) => m[1]);
+  const functions = [...sql.matchAll(/create\s+or\s+replace\s+function\s+public\.([a-z_]+)\s*\(([\s\S]*?)\bas\s+\$\$/gi)];
+
+  it('creates the row-per-fact views', () => {
+    for (const v of ['program_facts', 'program_facts_computed', 'country_facts_computed', 'program_fact_conflicts']) {
+      expect(viewNames).toContain(v);
+    }
+  });
+
+  it('every view is security_invoker, so base-table RLS applies to the caller', () => {
+    expect(views.length).toBe(viewNames.length);
+    for (const [, name, opts] of views) expect(opts, `view ${name}`).toMatch(/security_invoker\s*=\s*true/i);
+  });
+
+  it('views are read-only for the API roles (default ALL privileges revoked, SELECT granted)', () => {
+    for (const v of viewNames) {
+      expect(sql).toMatch(new RegExp(String.raw`revoke\s+all\s+on\s+[^;]*public\.${v}\b[^;]*from\s+public,\s*anon,\s*authenticated`, 'i'));
+      expect(sql).toMatch(new RegExp(String.raw`grant\s+select\s+on\s+[^;]*public\.${v}\b[^;]*to\s+anon,\s*authenticated`, 'i'));
+      expect(sql).not.toMatch(new RegExp(String.raw`grant\s+(?:all|insert|update|delete)[^;]*public\.${v}\b[^;]*to\s+[^;]*\b(anon|authenticated)\b`, 'i'));
+    }
+  });
+
+  it('every function pins search_path and none is security definer', () => {
+    expect(functions.length).toBeGreaterThanOrEqual(20);
+    for (const [, name, header] of functions) {
+      expect(header, `function ${name}`).toMatch(/set\s+search_path\s*=\s*''/i);
+      expect(header, `function ${name}`).not.toMatch(/security\s+definer/i);
+    }
+  });
+
+  it('the confidence cache can never claim Verified without source, snippet and date', () => {
+    expect(sql).toMatch(/country_facts_verified_needs_evidence\s+check\s*\(\s*confidence\s+is\s+distinct\s+from\s+'Verified'/i);
+  });
+
+  it('ranking keeps missing data last and leaves fit to app code', () => {
+    const rank = /function\s+public\.rank_programs\([\s\S]*?\$\$;/i.exec(sql)?.[0] ?? '';
+    expect(rank).toMatch(/order\s+by\s+b\.b_missing/i);
+    expect(rank).toMatch(/case\s+when\s+r\.b_missing\s+then\s+null\s+else\s+r\.b_pos\s+end/i);
+    expect(rank).not.toMatch(/'fit'/);
   });
 });
