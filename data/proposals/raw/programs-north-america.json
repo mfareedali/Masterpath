@@ -1,0 +1,726 @@
+{
+  "area": "programs-north-america",
+  "generated_at": "2026-11-24",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "official_url",
+      "value": "https://mscac.utoronto.ca/",
+      "source_url": "https://mscac.utoronto.ca/",
+      "evidence_snippet": "The University of Toronto’s Master of Science in Applied Computing program combines advanced study with an eight-month paid research internship.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Official MScAC program site (utoronto.ca)."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "deadline",
+      "value": "2026-12-01",
+      "source_url": "https://mscac.utoronto.ca/apply/",
+      "evidence_snippet": "Fall 2027 applications are now open. The application deadline is December 1, 2026, at 11:59 p.m. ET.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Fall 2027 (September 2027) intake. Single deadline for all applicants (domestic and international); application fee must also be paid by the deadline. Interviews/offers rolling Dec-April."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 7,
+        "toefl_ibt": 93,
+        "waiver": "Normally exempt if the admitting degree is from an institution recognized by U of T where the language of instruction and examination is uniformly English (MScAC may still require a letter confirming the language of instruction).",
+        "text": "U of T School of Graduate Studies minimums: IELTS Academic 7.0 overall with at least 6.5 in each component; TOEFL iBT 93 overall with Writing/Speaking 22 (new 1-6 scale: overall 4.5, Writing 4.5, Speaking 4.0)."
+      },
+      "source_url": "https://www.sgs.utoronto.ca/future-students/admission-application-requirements/english-language-proficiency-testing/",
+      "evidence_snippet": "www.ielts.org Minimum required score: 7.0 (Academic) with at least 6.5 for each component.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "SGS-wide minimums (the MScAC apply page defers to SGS ELP requirements). TOEFL figure is from the same SGS page table: 'Overall Score: 93 Writing / Speaking: 22' (identical for all four SGS divisions); the snippet only covers the IELTS line. Pakistan is not on the SGS exempt-country list; exemption depends on the degree being uniformly English-medium."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "tests_required",
+      "value": "GRE optional but highly encouraged unless you have (or are about to get) a degree from a Canadian university.",
+      "source_url": "https://mscac.utoronto.ca/apply/",
+      "evidence_snippet": "Submitting GRE results is optional, although good scores can help strengthen your application. Unless you have (or are about to get) a degree from a Canadian university, then it is highly encouraged to submit your GRE test scores.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applies to Pakistani applicants (non-Canadian degree): GRE strongly encouraged, not mandatory. If GRE is submitted and an offer made, the offer is conditional on official electronic GRE verification."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "tuition",
+      "value": {
+        "amount": 90050,
+        "currency": "CAD",
+        "period": "total"
+      },
+      "source_url": "https://mscac.utoronto.ca/apply/",
+      "evidence_snippet": "For the program starting in September 2026, tuition and fees for the entire 16-month MScAC program are estimated at approximately: $33,325 CAD for domestic students (Canadian citizens and permanent residents) $90,050 CAD for international students",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "International, whole 16-month program, for the September 2026 cohort (Sept 2027 figures not yet published; fees are posted mid-July each year and subject to change). Includes a $2,200 mandatory pre-program activities fee."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "duration_months",
+      "value": 16,
+      "source_url": "https://mscac.utoronto.ca/",
+      "evidence_snippet": "Graduate in just 16 months, with the skills, experience and connections to move your career forward.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Includes the eight-month paid research internship."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://mscac.utoronto.ca/apply/",
+      "evidence_snippet": "We require three letters of support from faculty members and/or employers.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Ideally at least two academic references; industry referees in a senior/supervisory capacity are acceptable."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "admissions_email",
+      "value": "admissions@mscac.utoronto.ca",
+      "source_url": "https://mscac.utoronto.ca/contact/",
+      "evidence_snippet": "E-mail: admissions@mscac.utoronto.ca",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Listed under 'Prospective Students' on the MScAC contact page."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "official_url",
+      "value": "https://csd.cmu.edu/academics/masters/overview",
+      "source_url": "https://csd.cmu.edu/academics/masters/overview",
+      "evidence_snippet": "The Master of Science in Computer Science offers students with a bachelor's degree the opportunity to take their skills to the next level with advanced study.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "CMU Computer Science Department master's overview page (MSCS)."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "deadline",
+      "value": "2026-12-09",
+      "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+      "evidence_snippet": "Early Application Deadline: November 18, 2026 (3 p.m. EST) Final Application Deadline: December 9, 2026 (3 p.m. EST)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Fall 2027 entry (fall only; no spring start). Final deadline used; the early deadline (Nov 18, 2026, $80 fee) has passed, fee after that is $100 per program. Same dates on the SCS graduate admissions page; CMU recommends taking GRE/English tests no later than Nov 25, 2026."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": null,
+        "toefl_ibt": null,
+        "waiver": "No waivers for non-native English speakers (including prior study in English); Medium of Instruction (MOI) certificates are not accepted.",
+        "text": "TOEFL (preferred), IELTS or Duolingo required for non-native speakers studying on F-1/J-1. No minimum score published; most admitted applicants scored TOEFL iBT 105-114, IELTS 7-8, Duolingo 130-155."
+      },
+      "source_url": "https://www.cs.cmu.edu/education/graduate-admissions",
+      "evidence_snippet": "In the past few years, most of our admitted applicants submitted total test scores in the ranges below: TOEFL iBT: 105–114 IELTS: 7–8 Duolingo English Test: 130–155",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Ranges are typical admitted scores, NOT minimums, so numeric minimums are left null. Same SCS page: 'Medium of Instruction (MOI) certificates are not accepted as a substitute for an English proficiency test.' CSD admissions page: department 'does not issue waivers for non-native English speakers'. Relevant for Pakistani applicants who often rely on MOI letters."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "tests_required",
+      "value": "GRE strongly recommended (not mandatory); if no GRE, explain briefly in the statement of purpose. Waived for CMU graduates/students.",
+      "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+      "evidence_snippet": "The GRE is strongly recommended in order to apply to the MSCS program, especially for students who do not have clear documentation of strong mathematical proficiency.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Fall 2027 cycle. GRE at Home only accepted for specific historical score dates."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "tuition",
+      "value": {
+        "amount": 62200,
+        "currency": "USD",
+        "period": "year"
+      },
+      "source_url": "https://www.cmu.edu/sfs/tuition/graduate/scs.html",
+      "evidence_snippet": "2026-2027 Cost of Attendance Tuition Program Academic Year Fall Spring Per Unit SCS Master's Program $62,200 $31,100 $31,100 $864",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "School of Computer Science master's tuition for academic year 2026-2027 ($31,100 per semester). 2027-2028 rates not yet published. Same page estimates living costs (housing $14,752, food $8,664 per academic year) excluded here."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+      "evidence_snippet": "Three letters of recommendation: At least two letters should be from faculty or recent employers.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "MSCS application requirement."
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "official_url",
+      "value": "https://siebelschool.illinois.edu/academics/graduate/ms-program",
+      "source_url": "https://siebelschool.illinois.edu/academics/graduate/ms-program",
+      "evidence_snippet": "The Master of Science in computer science is a research-oriented degree that requires 28 credit hours of coursework and 4 credit hours of thesis.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Siebel School of Computing and Data Science M.S. (thesis) program page. Not the professional MCS. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "deadline",
+      "value": "2026-12-01",
+      "source_url": "https://siebelschool.illinois.edu/admissions/graduate/application-deadlines",
+      "evidence_snippet": "M.S. in Computer Science Fall only December 1 March 15",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Deadline table gives 'December 1' without a year; next occurrence for Fall 2027 entry is 2026-12-01. March 15 is the decision deadline. Fall entry only. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 3,
+        "text": "At least 3.0/4.0 GPA in the last two years of undergraduate study (University of Illinois Urbana-Champaign policy)."
+      },
+      "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "evidence_snippet": "The University of Illinois Urbana-Champaign policy requires applicants to hold at least a 3.0/4.0 or higher GPA in the last two years of their undergraduate study to be eligible for graduate studies on this campus.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Same minimum (3.0/4.0) as the FAQ page, but the FAQ words the scope as the whole undergraduate degree, not the last two years - see second proposal and conflicts_noticed. The page also requires a 4-year bachelor's equivalent; 3-year degrees may not be eligible. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 3,
+        "text": "At least 3.0/4.0 GPA in the undergraduate degree (University of Illinois Urbana-Champaign requirement; the average GPA of admitted students shown on the website is not a minimum)."
+      },
+      "source_url": "https://siebelschool.illinois.edu/admissions/graduate/faqs",
+      "evidence_snippet": "The University of Illinois Urbana-Champaign does require applicants to hold at least a 3.0/4.0 or higher GPA in their undergraduate degree to be eligible for graduate studies on this campus.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Scope wording differs from the Application Process & Requirements page (whole degree vs last two years). Numeric minimum identical. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6.5,
+        "toefl_ibt": 79,
+        "waiver": null,
+        "text": "Graduate College admission minimums: limited status TOEFL iBT 79 (scores before 21 Jan 2026) or 4.0 (new 1-6 scale), IELTS Academic 6.5, Duolingo 115; full status TOEFL iBT 103 or 5.0, IELTS 7.5, Duolingo 135. Scoring below full-status minimums requires the ESL Placement Test and possibly ESL coursework."
+      },
+      "source_url": "https://grad.illinois.edu/admissions/international-applicants",
+      "evidence_snippet": "Limited Status Admission Minimum Full Status Admission Minimum TOEFL iBT TOEFL iBT Home Edition 4.0 (for scores dated after 1/20/2026) 79 (for scores dated prior to 1/21/2026) 5.0 (for scores dated after 1/20/2026) 103 (for scores dated prior to 1/21/2026) IELTS Academic Exam 6.5 7.5",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Numbers proposed are the LIMITED-status admission minimums (full status: TOEFL 103 / IELTS 7.5). Siebel School requirements page adds: 'Applicants with TOEFL iBT speak scores below 22 have a low chance of admission.' Siebel FAQ: country-based exemption only; medium of instruction alone does not exempt. TOEFL scale changed 21 Jan 2026. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "tests_required",
+      "value": "GRE not required (recommended; optional supporting information).",
+      "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "evidence_snippet": "The Graduate Record Examination (GRE) general aptitude tests (Verbal, Quantitative, and Analytical) and subject test scores are recommended but not required.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Section heading on the page: \"10. General Record Examination (GRE) – Not Required\". Siebel FAQ also says GRE scores are not required. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "evidence_snippet": "Applicants to the PhD and MS with thesis programs are required to have three letters of recommendation submitted.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "M.S. in CS is the thesis M.S. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "admissions_email",
+      "value": "grad-admissions@siebelschool.illinois.edu",
+      "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "evidence_snippet": "Graduate Admissions grad-admissions@siebelschool.illinois.edu",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Siebel School graduate admissions contact (page footer/contact block). [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "official_url",
+      "value": "https://www.csudh.edu/csc/programs/computer-science-programs/ms-computer-science/",
+      "source_url": "https://www.csudh.edu/csc/programs/computer-science-programs/ms-computer-science/",
+      "evidence_snippet": "The Master’s Program in Computer Science is a two-year program in which a student must complete a required core of courses and additional concentration and general computer science elective courses.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "CSUDH Computer Science department MS page."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "deadline",
+      "value": "2027-06-01",
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/",
+      "evidence_snippet": "Fall 2027 Deadlines Program On-Campus or Online Application and Document Deadline MS Accounting On-Campus June 1 MS Biology On-Campus March 1 MS Computer Science On-Campus June 1",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Table is headed 'Fall 2027 Deadlines' but the date has no year; June 1 = 2027-06-01 (application and document deadline are the same day). No separate international graduate deadline is published: the international checklist says 'Document deadlines for graduate students vary by program.' International applicants should allow extra time for I-20/visa."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 2.75,
+        "text": "Minimum GPA 2.75 (CSUDH Graduate Studies program requirements table; university catalog states \"A minimum GPA of 2.75 on a 4.0 scale.\")"
+      },
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/applied",
+      "evidence_snippet": "MS Computer Science 2.75 Not Required Fall / Spring GRE ✓ 3 letters NSM A-133",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Row of the Graduate Studies program-requirements table (columns: Programs/Options, GPA, Supplemental Application, Accepting Applications, Test, Resume/CV, Personal Statement, Recommendation Letter...). The university catalog page https://catalog.csudh.edu/academics/computer-science/computer-science-ms/ states \"A minimum GPA of 2.75 on a 4.0 scale.\" but is behind an AWS WAF bot challenge and cannot be machine-verified. Catalog allows conditionally classified admission for BSCS holders with GPA between 2.44 and 2.75."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6.5,
+        "toefl_ibt": 80,
+        "waiver": null,
+        "text": "Graduate minimum passing scores: TOEFL iBT 80, IELTS 6.5, PTE 53, Duolingo 105."
+      },
+      "source_url": "https://www.csudh.edu/future-students/international/english-proficiency",
+      "evidence_snippet": "do not qualify for a waiver are required to submit one of the following before an admissions decision can be made: Exam Minimum Passing Score TOEFL iBT 80 IELTS 6.5",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Graduate-applicant table (the page also has a separate undergraduate table). Waivers are for US degrees or countries where English is the sole language of instruction (Pakistan not listed in the excerpt reviewed). Conditional admission via the American Language and Culture Program (ALCP) is possible."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "tests_required",
+      "value": "GRE required (listed under Test for MS Computer Science).",
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/applied",
+      "evidence_snippet": "MS Computer Science 2.75 Not Required Fall / Spring GRE ✓ 3 letters NSM A-133",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Graduate Studies table lists GRE in the Test column for MS Computer Science. The university catalog (AWS WAF-protected, not machine-verifiable) adds a minimum: \"A minimum Graduate Examination (GRE) General Test score of 293 (combined verbal and quantitative)\", but the same catalog page also cites old-scale figures (\"minimum GRE score of 900\", \"GRE score below 191\") - internal inconsistency; reviewer should confirm with the department."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "tuition",
+      "value": {
+        "amount": 17463,
+        "currency": "USD",
+        "period": "year"
+      },
+      "source_url": "https://www.csudh.edu/future-students/international/financial-certification",
+      "evidence_snippet": "Estimated Annual Student Expenses* Expenses Undergraduate (24 units/year) Graduate (18 units/year) Cybersecurity (18 units/year) OTD (20 units/year) Ed.D (20 units/year) Tuition & Fees $18,513 $17,463",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "International 'Fall 2027 and onward' financial-affidavit estimate, Graduate column (18 units/year) = $17,463 tuition & fees per year (second value in the row). Estimates, subject to change. Cybersecurity column ($13,662) is a different program."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "living_cost",
+      "value": {
+        "amount": 26442,
+        "currency": "USD",
+        "period": "year"
+      },
+      "source_url": "https://www.csudh.edu/future-students/international/financial-certification",
+      "evidence_snippet": "Housing & Living Expenses $26,442 $26,442 $26,442 $26,442 $26,442 Mandatory Health Insurance (12-month coverage) $1,956",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Estimated annual housing & living expenses for I-20 (same for all levels); mandatory health insurance $1,956/year is additional. Total required for I-20 (graduate): $45,861."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "duration_months",
+      "value": 24,
+      "source_url": "https://www.csudh.edu/csc/programs/computer-science-programs/ms-computer-science/",
+      "evidence_snippet": "The Master’s Program in Computer Science is a two-year program in which a student must complete a required core of courses and additional concentration and general computer science elective courses.",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Page states 'two-year program' (36 semester credit units); converted to 24 months."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://www.csudh.edu/gsr/graduate-studies/graduate-admissions/applied",
+      "evidence_snippet": "MS Computer Science 2.75 Not Required Fall / Spring GRE ✓ 3 letters NSM A-133",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Graduate Studies table: \"3 letters\" in the Recommendation Letter column for MS Computer Science; the catalog also says three letters of recommendation (catalog not machine-verifiable due to WAF). Personal statement also required (checkmark)."
+    },
+    {
+      "target": "program",
+      "id": "csudh-mscs",
+      "field": "admissions_email",
+      "value": "int-admissions@csudh.edu",
+      "source_url": "https://www.csudh.edu/future-students/international/application-checklist",
+      "evidence_snippet": "please contact the Office of International Education at int-admissions@csudh.edu.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Office of International Education (international admissions). Domestic/general transcript address on the graduate admissions page is admissions@csudh.edu."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "official_url",
+      "value": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "source_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "evidence_snippet": "In the Computer Science, M.S. program, explore computer systems and their applications as you grow as a leader and prepare for in-demand positions across every sector of the economy.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Offered at Long Island and New York City campuses."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "deadline",
+      "value": "2027-07-01",
+      "source_url": "https://www.nyit.edu/admissions/graduate/",
+      "evidence_snippet": "International student applications are strongly encouraged to be submitted with the required documents for all graduate programs by July 1 for fall admission and December 15 for spring admission.",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Recommended (not hard) date for international applicants; no year given, next occurrence for Fall 2027 = 2027-07-01. Rolling admissions: applications after this date are still processed but visa delays may occur."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 2.85,
+        "text": "Minimum GPA of 2.85 for your undergraduate coursework"
+      },
+      "source_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "evidence_snippet": "Minimum GPA of 2.85 for your undergraduate coursework",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Page does not name the scale explicitly; 4.0 (US) scale assumed. Foreign transcripts require NACES evaluation."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6,
+        "toefl_ibt": 79,
+        "waiver": null,
+        "text": "Minimum for full admission: IELTS 6.0; TOEFL iBT 79 (old scale) or 4.0 (new scale); PTE 53; Duolingo 105."
+      },
+      "source_url": "https://www.nyit.edu/admissions/international/",
+      "evidence_snippet": "The following are the minimum scores required for full admission to New York Tech degree programs: IELTS score: 6.0 TOEFL (iBT) score: 4.0 (new); 79 (old) Pearson PTE score: 53 Duolingo English Test score: 105",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "University-wide international minimums. Waiver only for students who live or were educated in listed English-speaking countries (Pakistan not seen in list)."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "tests_required",
+      "value": "GRE required for graduates of foreign universities (or GPA below the 2.85 minimum).",
+      "source_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "evidence_snippet": "Official GRE scores if you are a graduate of a foreign university or have a GPA below the minimum (GRE Code: 2561)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Applies to Pakistani applicants (foreign university graduates)."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "admissions_email",
+      "value": "admissions@nyit.edu",
+      "source_url": "https://www.nyit.edu/admissions/international/",
+      "evidence_snippet": "Have questions? Reach us at admissions@nyit.edu or +1 516.686.7520.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "International admissions page contact."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "official_url",
+      "value": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/mscs.aspx",
+      "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/mscs.aspx",
+      "evidence_snippet": "The Master of Science in Computer Science at the University of South Florida offers students a dynamic and research-driven environment in the heart of Florida’s thriving tech corridor.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "MSCS now sits in USF's Bellini College of Artificial Intelligence, Cybersecurity and Computing (old engineering/cse MSCS catalog URL now redirects to the Bellini home page). 30-credit-hour program, thesis or non-thesis."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "deadline",
+      "value": "2027-06-01",
+      "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "evidence_snippet": "MS and PhD priority deadlines: Fall: January 15 Spring: September 1 Please see the Office of Admission website for the final university deadlines. MS final university deadlines: Fall: June 1",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Final MS deadline for Fall 2027 = 2027-06-01 (no year on page). Priority deadline Fall: January 15 (2027-01-15) for maximum/funding consideration; after priority, space-available basis. Page does not distinguish international applicants; USF's International Graduate Student Deadlines page looks deadlines up per program via a link/tool not present in the page HTML, so an earlier international-specific deadline could not be verified."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 3,
+        "text": "\"B\" average (3.00 on a 4.00 scale) or better in all work attempted as an undergraduate working toward a bachelor's degree (or the foreign equivalent)."
+      },
+      "source_url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+      "evidence_snippet": "“B” average (3.00 on a 4.00 scale) or better in all work attempted while registered as an undergraduate student working toward a bachelor’s degree",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "USF university-wide international graduate minimum; programs may add requirements."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6.5,
+        "toefl_ibt": 79,
+        "waiver": "May be waived by meeting an alternate proficiency requirement in the USF academic catalog (e.g., B or higher in ENC 101/102 equivalents at a US regionally accredited institution).",
+        "text": "TOEFL iBT 79+ (tests before 21 Jan 2026) or 4.5+ (after 21 Jan 2026); IELTS 6.5+; PTE-A 53+; Duolingo 110+. Scores must be within 2 years of the term of entry; below-minimum applications are denied."
+      },
+      "source_url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+      "evidence_snippet": "Test of English as a Foreign Language (TOEFL iBT) prior to January 21, 2026 79 or higher Test of English as a Foreign Language (TOEFL iBT) after January 21, 2026 4.5 or higher International English Language Testing System (IELTS) 6.5 or higher",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "University-wide international graduate minimums."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "tests_required",
+      "value": "GRE required (PDF) for MSCS unless undergraduate degree is from an ABET-accredited program or a Carnegie R1 university, or the applicant completed the USF Pathway to Computing (PTC) Graduate Certificate.",
+      "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "evidence_snippet": "A PDF of GRE Scores is required for all MS majors (excluding MSAI), unless the applicant has an undergraduate degree from ABET-accredited degree programs, or from a Carnegie R1 university, or for applicants who have successfully completed USF Pathway to Computing (PTC) Graduate Certificate.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Most Pakistani applicants will need the GRE unless their program is ABET-accredited."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "evidence_snippet": "3 Letters of Recommendation (Must be on official letterhead with recommender’s title and contact)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Part of a complete Bellini College graduate application."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "official_url",
+      "value": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "The Department of Computer Science at the University of Colorado Colorado Springs offers the Master of Science degree in Computer Science.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "College of Engineering and Applied Science program page (30 credits, on campus)."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "deadline",
+      "value": "2027-03-01",
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "International students applying for the program should have all application materials into the Admissions Office at UCCS by March 1st for Fall Semester and by October 1st for Spring Semester.",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "International-applicant deadline for Fall 2027; no year given, next occurrence = 2027-03-01. The SAME page also has an 'Application Deadlines' block saying 'Fall Start: April 1st' / 'Our Fall application deadline is April 1st' (which only recommends international students apply as early as possible) - see conflicts_noticed. US applicants: April 1."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 3,
+        "text": "Undergraduate GPA of at least 3.0 on a 4.0 scale; 2.75-3.0 considered individually (provisional admission likely)."
+      },
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "The student should have an undergraduate grade point average of at least 3.0 on a scale of 4.0. Students with an average below 3.0 but above 2.75 will be considered on an individual basis",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Below 2.75 requires provisional admission if admitted."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "language_req",
+      "value": {
+        "ielts_overall": 6.5,
+        "toefl_ibt": 80,
+        "waiver": "May be waived if the student has completed a degree in the US.",
+        "text": "TOEFL 80 or higher, IELTS 6.5 or higher, or Duolingo 115."
+      },
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "A TOEFL score of 80 of higher, an ILETS of 6.5 or higher, or a Duolingo exam score of 115 will be required for proof of English Proficiency.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Snippet typos ('of higher', 'ILETS') are verbatim from the page. EAS How to Apply page agrees: TOEFL 80 iBT, IELTS 6.5."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "tests_required",
+      "value": "GRE required (all sections), at least 148 quantitative, unless the applicant has a bachelor's with GPA 3.0+ from an ABET-accredited CS or closely related program within the U.S.",
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "All sections of the Graduate Record Examination (GRE) are required, with at least 148 on the quantitative portion, unless one of the following conditions is satisfied: The applicant has a bachelor’s degree with a GPA of 3.0 or above from an ABET-accredited Computer Science or a closely related program from within the U.S.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Exemption is US-only, so Pakistani applicants need the GRE. EAS How to Apply page (international section) agrees: GRE required with at least 148 quantitative."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "lor_count",
+      "value": 3,
+      "source_url": "https://eas.uccs.edu/future-student-resources/how-to-apply",
+      "evidence_snippet": "Letters of Recommendation: Three letters of recommendation are required for all programs.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Stated for both domestic and international College of Engineering & Applied Science graduate applicants."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "admissions_email",
+      "value": "admrec@uccs.edu",
+      "source_url": "https://eas.uccs.edu/future-student-resources/how-to-apply",
+      "evidence_snippet": "Admissions and Records, MH 108 1420 Austin Bluffs Parkway Colorado Springs, CO 80918-3733 1-800-990-8227 admrec@uccs.edu",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "UCCS Admissions and Records (graduate paperwork goes directly to admissions). Program page footer lists general contact go@uccs.edu."
+    }
+  ],
+  "not_found": [
+    {
+      "id": "utoronto-mscac",
+      "field": "min_gpa_rule",
+      "reason": "No 4.0-scale or Pakistan-specific minimum published. Apply page states: \"A standing equivalent to at least B+ (U of T 77-79%) in their final year (i.e., two terms) of study in the undergraduate degree\"; international equivalents are via the U of T International Credentials Equivalencies Tool (interactive)."
+    },
+    {
+      "id": "cmu-mscs",
+      "field": "min_gpa_rule",
+      "reason": "CSD master's admissions page publishes no minimum GPA."
+    },
+    {
+      "id": "cmu-mscs",
+      "field": "duration_months",
+      "reason": "Program length not stated on the CSD master's overview or admissions pages."
+    },
+    {
+      "id": "cmu-mscs",
+      "field": "admissions_email",
+      "reason": "No admissions email published; CSD admissions page points to the contact page https://www.cs.cmu.edu/about-scs/contact."
+    },
+    {
+      "id": "uiuc-mscs",
+      "field": "tuition",
+      "reason": "No single per-year/per-term amount on the Siebel School program or admissions HTML pages reviewed; UIUC tuition is published in registrar rate tables that were not checked within budget."
+    },
+    {
+      "id": "uiuc-mscs",
+      "field": "duration_months",
+      "reason": "Not stated; program is defined as 28 credit hours of coursework plus 4 credit hours of thesis."
+    },
+    {
+      "id": "nyit-mscs",
+      "field": "tuition",
+      "reason": "Only per-credit tuition is stated: \"Graduate Student Tuition 2026–2027\" ... \"Per credit $1,800\" (https://www.nyit.edu/admissions/costs-and-aid/tuition-and-costs/graduate/). Not computed. International financial affidavit amounts ($61,750 for 18 credits etc.) include living costs."
+    },
+    {
+      "id": "nyit-mscs",
+      "field": "duration_months",
+      "reason": "Not stated; program snapshot says \"30 Credits\"."
+    },
+    {
+      "id": "nyit-mscs",
+      "field": "lor_count",
+      "reason": "Program page application checklist lists no recommendation letters."
+    },
+    {
+      "id": "usf-mscs",
+      "field": "tuition",
+      "reason": "USF international cost-of-attendance page contains no amounts in its HTML (general text only); no per-year figure found."
+    },
+    {
+      "id": "usf-mscs",
+      "field": "duration_months",
+      "reason": "Not stated; \"This 30-credit-hour program\"."
+    },
+    {
+      "id": "usf-mscs",
+      "field": "admissions_email",
+      "reason": "No admissions email on the Bellini MSCS or prospective-students pages (advising by appointment / \"Email an advisor\" link only)."
+    },
+    {
+      "id": "uccs-mscs",
+      "field": "tuition",
+      "reason": "Program page \"Tuition Rate\" link redirects to https://www.uccs.edu/admissions-aid/tuition, which only offers a tuition calculator; no stated amount. Old bursar link returns 404."
+    },
+    {
+      "id": "uccs-mscs",
+      "field": "duration_months",
+      "reason": "Not stated; program page shows Total Credits 30."
+    },
+    {
+      "id": "csudh-mscs",
+      "field": "min_gpa_rule",
+      "reason": "Catalog source only (proposal kept from another page): https://catalog.csudh.edu/academics/computer-science/computer-science-ms/ (\"A minimum GPA of 2.75 on a 4.0 scale.\", GRE 293, three letters) is behind an AWS WAF challenge (HTTP 202, empty body) so its snippets print NOT FOUND; equivalent values were proposed from the CSUDH Graduate Studies requirements table instead."
+    }
+  ],
+  "conflicts_noticed": [
+    "uiuc-mscs.min_gpa_rule: Siebel School Application Process & Requirements page says 3.0/4.0 \"in the last two years of their undergraduate study\"; Siebel School FAQ says 3.0/4.0 \"in their undergraduate degree\". Same minimum number, different scope (last two years vs whole degree). Both proposed as separate entries with their own source_url.",
+    "uccs-mscs.deadline (single-page inconsistency, not proposed twice): https://eas.uccs.edu/academics/programs/computer-science-ms says \"International students applying for the program should have all application materials into the Admissions Office at UCCS by March 1st for Fall Semester\" but the same page's Application Deadlines block says \"Fall Start: April 1st\" and \"Our Fall application deadline is April 1st.\" (international students only advised to apply as early as possible). March 1 (international-specific) proposed.",
+    "uccs-mscs.tests_required (domestic only, not proposed): program page says recent graduates with a GPA below 3.00 must take the GRE; EAS How to Apply page says GRE is needed for Computer Science applicants with an undergraduate GPA less than 2.75. For international applicants both pages agree GRE is required (Quant >= 148).",
+    "csudh-mscs.tests_required: the CSUDH catalog MS CS page gives GRE minimums on mixed scales (293 combined; 900 combined; 'below 191') - internal inconsistency; catalog not machine-verifiable (WAF).",
+    "Not a conflict: CMU SCS page's \"Final and only deadline: January 15, 2027\" applies to the MHCI program only; MSCS final deadline is December 9, 2026 on both the CSD and SCS pages."
+  ]
+}

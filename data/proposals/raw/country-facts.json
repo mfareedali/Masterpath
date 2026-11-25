@@ -1,0 +1,180 @@
+{
+  "area": "country-facts",
+  "generated_at": "2026-11-24",
+  "proposals": [
+    {
+      "target": "country_fact",
+      "id": "ca-citizenship-rule",
+      "field": "value",
+      "value": {
+        "text": "You must have been physically present in Canada for at least 1,095 days during the 5 years before you apply.",
+        "sort_months": 36,
+        "clock_note": "Days spent in Canada as a temporary resident (for example as a student or worker) count as half days, up to a maximum of 365 days."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/adult-minor/who.html",
+      "evidence_snippet": "You must have been physically in Canada for at least 1,095 days (3 years) during your 5-year eligibility period.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Adult applicants (grant of citizenship). Value kept identical to the seed: the official wording matches it. SOURCE URL CORRECTED: the seeded URL (.../become-canadian-citizen/eligibility.html) now redirects to this 'Who can apply' page (canonical URL). The page defines the eligibility period as '5 years before the date you sign your application' and says it 'must include at least 730 days as a permanent resident'. The half-day rule is backed by the companion proposal below (same value, same URL)."
+    },
+    {
+      "target": "country_fact",
+      "id": "ca-citizenship-rule",
+      "field": "value",
+      "value": {
+        "text": "You must have been physically present in Canada for at least 1,095 days during the 5 years before you apply.",
+        "sort_months": 36,
+        "clock_note": "Days spent in Canada as a temporary resident (for example as a student or worker) count as half days, up to a maximum of 365 days."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/adult-minor/who.html",
+      "evidence_snippet": "Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada. You can use a maximum of 365 days of physical presence as temporary resident or protected person.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet for the clock_note (same value and URL as the proposal above, so it merges as no-op evidence). The page adds: 'This is equal to 730 calendar days (730 days x 0.5 = 365 days of physical presence).' and lists visitor, student and worker as temporary residents."
+    },
+    {
+      "target": "country_fact",
+      "id": "de-citizenship-rule",
+      "field": "value",
+      "value": {
+        "text": "At least 5 years of legal residence in Germany before applying for naturalisation.",
+        "sort_months": 60,
+        "clock_note": "The clock counts years of legal residence in Germany. Check which permits count."
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "evidence_snippet": "As a general rule, non Germans have the right to become naturalised after five years of legal residence in the Federal Republic of Germany, provided they meet certain additional conditions.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Federal Foreign Office (Auswaertiges Amt, a German federal ministry) English page 'Law on Nationality'. Value kept identical to the seed. SOURCE URL CORRECTED: the seeded bundesregierung.de/breg-en/news/modernisation-of-citizenship-law-2059392 now redirects to a login page (cvd.bundesregierung.de/cvd-de/login), and bmi.bund.de English pages sit behind a cookie-check that the verifier cannot pass. The Federal Government's own German page https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620 confirms: 'Zukünftig gilt für alle Antragstellenden eine Mindestaufenthaltszeit von fünf Jahren'. Other conditions named on the AA page: sufficient German, naturalisation test, clean record, self-support."
+    },
+    {
+      "target": "country_fact",
+      "id": "de-dual-nationality-destination",
+      "field": "value",
+      "value": {
+        "text": "Germany generally allows dual citizenship since 27 June 2024."
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "evidence_snippet": "As of 27 June 2024, citizens of all countries who are naturalised in Germany are allowed to hold multiple citizenship.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Federal Foreign Office English page 'Law on Nationality'. Value kept identical to the seed. SOURCE URL CORRECTED (seeded bundesregierung.de English URL now redirects to a login page). The page adds: 'Applicants must find out in advance whether the laws of their country of origin also permit multiple citizenship.' (Pakistan's side is deliberately left 'Not verified yet' per product owner.)"
+    },
+    {
+      "target": "country_fact",
+      "id": "de-citizenship-update",
+      "field": "value",
+      "value": {
+        "text": "The 3-year fast-track route to German citizenship ended in October 2025."
+      },
+      "source_url": "https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620",
+      "evidence_snippet": "Die bisherige Möglichkeit einer sogenannten „Turboeinbürgerung“ nach 3 Jahren entfällt. Das Gesetz ist am 30. Oktober 2025 in Kraft getreten.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Official Federal Government page (German; English value is a direct rendering). Page dated Thursday 30 October 2025, title 'Staatsangehörigkeit frühestens nach fünf Jahren'; it also says 'Eine Einbürgerung ist frühestens nach fünf Jahren möglich.' Replaces the seed's news-report basis with an official source; value kept identical to the seed. Supporting official page: Bundestag vote record https://www.bundestag.de/parlament/plenum/abstimmung/abstimmung?id=962 ('Der Bundestag hat am Mittwoch, 8. Oktober 2025, den Gesetzentwurf der Bundesregierung ... verabschiedet'). NOTE: BAMF's English naturalisation page still describes the 3-year route - see the conflicting proposal below and conflicts_noticed."
+    },
+    {
+      "target": "country_fact",
+      "id": "de-citizenship-update",
+      "field": "value",
+      "value": {
+        "text": "Naturalisation is still possible after just 3 years of residence in Germany for applicants with special integration achievements (as stated on BAMF's English naturalisation page)."
+      },
+      "source_url": "https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung.html?nn=284310",
+      "evidence_snippet": "You have been a habitual and regular resident in Germany for the past five years. If you have demonstrated a special aptitude towards integration – e.g. If you have displayed a particularly good academic or professional performance and possess very good German language skills – naturalisation is possible after just three years of residence in Germany.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "REAL CONFLICT, recorded on purpose. The Federal Office for Migration and Refugees (BAMF) English page 'Naturalisation in Germany', live on 24 Nov 2026, still describes the 3-year route that the Federal Government says was abolished by the law in force since 30 October 2025 (bundesregierung.de proposal above; Bundestag vote 8 October 2025). The BAMF page appears not to have been updated; recommend showing the bundesregierung.de value as primary and this as a stale conflicting source. The BAMF page agrees on the 5-year baseline. Note: Node fetch of bamf.de failed once and succeeded on retry; the ?nn=284310 URL verified FOUND."
+    },
+    {
+      "target": "country_fact",
+      "id": "uk-post-study-work",
+      "field": "value",
+      "value": {
+        "text": "Graduate visa: 2 years if you apply by 31 December 2026; 18 months if you apply from 1 January 2027.",
+        "sort_months": 18,
+        "clock_note": "The length depends on the date you apply for the Graduate visa, not the date you started studying. A Masters starting in 2027 finishes after 1 January 2027, so 18 months is used for ranking."
+      },
+      "source_url": "https://www.gov.uk/graduate-visa",
+      "evidence_snippet": "A Graduate visa lasts for: 2 years if you apply on or before 31 December 2026 18 months if you apply on or after 1 January 2027",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Non-PhD graduates (the page adds 'If you have a PhD or other doctoral qualification, it will last for 3 years.'). Value kept identical to the seed (seed wording 'by'/'from' = page wording 'on or before'/'on or after'). The page also says 'Your visa will start from the day your application is approved.' The clock_note's 2027-intake reasoning is the seed's own inference, not page text."
+    },
+    {
+      "target": "country_fact",
+      "id": "uk-pr-route",
+      "field": "value",
+      "value": {
+        "text": "The Home Office earned-settlement response of 2 November 2026 raises the starting point for settlement from 5 to 10 years for most migrants.",
+        "sort_months": 120,
+        "clock_note": "Time on the Student and Graduate routes will not count towards the qualifying residence period; only time on routes that lead to settlement (for example a work route) counts. Higher earners can qualify sooner (5 years earning at least £50,271, 3 years at £125,141 or more). The start date has not been published yet."
+      },
+      "source_url": "https://www.gov.uk/government/consultations/earned-settlement/outcome/a-fairer-pathway-to-settlement-government-response-to-the-consultation",
+      "evidence_snippet": "As set out in the Immigration White Paper published in May 2025, the starting point for settlement will move to 10 years, with faster and slower paths available depending on four key principles:",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Response document 'A Fairer Pathway to Settlement: Government response to the consultation' (CP 1707, November 2026). The consultation page https://www.gov.uk/government/consultations/earned-settlement lists '2 November 2026 Government response added.' and states 'The starting point for settlement will increase from 5 to 10 years.' Basis upgraded from 'inferred' to 'verbatim' because GOV.UK states the 5 -> 10 change verbatim. VALUE TIGHTENED vs the seed: text says 'starting point' (page wording) and the placeholder clock_note is replaced with page facts (companion proposal below backs the Student/Graduate rule; earnings tiers: 'five years for higher earners (earning at least £50,271 ...)' and 'three years for the highest economic contributors (earning at least £125,141 ...)'). The seed value has no evidence, so a reviewer should REPLACE it rather than record a conflict. Transition rules: targeted only - care workers who entered/switched before the May 2025 White Paper keep 5 years if they meet £25,000 salary, sponsorship and employment requirements; below-RQF6 national-pay-scale health/education workers who arrived before May 2025 keep 5 years; pre-April 2024 Skilled Worker cohort can extend on current terms until 2035. 'They do not create a wider exemption for everyone already living in the UK.' Implementation: 'Before implementation, the government will publish further guidance' - no in-force date on the page. sort_months 120 kept (10-year default)."
+    },
+    {
+      "target": "country_fact",
+      "id": "uk-pr-route",
+      "field": "value",
+      "value": {
+        "text": "The Home Office earned-settlement response of 2 November 2026 raises the starting point for settlement from 5 to 10 years for most migrants.",
+        "sort_months": 120,
+        "clock_note": "Time on the Student and Graduate routes will not count towards the qualifying residence period; only time on routes that lead to settlement (for example a work route) counts. Higher earners can qualify sooner (5 years earning at least £50,271, 3 years at £125,141 or more). The start date has not been published yet."
+      },
+      "source_url": "https://www.gov.uk/government/consultations/earned-settlement/outcome/a-fairer-pathway-to-settlement-government-response-to-the-consultation",
+      "evidence_snippet": "Under Earned Settlement, time spent on temporary routes will not count towards the qualifying residence period for settlement. These routes were established for specific temporary purposes and were not intended to provide a pathway to permanent residence in the United Kingdom.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet for the clock_note (same value and URL as the proposal above). The page's list 'The routes that will not count towards settlement are:' includes 'Student' and 'Graduate and High Potential Individual'; it also says 'Under Earned Settlement, the Long Residence route will close.' Highly relevant for Masters students: study and Graduate-visa years no longer build towards settlement."
+    },
+    {
+      "target": "country_fact",
+      "id": "us-post-study-work",
+      "field": "value",
+      "value": {
+        "text": "Optional Practical Training (OPT): 12 months, plus a 24-month extension for eligible STEM degrees.",
+        "sort_months": 36,
+        "clock_note": "The STEM extension applies only to eligible STEM degrees and has its own employer requirements."
+      },
+      "source_url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+      "evidence_snippet": "Eligible students can apply to receive up to 12 months of OPT employment authorization before completing their academic studies (pre-completion) and/or after completing their academic studies (post-completion).",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "F-1 students. Value kept identical to the seed. The page adds: 'However, all periods of pre-completion OPT will be deducted from the available period of post-completion OPT.' The 24-month STEM extension is backed by the companion proposal below."
+    },
+    {
+      "target": "country_fact",
+      "id": "us-post-study-work",
+      "field": "value",
+      "value": {
+        "text": "Optional Practical Training (OPT): 12 months, plus a 24-month extension for eligible STEM degrees.",
+        "sort_months": 36,
+        "clock_note": "The STEM extension applies only to eligible STEM degrees and has its own employer requirements."
+      },
+      "source_url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+      "evidence_snippet": "If you have earned a degree in certain Science, Technology, Engineering and Mathematics (STEM) fields, you may apply for a 24-month extension of your post-completion OPT employment authorization if you:",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Companion snippet for the STEM extension (same value and URL as above). Conditions on the page include a degree on the STEM Designated Degree Program List and an initial grant of post-completion OPT based on the STEM degree; employer requirements are on the separate STEM OPT page."
+    },
+    {
+      "target": "conversion_rule",
+      "id": "pk-cgpa4-to-german-modified-bavarian",
+      "field": "source",
+      "value": "x = 1 + 3 × (Nmax − Nd) / (Nmax − Nmin), where x = equivalent German grade, Nmax = highest grade of the foreign grading system, Nmin = lowest passing grade of the foreign grading system, Nd = grade that shall be converted into the German grading system",
+      "source_url": "https://www.leuphana.de/en/institutions/international-center/going-abroad/opportunities-for-students/free-mover/academic-recognition-and-grade-conversion/grade-conversion.html",
+      "evidence_snippet": "Modified Bavarian Formula (MBF) Nmax - Nd x=1+3 --------------- Nmax – Nmin x = equivalent German grade Nmax = highest grade of the foreign grading system Nmin = lowest passing grade of the foreign grading system Nd = grade that shall be converted into the German grading system",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Leuphana University Lueneburg official page; the formula is printed as a text fraction (numerator 'Nmax - Nd' above 'x=1+3 ----', denominator 'Nmax – Nmin'), which the snippet reproduces line by line. Context: this page uses it to convert free-mover study-abroad grades, and rounds to the next German grade (rounding is institution-specific). Same formula in an admissions context: TUM's English application info portal https://www.tum.de/en/studies/application/application-info-portal/grade-conversion-formula-for-grades-earned-outside-germany says 'Converted grades are calculated using the “modified Bavarian formula”, as stipulated by the resolution of the Kultusministerkonferenz' (formula shown only via a calculator, not as text). University of Passau (https://www.geku.uni-passau.de/en/study/examinations/grade-conversion) states 'The highest possible grade and the lowest passing grade are taken from Anabin', supporting the seed's Nmin range caveat. nmax/nmin params unchanged."
+    }
+  ],
+  "not_found": [],
+  "conflicts_noticed": [
+    "de-citizenship-update: two official German federal sources disagree on 24 Nov 2026. bundesregierung.de (https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620) says the 'Turboeinbürgerung' after 3 years is abolished and the law entered into force on 30 October 2025 (Bundestag vote 8 October 2025 on bundestag.de). BAMF's English naturalisation page (https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung.html?nn=284310) still says 'naturalisation is possible after just three years of residence in Germany' for special integration achievements. The BAMF page looks outdated; both proposals are included with the same id and field."
+  ]
+}

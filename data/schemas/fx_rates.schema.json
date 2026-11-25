@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MastersPath exchange rates seed",
+  "description": "Matches src/lib/types.ts (FxRate). PKR per 1 unit of currency, from a dated official source (e.g. State Bank of Pakistan) with a verbatim snippet.",
+  "type": "object",
+  "required": [
+    "version",
+    "fx_rates"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fx_rates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fx_rate"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "description": "Stable id: lowercase letters, digits and hyphens.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 80
+    },
+    "currency": {
+      "description": "ISO-4217 currency code, e.g. EUR.",
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "httpsUrl": {
+      "description": "An https URL of an official page, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
+    "snippet": {
+      "description": "Text copied word-for-word from the official page (12-600 characters, plain text, no HTML). Null when there is no verbatim quote yet.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 12,
+      "maxLength": 600
+    },
+    "isoDateOrTimestamp": {
+      "description": "ISO date (YYYY-MM-DD) or full ISO timestamp, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:\\d{2})?)?$"
+    },
+    "plainText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "basis": {
+      "description": "How the value relates to its source: 'verbatim' (default when a snippet exists), 'summary' or 'inferred' (both at most Likely).",
+      "enum": [
+        "verbatim",
+        "summary",
+        "inferred"
+      ]
+    },
+    "factBase": {
+      "description": "Evidence fields shared by every fact. Confidence is COMPUTED in code (src/lib/confidence.ts) and never stored as truth.",
+      "type": "object",
+      "required": [
+        "value",
+        "source_url",
+        "evidence_snippet",
+        "fetched_at"
+      ],
+      "properties": {
+        "source_url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "evidence_snippet": {
+          "$ref": "#/$defs/snippet"
+        },
+        "fetched_at": {
+          "$ref": "#/$defs/isoDateOrTimestamp"
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        },
+        "note": {
+          "$ref": "#/$defs/plainText"
+        },
+        "confidence": {
+          "description": "Deprecated and ignored: confidence is computed in code. The validator rejects a hand-written \"Verified\" that lacks source_url or evidence_snippet.",
+          "enum": [
+            "Verified",
+            "Likely",
+            "Unverified",
+            "Conflict"
+          ]
+        },
+        "review_note": {
+          "description": "Internal reviewer note (provenance, caveats for maintainers). Never shown to students.",
+          "$ref": "#/$defs/plainText"
+        }
+      }
+    },
+    "value_pkr_rate": {
+      "description": "PKR per 1 unit of the currency.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0
+    },
+    "sourced_pkr_rate": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_pkr_rate"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_pkr_rate": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_pkr_rate"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_pkr_rate"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fx_rate": {
+      "type": "object",
+      "required": [
+        "id",
+        "currency",
+        "pkr_per_unit"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "currency": {
+          "$ref": "#/$defs/currency"
+        },
+        "pkr_per_unit": {
+          "$ref": "#/$defs/fact_pkr_rate"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

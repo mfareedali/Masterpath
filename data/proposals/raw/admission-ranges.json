@@ -1,0 +1,256 @@
+{
+  "area": "admission-ranges",
+  "generated_at": "2026-11-24",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "conditional_admission",
+      "value": {
+        "scale": "cgpa_4",
+        "min": null,
+        "text": "GPA below 3.0: if admitted at all, expect provisional admission. GPA below 2.75: if admitted, the Graduate School requires provisional admission. No lower floor is stated."
+      },
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "Students with an average GPA below 3.0, if admitted at all, should expect to be admitted provisionally. If a student with a GPA below 2.75 is admitted, then the Graduate School requires provisional admission.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Same paragraph also says: 'Students with an average below 3.0 but above 2.75 will be considered on an individual basis' and 'Students who recently earned an undergraduate degree with a GPA below 3.00 will be required to take the GRE (Graduate Record Examination) before they can be considered for admission. A score of 148 (new grading scale) on the quantitative portion is considered favorable.' So a 2.5/4 applicant needs the GRE and, if admitted, is admitted provisionally. The page does not say what provisional status requires after enrolment. Not a promise of admission."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "conditional_admission",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 2.5,
+        "text": "Undergraduate GPA 2.5 to 2.84: at the director's discretion, may be given the chance to qualify for full matriculation by earning a GPA of 3.0 or higher in the first four graduate courses. May also have to take parts of the GRE."
+      },
+      "source_url": "https://catalog.nyit.edu/engineering/computer_science_ms/",
+      "evidence_snippet": "Applicants who do not qualify for full matriculation and have an undergraduate GPA between 2.5 and 2.84 may, at the discretion of the director, be given the opportunity to demonstrate qualifications for full matriculation by achieving a GPA of 3.0 or higher in the first four graduate courses.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Source is the official New York Tech Catalog 2026-2027 (catalog.nyit.edu). Same catalog entry continues: 'such students may be required to take one or more parts of the GRE' and 'students in this category will not be permitted to continue in the program for more than two semesters unless they have qualified for fully matriculated status'. It also says 'Students of foreign universities with a CGPA of 2.7 (on a 4.0 scale) would automatically be denied a GRE waiver', so a Pakistani 2.5 applicant should plan on the GRE. The program admission page (https://www.nyit.edu/academics/degrees/computer-science-ms/admission-requirements/) words it as: 'Minimum undergraduate GPA of 2.85 for full matriculation. If you do not satisfy this criterion, you may be admitted at the dean's discretion.' Discretionary, not guaranteed. GPA may be judged on a NACES credential evaluation rather than the raw Pakistani CGPA."
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "conditional_admission",
+      "value": {
+        "scale": "cgpa_4",
+        "min": null,
+        "text": "An applicant who misses one or more admission requirements (such as the 3.0 GPA in the last two years) may qualify for limited status admission, but only with support from the academic program and approval from the Graduate College."
+      },
+      "source_url": "https://grad.illinois.edu/admissions/graduate-admissions-minimum-requirements",
+      "evidence_snippet": "A student who does not meet one or more of the admission requirements: may qualify for limited status admission with support from the academic program and approval from the Graduate College.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Graduate College (university-wide) rule; the Siebel School MS pages checked publish no separate limited-status policy for the MS CS, and the department must support it. Same page: the 3.0 minimum is 'for last two years of undergraduate study', so a student with a 2.5 cumulative CGPA but stronger final two years should check that GPA. No floor GPA is stated for limited status. Not a promise of admission."
+    },
+    {
+      "target": "program",
+      "id": "usf-mscs",
+      "field": "conditional_admission",
+      "value": {
+        "scale": "cgpa_4",
+        "min": null,
+        "text": "Below the 3.00 GPA minimum: exceptions are possible case by case, at the admissions committee's discretion, if the student has above a 3.00 GPA in upper-level coursework or has earned a 3.00 GPA or higher in non-degree-seeking courses taken after graduation."
+      },
+      "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/pathway-faqs.aspx",
+      "evidence_snippet": "The University of South Florida requires that students have a 3.00 GPA or higher to be admitted. However, we are able to make exceptions on a case-by-case basis: The student has above a 3.00 GPA in their upper-level coursework. The student has taken non degree-seeking courses after graduation and received a 3.00 GPA or higher. These exceptions are at the discretion of the admissions committee.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "REVIEWER: this answer is in the 'Admission FAQs' of the Bellini College 'Pathway Programs FAQs' page (Pathway to Computing graduate certificate, which gives priority admission into the MSCS). The page does not say whether the same exceptions apply to direct MSCS applicants or to international (F-1) applicants. The MSCS program page itself publishes no exception rule. Consider showing only as 'may be considered' text, never as a GPA threshold."
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "conditional_admission",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 1.0,
+        "text": "Below the 2:2 equivalent (60% or GPA 2.7) for direct entry: you may still be able to apply for a Brookes pre-master's course; the Pakistan pass-grade requirement for a pre-master's course is 40% or GPA 1.0."
+      },
+      "source_url": "https://www.brookes.ac.uk/study/international-students/your-country/pakistan/entry-requirements",
+      "evidence_snippet": "If you do not meet our minimum requirements you may still be able to apply for one of our pre-master’s courses. Equivalencies Bachelor degree requirement Equivalent grading 2:1 (for direct entry) 65% or GP 3.0 2:2 (for direct entry) 60% or GPA 2.7 Pass grade (for a pre-master’s course) 40% or GPA 1.0",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "REVIEWER: this is a route into a SEPARATE pre-master's course, not conditional entry to the MSc Advanced Computer Science itself. The page does not name which pre-master's course leads to this MSc or state the progression mark. The page does not state the GPA scale (assumed /4.0). Brookes has extra compliance measures for Pakistan applicants (see brookes-msc-cs status_note)."
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "conditional_admission",
+      "value": {
+        "scale": "german",
+        "min": 4.0,
+        "text": "German grade worse than 2.5: may be invited to an oral aptitude test. Required test grade by bachelor grade: 2.6-3.0 needs 4.0 (no test if the degree was finished in the standard length); 3.1-3.5 needs 3.0 (3.5 if standard length); 3.6-4.0 needs 2.0 (2.5 if standard length)."
+      },
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "evidence_snippet": "If your first degree was completed in the standard length of programme you will also receive a grade bonus of 0.5. Grade of Bachelor's degree Required grade in the aptitude test Required grade if Bachelor's degree in standard length of programme 2.6 - 3.0 4.0 No aptitude test required 3.1 - 3.5 3.0 3.5 3.6 - 4.0 2.0 2.5",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "German scale, lower is better; min 4.0 = the table covers every passing bachelor grade up to 4.0. Same page: 'If you fulfil these requirements but with a grade worse than 2.5 you can be invited to an oral aptitude test for admittance' (30-minute oral test on theoretical, practical and technical computer science; may switch to a written exam if many tests are needed). The Pakistani CGPA must first be converted to the German scale (modified Bavarian formula, a conversion rule in code, not on this page). 'Can be invited' is not a guarantee."
+    },
+    {
+      "target": "program",
+      "id": "brookes-msc-cs",
+      "field": "min_gpa_percent",
+      "value": {
+        "scale": "percent",
+        "min": 60,
+        "text": "Pakistan four-year bachelor's: 2:2 (direct entry) = 60% or GPA 2.7; 2:1 (direct entry) = 65% or GPA 3.0."
+      },
+      "source_url": "https://www.brookes.ac.uk/study/international-students/your-country/pakistan/entry-requirements",
+      "evidence_snippet": "Bachelor degree requirement Equivalent grading 2:1 (for direct entry) 65% or GP 3.0 2:2 (for direct entry) 60% or GPA 2.7",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "The MSc Advanced Computer Science asks for a 2:2 in a computer-related subject, so the 2:2 row (60%) applies. Page shows 'GP 3.0' for the 2:1 row (likely a typo for GPA). Same table: pre-master's pass grade 40% or GPA 1.0."
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "min_gpa_percent",
+      "value": {
+        "scale": "percent",
+        "min": 75,
+        "text": "Imperial's Pakistan minimum for postgraduate study: four-year bachelor's (awarded 2016 onwards) from a prestigious HEC-funded university with a final overall mark of 75% or better; selectors may demand a higher mark from some institutions."
+      },
+      "source_url": "https://www.imperial.ac.uk/study/apply/postgraduate-taught/entry-requirements/accepted-qualifications/",
+      "evidence_snippet": "Degrees should have been awarded with a final overall mark of 75% or better. Selectors may demand a higher mark from some institutions.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "University-wide floor for Pakistan, not the course standard. MSc Computing is a CONVERSION course: the course page says 'Minimum entry standard First-Class degree in a subject without substantial Computing content', so a Pakistani BS Computer Science graduate is outside its target group (see eligibility_note). Degrees awarded up to 2015 normally also need a Master's."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "min_gpa_percent",
+      "value": {
+        "scale": "percent",
+        "min": 70.75,
+        "text": "MScAC needs at least a B+ standing in the final year (two terms). U of T's Pakistan equivalent of B+ is 3.10 or 70.75% (mid-B is 2.80 or 67.5%)."
+      },
+      "source_url": "https://www.sgs.utoronto.ca/future-students/admission-application-requirements/international-credentials-equivalencies/",
+      "evidence_snippet": "Pakistan Mid-B GPA 2.80 or 67.5% A Minus GPA 3.40 or 75% B Plus GPA 3.10 or 70.75%",
+      "fetched_at": "2026-11-24",
+      "basis": "inferred",
+      "notes": "Two official pages combined (hence 'inferred'): MScAC apply page https://mscac.utoronto.ca/apply/ says 'A standing equivalent to at least B+ (U of T 77-79%) in their final year (i.e., two terms) of study in the undergraduate degree' and points to the SGS International Credentials Equivalencies Tool; the SGS tool's Pakistan row gives B+ = 3.10 or 70.75%. FINAL-YEAR average, not cumulative CGPA. Same row: bachelor's must require 4 years of study. The same row also gives a cgpa_4 equivalent (3.10) if the team wants a min_gpa_rule."
+    },
+    {
+      "target": "program",
+      "id": "imperial-msc-computing",
+      "field": "language_waiver",
+      "value": "No waiver for a Pakistani degree: Imperial exempts only applicants who completed a qualification equivalent to a UK degree in Australia, Canada, Guyana, Ireland, Malta, New Zealand, South Africa, the United Kingdom, the USA or the West Indies.",
+      "source_url": "https://www.imperial.ac.uk/study/apply/english-language/english-language-exemption/",
+      "evidence_snippet": "You do not need to prove your knowledge of English as part of your application if you’ve completed a qualification equivalent to a UK degree in one of the following countries: Australia Canada Guyana Ireland Malta New Zealand South Africa United Kingdom United States of America West Indies",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Pakistan is not on the list, and the page names no medium-of-instruction route. Other exemptions on the page are medical-registration only."
+    },
+    {
+      "target": "program",
+      "id": "uiuc-mscs",
+      "field": "language_waiver",
+      "value": "No exemption for a Pakistani degree: exemptions apply only to a degree, two years of study or two years of work in the U.S. or an approved English-primary country, and Pakistan is not on the approved list.",
+      "source_url": "https://grad.illinois.edu/admissions/international-applicants",
+      "evidence_snippet": "Illinois Graduate Admissions recognizes the following countries as having English as the primary language: Australia, Bahamas, Barbados, Belize, Bermuda, Canada, Dominica, Fiji, Gambia, Ghana, Grenada, Guyana, Ireland, Jamaica, Kenya, Lesotho, Malawi, New Zealand, Nigeria, Philippines, Scotland",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "The list is alphabetical and goes from Nigeria to Philippines, so Pakistan is not on it. Same page: exempt if 'Received a post-secondary degree from a U.S. institution (or an institution within an approved country) within five years of the proposed admission term', or two years of study or of professional work in the U.S. or an approved country within five years. No medium-of-instruction route is listed."
+    },
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "language_waiver",
+      "value": "No waiver for a Pakistani education: New York Tech waives the test only for students who live or were educated in its listed countries, and Pakistan is not on the list.",
+      "source_url": "https://www.nyit.edu/admissions/international/",
+      "evidence_snippet": "New York Tech requires that all international students show English proficiency by providing TOEFL, IELTS, PTE, or Duolingo test scores when they apply. This requirement is waived for students who live or were educated in one of the following countries:",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "The full list on the same page runs '... Malawi, Marshall Islands, Mauritius, New Zealand, Nigeria, Papua New Guinea, Sierra Leone, Singapore ...' (alphabetical; Pakistan absent). The list is too long to quote whole within 400 characters. No medium-of-instruction route is mentioned."
+    },
+    {
+      "target": "program",
+      "id": "cmu-mscs",
+      "field": "language_waiver",
+      "value": "No waivers: study at an English-language school, college or university outside the US does not waive the test, and medium-of-instruction (MOI) certificates are not accepted.",
+      "source_url": "https://www.cs.cmu.edu/education/graduate-admissions",
+      "evidence_snippet": "We also do not issue waivers based on previous study at an English-language high school, college or university outside of the United States. No amount of educational experience in English, regardless of the country it occurred in, will result in a test waiver.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Same page: 'Medium of Instruction (MOI) certificates are not accepted as a substitute for an English proficiency test.' Also time-sensitive: 'we highly recommend that you take the exam no later than November 25, 2026' because scores take about two weeks and the deadline is 9 December 2026."
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "language_waiver",
+      "value": "Waiver only if the student has completed a degree in the US; no waiver for a Pakistani degree or medium-of-instruction letter is stated.",
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "A TOEFL score of 80 of higher, an ILETS of 6.5 or higher, or a Duolingo exam score of 115 will be required for proof of English Proficiency. If the student has completed a degree in the US, this requirement may be waived.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Snippet keeps the page's typos ('80 of higher', 'ILETS'). The same page also waives GRE and English for 'Streamlined Applicants' (previous UCCS students only). The UCCS undergraduate exempt-country list does not apply to graduate applicants; that page sends graduate applicants to their department's rules."
+    },
+    {
+      "target": "program",
+      "id": "utoronto-mscac",
+      "field": "language_waiver",
+      "value": "May be exempt if the undergraduate degree was earned at a university where instruction and examination were uniformly in English; a letter from the home university confirming this may still be required.",
+      "source_url": "https://mscac.utoronto.ca/apply/",
+      "evidence_snippet": "If the undergraduate degree was earned at a university where the language of instruction and examination was uniformly English, an applicant may be exempt. However, a letter confirming the language of instruction and examination may still be required and must be provided by the applicant’s home institution.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Relevant to Pakistani universities that teach and examine fully in English. 'May be exempt' is discretionary. If a degree was split between two institutions and one was not uniformly English, scores are required. Same page FAQ: an ELP sub-score below the minimum does not automatically rule an applicant out (reviewed case by case)."
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "language_waiver",
+      "value": "English can be proven by the language of instruction: a bachelor's taught in English for at least 50% of the program, shown on the transcript or degree certificate, or by an official confirmation from the university if the documents do not state it.",
+      "source_url": "https://www.tum.de/en/studies/application/application-info-portal/admission-requirements/language-certificates",
+      "evidence_snippet": "if the language of instruction in a Bachelor’s or Master’s degree program was English – by submitting your transcript of records or your degree certificate as evidence. The language of instruction needs to have been English in at least 50% of the program. If the language of instruction is not stated in these documents, you can submit an official confirmation issued by your prior university.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "REVIEWER: this is TUM's central language page, not the Informatics page. The same page says alternative proofs depend on each program's Academic and Examination Regulations (FPSO) and links a 'Collective Amendment concerning the proof of English language proficiency' (PDF, not read). Confirm the Informatics FPSO allows it before showing it as a rule for this program."
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "language_waiver",
+      "value": "Exempt only if the whole bachelor's programme was taught completely in English, officially confirmed by the university's central administration (e.g. Registrar's Office) with official stamp and signature; letters from teachers or professors are not accepted.",
+      "source_url": "https://ethz.ch/en/studies/master/application/language-requirements.html",
+      "evidence_snippet": "Applicants who complete a Bachelor’s degree programme completely taught in English. The language of instruction must be officially confirmed by the university. No confirmations are required for Bachelor's degrees from Australia, Ireland, New Zealand, the United Kingdom and the United States.",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Important warning on the same page: 'Confirmations on the language of instruction which do not fulfill the exemption reasons will lead to a direct rejection of the application, since it is not possible to submit a language certificate after the application deadline.' ETH recommends taking a test if English was not the only language of instruction. Transcripts can serve as the confirmation only if they explicitly name English as the only teaching language of the entire programme."
+    },
+    {
+      "target": "program",
+      "id": "wuerzburg-msc-cs",
+      "field": "language_waiver",
+      "value": "A medium-of-instruction certificate proving the bachelor's programme was taught entirely in English (or German) is accepted instead of an English C1 or German B2 certificate.",
+      "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "evidence_snippet": "Either German B2 or English C1 language proficiency (alternative a medium of instruction certificate that proves that your Bachelor's degree programme was entirely taught in English or German)",
+      "fetched_at": "2026-11-24",
+      "basis": "verbatim",
+      "notes": "Same rule already sits in language_req.waiver; proposed here for the new language_waiver field. The required-documents list on the same page repeats it: 'B2 German or C1 English proficiency certificate (e.g. IELTS or a proof of English/German as a medium of instruction in your Bachelor's degree)'."
+    }
+  ],
+  "not_found": [
+    { "id": "cmu-mscs", "field": "conditional_admission", "reason": "CSD/SCS admissions pages publish no minimum GPA and no conditional, provisional or limited-status route." },
+    { "id": "utoronto-mscac", "field": "conditional_admission", "reason": "MScAC apply page states a B+ final-year standing with no conditional or provisional route below it. Its only case-by-case statement is about an English test sub-score below the minimum." },
+    { "id": "imperial-msc-computing", "field": "conditional_admission", "reason": "Course page sets a First-Class minimum (non-computing subject) with no conditional route; university Pakistan entry gives a 75% floor only." },
+    { "id": "qmul-premasters-cs", "field": "conditional_admission", "reason": "The Pre-Masters is itself the route for students below Masters entry. Its Pakistan entry (https://www.qmul.ac.uk/international-students/regions/south-asia/entry-requirements/pakistan/) only says 'Bachelor degree (minimum 4 years) awarded from selected institutions'; no GPA or conditional rule." },
+    { "id": "tum-msc-informatics", "field": "conditional_admission", "reason": "CIT page says the committee decides whether an application is 'admitted, rejected or processed to the second stage of the aptitude assessment' (a written test), but the point/grade thresholds are only in the FPSO PDF (PDFs out of scope). No GPA-based conditional rule in HTML." },
+    { "id": "ethz-msc-cs", "field": "conditional_admission", "reason": "No GPA-based conditional or provisional admission published; ETH admission is holistic (see existing min_gpa_rule not_found)." },
+    { "id": "qmul-premasters-cs", "field": "min_gpa_percent", "reason": "QMUL Pakistan page gives no percentages. Pre-Masters entry: 'Bachelor degree (minimum 4 years) awarded from selected institutions.' For direct postgraduate taught entry it gives only CGPA ranges: 'UK 2:1 degree: GPA 2.6 to 3.6 out of 4.0', 'UK 2:2 degree: GPA 2.0 to 3.0 out of 4.0' ('Offer conditions will vary depending on the institution')." },
+    { "id": "cardiff-msc-cs", "field": "min_gpa_percent", "reason": "cardiff.ac.uk returns HTTP 403 (Cloudflare bot challenge) to the honest evidence checker; bot wall respected, not researched." },
+    { "id": "brookes-msc-cs", "field": "language_waiver", "reason": "Pakistan entry-requirements page lists IELTS or pre-sessional English and says 'Equivalent academic qualifications can be accepted and we are happy to consider applicants on a case by case basis'. The Brookes English-requirements country list has no Pakistan entry and no medium-of-instruction route." },
+    { "id": "qmul-premasters-cs", "field": "language_waiver", "reason": "QMUL Pre-Masters English page (Band 2: IELTS 5.5 with 5.5 in each skill) and the accepted-tests page list no Pakistan or medium-of-instruction waiver. A QMUL policy PDF mentions Pakistan for distance-learning courses only (PDFs out of scope)." },
+    { "id": "cardiff-msc-cs", "field": "language_waiver", "reason": "cardiff.ac.uk blocked by a Cloudflare bot challenge (HTTP 403); not researched." },
+    { "id": "usf-mscs", "field": "language_waiver", "reason": "usf.edu international graduate page (https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx) lists English-speaking countries (Pakistan not among them) and says 'The TOEFL/IELTS requirement may be waived if you have successfully met another requirement showing proof of English proficiency. These alternate requirements are outlined in the USF academic catalog.' The 2026-2027 Graduate Catalog admissions page (https://catalog.usf.edu/content.php?catoid=28&navoid=5297) answers automated requests with an AWS WAF bot challenge (HTTP 202, x-amzn-waf-action: challenge), so it was not read (bot wall respected; robots.txt crawl-delay 120 also honoured). Search-engine excerpts of OLDER USF catalogs mention a foreign-degree medium-of-instruction route documented by an official Certificate of Medium of Instruction, but this could not be verified for 2026-27. A human should check the current catalog in a browser; it may be a real waiver route for Pakistani applicants." },
+    { "id": "csudh-mscs", "field": "conditional_admission", "reason": "Skipped per instructions (site blocks bots via robots.txt)." },
+    { "id": "ljmu-msc-cs", "field": "conditional_admission", "reason": "Skipped per instructions (site blocks bots via robots.txt)." }
+  ]
+}

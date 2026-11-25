@@ -1,0 +1,2694 @@
+{
+  "$schema": "./schemas/programs.schema.json",
+  "version": 1,
+  "institutions": [
+    {
+      "id": "tum",
+      "name": "Technical University of Munich",
+      "country": "DE",
+      "kind": "destination",
+      "website": "https://www.tum.de",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "ethz",
+      "name": "ETH Zurich",
+      "country": "CH",
+      "kind": "destination",
+      "website": "https://ethz.ch",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "uni-wuerzburg",
+      "name": "Julius-Maximilians-Universität Würzburg",
+      "country": "DE",
+      "kind": "destination",
+      "website": "https://www.uni-wuerzburg.de",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "imperial",
+      "name": "Imperial College London",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.imperial.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "cardiff",
+      "name": "Cardiff University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.cardiff.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "oxford-brookes",
+      "name": "Oxford Brookes University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.brookes.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "qmul",
+      "name": "Queen Mary University of London",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.qmul.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "utoronto",
+      "name": "University of Toronto",
+      "country": "CA",
+      "kind": "destination",
+      "website": "https://www.utoronto.ca",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "cmu",
+      "name": "Carnegie Mellon University",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.cmu.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "uiuc",
+      "name": "University of Illinois Urbana-Champaign",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://illinois.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "csudh",
+      "name": "California State University, Dominguez Hills",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.csudh.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "nyit",
+      "name": "New York Institute of Technology",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.nyit.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "usf",
+      "name": "University of South Florida",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.usf.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "uccs",
+      "name": "University of Colorado Colorado Springs",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.uccs.edu",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "ljmu",
+      "name": "Liverpool John Moores University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.ljmu.ac.uk",
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": null
+    },
+    {
+      "id": "demo-private-university",
+      "name": "Demo Private University (fictional, for the demo persona)",
+      "country": "PK",
+      "kind": "home",
+      "website": null,
+      "hec_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "pqr_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "anabin_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "recognition_list_status": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "notes": "Fictional institution used only by the demo persona. Not a real university."
+    }
+  ],
+  "programs": [
+    {
+      "id": "tum-msc-informatics",
+      "institution_id": "tum",
+      "name": "MSc Informatics",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": "Summer or Winter semester",
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+        "evidence_snippet": "Start of Degree Program: Summer or Winter semester Language of Instruction: English",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Same page lists lecture start 'Winter semester: October' and 'Summer semester: April'. Target intake for current applicants: winter semester 2027/28."
+      },
+      "deadline": {
+        "value": "2027-05-31",
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+        "evidence_snippet": "For the winter semester: February 1 – March 31: recommended application deadline for applicants who need a visa February 1 – May 31: compulsory application deadline",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Winter semester 2027/28 intake. Page gives dates without a year; 31 May is the next occurrence of the compulsory deadline (2027). Pakistani applicants need a visa, so TUM RECOMMENDS applying by 31 March 2027. Summer semester window: 1 October - 30 November. Apply via TUMonline; uni-assist VPD required for non-German bachelor's.",
+        "basis": "inferred",
+        "note": "For the winter semester. Applications open 1 February. Applicants who need a visa are recommended to apply by 31 March."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": 24,
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+        "evidence_snippet": "Standard Duration of Studies: 4 semesters Credits: 120 ECTS",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. 4 semesters = 24 months (standard duration)."
+      },
+      "scholarship_info": {
+        "value": "TUM scholarship for international students: a one-time study grant of 500 to 1,800 euros per semester. Both academic performance and financial circumstances are considered in selection, and you can apply again each semester.",
+        "source_url": "https://www.tum.de/en/studies/fees/tuition",
+        "evidence_snippet": "TUM scholarship for international students TUM supports international students through scholarships. Both academic performance and financial circumstances are taken into account during the selection process. You can receive a one-time study grant of 500 to 1,800 euros per semester. Applications can be submitted again each semester.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. On TUM's 'Tuition Fees for Students from Non-EU Countries' page. The grant is per semester and much smaller than the tuition fee (6,000 EUR/semester now; 4,600 or 6,800 EUR from WS 2027/28). The page does not say when or by whom it can be applied for (appears to be for enrolled students); the Informatics programme page adds 'Many international students can have their fees waived or receive scholarships to finance them.'"
+      },
+      "sop_requirements": {
+        "value": "Statement of reasons in English, no longer than two DIN-A4 pages.",
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+        "evidence_snippet": "The statement of reasons, submitted along with the online application, should not be longer than two DIN-A4 pages and must be written in English.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Essay requirement on the same page: 'The scientific essay / paper, submitted along with the online application, should be approximately 1,000 words in length and must be written in English.' Stage 2 may be a 90-minute written test."
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE (General) required for applicants with a degree from Pakistan. Minimum scores: Quantitative reasoning 164, Analytical writing 4.0 (Verbal reasoning is not taken into account). Lower scores are not accepted.",
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+        "evidence_snippet": "Applicants with a Degree from Bangladesh, China, India, Iran or Pakistan have to submit a GRE (General) Test. We have defined required minimum scores, lower scores will not be accepted! The required scores are: Verbal reasoning: (will not be taken into account anymore) Quantitative reasoning: 164 Analytical writing: 4.0",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Applies to applicants whose B.Sc. is from Pakistan. Same page: 'Alternatively, students can submit a scorecard of the Indian GATE test (Computer Science...)'. GRE institution code 7806, department 5199."
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "ethz-msc-cs",
+      "institution_id": "ethz",
+      "name": "MSc Computer Science",
+      "country": "CH",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2026-11-30",
+        "source_url": "https://www.lehrbetrieb.ethz.ch/eApply/",
+        "evidence_snippet": "The application period for Master's degree programmes lasts from 1 November 2026 00:00 to 30 November 2026 12:00 CET \"(noon)\". Late applications are not possible.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. For Master's starting autumn semester 2027 (eApply portal). Closes at NOON CET on 30 Nov 2026 - only 6 days after this research date. ETH-wide Master's window; per ETH CS brochure (PDF, not used) the April window is only for Swiss bachelor's holders, so the November window is the one for Pakistani applicants. eApply URL redirects to a session login page; the text is in the raw HTML.",
+        "note": "Applications close at 12:00 noon CET on 30 November 2026. Late applications are not possible."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": null,
+          "toefl_ibt": null,
+          "waiver": null,
+          "text": "English, Level C1; proof of proficiency required by the application deadline (see ETH Language requirements)."
+        },
+        "source_url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+        "evidence_snippet": "English, proof of proficiency required by the application deadline: Level C1, see Language requirements",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. No numeric IELTS/TOEFL minimum in the raw HTML (score list on https://ethz.ch/en/studies/master/application/language-requirements.html is not in the static text). Exemption on that page (human reviewer may add as waiver): 'Applicants who complete a Bachelor’s degree programme completely taught in English. The language of instruction must be officially confirmed by the university.' Certificates (TOEFL, IELTS, CAE) must be no more than two years old."
+      },
+      "tuition": {
+        "value": {
+          "amount": 2190,
+          "currency": "CHF",
+          "period": "semester"
+        },
+        "source_url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+        "evidence_snippet": "Threefold tuition fee: CHF 2190 / semester All students who do not fulfil the criteria for simple tuition fee will be assigned to the second group paying a threefold tuition fee.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Applies since autumn semester 2025 to students who are not Swiss/Liechtenstein citizens and were not resident in CH/LI when they obtained their university entrance qualification, i.e. typical Pakistani applicants (ETH checks the group during admission). Simple fee is CHF 730/semester. Tuition only; semester fees are extra. Section marked 'updated 19.11.2025'. CONFLICT: see the CHF 804 proposal from https://ethz.ch/en/studies/financial.html."
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": 24,
+        "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+        "evidence_snippet": "Credits | duration 120 ECTS | 2 years",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. 2 years = 24 months."
+      },
+      "scholarship_info": {
+        "value": "Excellence Scholarship & Opportunity Programme (ESOP): scholarship, mentorship and a network of the ETH Foundation; it covers the full study and living costs during the Master's. Apply in the application window 1 to 30 November 2026 (closes 11.59h MEZ/CET) for a start in autumn semester 2027 (HS27).",
+        "source_url": "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html",
+        "evidence_snippet": "The Excellence Scholarship & Opportunity Programme (ESOP) supports students with a scholarship, mentorship and a network of the ETH Foundation. The scholarship covers the full study and living costs during the Master’s degree course. The next application window is open Nov, 1 - Nov, 30 2026, 11.59h, MEZ for a start in the Master programme in HS27.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Same page: ESOP is applied for through eApply (the Master application) and only within the first application window; criteria include 'Very good result in Bachelor's degree programme (top 10% ... = grade A; self-assessment)', a Master's thesis pre-proposal and two professor reference letters; value 'CHF 12'000 per semester, from HS27 onwards 13'500 CHF' plus a tuition fee waiver, for the regular programme length; 'approximately 60 ESOP scholarships' for 2027/28, decision end of March. Not eligible if already enrolled in an ETH Master's or holding a Master's degree. URGENT: the window closes 30 Nov 2026 (6 days after research date). '11.59h' is read as 11:59 (one minute before the noon close in eApply); a student-facing note should tell students to finish before noon CET. [Verifier note: FOUND on 2026-11-24; one later full-file run got a transient 'fetch failed' for ethz.ch, and an immediate rerun printed FOUND.]"
+      },
+      "sop_requirements": {
+        "value": "Motivation letter of approximately one A4 page in English stating motivation for choosing this specific Master's programme at ETH Zurich.",
+        "source_url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+        "evidence_snippet": "Approximately one A4 page in the language of instruction of the chosen programme, stating your motivation for choosing this specific Master's degree programme at ETH Zurich.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Language of instruction is English."
+      },
+      "lor_count": {
+        "value": 2,
+        "source_url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+        "evidence_snippet": "Two recommendation letters in English. We strongly prefer letters from academia, or from referees with an academic background.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Applies to applicants with a non-ETH bachelor's degree."
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": "Exempt only if the whole bachelor's programme was taught completely in English, officially confirmed by the university's central administration (e.g. Registrar's Office) with official stamp and signature; letters from teachers or professors are not accepted.",
+        "source_url": "https://ethz.ch/en/studies/master/application/language-requirements.html",
+        "evidence_snippet": "Applicants who complete a Bachelor’s degree programme completely taught in English. The language of instruction must be officially confirmed by the university. No confirmations are required for Bachelor's degrees from Australia, Ireland, New Zealand, the United Kingdom and the United States.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Important warning on the same page: 'Confirmations on the language of instruction which do not fulfill the exemption reasons will lead to a direct rejection of the application, since it is not possible to submit a language certificate after the application deadline.' ETH recommends taking a test if English was not the only language of instruction. Transcripts can serve as the confirmation only if they explicitly name English as the only teaching language of the entire programme."
+      }
+    },
+    {
+      "id": "wuerzburg-msc-cs",
+      "institution_id": "uni-wuerzburg",
+      "name": "MSc Computer Science",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2027-03-15",
+        "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+        "evidence_snippet": "The application deadline for the winter semester is from the end of January to March 15",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Winter semester 2027/28. Page gives no year; 15 March is the next occurrence (2027). Programme page also shows 'application deadline winter semester: 15.3.' Summer semester: end of August to 31 October. Non-German bachelor's holders need a uni-assist VPD issued for Würzburg, so start early.",
+        "basis": "inferred",
+        "note": "For the winter semester. The application window runs from the end of January to 15 March."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": null,
+          "toefl_ibt": null,
+          "waiver": "Medium of instruction certificate proving the Bachelor's degree programme was entirely taught in English or German",
+          "text": "Either German B2 or English C1 language proficiency"
+        },
+        "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+        "evidence_snippet": "Either German B2 or English C1 language proficiency (alternative a medium of instruction certificate that proves that your Bachelor's degree programme was entirely taught in English or German)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. No numeric IELTS/TOEFL score stated; page mentions IELTS only as an example of a C1 certificate."
+      },
+      "tuition": {
+        "value": {
+          "amount": 0,
+          "currency": "EUR",
+          "period": "semester"
+        },
+        "source_url": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/degree-programmes/before-arrival/costs-and-financing",
+        "evidence_snippet": "There are no tuition fees at the University of Würzburg. But you have to pay the semester contribution each semester for enrolment or re-enrolment.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. University-wide statement on the page for international degree-seeking students (no nationality restriction stated). The semester contribution (student contribution + semester ticket) is still payable each semester; the amount is not on this page (it points to the Unit for Student Affairs).",
+        "note": "No tuition fees, but a semester contribution is due each semester. Its amount is not verified yet."
+      },
+      "living_cost": {
+        "value": {
+          "amount": 1000,
+          "currency": "EUR",
+          "period": "month"
+        },
+        "source_url": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/degree-programmes/before-arrival/costs-and-financing",
+        "evidence_snippet": "Of course this also depends strongly on the individual life style, but you should expect monthly costs of about €1000.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Breakdown on the same page: Eating €275, Living €375, Health Insurance €110, Other €222 (plus broadcasting fee). This is a university estimate, not the German student-visa blocked-account amount."
+      },
+      "duration_months": {
+        "value": 24,
+        "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+        "evidence_snippet": "Standard length of programme: 4 semester (120 ECTS)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. 4 semesters = 24 months."
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": "master.informatik@uni-wuerzburg.de",
+        "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+        "evidence_snippet": "Please direct any questions regarding your application or any additional documents after the deadline to master.informatik@uni-wuerzburg.de.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Departmental contact for CS MSc applications."
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": {
+          "scale": "german",
+          "min": 4,
+          "text": "German grade worse than 2.5: may be invited to an oral aptitude test. Required test grade by bachelor grade: 2.6-3.0 needs 4.0 (no test if the degree was finished in the standard length); 3.1-3.5 needs 3.0 (3.5 if standard length); 3.6-4.0 needs 2.0 (2.5 if standard length)."
+        },
+        "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+        "evidence_snippet": "If your first degree was completed in the standard length of programme you will also receive a grade bonus of 0.5. Grade of Bachelor's degree Required grade in the aptitude test Required grade if Bachelor's degree in standard length of programme 2.6 - 3.0 4.0 No aptitude test required 3.1 - 3.5 3.0 3.5 3.6 - 4.0 2.0 2.5",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. German scale, lower is better; min 4.0 = the table covers every passing bachelor grade up to 4.0. Same page: 'If you fulfil these requirements but with a grade worse than 2.5 you can be invited to an oral aptitude test for admittance' (30-minute oral test on theoretical, practical and technical computer science; may switch to a written exam if many tests are needed). The Pakistani CGPA must first be converted to the German scale (modified Bavarian formula, a conversion rule in code, not on this page). 'Can be invited' is not a guarantee."
+      },
+      "language_waiver": {
+        "value": "A medium-of-instruction certificate proving the bachelor's programme was taught entirely in English (or German) is accepted instead of an English C1 or German B2 certificate.",
+        "source_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+        "evidence_snippet": "Either German B2 or English C1 language proficiency (alternative a medium of instruction certificate that proves that your Bachelor's degree programme was entirely taught in English or German)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Same rule already sits in language_req.waiver; proposed here for the new language_waiver field. The required-documents list on the same page repeats it: 'B2 German or C1 English proficiency certificate (e.g. IELTS or a proof of English/German as a medium of instruction in your Bachelor's degree)'."
+      }
+    },
+    {
+      "id": "imperial-msc-computing",
+      "institution_id": "imperial",
+      "name": "MSc Computing",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": "October 2027",
+        "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+        "evidence_snippet": "Duration 1 year Start date October 2027",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Single October entry point. The department page says 'Admissions for September 2027 are now open' (refers to the admissions cycle; same page says single entry-point in October)."
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 7,
+          "toefl_ibt": null,
+          "waiver": null,
+          "text": "Higher university requirement: IELTS Academic 7.0 overall (minimum 6.5 in all elements)"
+        },
+        "source_url": "https://www.imperial.ac.uk/study/apply/english-language/",
+        "evidence_snippet": "IELTS – Academic (Test-Centre/UKVI SELT/Online) Standard Higher 6.5 overall (minimum 6.0 in all elements) 7.0 overall (minimum 6.5 in all elements)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Course page states: 'For admission to this course, you must achieve the higher university requirement in the appropriate English language qualification.' TOEFL iBT moved to a new 1-6 band scale on 21 Jan 2026, so no iBT number proposed.",
+        "note": "The course page says: \"For admission to this course, you must achieve the higher university requirement in the appropriate English language qualification.\""
+      },
+      "tuition": {
+        "value": {
+          "amount": 48300,
+          "currency": "GBP",
+          "period": "year"
+        },
+        "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+        "evidence_snippet": "Overseas fee 2027 entry £48,300",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Overseas fee, 2027 entry, one-year programme (so year = total). Home fee £25,850. Application fee £90."
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": 12,
+        "source_url": "https://www.imperial.ac.uk/computing/prospective-students/courses/pg/msc-computing/",
+        "evidence_snippet": "The programme is full time and is taken over 12 months, with a single entry-point in October.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Department of Computing page. Course page key facts: 'Duration 1 year', 'Start date October 2027'."
+      },
+      "scholarship_info": {
+        "value": "Imperial Inspires Scholarships (Postgraduate taught, 2027/2028): £15,000 for international students who pay the Overseas tuition rate on a full-time course; Computing is one of the listed departments. If a scholarship is available for your course and you meet the entry and eligibility requirements, Imperial invites you to apply after you submit your course application.",
+        "source_url": "https://www.imperial.ac.uk/study/fees-and-funding/scholarships-search/imperial-inspires-scholarships-postgraduate-taught-20272028.php",
+        "evidence_snippet": "Imperial Inspires Scholarships (Postgraduate taught) Scholarship overview Degree level Postgraduate taught, Master's research Value £15,000 Number of awards 200 Academic year 2027/2028 Tuition fee status Overseas Mode of study Full time",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Computing is on the same page directly below the snippet: 'Available to applicants in the following departments Aeronautics Bioengineering Brain Sciences Business School Centre for Environmental Policy Chemical Engineering Chemistry Civil and Environmental Engineering Computing ...' (the department list made a single snippet longer than 400 characters). Same page: 'An international student who is eligible to pay the Overseas rate of tuition' and 'Applying for a full-time postgraduate taught course within the Faculty of Engineering ...'; new entrants only; 'If an Imperial Inspires Scholarship is available for your course and you meet the minimum entry and eligibility requirements, you will be invited to apply for the scholarship.' The page lists Computing as a department, not the MSc Computing course by name; course-level availability is on the 'How to apply for an Imperial Inspires Scholarship' page. 200 awards. Scholarship deadlines are tied to application rounds and were deliberately NOT copied (the Imperial deadline stays null for the demo refusal). Imperial's Women in STEM 2027-28 page currently names Brazil only, so it was not proposed."
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": "doc-mscadmissions@imperial.ac.uk",
+        "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+        "evidence_snippet": "Email: doc-mscadmissions@imperial.ac.uk",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Department of Computing MSc admissions contact on the course page."
+      },
+      "eligibility_note": {
+        "value": "For graduates of subjects other than computing: the minimum is a First-Class degree in a subject without substantial computing content.",
+        "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+        "evidence_snippet": "A First-Class degree in a subject without substantial computing content, and a good performance in Mathematics at A-level or an equivalent qualification at a minimum.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Added after review: conversion MSc; BS CS graduates are not the target audience."
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": "No waiver for a Pakistani degree: Imperial exempts only applicants who completed a qualification equivalent to a UK degree in Australia, Canada, Guyana, Ireland, Malta, New Zealand, South Africa, the United Kingdom, the USA or the West Indies.",
+        "source_url": "https://www.imperial.ac.uk/study/apply/english-language/english-language-exemption/",
+        "evidence_snippet": "You do not need to prove your knowledge of English as part of your application if you’ve completed a qualification equivalent to a UK degree in one of the following countries: Australia Canada Guyana Ireland Malta New Zealand South Africa United Kingdom United States of America West Indies",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Pakistan is not on the list, and the page names no medium-of-instruction route. Other exemptions on the page are medical-registration only."
+      }
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "institution_id": "cardiff",
+      "name": "MSc Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "brookes-msc-cs",
+      "institution_id": "oxford-brookes",
+      "name": "MSc Advanced Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": "Extra compliance measures for Pakistan applicants (January 2027 entry timeline): no offers beyond 23 October 2026, no CAS issuance beyond 11 December 2026, higher pre-CAS interview threshold (7.0 overall).",
+        "source_url": "https://www.brookes.ac.uk/study/international-students/applying-to-arriving/how-to-apply",
+        "evidence_snippet": "Pakistan No offers beyond 23 October 2026 No CAS issuance beyond 11 December 2026 Higher pre-CAS interview threshold (7.0 overall required with 7.0 in the four core questions)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Published under the January 2027 entry timeline; September 2027 timeline not yet published. Same page: Student visa sponsorship is paused for 'Pakistan (foundation and Pre-Masters only)' - direct MSc entry is not paused. Applicants from Azad Jammu and Kashmir, Khyber Pakhtunkhwa and Punjab must pay the full first-year tuition fee to release their CAS (£3,000 to accept the offer)."
+      },
+      "intake": {
+        "value": "January 2027, September 2027",
+        "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+        "evidence_snippet": "Starts January 2027, September 2027",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Two intakes."
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": {
+          "scale": "cgpa_4",
+          "min": 2.7,
+          "text": "2:2 (for direct entry) 60% or GPA 2.7",
+          "alternatives": [
+            {
+              "scale": "percent",
+              "min": 60
+            }
+          ]
+        },
+        "source_url": "https://www.brookes.ac.uk/study/international-students/your-country/pakistan/entry-requirements",
+        "evidence_snippet": "Bachelor degree requirement Equivalent grading 2:1 (for direct entry) 65% or GP 3.0 2:2 (for direct entry) 60% or GPA 2.7",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Course requires a 2:2 UK bachelor's in a computer-related subject, so the 2:2 row applies. Page does not state the GPA scale (assumed /4.0). Page shows 'GP 3.0' (likely typo for GPA). Pass grade for a pre-master's course: 40% or GPA 1.0. Percent alternative (60%) added from the same snippet on 2026-11-24.",
+        "basis": "inferred",
+        "note": "The page gives GPA 2.7 without naming the scale. We read it as out of 4.0, the usual Pakistani scale."
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 6,
+          "toefl_ibt": null,
+          "waiver": null,
+          "text": "IELTS 6.0 overall with 6.0 in all skills"
+        },
+        "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+        "evidence_snippet": "IELTS 6.0 overall with 6.0 in all skills. For more information, please see our English language requirements.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Course-specific requirement. Separately, Brookes applies a higher pre-CAS interview threshold for Pakistan (see status_note)."
+      },
+      "tuition": {
+        "value": {
+          "amount": 20800,
+          "currency": "GBP",
+          "period": "year"
+        },
+        "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+        "evidence_snippet": "2026/27 2027/28 Home full-time £9,950, £8,950 (PGDip), £4,975 (PGCert) £10,250, £9,250 (PGDip), £5,125 (PGCert) Home part-time £4,975 £5,125 International full-time £19,600 £20,800",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Fee table columns are 2026/27 then 2027/28: £20,800 is the 2027/28 international full-time fee (£19,600 for 2026/27). First year only; September-start MSc is 12 months.",
+        "note": "£20,800 is the 2027/28 international fee (2026/27: £19,600). Fees quoted are for the first year only."
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": 12,
+        "source_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+        "evidence_snippet": "Full time: MSc - September Start - 1 year (12 months); January Start - 1.5 years (18 months)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. September start = 12 months; January start = 18 months.",
+        "note": "September start: 12 months. January start: 18 months."
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "institution_id": "qmul",
+      "name": "Pre-Master's (Humanities & Social Sciences) route to MSc Computer Science (Conversion)",
+      "country": "UK",
+      "degree": "Pre-Master's + MSc",
+      "field": "cs",
+      "official_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "status": "active",
+      "pathway_type": "pre_masters",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": "January 2027 and September 2027",
+        "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+        "evidence_snippet": "Start dates - January 2027 and September 2027",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. January start: 25/01/2027 to 16/07/2027."
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 5.5,
+          "toefl_ibt": null,
+          "waiver": null,
+          "text": "Band 2: IELTS (Academic) 5.5 overall with 5.5 in each of Writing, Listening, Reading and Speaking"
+        },
+        "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+        "evidence_snippet": "Band 2: IELTS (Academic) minimum score of 5.5 overall with 5.5 in each of Writing, Listening, Reading and Speaking",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Entry to the Pre-Masters Graduate Diploma, not to the MSc."
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": "Queen Mary's Global Talent Scholarship (Postgraduate Taught, September 2027) does not include Pre-masters programmes (standalone or integrated).",
+        "source_url": "https://www.qmul.ac.uk/scholarships/items/global-talent-scholarship--postgraduate-taught-september-2027.html",
+        "evidence_snippet": "Pre-masters programmes (standalone and integrated) are not included in the Global Talent Scholarship scheme.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Global Talent Scholarship - Postgraduate Taught (September 2027): £6,000 for international offer holders with at least a 2:1 or overseas equivalent and overseas fee status; 'Pre-masters programmes (standalone and integrated)' are also in its list of ineligible programmes. The page does not say whether a student who later progresses to the MSc Computer Science (Conversion) can receive it, so this text only covers the Pre-Masters stage. Useful against consultant claims of a scholarship on the Pre-Masters."
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": "Students must meet specific requirements to progress onto the Master's; MSc Computer Science (Conversion) is a listed progression degree. Specific progression marks are not published on the page.",
+        "source_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+        "evidence_snippet": "You will need to meet specific requirements to progress onto your Master’s degree programme. Progression degrees MSc Accounting and Management MSc Computer Science (Conversion)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. The numeric progression grade was not found on any official HTML page checked; ask QMUL. Progression is to the CONVERSION MSc (for non-CS graduates), not MSc Advanced Computer Science."
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": "The Masters this route leads to, MSc Computer Science (Conversion), is for graduates whose degree is not related to Computer Science, Software Engineering, Information Technology or Electronic Engineering.",
+        "source_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/computer-science-conversion-msc/",
+        "evidence_snippet": "A 2:1 or above at undergraduate level in a degree not related to Computer Science, Software Engineering, Information Technology or Electronic Engineering.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Added after review: the only CS progression degree from this pre-master's is the Conversion MSc. Snippet from its entry requirements."
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "utoronto-mscac",
+      "institution_id": "utoronto",
+      "name": "Master of Science in Applied Computing (MScAC)",
+      "country": "CA",
+      "degree": "MScAC",
+      "field": "cs",
+      "official_url": "https://mscac.utoronto.ca/",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2026-12-01",
+        "source_url": "https://mscac.utoronto.ca/apply/",
+        "evidence_snippet": "Fall 2027 applications are now open. The application deadline is December 1, 2026, at 11:59 p.m. ET.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Fall 2027 (September 2027) intake. Single deadline for all applicants (domestic and international); application fee must also be paid by the deadline. Interviews/offers rolling Dec-April.",
+        "note": "For Fall 2027. The deadline is 11:59 p.m. Toronto time (ET) on 1 December 2026."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 7,
+          "toefl_ibt": 93,
+          "waiver": "Normally exempt if the admitting degree is from an institution recognized by U of T where the language of instruction and examination is uniformly English (MScAC may still require a letter confirming the language of instruction).",
+          "text": "U of T School of Graduate Studies minimums: IELTS Academic 7.0 overall with at least 6.5 in each component; TOEFL iBT 93 overall with Writing/Speaking 22 (new 1-6 scale: overall 4.5, Writing 4.5, Speaking 4.0)."
+        },
+        "source_url": "https://www.sgs.utoronto.ca/future-students/admission-application-requirements/english-language-proficiency-testing/",
+        "evidence_snippet": "www.ielts.org Minimum required score: 7.0 (Academic) with at least 6.5 for each component.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. SGS-wide minimums (the MScAC apply page defers to SGS ELP requirements). TOEFL figure is from the same SGS page table: 'Overall Score: 93 Writing / Speaking: 22' (identical for all four SGS divisions); the snippet only covers the IELTS line. Pakistan is not on the SGS exempt-country list; exemption depends on the degree being uniformly English-medium."
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": 16,
+        "source_url": "https://mscac.utoronto.ca/",
+        "evidence_snippet": "Graduate in just 16 months, with the skills, experience and connections to move your career forward.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Includes the eight-month paid research internship."
+      },
+      "scholarship_info": {
+        "value": "MScAC students are not eligible for departmental funding. They are eligible for several provincial and University of Toronto scholarships, listed on the School of Graduate Studies' Scholarships and Awards page.",
+        "source_url": "https://mscac.utoronto.ca/apply/",
+        "evidence_snippet": "MScAC students are not eligible for departmental funding. However, MScAC students are eligible for several provincial and University of Toronto scholarships. For a detailed list, please visit the School of Graduate Studies’ Scholarships and Awards page.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. MScAC apply page FAQ ('Which scholarships are available to MScAC students?'). Names no specific scholarship and does not say which ones international students can hold. Same page: 'International students may be eligible to apply for scholarships offered by their home government or loans provided by international student loan companies such as MPower Financing or Prodigy Finance' (no partnership). It also says internships are usually paid (average $65,000 per eight-month internship in 2026) but 'Remuneration cannot be guaranteed' - do not present the salary as income."
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": 3,
+        "source_url": "https://mscac.utoronto.ca/apply/",
+        "evidence_snippet": "We require three letters of support from faculty members and/or employers.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Ideally at least two academic references; industry referees in a senior/supervisory capacity are acceptable."
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE optional but highly encouraged unless you have (or are about to get) a degree from a Canadian university.",
+        "source_url": "https://mscac.utoronto.ca/apply/",
+        "evidence_snippet": "Submitting GRE results is optional, although good scores can help strengthen your application. Unless you have (or are about to get) a degree from a Canadian university, then it is highly encouraged to submit your GRE test scores.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Applies to Pakistani applicants (non-Canadian degree): GRE strongly encouraged, not mandatory. If GRE is submitted and an offer made, the offer is conditional on official electronic GRE verification."
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": "admissions@mscac.utoronto.ca",
+        "source_url": "https://mscac.utoronto.ca/contact/",
+        "evidence_snippet": "E-mail: admissions@mscac.utoronto.ca",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Listed under 'Prospective Students' on the MScAC contact page."
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": "May be exempt if the undergraduate degree was earned at a university where instruction and examination were uniformly in English; a letter from the home university confirming this may still be required.",
+        "source_url": "https://mscac.utoronto.ca/apply/",
+        "evidence_snippet": "If the undergraduate degree was earned at a university where the language of instruction and examination was uniformly English, an applicant may be exempt. However, a letter confirming the language of instruction and examination may still be required and must be provided by the applicant’s home institution.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Relevant to Pakistani universities that teach and examine fully in English. 'May be exempt' is discretionary. If a degree was split between two institutions and one was not uniformly English, scores are required. Same page FAQ: an ELP sub-score below the minimum does not automatically rule an applicant out (reviewed case by case)."
+      }
+    },
+    {
+      "id": "cmu-mscs",
+      "institution_id": "cmu",
+      "name": "MS in Computer Science (MSCS)",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": "https://csd.cmu.edu/academics/masters/overview",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2026-12-09",
+        "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+        "evidence_snippet": "Early Application Deadline: November 18, 2026 (3 p.m. EST) Final Application Deadline: December 9, 2026 (3 p.m. EST)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Fall 2027 entry (fall only; no spring start). Final deadline used; the early deadline (Nov 18, 2026, $80 fee) has passed, fee after that is $100 per program. Same dates on the SCS graduate admissions page; CMU recommends taking GRE/English tests no later than Nov 25, 2026.",
+        "note": "The final deadline is 3 p.m. US Eastern time (EST) on 9 December 2026."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": 18,
+        "source_url": "https://csd.cmu.edu/academics/masters/ms-in-computer-science",
+        "evidence_snippet": "Most students will complete the program in three semesters, but if you’re switching to computer science from another field, you may need an additional semester to fill gaps in your undergraduate training.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. basis=inferred: three semesters converted at 6 months per semester (the same convention as src/lib/cost.ts and the accepted TUM '4 semesters = 24 months'). In calendar terms a Fall 2027 start finishing after the third semester is roughly August 2027 - December 2028. 'Most students': students switching from another field may need a fourth semester (24 months).",
+        "note": "Most students finish in three semesters; switching from another field may need one more semester."
+      },
+      "scholarship_info": {
+        "value": "Scholarships and financial assistance are not offered by the MSCS program at this time.",
+        "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+        "evidence_snippet": "Financial Information Scholarships and financial assistance to the Master of Science Program are not offered by the program at this time.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. CSD master's admissions page, MSCS section. A separate 'Financial Information' block on the same page is for the Fifth Year M.S. (not relevant to Pakistani applicants). Useful against consultant scholarship promises for CMU MSCS."
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": 3,
+        "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+        "evidence_snippet": "Three letters of recommendation: At least two letters should be from faculty or recent employers.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. MSCS application requirement."
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE strongly recommended, especially if you do not have clear documentation of strong mathematical proficiency.",
+        "source_url": "https://csd.cmu.edu/academics/masters/admissions",
+        "evidence_snippet": "The GRE is strongly recommended in order to apply to the MSCS program, especially for students who do not have clear documentation of strong mathematical proficiency.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Fall 2027 cycle. GRE at Home only accepted for specific historical score dates."
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": "No waivers: study at an English-language school, college or university outside the US does not waive the test, and medium-of-instruction (MOI) certificates are not accepted.",
+        "source_url": "https://www.cs.cmu.edu/education/graduate-admissions",
+        "evidence_snippet": "We also do not issue waivers based on previous study at an English-language high school, college or university outside of the United States. No amount of educational experience in English, regardless of the country it occurred in, will result in a test waiver.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Same page: 'Medium of Instruction (MOI) certificates are not accepted as a substitute for an English proficiency test.' Also time-sensitive: 'we highly recommend that you take the exam no later than November 25, 2026' because scores take about two weeks and the deadline is 9 December 2026."
+      }
+    },
+    {
+      "id": "uiuc-mscs",
+      "institution_id": "uiuc",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": "https://siebelschool.illinois.edu/academics/graduate/ms-program",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2026-12-01",
+        "source_url": "https://siebelschool.illinois.edu/admissions/graduate/application-deadlines",
+        "evidence_snippet": "M.S. in Computer Science Fall only December 1 March 15",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Deadline table gives 'December 1' without a year; next occurrence for Fall 2027 entry is 2026-12-01. March 15 is the decision deadline. Fall entry only. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]",
+        "basis": "inferred",
+        "note": "Fall intake only."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 6.5,
+          "toefl_ibt": 79,
+          "waiver": null,
+          "text": "Limited status admission minimum: TOEFL iBT 79 (scores dated before 21 Jan 2026) or 4.0 (after 20 Jan 2026), IELTS Academic 6.5. Full status: TOEFL iBT 103 or 5.0, IELTS 7.5."
+        },
+        "source_url": "https://grad.illinois.edu/admissions/international-applicants",
+        "evidence_snippet": "Limited Status Admission Minimum Full Status Admission Minimum TOEFL iBT TOEFL iBT Home Edition 4.0 (for scores dated after 1/20/2026) 79 (for scores dated prior to 1/21/2026) 5.0 (for scores dated after 1/20/2026) 103 (for scores dated prior to 1/21/2026) IELTS Academic Exam 6.5 7.5",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Numbers proposed are the LIMITED-status admission minimums (full status: TOEFL 103 / IELTS 7.5). Siebel School requirements page also warns about TOEFL iBT Speaking scores below 22. Siebel FAQ: country-based exemption only; medium of instruction alone does not exempt. TOEFL scale changed 21 Jan 2026. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": 3,
+        "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+        "evidence_snippet": "Applicants to the PhD and MS with thesis programs are required to have three letters of recommendation submitted.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. M.S. in CS is the thesis M.S. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE not required (recommended; optional supporting information).",
+        "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+        "evidence_snippet": "The Graduate Record Examination (GRE) general aptitude tests (Verbal, Quantitative, and Analytical) and subject test scores are recommended but not required.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Section heading on the page: \"10. General Record Examination (GRE) – Not Required\". Siebel FAQ also says GRE scores are not required. [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": "grad-admissions@siebelschool.illinois.edu",
+        "source_url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+        "evidence_snippet": "Graduate Admissions grad-admissions@siebelschool.illinois.edu",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Siebel School graduate admissions contact (page footer/contact block). [Verifier note: siebelschool.illinois.edu responds slowly to the verifier user agent (sometimes >15s); snippet printed FOUND on retry on 2026-11-24.]"
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": "No exemption for a Pakistani degree: exemptions apply only to a degree, two years of study or two years of work in the U.S. or an approved English-primary country, and Pakistan is not on the approved list.",
+        "source_url": "https://grad.illinois.edu/admissions/international-applicants",
+        "evidence_snippet": "Illinois Graduate Admissions recognizes the following countries as having English as the primary language: Australia, Bahamas, Barbados, Belize, Bermuda, Canada, Dominica, Fiji, Gambia, Ghana, Grenada, Guyana, Ireland, Jamaica, Kenya, Lesotho, Malawi, New Zealand, Nigeria, Philippines, Scotland",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. The list is alphabetical and goes from Nigeria to Philippines, so Pakistan is not on it. Same page: exempt if 'Received a post-secondary degree from a U.S. institution (or an institution within an approved country) within five years of the proposed admission term', or two years of study or of professional work in the U.S. or an approved country within five years. No medium-of-instruction route is listed."
+      }
+    },
+    {
+      "id": "csudh-mscs",
+      "institution_id": "csudh",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": null,
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "nyit-mscs",
+      "institution_id": "nyit",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 6,
+          "toefl_ibt": 79,
+          "waiver": null,
+          "text": "Minimum for full admission: IELTS 6.0; TOEFL iBT 79 (old scale) or 4.0 (new scale); PTE 53; Duolingo 105."
+        },
+        "source_url": "https://www.nyit.edu/admissions/international/",
+        "evidence_snippet": "The following are the minimum scores required for full admission to New York Tech degree programs: IELTS score: 6.0 TOEFL (iBT) score: 4.0 (new); 79 (old) Pearson PTE score: 53 Duolingo English Test score: 105",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. University-wide international minimums. Waiver only for students who live or were educated in listed English-speaking countries (Pakistan not seen in list)."
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": "New York Tech offers academic scholarships to international students that may cover partial tuition. There is no separate scholarship application: the admissions committee reviews your file for admission and for scholarship eligibility together.",
+        "source_url": "https://www.nyit.edu/admissions/international/student-aid/",
+        "evidence_snippet": "While international students are not eligible for federal or state aid, New York Tech offers academic scholarships to international students that may cover partial tuition. There is no separate application for scholarships. When you submit your application and supporting documents, the admissions committee will review your file for admission and for scholarship eligibility.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Same page: 'Scholarships are awarded upon admission to New York Tech, not after you arrive' and 'Graduate applicants must submit a minimum TOEFL score of 79, IELTS score of 6, PTE score of 53, or Duolingo score of 105 to receive scholarships'. NYIT graduate scholarships page names the Graduate Scholar Award: 'up to $4,050 per year or $2,025 per fall or spring semester', tuition-only, needs a bachelor's with 3.3 CGPA (https://www.nyit.edu/admissions/costs-and-aid/financial-aid/scholarships-and-grants/graduate/). Value deliberately avoids the word 'automatically' (used in the international FAQ: 'automatically considered at the time of admission'), because src/lib/consultant/compare.ts treats /automatic(ally)?/ in scholarship_info as an explicit scholarship guarantee."
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE scores required if you are a graduate of a foreign university or have a GPA below the program minimum.",
+        "source_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+        "evidence_snippet": "Official GRE scores if you are a graduate of a foreign university or have a GPA below the minimum (GRE Code: 2561)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Applies to Pakistani applicants (foreign university graduates)."
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": "admissions@nyit.edu",
+        "source_url": "https://www.nyit.edu/admissions/international/",
+        "evidence_snippet": "Have questions? Reach us at admissions@nyit.edu or +1 516.686.7520.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. International admissions page contact."
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": {
+          "scale": "cgpa_4",
+          "min": 2.5,
+          "text": "Undergraduate GPA between 2.5 and 2.84: at the director's discretion, you may be given the opportunity to demonstrate qualifications for full matriculation by achieving a GPA of 3.0 or higher in your first four graduate courses."
+        },
+        "source_url": "https://catalog.nyit.edu/engineering/computer_science_ms/",
+        "evidence_snippet": "Applicants who do not qualify for full matriculation and have an undergraduate GPA between 2.5 and 2.84 may, at the discretion of the director, be given the opportunity to demonstrate qualifications for full matriculation by achieving a GPA of 3.0 or higher in the first four graduate courses.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Source is the official New York Tech Catalog 2026-2027 (catalog.nyit.edu). Same catalog entry continues: 'such students may be required to take one or more parts of the GRE' and 'students in this category will not be permitted to continue in the program for more than two semesters unless they have qualified for fully matriculated status'. It also says 'Students of foreign universities with a CGPA of 2.7 (on a 4.0 scale) would automatically be denied a GRE waiver', so a Pakistani 2.5 applicant should plan on the GRE. The program admission page (https://www.nyit.edu/academics/degrees/computer-science-ms/admission-requirements/) words it as: 'Minimum undergraduate GPA of 2.85 for full matriculation. If you do not satisfy this criterion, you may be admitted at the dean's discretion.' Discretionary, not guaranteed. GPA may be judged on a NACES credential evaluation rather than the raw Pakistani CGPA."
+      },
+      "language_waiver": {
+        "value": "No waiver for a Pakistani education: New York Tech waives the test only for students who live or were educated in its listed countries, and Pakistan is not on the list.",
+        "source_url": "https://www.nyit.edu/admissions/international/",
+        "evidence_snippet": "New York Tech requires that all international students show English proficiency by providing TOEFL, IELTS, PTE, or Duolingo test scores when they apply. This requirement is waived for students who live or were educated in one of the following countries:",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. The full list on the same page runs '... Malawi, Marshall Islands, Mauritius, New Zealand, Nigeria, Papua New Guinea, Sierra Leone, Singapore ...' (alphabetical; Pakistan absent). The list is too long to quote whole within 400 characters. No medium-of-instruction route is mentioned."
+      }
+    },
+    {
+      "id": "usf-mscs",
+      "institution_id": "usf",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/mscs.aspx",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2027-06-01",
+        "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+        "evidence_snippet": "MS and PhD priority deadlines: Fall: January 15 Spring: September 1 Please see the Office of Admission website for the final university deadlines. MS final university deadlines: Fall: June 1",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Final MS deadline for Fall 2027 = 2027-06-01 (no year on page). Priority deadline Fall: January 15 (2027-01-15) for maximum/funding consideration; after priority, space-available basis. Page does not distinguish international applicants; USF's International Graduate Student Deadlines page looks deadlines up per program via a link/tool not present in the page HTML, so an earlier international-specific deadline could not be verified.",
+        "basis": "inferred",
+        "note": "This is the final university deadline for Fall. The same page lists a Fall priority deadline of January 15."
+      },
+      "min_gpa_rule": {
+        "value": {
+          "scale": "cgpa_4",
+          "min": 3,
+          "text": "“B” average (3.00 on a 4.00 scale) or better in all work attempted while registered as an undergraduate student working toward a bachelor’s degree"
+        },
+        "source_url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+        "evidence_snippet": "“B” average (3.00 on a 4.00 scale) or better in all work attempted while registered as an undergraduate student working toward a bachelor’s degree",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. USF university-wide international graduate minimum; programs may add requirements."
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 6.5,
+          "toefl_ibt": 79,
+          "waiver": null,
+          "text": "TOEFL iBT 79 or higher (tests before 21 January 2026) or 4.5 or higher (after 21 January 2026); IELTS 6.5 or higher."
+        },
+        "source_url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+        "evidence_snippet": "Test of English as a Foreign Language (TOEFL iBT) prior to January 21, 2026 79 or higher Test of English as a Foreign Language (TOEFL iBT) after January 21, 2026 4.5 or higher International English Language Testing System (IELTS) 6.5 or higher",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. University-wide international graduate minimums."
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": 3,
+        "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+        "evidence_snippet": "3 Letters of Recommendation (Must be on official letterhead with recommender’s title and contact)",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Part of a complete Bellini College graduate application."
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE required (PDF) for MSCS unless undergraduate degree is from an ABET-accredited program or a Carnegie R1 university, or the applicant completed the USF Pathway to Computing (PTC) Graduate Certificate.",
+        "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+        "evidence_snippet": "A PDF of GRE Scores is required for all MS majors (excluding MSAI), unless the applicant has an undergraduate degree from ABET-accredited degree programs, or from a Carnegie R1 university, or for applicants who have successfully completed USF Pathway to Computing (PTC) Graduate Certificate.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Most Pakistani applicants will need the GRE unless their program is ABET-accredited."
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "uccs-mscs",
+      "institution_id": "uccs",
+      "name": "MS in Computer Science",
+      "country": "US",
+      "degree": "MS",
+      "field": "cs",
+      "official_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "status": "active",
+      "pathway_type": "direct",
+      "last_checked": "2026-11-24",
+      "status_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": "2027-03-01",
+        "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+        "evidence_snippet": "International students applying for the program should have all application materials into the Admissions Office at UCCS by March 1st for Fall Semester and by October 1st for Spring Semester.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. International-applicant deadline for Fall 2027; no year given, next occurrence = 2027-03-01. The SAME page also has an 'Application Deadlines' block saying 'Fall Start: April 1st' / 'Our Fall application deadline is April 1st' (which only recommends international students apply as early as possible) - see conflicts_noticed. US applicants: April 1.",
+        "basis": "inferred",
+        "note": "For international applicants starting in the Fall semester (Spring: 1 October)."
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": {
+          "ielts_overall": 6.5,
+          "toefl_ibt": 80,
+          "waiver": null,
+          "text": "TOEFL 80 or higher, IELTS 6.5 or higher, or Duolingo 115."
+        },
+        "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+        "evidence_snippet": "A TOEFL score of 80 of higher, an ILETS of 6.5 or higher, or a Duolingo exam score of 115 will be required for proof of English Proficiency.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Snippet typos ('of higher', 'ILETS') are verbatim from the page. EAS How to Apply page agrees: TOEFL 80 iBT, IELTS 6.5."
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": 3,
+        "source_url": "https://eas.uccs.edu/future-student-resources/how-to-apply",
+        "evidence_snippet": "Letters of Recommendation: Three letters of recommendation are required for all programs.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Stated for both domestic and international College of Engineering & Applied Science graduate applicants."
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": "GRE required (all sections), at least 148 quantitative, unless the applicant has a bachelor's with GPA 3.0+ from an ABET-accredited CS or closely related program within the U.S.",
+        "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+        "evidence_snippet": "All sections of the Graduate Record Examination (GRE) are required, with at least 148 on the quantitative portion, unless one of the following conditions is satisfied: The applicant has a bachelor’s degree with a GPA of 3.0 or above from an ABET-accredited Computer Science or a closely related program from within the U.S.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Exemption is US-only, so Pakistani applicants need the GRE. EAS How to Apply page (international section) agrees: GRE required with at least 148 quantitative."
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": {
+          "scale": "cgpa_4",
+          "min": null,
+          "text": "GPA below 3.0: if admitted at all, expect provisional admission. GPA below 2.75: if admitted, the Graduate School requires provisional admission. No lower floor is stated."
+        },
+        "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+        "evidence_snippet": "Students with an average GPA below 3.0, if admitted at all, should expect to be admitted provisionally. If a student with a GPA below 2.75 is admitted, then the Graduate School requires provisional admission.",
+        "fetched_at": "2026-11-24",
+        "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Same paragraph also says: 'Students with an average below 3.0 but above 2.75 will be considered on an individual basis' and 'Students who recently earned an undergraduate degree with a GPA below 3.00 will be required to take the GRE (Graduate Record Examination) before they can be considered for admission. A score of 148 (new grading scale) on the quantitative portion is considered favorable.' So a 2.5/4 applicant needs the GRE and, if admitted, is admitted provisionally. The page does not say what provisional status requires after enrolment. Not a promise of admission."
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    },
+    {
+      "id": "ljmu-msc-cs",
+      "institution_id": "ljmu",
+      "name": "MSc Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": null,
+      "status": "ruled_out",
+      "pathway_type": "direct",
+      "last_checked": null,
+      "status_note": {
+        "value": "Not accepting Pakistan applicants for 2026/27 (verify on the official page).",
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null,
+        "note": "Reported, not yet verified. Verify before relying on it."
+      },
+      "intake": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "deadline": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "min_gpa_rule": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_req": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tuition": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "living_cost": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "duration_months": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "scholarship_info": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "sop_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "lor_count": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "cv_requirements": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "tests_required": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "research_considered": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_guaranteed": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "progression_requirement": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "admissions_email": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "eligibility_note": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "conditional_admission": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      },
+      "language_waiver": {
+        "value": null,
+        "source_url": null,
+        "evidence_snippet": null,
+        "fetched_at": null
+      }
+    }
+  ]
+}

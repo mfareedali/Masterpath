@@ -1,0 +1,898 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MastersPath institutions and programs seed",
+  "description": "Matches src/lib/types.ts (Institution, Program). Every fact is { value, source_url, evidence_snippet, fetched_at, basis?, note?, conflicts? }; null value = Not verified yet. Never invent a value.",
+  "type": "object",
+  "required": [
+    "version",
+    "institutions",
+    "programs"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "institutions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/institution"
+      }
+    },
+    "programs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/program"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "description": "Stable id: lowercase letters, digits and hyphens.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 80
+    },
+    "countryCode": {
+      "description": "ISO-3166 alpha-2 country code (UK is used instead of GB).",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "currency": {
+      "description": "ISO-4217 currency code, e.g. EUR.",
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "gradeScale": {
+      "enum": [
+        "cgpa_4",
+        "cgpa_5",
+        "percent",
+        "german"
+      ]
+    },
+    "httpsUrl": {
+      "description": "An https URL of an official page, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
+    "snippet": {
+      "description": "Text copied word-for-word from the official page (12-600 characters, plain text, no HTML). Null when there is no verbatim quote yet.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 12,
+      "maxLength": 600
+    },
+    "isoDateOrTimestamp": {
+      "description": "ISO date (YYYY-MM-DD) or full ISO timestamp, or null.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:\\d{2})?)?$"
+    },
+    "plainText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "basis": {
+      "description": "How the value relates to its source: 'verbatim' (default when a snippet exists), 'summary' or 'inferred' (both at most Likely).",
+      "enum": [
+        "verbatim",
+        "summary",
+        "inferred"
+      ]
+    },
+    "factBase": {
+      "description": "Evidence fields shared by every fact. Confidence is COMPUTED in code (src/lib/confidence.ts) and never stored as truth.",
+      "type": "object",
+      "required": [
+        "value",
+        "source_url",
+        "evidence_snippet",
+        "fetched_at"
+      ],
+      "properties": {
+        "source_url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "evidence_snippet": {
+          "$ref": "#/$defs/snippet"
+        },
+        "fetched_at": {
+          "$ref": "#/$defs/isoDateOrTimestamp"
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        },
+        "note": {
+          "$ref": "#/$defs/plainText"
+        },
+        "confidence": {
+          "description": "Deprecated and ignored: confidence is computed in code. The validator rejects a hand-written \"Verified\" that lacks source_url or evidence_snippet.",
+          "enum": [
+            "Verified",
+            "Likely",
+            "Unverified",
+            "Conflict"
+          ]
+        },
+        "review_note": {
+          "description": "Internal reviewer note (provenance, caveats for maintainers). Never shown to students.",
+          "$ref": "#/$defs/plainText"
+        }
+      }
+    },
+    "value_text": {
+      "description": "Plain text as stated by the source.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "value_deadline": {
+      "description": "Application deadline, ISO date YYYY-MM-DD.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "value_email": {
+      "description": "An admissions email address printed on an official page.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "email",
+      "maxLength": 254
+    },
+    "value_boolean": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "value_lor_count": {
+      "description": "Number of recommendation letters.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10
+    },
+    "value_duration_months": {
+      "description": "Programme length in months.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 72
+    },
+    "value_recognition_status": {
+      "enum": [
+        "listed",
+        "not_listed",
+        null
+      ]
+    },
+    "value_money": {
+      "description": "An amount of money as stated on the official page.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "amount",
+        "currency",
+        "period"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "$ref": "#/$defs/currency"
+        },
+        "period": {
+          "enum": [
+            "year",
+            "semester",
+            "month",
+            "total"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "value_gpa_rule": {
+      "description": "Minimum grade. For 'german' the minimum is the WORST acceptable grade (lower is better).",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "scale",
+        "min"
+      ],
+      "properties": {
+        "scale": {
+          "$ref": "#/$defs/gradeScale"
+        },
+        "min": {
+          "type": "number"
+        },
+        "text": {
+          "$ref": "#/$defs/plainText"
+        },
+        "alternatives": {
+          "description": "Other minimums printed in the same evidence snippet, on other scales.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "required": [
+              "scale",
+              "min"
+            ],
+            "properties": {
+              "scale": {
+                "$ref": "#/$defs/gradeScale"
+              },
+              "min": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "required": [
+              "scale"
+            ],
+            "properties": {
+              "scale": {
+                "const": "cgpa_4"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "min": {
+                "minimum": 0,
+                "maximum": 4
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": [
+              "scale"
+            ],
+            "properties": {
+              "scale": {
+                "const": "cgpa_5"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "min": {
+                "minimum": 0,
+                "maximum": 5
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": [
+              "scale"
+            ],
+            "properties": {
+              "scale": {
+                "const": "percent"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "min": {
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": [
+              "scale"
+            ],
+            "properties": {
+              "scale": {
+                "const": "german"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "min": {
+                "minimum": 1,
+                "maximum": 4
+              }
+            }
+          }
+        }
+      ]
+    },
+    "value_language_req": {
+      "description": "Language requirement as stated. Include only what the official page says.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "minProperties": 1,
+      "properties": {
+        "ielts_overall": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 9,
+          "multipleOf": 0.5
+        },
+        "toefl_ibt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 120
+        },
+        "waiver": {
+          "$ref": "#/$defs/plainText"
+        },
+        "text": {
+          "$ref": "#/$defs/plainText"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourced_text": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_text"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_text": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_text"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_text"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_deadline": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_deadline"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_deadline": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_deadline"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_deadline"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_gpa_rule": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_gpa_rule"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_gpa_rule": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_gpa_rule"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_gpa_rule"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_language_req": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_language_req"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_language_req": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_language_req"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_language_req"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_money": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_money"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_money": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_money"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_money"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_duration_months": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_duration_months"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_duration_months": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_duration_months"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_duration_months"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_lor_count": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_lor_count"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_lor_count": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_lor_count"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_lor_count"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_boolean": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_boolean"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_boolean": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_boolean"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_boolean"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_email": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_email"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_email": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_email"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_email"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "sourced_recognition_status": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_recognition_status"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_recognition_status": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_recognition_status"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_recognition_status"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "institution": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "country",
+        "kind",
+        "website",
+        "hec_status",
+        "pqr_status",
+        "anabin_status",
+        "recognition_list_status"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "country": {
+          "$ref": "#/$defs/countryCode"
+        },
+        "kind": {
+          "description": "'destination' = university abroad; 'home' = Pakistani university.",
+          "enum": [
+            "destination",
+            "home"
+          ]
+        },
+        "website": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "hec_status": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "pqr_status": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "anabin_status": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "recognition_list_status": {
+          "$ref": "#/$defs/fact_recognition_status"
+        },
+        "notes": {
+          "$ref": "#/$defs/plainText"
+        }
+      },
+      "additionalProperties": false
+    },
+    "program": {
+      "type": "object",
+      "required": [
+        "id",
+        "institution_id",
+        "name",
+        "country",
+        "degree",
+        "field",
+        "official_url",
+        "status",
+        "pathway_type",
+        "last_checked",
+        "status_note",
+        "intake",
+        "deadline",
+        "min_gpa_rule",
+        "language_req",
+        "tuition",
+        "living_cost",
+        "duration_months",
+        "scholarship_info",
+        "sop_requirements",
+        "lor_count",
+        "cv_requirements",
+        "tests_required",
+        "research_considered",
+        "progression_guaranteed",
+        "progression_requirement",
+        "eligibility_note",
+        "conditional_admission",
+        "language_waiver",
+        "admissions_email"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "institution_id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "country": {
+          "$ref": "#/$defs/countryCode"
+        },
+        "degree": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "field": {
+          "description": "Field slug, e.g. \"cs\".",
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "official_url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "ruled_out"
+          ]
+        },
+        "pathway_type": {
+          "enum": [
+            "direct",
+            "conditional",
+            "pre_masters",
+            "pathway",
+            "score_based",
+            "research_led"
+          ]
+        },
+        "last_checked": {
+          "$ref": "#/$defs/isoDateOrTimestamp"
+        },
+        "status_note": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "intake": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "deadline": {
+          "$ref": "#/$defs/fact_deadline"
+        },
+        "min_gpa_rule": {
+          "$ref": "#/$defs/fact_gpa_rule"
+        },
+        "language_req": {
+          "$ref": "#/$defs/fact_language_req"
+        },
+        "tuition": {
+          "$ref": "#/$defs/fact_money"
+        },
+        "living_cost": {
+          "$ref": "#/$defs/fact_money"
+        },
+        "duration_months": {
+          "$ref": "#/$defs/fact_duration_months"
+        },
+        "scholarship_info": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "sop_requirements": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "lor_count": {
+          "$ref": "#/$defs/fact_lor_count"
+        },
+        "cv_requirements": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "tests_required": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "research_considered": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "progression_guaranteed": {
+          "$ref": "#/$defs/fact_boolean"
+        },
+        "progression_requirement": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "admissions_email": {
+          "$ref": "#/$defs/fact_email"
+        },
+        "eligibility_note": {
+          "$ref": "#/$defs/fact_text"
+        },
+        "conditional_admission": {
+          "$ref": "#/$defs/fact_conditional_admission"
+        },
+        "language_waiver": {
+          "$ref": "#/$defs/fact_text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "value_conditional_admission": {
+      "description": "Official conditional/provisional route below the regular minimum. min = lowest grade the route names (null = no floor stated).",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "scale",
+        "min",
+        "text"
+      ],
+      "properties": {
+        "scale": {
+          "$ref": "#/$defs/gradeScale"
+        },
+        "min": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "text": {
+          "$ref": "#/$defs/plainText"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourced_conditional_admission": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_conditional_admission"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "fact_conditional_admission": {
+      "$ref": "#/$defs/factBase",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/value_conditional_admission"
+        },
+        "conflicts": {
+          "description": "Other sources for the same fact. A different non-null value makes the fact a Conflict.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourced_conditional_admission"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    }
+  }
+}

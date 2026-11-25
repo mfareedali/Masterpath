@@ -1,0 +1,425 @@
+{
+  "$schema": "./schemas/country_facts.schema.json",
+  "version": 1,
+  "country_facts": [
+    {
+      "id": "ca-citizenship-rule",
+      "country": "CA",
+      "key": "citizenship_rule",
+      "value": {
+        "text": "You must have been physically present in Canada for at least 1,095 days during the 5 years before you apply.",
+        "sort_months": 36,
+        "clock_note": "Days spent in Canada as a temporary resident (for example as a student or worker) count as half days, up to a maximum of 365 days."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/adult-minor/who.html",
+      "evidence_snippet": "You must have been physically in Canada for at least 1,095 days (3 years) during your 5-year eligibility period.",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Adult applicants (grant of citizenship). Value kept identical to the seed: the official wording matches it. SOURCE URL CORRECTED: the seeded URL (.../become-canadian-citizen/eligibility.html) now redirects to this 'Who can apply' page (canonical URL). The page defines the eligibility period as '5 years before the date you sign your application' and says it 'must include at least 730 days as a permanent resident'. The half-day rule is backed by the companion proposal below (same value, same URL).",
+      "note": "The same page says: \"Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada. You can use a maximum of 365 days of physical presence as temporary resident or protected person.\""
+    },
+    {
+      "id": "de-citizenship-rule",
+      "country": "DE",
+      "key": "citizenship_rule",
+      "value": {
+        "text": "At least 5 years of legal residence in Germany before applying for naturalisation.",
+        "sort_months": 60,
+        "clock_note": "The clock counts years of legal residence in Germany. Check which permits count."
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "evidence_snippet": "As a general rule, non Germans have the right to become naturalised after five years of legal residence in the Federal Republic of Germany, provided they meet certain additional conditions.",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Federal Foreign Office (Auswaertiges Amt, a German federal ministry) English page 'Law on Nationality'. Value kept identical to the seed. SOURCE URL CORRECTED: the seeded bundesregierung.de/breg-en/news/modernisation-of-citizenship-law-2059392 now redirects to a login page (cvd.bundesregierung.de/cvd-de/login), and bmi.bund.de English pages sit behind a cookie-check that the verifier cannot pass. The Federal Government's own German page https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620 confirms: 'Zukünftig gilt für alle Antragstellenden eine Mindestaufenthaltszeit von fünf Jahren'. Other conditions named on the AA page: sufficient German, naturalisation test, clean record, self-support."
+    },
+    {
+      "id": "de-dual-nationality-destination",
+      "country": "DE",
+      "key": "dual_nationality_destination",
+      "value": {
+        "text": "Germany generally allows dual citizenship since 27 June 2024."
+      },
+      "source_url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "evidence_snippet": "As of 27 June 2024, citizens of all countries who are naturalised in Germany are allowed to hold multiple citizenship.",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Federal Foreign Office English page 'Law on Nationality'. Value kept identical to the seed. SOURCE URL CORRECTED (seeded bundesregierung.de English URL now redirects to a login page). The page adds: 'Applicants must find out in advance whether the laws of their country of origin also permit multiple citizenship.' (Pakistan's side is deliberately left 'Not verified yet' per product owner.)"
+    },
+    {
+      "id": "de-citizenship-update",
+      "country": "DE",
+      "key": "citizenship_update",
+      "value": {
+        "text": "The 3-year fast-track route to German citizenship ended in October 2025."
+      },
+      "source_url": "https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620",
+      "evidence_snippet": "Die bisherige Möglichkeit einer sogenannten „Turboeinbürgerung“ nach 3 Jahren entfällt. Das Gesetz ist am 30. Oktober 2025 in Kraft getreten.",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Official Federal Government page (German; English value is a direct rendering). Page dated Thursday 30 October 2025, title 'Staatsangehörigkeit frühestens nach fünf Jahren'; it also says 'Eine Einbürgerung ist frühestens nach fünf Jahren möglich.' Replaces the seed's news-report basis with an official source; value kept identical to the seed. Supporting official page: Bundestag vote record https://www.bundestag.de/parlament/plenum/abstimmung/abstimmung?id=962 ('Der Bundestag hat am Mittwoch, 8. Oktober 2025, den Gesetzentwurf der Bundesregierung ... verabschiedet'). NOTE: BAMF's English naturalisation page still describes the 3-year route - see the conflicting proposal below and conflicts_noticed."
+    },
+    {
+      "id": "uk-post-study-work",
+      "country": "UK",
+      "key": "post_study_work",
+      "value": {
+        "text": "Graduate visa: 2 years if you apply by 31 December 2026; 18 months if you apply from 1 January 2027.",
+        "sort_months": 18,
+        "clock_note": "The length depends on the date you apply for the Graduate visa."
+      },
+      "source_url": "https://www.gov.uk/graduate-visa",
+      "evidence_snippet": "A Graduate visa lasts for: 2 years if you apply on or before 31 December 2026 18 months if you apply on or after 1 January 2027",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Non-PhD graduates (the page adds 'If you have a PhD or other doctoral qualification, it will last for 3 years.'). Value kept identical to the seed (seed wording 'by'/'from' = page wording 'on or before'/'on or after'). The page also says 'Your visa will start from the day your application is approved.' The clock_note's 2027-intake reasoning is the seed's own inference, not page text. Ranking uses 18 months because a Masters starting in 2027 ends after 1 January 2027 (app inference, see DECISIONS.md)."
+    },
+    {
+      "id": "uk-pr-route",
+      "country": "UK",
+      "key": "pr_route",
+      "value": {
+        "text": "The government's response on earned settlement says the starting point for settlement will move to 10 years, with faster and slower paths available.",
+        "sort_months": 120,
+        "clock_note": "Under Earned Settlement, time spent on temporary routes will not count towards the qualifying residence period for settlement."
+      },
+      "source_url": "https://www.gov.uk/government/consultations/earned-settlement/outcome/a-fairer-pathway-to-settlement-government-response-to-the-consultation",
+      "evidence_snippet": "As set out in the Immigration White Paper published in May 2025, the starting point for settlement will move to 10 years, with faster and slower paths available depending on four key principles:",
+      "fetched_at": "2026-11-24",
+      "review_note": "Rewritten after review from the gov.uk response page; both the text and the clock_note are verbatim from that page. Student and Graduate are temporary routes."
+    },
+    {
+      "id": "us-post-study-work",
+      "country": "US",
+      "key": "post_study_work",
+      "value": {
+        "text": "Optional Practical Training (OPT): up to 12 months, plus a 24-month extension for eligible STEM degrees.",
+        "sort_months": 36,
+        "clock_note": "OPT can be used before completing your studies (pre-completion) and/or after completing them (post-completion)."
+      },
+      "source_url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+      "evidence_snippet": "Eligible students can apply to receive up to 12 months of OPT employment authorization before completing their academic studies (pre-completion) and/or after completing their academic studies (post-completion).",
+      "fetched_at": "2026-11-24",
+      "note": "The same page says: \"If you have earned a degree in certain Science, Technology, Engineering and Mathematics (STEM) fields, you may apply for a 24-month extension of your post-completion OPT employment authorization.\"",
+      "review_note": "Rewritten after review: \"up to 12 months\" per USCIS. Ranking assumes a STEM degree (computer science)."
+    },
+    {
+      "id": "us-citizenship-rule",
+      "country": "US",
+      "key": "citizenship_rule",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-pr-route",
+      "country": "US",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-post-study-work",
+      "country": "CA",
+      "key": "post_study_work",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-pr-route",
+      "country": "CA",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-dual-nationality-destination",
+      "country": "CA",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-post-study-work",
+      "country": "DE",
+      "key": "post_study_work",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-pr-route",
+      "country": "DE",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-citizenship-rule",
+      "country": "UK",
+      "key": "citizenship_rule",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-dual-nationality-destination",
+      "country": "UK",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-dual-nationality-destination",
+      "country": "US",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-citizenship-rule",
+      "country": "CH",
+      "key": "citizenship_rule",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-post-study-work",
+      "country": "CH",
+      "key": "post_study_work",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-pr-route",
+      "country": "CH",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-dual-nationality-destination",
+      "country": "CH",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-tuition-typical",
+      "country": "DE",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-living-cost-typical",
+      "country": "DE",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-tuition-typical",
+      "country": "CH",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-living-cost-typical",
+      "country": "CH",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-tuition-typical",
+      "country": "UK",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-living-cost-typical",
+      "country": "UK",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-tuition-typical",
+      "country": "CA",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-living-cost-typical",
+      "country": "CA",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-tuition-typical",
+      "country": "US",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-living-cost-typical",
+      "country": "US",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "pk-pakistan-dual-nationality",
+      "country": "PK",
+      "key": "pakistan_dual_nationality",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-proof-of-funds",
+      "country": "UK",
+      "key": "proof_of_funds",
+      "value": {
+        "text": "For a Student visa you must show money for your course fees for 1 academic year (up to 9 months), as shown on your CAS, plus living costs of £1,529 per month for courses in London or £1,171 per month for courses outside London, for up to 9 months.",
+        "clock_note": "You must have this money for at least 28 days in a row. The 28-day period must end within 31 days of the date you apply."
+      },
+      "source_url": "https://www.gov.uk/student-visa/money",
+      "evidence_snippet": "£1,529 per month (for up to 9 months) for courses in London £1,171 per month (for up to 9 months) for courses outside London",
+      "fetched_at": "2026-11-24",
+      "note": "The same page says: \"You need enough money to pay for your course for 1 academic year (up to 9 months). The amount you need to pay will be on your Confirmation of Acceptance for Studies (CAS).\"",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Companion snippets: \"You need enough money to pay for your course for 1 academic year (up to 9 months). The amount you need to pay will be on your Confirmation of Acceptance for Stu\" (https://www.gov.uk/student-visa/money) | \"You must have this money for at least 28 days in a row. The end date of the 28-day period must be within 31 days of the date you apply for your visa.\" (https://www.gov.uk/student-visa/money)"
+    },
+    {
+      "id": "de-proof-of-funds",
+      "country": "DE",
+      "key": "proof_of_funds",
+      "value": {
+        "text": "For visa applications from 1 January 2025, the German Embassy in Pakistan presumes €992 a month (€11,904 a year) must be paid into a blocked account (Sperrkonto). It may ask for a blocked amount for up to two years in particular cases.",
+        "money": {
+          "amount": 11904,
+          "currency": "EUR",
+          "period": "year"
+        },
+        "clock_note": "Your signature on the blocked-account documents must be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consul in Lahore."
+      },
+      "source_url": "https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+      "evidence_snippet": "From 1 January 2025 the presumed annual requirement that must be paid into the blocked account when applying for a visa will increase to 992,00 Euros monthly or 11.904,00 Euros yearly. This increased amount applies to all visa applications submitted from 1 January 2025.",
+      "fetched_at": "2026-11-24",
+      "note": "The same page says: \"Please note that a scholarship awarded by a Pakistani University is not sufficient, only a scholarship awarded by HEC can be accepted.\"",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Companion snippets: \"The Embassy and Consulate General reserve the right to request a blocked amount for up to two years in particular cases.\" (https://pakistan.diplo.de/pk-en/service/1995528-1995528) | \"Please note that a scholarship awarded by a Pakistani University is not sufficient, only a scholarship awarded by HEC can be accepted.\" (https://pakistan.diplo.de/pk-en/service/1995528-1995528) | \"Your signature on the documents to open a blocked account has to be attested by the Embassy in Islamabad, the Consulate General in Karachi or the Honorary Consu\" (https://pakistan.diplo.de/pk-en/service/1995528-1995528)"
+    },
+    {
+      "id": "ca-proof-of-funds",
+      "country": "CA",
+      "key": "proof_of_funds",
+      "value": {
+        "text": "For a study permit you must prove, without working in Canada, that you can pay tuition, living expenses and travel. If you apply on or after 1 September 2026 to study outside Quebec, the living-expenses amount for a student coming alone is CAN$23,448 for the first year, not including tuition and transport.",
+        "money": {
+          "amount": 23448,
+          "currency": "CAD",
+          "period": "year"
+        },
+        "clock_note": "The amount is for the first year of your program and is updated each year."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+      "evidence_snippet": "If you apply on or after September 1, 2026 All provinces and territories except Quebec Number of family members (including the applicant) Amount required per year (excluding tuition and transportation costs) (in CAN$) 1 $23,448",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Companion snippets: \"You must prove that you have enough money, without working in Canada, to pay for all the following: tuition fees for the course or program of studies living exp\" (https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html) | \"This chart tells you how much money you will need to support yourself and your family members in Canada for the first year of your program of studies. These amo\" (https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html)"
+    },
+    {
+      "id": "us-proof-of-funds",
+      "country": "US",
+      "key": "proof_of_funds",
+      "value": {
+        "text": "You must have the money to cover tuition, books, living expenses and travel. Your school checks this before it issues your Form I-20, and the I-20 lists the costs and your financial resources."
+      },
+      "source_url": "https://studyinthestates.dhs.gov/students/prepare/financial-ability",
+      "evidence_snippet": "Prospective F-1 or M-1 students must have the financial resources to live and study in the United States. This includes being able to cover the cost of tuition, books, living expenses and travel. Designated school officials (DSOs) must collect evidence of the student’s financial ability before issuing a Form I-20, “Certificate of Eligibility for Nonimmigrant Student Status.”",
+      "fetched_at": "2026-11-24",
+      "review_note": "Proposed from the official page on 2026-11-24 and checked by a second reviewer. Awaiting human review. Companion snippets: \"The Form I-20 includes the following information: Personal and academic details about the student. Student and Exchange Visitor Information System (SEVIS) ID nu\" (https://studyinthestates.dhs.gov/2025/07/sevp-form-series-understanding-the-form-i-20)"
+    },
+    {
+      "id": "ch-proof-of-funds",
+      "country": "CH",
+      "key": "proof_of_funds",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    }
+  ]
+}

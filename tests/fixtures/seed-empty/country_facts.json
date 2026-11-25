@@ -1,0 +1,357 @@
+{
+  "version": 1,
+  "country_facts": [
+    {
+      "id": "ca-citizenship-rule",
+      "country": "CA",
+      "key": "citizenship_rule",
+      "value": {
+        "text": "You must have been physically present in Canada for at least 1,095 days during the 5 years before you apply.",
+        "sort_months": 36,
+        "clock_note": "Days spent in Canada as a temporary resident (for example as a student or worker) count as half days, up to a maximum of 365 days."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/become-canadian-citizen/eligibility.html",
+      "evidence_snippet": null,
+      "fetched_at": "2026-11-23",
+      "basis": "summary",
+      "note": "Summarised from the official page found on 23 Nov 2026. Re-verify before relying on it."
+    },
+    {
+      "id": "de-citizenship-rule",
+      "country": "DE",
+      "key": "citizenship_rule",
+      "value": {
+        "text": "At least 5 years of legal residence in Germany before applying for naturalisation.",
+        "sort_months": 60,
+        "clock_note": "The clock counts years of legal residence in Germany. Check which permits count."
+      },
+      "source_url": "https://www.bundesregierung.de/breg-en/news/modernisation-of-citizenship-law-2059392",
+      "evidence_snippet": null,
+      "fetched_at": "2026-11-23",
+      "basis": "summary",
+      "note": "Summarised from the official page found on 23 Nov 2026. Re-verify before relying on it."
+    },
+    {
+      "id": "de-dual-nationality-destination",
+      "country": "DE",
+      "key": "dual_nationality_destination",
+      "value": {
+        "text": "Germany generally allows dual citizenship since 27 June 2024."
+      },
+      "source_url": "https://www.bundesregierung.de/breg-en/news/modernisation-of-citizenship-law-2059392",
+      "evidence_snippet": null,
+      "fetched_at": "2026-11-23",
+      "basis": "summary",
+      "note": "Summarised from the official page found on 23 Nov 2026. Re-verify before relying on it."
+    },
+    {
+      "id": "de-citizenship-update",
+      "country": "DE",
+      "key": "citizenship_update",
+      "value": {
+        "text": "The 3-year fast-track route to German citizenship ended in October 2025."
+      },
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "basis": "inferred",
+      "note": "From a news report, not an official page. Find the official text before relying on it."
+    },
+    {
+      "id": "uk-post-study-work",
+      "country": "UK",
+      "key": "post_study_work",
+      "value": {
+        "text": "Graduate visa: 2 years if you apply by 31 December 2026; 18 months if you apply from 1 January 2027.",
+        "sort_months": 18,
+        "clock_note": "The length depends on the date you apply for the Graduate visa, not the date you started studying. A Masters starting in 2027 finishes after 1 January 2027, so 18 months is used for ranking."
+      },
+      "source_url": "https://www.gov.uk/graduate-visa",
+      "evidence_snippet": null,
+      "fetched_at": "2026-11-23",
+      "basis": "summary",
+      "note": "Summarised from the official page found on 23 Nov 2026. Re-verify before relying on it."
+    },
+    {
+      "id": "uk-pr-route",
+      "country": "UK",
+      "key": "pr_route",
+      "value": {
+        "text": "The Home Office earned-settlement response of 2 November 2026 raises the standard wait for settlement from 5 to 10 years for most migrants.",
+        "sort_months": 120,
+        "clock_note": "Check the Home Office text and its transition rules: who is covered and from when."
+      },
+      "source_url": "https://www.gov.uk/government/organisations/home-office",
+      "evidence_snippet": null,
+      "fetched_at": "2026-11-23",
+      "basis": "inferred",
+      "note": "Check the Home Office text and transition rules before relying on this."
+    },
+    {
+      "id": "us-post-study-work",
+      "country": "US",
+      "key": "post_study_work",
+      "value": {
+        "text": "Optional Practical Training (OPT): 12 months, plus a 24-month extension for eligible STEM degrees.",
+        "sort_months": 36,
+        "clock_note": "The STEM extension applies only to eligible STEM degrees and has its own employer requirements."
+      },
+      "source_url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+      "evidence_snippet": null,
+      "fetched_at": "2026-11-23",
+      "basis": "summary",
+      "note": "Summarised from the official page found on 23 Nov 2026. Re-verify before relying on it."
+    },
+    {
+      "id": "us-citizenship-rule",
+      "country": "US",
+      "key": "citizenship_rule",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-pr-route",
+      "country": "US",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-post-study-work",
+      "country": "CA",
+      "key": "post_study_work",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-pr-route",
+      "country": "CA",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-dual-nationality-destination",
+      "country": "CA",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-post-study-work",
+      "country": "DE",
+      "key": "post_study_work",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-pr-route",
+      "country": "DE",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-citizenship-rule",
+      "country": "UK",
+      "key": "citizenship_rule",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-dual-nationality-destination",
+      "country": "UK",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-dual-nationality-destination",
+      "country": "US",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-citizenship-rule",
+      "country": "CH",
+      "key": "citizenship_rule",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-post-study-work",
+      "country": "CH",
+      "key": "post_study_work",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-pr-route",
+      "country": "CH",
+      "key": "pr_route",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-dual-nationality-destination",
+      "country": "CH",
+      "key": "dual_nationality_destination",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-tuition-typical",
+      "country": "DE",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-living-cost-typical",
+      "country": "DE",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-tuition-typical",
+      "country": "CH",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-living-cost-typical",
+      "country": "CH",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-tuition-typical",
+      "country": "UK",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-living-cost-typical",
+      "country": "UK",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-tuition-typical",
+      "country": "CA",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-living-cost-typical",
+      "country": "CA",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-tuition-typical",
+      "country": "US",
+      "key": "tuition_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-living-cost-typical",
+      "country": "US",
+      "key": "living_cost_typical",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "pk-pakistan-dual-nationality",
+      "country": "PK",
+      "key": "pakistan_dual_nationality",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    }
+  ],
+  "_fixture": "Frozen copy of the seed as of 24 Nov 2026 before any evidence was merged (all program facts Unverified). Used by tests that check behaviour with empty data. Do not update."
+}

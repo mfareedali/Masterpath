@@ -1,0 +1,54 @@
+{
+  "name": "masterspath",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "tokens": "tsx scripts/build-tokens.ts",
+    "predev": "npm run tokens",
+    "dev": "next dev",
+    "prebuild": "npm run tokens",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate:seed": "tsx scripts/validate-seed.ts",
+    "ci": "npm run tokens && npm run typecheck && npm run lint && npm test && npm run validate:seed && npm run seed:supabase:check && npm run build",
+    "check-links": "tsx scripts/check-links.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "verify-snippet": "tsx scripts/verify-snippet.ts",
+    "proposals:merge": "tsx scripts/merge-proposals.ts",
+    "seed:supabase": "tsx scripts/seed-supabase.ts",
+    "icons": "tsx scripts/make-icons.ts",
+    "seed:supabase:check": "tsx scripts/seed-supabase.ts --dry-run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.13.0",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.2",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "0.0.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "24.19.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "^5",
+    "vitest": "5.1.1"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "license": "MIT"
+}
