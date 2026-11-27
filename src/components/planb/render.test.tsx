@@ -452,13 +452,13 @@ describe("today's seed + persona A: conditional route cards and the not-decided 
     const section = decoded(html.slice(at, html.indexOf('id="improve-h"')));
     expect(section).toMatch(/For \d+ programs in your field and countries we cannot tell yet/);
     expect(html).toContain('href="/shortlist?fit=unknown"');
+    // Würzburg is no longer undecided: its German-scale conversion rule now has an official source.
     const w = section.slice(section.indexOf('data-undecided="wuerzburg-msc-cs"'));
     expect(w).toContain('Minimum grade not verified yet.');
-    expect(w).toContain('Conditional route: ');
-    expect(w).toMatch(/German grade .* no official source yet/);
-    expect(section).toContain('Also shown above as a route');
+    expect(w).toContain('Also shown above as a route');
+    expect(section).not.toMatch(/no official source yet/);
     // "Every route type" counts the conditional routes, including the one we cannot decide.
-    expect(text).toContain('2 shown, 1 not decided yet');
+    expect(text).toContain('3 shown');
     // No "Not for your grade" section when nothing is below its own limit.
     expect(html).not.toContain('id="notforgrade-h"');
     expectNoReviewNotes(html, rows);

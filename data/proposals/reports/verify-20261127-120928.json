@@ -1,0 +1,79 @@
+{
+  "tool": "verify",
+  "mode": "file",
+  "args": [
+    "--verify",
+    "data/proposals/verified/scrape-fx.json"
+  ],
+  "user_agent": "MastersPathIngest/0.2 (open-source evidence bot; contact URL not configured: set INGEST_CONTACT_URL)",
+  "started_at": "2026-11-27T12:09:25.466Z",
+  "finished_at": "2026-11-27T12:09:28.357Z",
+  "duration_ms": 2891,
+  "summary": {
+    "entries": 6,
+    "by_outcome": {
+      "found": 6
+    },
+    "accepted": 0,
+    "rejected": 0
+  },
+  "accepted": [],
+  "rejections": [],
+  "entries": [
+    {
+      "kind": "snippet",
+      "ref": "eur-pkr.pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2890
+    },
+    {
+      "kind": "snippet",
+      "ref": "gbp-pkr.pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2890
+    },
+    {
+      "kind": "snippet",
+      "ref": "usd-pkr.pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2890
+    },
+    {
+      "kind": "snippet",
+      "ref": "cad-pkr.pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2890
+    },
+    {
+      "kind": "snippet",
+      "ref": "chf-pkr.pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2890
+    },
+    {
+      "kind": "snippet",
+      "ref": "aud-pkr.pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2890
+    }
+  ],
+  "notes": []
+}

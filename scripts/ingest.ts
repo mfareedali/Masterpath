@@ -26,7 +26,6 @@ import {
   INGEST_USAGE,
   buildExtractionPrompt,
   buildProposalsFile,
-  pageTextOf,
   parseIngestArgs,
   parseModelOutput,
   proposalFileName,
@@ -37,7 +36,7 @@ import {
   type ProposalsFile,
   type ReviewResult,
 } from '../src/lib/seed/ingest';
-import { describeFetchError } from '../src/lib/seed/page-text';
+import { describeFetchError, PAGE_TYPES, textOfResponse } from '../src/lib/seed/page-text';
 import { RunRecorder, outcomeOfError, outcomeOfStatus } from '../src/lib/seed/run-report';
 import {
   emptyState,
@@ -139,7 +138,7 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
   const t0 = Date.now();
   let page: SafeResponse;
   try {
-    page = await safeFetch(url);
+    page = await safeFetch(url, { acceptTypes: PAGE_TYPES });
   } catch (e) {
     const o = outcomeOfError(e);
     rec.entry({ kind: 'page', ref: programId, url, ...o, duration_ms: Date.now() - t0 });
@@ -151,7 +150,7 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
     writeRunReport(rec.finish());
     fail(`The page returned HTTP ${page.status}. Nothing proposed.`);
   }
-  const pageText = pageTextOf(page.body, page.contentType);
+  const pageText = await textOfResponse(page);
   if (pageText.length < 200) console.warn(`Warning: the page has only ${pageText.length} characters of text (JavaScript-only page?).`);
   if (page.redirects.length) console.log(`Redirected to ${page.url}`);
 
@@ -237,7 +236,7 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
       const conditional = !args.force && st && (st.extracted || args.fetchOnly) ? { etag: st.etag, lastModified: st.last_modified } : undefined;
       let res: SafeResponse;
       try {
-        res = await safeFetch(page.url, { conditional });
+        res = await safeFetch(page.url, { conditional, acceptTypes: PAGE_TYPES });
       } catch (e) {
         rec.entry({ kind: 'page', ref: page.id, url: page.url, ...outcomeOfError(e), duration_ms: Date.now() - t0 });
         console.log(`  ${page.id}: ${outcomeOfError(e).outcome} (${describeFetchError(e)})`);
@@ -254,7 +253,7 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
         console.log(`  ${page.id}: HTTP ${res.status}`);
         continue;
       }
-      const text = pageTextOf(res.body, res.contentType);
+      const text = await textOfResponse(res);
       const hash = hashText(text);
       const unchanged = !args.force && st?.hash === hash && (st.extracted || args.fetchOnly);
       const nextState = { hash, etag: res.etag, last_modified: res.lastModified, checked_at: now.toISOString(), final_url: res.url, chars: text.length };
@@ -331,8 +330,8 @@ async function verifyItems(items: ReturnType<typeof verifyItemsFrom>['items'], m
   for (const url of new Set(items.map((i) => i.source_url))) {
     const t0 = Date.now();
     try {
-      const res = await safeFetch(url);
-      if (res.ok) pages.set(url, pageTextOf(res.body, res.contentType));
+      const res = await safeFetch(url, { acceptTypes: PAGE_TYPES });
+      if (res.ok) pages.set(url, await textOfResponse(res));
       else {
         pages.set(url, new Error(`HTTP ${res.status}`));
         statuses.set(url, outcomeOfStatus(res.status));

@@ -30,6 +30,7 @@ const seed: SeedBundle = {
   programs: read('data/programs.seed.json'),
   countryFacts: read('data/country_facts.seed.json'),
   conversionRules: read('data/conversion_rules.seed.json'),
+  fxRates: read('data/fx_rates.seed.json'),
 };
 const proposalFiles: ProposalFile[] = files.map((f) => JSON.parse(readFileSync(f, 'utf8')));
 const { seed: merged, changes } = mergeProposals(seed, proposalFiles, date);
@@ -43,6 +44,7 @@ if (!dry) {
   write('data/programs.seed.json', merged.programs);
   write('data/country_facts.seed.json', merged.countryFacts);
   write('data/conversion_rules.seed.json', merged.conversionRules);
+  write('data/fx_rates.seed.json', merged.fxRates);
   writeFileSync(join(root, 'data', 'proposals', 'REVIEW.md'), reviewMarkdown(changes, date), 'utf8');
   console.log('Wrote seed files and data/proposals/REVIEW.md');
 }

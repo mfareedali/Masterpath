@@ -142,6 +142,8 @@ export interface SafeResponse {
   ok: boolean;
   contentType: string | null;
   body: string;
+  /** The undecoded bytes, kept only for application/pdf (text extraction happens in page-text.ts). */
+  raw?: Uint8Array;
   bytes: number;
   redirects: string[];
   /** HTTP 304 for a conditional request: the page has not changed since the validators were issued. */
@@ -449,6 +451,6 @@ export async function safeFetch(rawUrl: string, options: SafeFetchOptions = {}):
       throw new SafeFetchError('TOO_LARGE', `Body is larger than ${o.maxBytes} bytes: ${url}`, url.toString());
     }
     const buf = await readCapped(res, o.maxBytes, signal, url, o.timeoutMs);
-    return { ...base, body: decodeBody(buf, contentType), bytes: buf.length };
+    return { ...base, body: media === 'application/pdf' ? '' : decodeBody(buf, contentType), ...(media === 'application/pdf' ? { raw: buf } : {}), bytes: buf.length };
   }
 }

@@ -86,15 +86,21 @@ describe('work after study on the live seed (reviewer curl cases)', () => {
     expect(r.text).not.toMatch(/Programme length/);
   });
 
-  it('"How long can I stay in Germany after my Masters?" -> refusal: work-after-study rule not verified yet', async () => {
+  it('"How long can I stay in Switzerland after my Masters?" -> refusal: work-after-study rule not verified yet', async () => {
     const model = mockModel();
-    const r = await collectAnswer({ question: 'How long can I stay in Germany after my Masters?' }, deps({ model }));
+    const r = await collectAnswer({ question: 'How long can I stay in Switzerland after my Masters?' }, deps({ model }));
     expect(model.calls).toHaveLength(0);
     expect(r.mode).toBe('refusal');
     expect(r.reason).toBe('not_verified');
-    expect(r.rows.map((x) => x.id)).toEqual(['de-post-study-work']);
-    expect(r.text).toMatch(/work-after-study rule for Germany is not verified yet/);
+    expect(r.rows.map((x) => x.id)).toEqual(['ch-post-study-work']);
+    expect(r.text).toMatch(/work-after-study rule for Switzerland is not verified yet/);
     expect(r.text).not.toMatch(/24 months|2 years/);
+  });
+
+  it('"How long can I stay in Germany after my Masters?" -> the Verified jobseeker-permit row (up to 18 months)', async () => {
+    const r = await collectAnswer({ question: 'How long can I stay in Germany after my Masters?' }, deps());
+    expect(r.rows.map((x) => x.id)).toEqual(['de-post-study-work']);
+    expect(r.text).toMatch(/18 months/);
   });
 });
 
