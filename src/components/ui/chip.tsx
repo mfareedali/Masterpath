@@ -7,10 +7,10 @@ import type { ComponentProps } from 'react';
  */
 export function chipClass(active: boolean, extra = ''): string {
   return [
-    'inline-flex min-h-tap items-center gap-1 rounded-chip border px-4 text-sm font-semibold no-underline whitespace-nowrap',
+    'inline-flex min-h-tap items-center gap-1 rounded-chip border px-4 text-sm font-semibold no-underline whitespace-nowrap transition-colors',
     active
-      ? 'border-primary bg-primary text-on-primary'
-      : 'border-line bg-surface text-ink hover:border-primary',
+      ? 'border-primary bg-primary text-on-primary shadow-button-soft'
+      : 'border-line bg-surface text-ink shadow-button-soft hover:border-primary hover:text-primary-ink',
     extra,
   ].join(' ');
 }

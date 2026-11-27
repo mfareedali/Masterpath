@@ -489,3 +489,19 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   "Electrical Engineering (no programs yet)" (from the dataset: `getFieldsWithPrograms`), the fields stay selectable
   (the empty page explains how to add programs and links to the closest field), and the coverage meter is hidden
   when a field has no programs. The home page now reads the dataset, so it is refreshed hourly instead of fully static.
+
+## Redesign: Home, shortlist, program page (27 Nov 2026)
+
+- **21st.dev components, ported, not installed.** The "Bento Grid" (karaui) and "Scroll Spy" (ddoemonn) components
+  were the references; both depend on `motion/react` and `lucide-react`. They are rebuilt on Tailwind + theme tokens
+  (`src/components/ui/bento.tsx`, `scroll-spy.tsx`) with CSS animation, so no new dependency, no new colours, and
+  the strict CSP is unchanged. The stat tiles (`ui/stat.tsx`) follow the 21st.dev "Data Card" pattern.
+- **Works without JS.** Bento tiles are server-rendered links (stretched CTA, one tab stop); the cursor spotlight is
+  decorative (CSS variables set by a tiny client listener, mouse only). The scroll-spy bar is plain `#anchor` links
+  until hydration. Load-in animations end visible and are off under reduced motion.
+- **Home**: hero numbers (programs, countries, verified facts) come from `homeStats` over the dataset (tested), never
+  copy. New FAQ is a native `<details>` accordion; answers restate existing product rules. No FAQPage JSON-LD,
+  because it needs `dangerouslySetInnerHTML` (product rule 9 / lint).
+- **Shortlist**: counts became stat tiles; the original sentence stays as the `role="status"` live region (sr-only).
+- **Theme**: new shadow tokens (`button`, `button-soft`, `lift`, `dock`) in `src/theme.ts`; buttons and chips get
+  fills, borders and a press state; the mobile bottom nav is a floating dock with the active tab on an olive-100 pill.

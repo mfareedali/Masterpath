@@ -14,18 +14,21 @@ export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'danger' | 'gho
 
 const VARIANT: Record<ButtonVariant, string> = {
   primary:
-    'btn-primary-type btn-arrow min-h-button px-6 bg-chrome text-on-chrome border border-chrome hover:bg-primary hover:border-primary active:bg-primary active:border-primary',
+    'btn-primary-type btn-arrow min-h-button px-6 bg-chrome text-on-chrome border border-chrome shadow-button hover:bg-primary hover:border-primary active:bg-primary active:border-primary',
   secondary:
-    'btn-secondary-type px-5 bg-transparent text-primary-ink border-[1.5px] border-primary hover:bg-surface-tint active:bg-surface-tint',
-  accent: 'btn-primary-type px-5 bg-accent-soft text-on-accent-soft border border-accent-soft hover:border-primary',
-  danger: 'btn-danger-type px-5 bg-conflict-bg text-conflict-fg border-[1.5px] border-conflict-fg hover:brightness-95',
+    'btn-secondary-type px-5 bg-surface text-primary-ink border-[1.5px] border-primary shadow-button-soft hover:bg-surface-tint active:bg-surface-tint',
+  accent:
+    'btn-primary-type px-5 bg-accent-soft text-on-accent-soft border-[1.5px] border-accent-soft shadow-button-soft hover:border-primary',
+  danger:
+    'btn-danger-type px-5 bg-conflict-bg text-conflict-fg border-[1.5px] border-conflict-fg shadow-button-soft hover:brightness-95',
   ghost: 'btn-secondary-type px-4 bg-transparent text-primary-ink border border-transparent hover:bg-surface-tint',
 };
 
 export function buttonClass(variant: ButtonVariant = 'primary', extra = '', block = false): string {
   return [
     'inline-flex min-h-tap items-center justify-center gap-2 rounded-chip py-2 text-base no-underline',
-    'transition-colors disabled:cursor-not-allowed disabled:opacity-60',
+    'transition-[background-color,border-color,box-shadow,transform] duration-150 motion-safe:active:translate-y-px',
+    'disabled:cursor-not-allowed disabled:opacity-60 disabled:active:translate-y-0',
     block ? 'w-full' : '',
     VARIANT[variant],
     extra,

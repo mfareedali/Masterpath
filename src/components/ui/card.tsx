@@ -30,13 +30,54 @@ export function Callout({
   );
 }
 
-export function PageHeader({ title, subtitle, children }: { title: string; subtitle?: React.ReactNode; children?: React.ReactNode }) {
+export function PageHeader({
+  title,
+  subtitle,
+  eyebrow,
+  children,
+}: {
+  title: string;
+  subtitle?: React.ReactNode;
+  /** Small label above the title. */
+  eyebrow?: React.ReactNode;
+  children?: React.ReactNode;
+}) {
   return (
     <header className="mb-4">
+      {eyebrow ? <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-primary-ink">{eyebrow}</p> : null}
       <h1 className="text-2xl font-bold md:text-3xl">{title}</h1>
       {subtitle ? <p className="mt-1 text-muted">{subtitle}</p> : null}
       {children}
     </header>
+  );
+}
+
+/** Section heading with an optional eyebrow and intro, used on Home and the shortlist. */
+export function SectionHeading({
+  id,
+  title,
+  eyebrow,
+  intro,
+  action,
+}: {
+  id: string;
+  title: React.ReactNode;
+  eyebrow?: React.ReactNode;
+  intro?: React.ReactNode;
+  /** Right-aligned link, e.g. "Read how it works →". */
+  action?: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+      <div className="min-w-0">
+        {eyebrow ? <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-primary-ink">{eyebrow}</p> : null}
+        <h2 id={id} className="text-xl font-bold md:text-2xl">
+          {title}
+        </h2>
+        {intro ? <p className="mt-1 max-w-2xl text-sm text-muted">{intro}</p> : null}
+      </div>
+      {action}
+    </div>
   );
 }
 
