@@ -20,8 +20,8 @@ const STEPS = [
     text: 'Confidence, fit, ranking, filters, deadlines and cost are worked out by plain, tested code over those rows. The same input always gives the same result.',
   },
   {
-    title: 'The model only explains',
-    text: 'The AI chat explains rows we already have, with their sources. If the data is missing or not verified, it says so instead of guessing.',
+    title: 'The AI explains, it never decides',
+    text: 'The AI chat explains the facts we hold, with their sources. When we hold no verified fact, it answers from general knowledge and marks that answer clearly, so you know to check the official page.',
   },
 ] as const;
 

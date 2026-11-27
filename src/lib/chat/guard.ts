@@ -182,6 +182,36 @@ const NO_DATA_POINTERS: Pointer[] = [
   { href: '/shortlist', label: 'See programs in MastersPath' },
 ];
 
+/* ---------------- getting started (greetings and general "how do I apply") ---------------- */
+
+const GREETING =
+  /^ (hi+|hello+|hey+|hiya|salam|salaam|assalam\w*|asalam\w*|aoa|as?salamu? ?alaikum|good (morning|afternoon|evening)|yo) /;
+const GENERAL_START =
+  / ((want|wanna|planning|plan|wish|hope|thinking) (to )?(apply|study|go|do (a |my )?masters?)|how (do|can|should) (i|we) (apply|start|begin|get started)|help me|guide me|where (do|should) i start|get started|getting started|what should i do|what do i do|kahan se shuru|kaise apply|apply kaise) /;
+
+/**
+ * True for a greeting or a general "I want to apply / how do I start" message. normalizeQuestion pads the text
+ * with spaces, so the patterns use spaces as word edges. Only used when retrieval found no rows and no unsafe
+ * intent was detected, so it can never replace a data answer or a safety refusal.
+ */
+export function isGettingStarted(question: string): boolean {
+  const s = normalizeQuestion(question);
+  if (!s.trim()) return false;
+  return GREETING.test(s) || GENERAL_START.test(s);
+}
+
+export const GETTING_STARTED_TEXT =
+  'Hi! I answer questions from the sourced data in MastersPath: programs, minimum grades, English tests, deadlines, ' +
+  'costs, visa money and work after study. Every answer links to the official page.\n\n' +
+  'A good way to start: add your grade and field on the Shortlist to see which programs you meet the minimum for. ' +
+  'Then ask me about a program or a country. Got advice from an agent? Paste it into Check before you pay anyone.';
+
+const GETTING_STARTED_POINTERS: Pointer[] = [
+  { href: '/shortlist', label: 'See programs for my grade' },
+  { href: '/citizenship', label: 'Compare countries: cost and citizenship' },
+  { href: '/check', label: 'Check what an agent told me' },
+];
+
 /* ---------------- text helpers ---------------- */
 
 const NEEDS_THE = new Set(['United Kingdom', 'United States']);
@@ -296,6 +326,9 @@ export function guard(question: string, retrieval: Retrieval): GuardDecision {
   }
 
   const rows = retrieval.rows;
+  if (rows.length === 0 && !retrieval.unsupportedTopic && isGettingStarted(question)) {
+    return { mode: 'refusal', reason: 'getting_started', text: GETTING_STARTED_TEXT, rows: [], pointers: GETTING_STARTED_POINTERS };
+  }
   if (rows.length === 0) {
     const text = retrieval.unsupportedTopic
       ? `I can only answer from verified data in MastersPath, and I don't have data on ${retrieval.unsupportedTopic} yet.`

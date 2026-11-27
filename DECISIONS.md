@@ -510,3 +510,23 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   no guessing." with a per-letter blur (`src/components/home/text-cycle.tsx`, no motion library), one paragraph,
   two buttons, live dataset numbers. The h1 carries the full sentence for screen readers; the cycling text is
   aria-hidden and stops under reduced motion. The quick-start form moved to its own "Start here" card (#start).
+- **Chat can use xAI Grok (owner's request, 27 Nov).** `src/lib/chat/xai.ts` implements the same `ChatModelClient`
+  over xAI's OpenAI-compatible streaming API with plain fetch (no new dependency). Provider choice is one function
+  (`src/lib/chat/provider.ts`): `XAI_API_KEY` wins, then `ANTHROPIC_API_KEY`, else the no-AI answer. Grok's
+  `content_filter` maps to `refusal` and `length` to `max_tokens`, so the existing fallback and "…" handling apply;
+  the same rate limits and daily token budgets apply. The privacy page names the provider actually in use.
+  Default model `grok-4` (override with `XAI_MODEL`): sources disagreed on the newest model id.
+- **Groq added; the connector is shared (27 Nov).** The owner's key was from Groq (groq.com, `gsk_…`), not xAI
+  Grok, so the xAI client became `src/lib/chat/openai-compat.ts` (any OpenAI-compatible API) and Groq is the first
+  choice (`GROQ_API_KEY`, default model `openai/gpt-oss-20b` from Groq's production list, `reasoning_effort: low`).
+  Because the names are easy to confuse, a key's prefix wins over the variable it was saved under (`gsk_` = Groq,
+  `xai-` = xAI). Only `delta.content` is shown; reasoning deltas are ignored. Errors log the provider's short reason.
+- **Chat answers everything (owner's decision, 27 Nov; supersedes "no data means no answer" for the live site).**
+  When the rows cannot answer (no data, not verified, conflict, unknown name, prediction, legal, greeting), the model
+  answers from general knowledge (`mode: 'general'`, `GENERAL_SYSTEM_PROMPT`), shown under a yellow "AI answer from
+  general knowledge" label with "may be wrong or out of date; confirm on the official page". Reference rows (e.g. a
+  not-verified deadline's official page) are passed so it can cite them. Fraud help ('dishonest') never reaches the
+  model. Data answers may add a "General advice:" paragraph (rule 12), still under the number/date post-check. If the
+  call fails, the rules' reply replaces the partial text (`reset` to refusal). Off switch: `CHAT_GENERAL_KNOWLEDGE=0`
+  (the strict data-only mode stays the default inside `answerQuestion` and keeps its tests). The owner was told the
+  trade-off: answers outside the data can be confidently wrong.

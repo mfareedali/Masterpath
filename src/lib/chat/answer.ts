@@ -1,8 +1,11 @@
 /**
  * answerQuestion: retrieve -> guard -> (model | deterministic fallback), as a stream of ChatEvents.
  *
- * Code decides, the model explains, no data means no answer:
- *  - The guard refuses BEFORE any model call when the data cannot answer (refusal mode, model never called).
+ * Code decides, the model explains:
+ *  - When the rows can answer, the model only explains them (answer mode), with the number/date post-check.
+ *  - When they cannot (no data, not verified, conflict, prediction, legal, greeting…), the model answers from
+ *    general knowledge (general mode, labelled in the UI). Fraud help ('dishonest') never reaches the model.
+ *    With no model or budget, or if that call fails, the guard's own reply is shown (refusal mode).
  *  - The model only sees the selected rows, inside an untrusted <rows> block.
  *  - No API key, no budget, an API error, a model refusal, or an answer containing a number or date that is not
  *    in the rows -> the deterministic fallback list (fallback mode), which never adds facts.
@@ -13,7 +16,7 @@ import { isUsable } from '@/lib/confidence';
 import type { TokenBudgetGate } from './budget';
 import { formatFallbackAnswer } from './fallback';
 import { guard } from './guard';
-import { buildPrompt, truncateSnippet } from './prompt';
+import { buildGeneralPrompt, buildPrompt, truncateSnippet } from './prompt';
 import { retrieve, type ChatDataset } from './retrieve';
 import type { ChatEvent, ChatRow, FallbackReason } from './types';
 import { unsupportedFacts } from './verify';
@@ -51,6 +54,11 @@ export interface AnswerDeps {
   signal?: AbortSignal;
   maxTokens?: number;
   log?: (message: string, err?: unknown) => void;
+  /**
+   * Answer what the rows cannot from the model's general knowledge ('general' mode). On in the route unless
+   * CHAT_GENERAL_KNOWLEDGE=0; off by default here so the strict, data-only behaviour stays tested.
+   */
+  generalKnowledge?: boolean;
 }
 
 export const DEFAULT_MAX_TOKENS = 1024;
@@ -83,16 +91,15 @@ export async function* answerQuestion(input: AnswerInput, deps: AnswerDeps): Asy
   const decision = guard(input.question, retrieval);
 
   if (decision.mode === 'refusal') {
-    yield {
-      type: 'meta',
-      mode: 'refusal',
-      reason: decision.reason,
-      rows: decision.rows.map(toPublicRow),
-      pointers: decision.pointers,
-      ...(decision.suggestion ? { suggestion: decision.suggestion } : {}),
-    };
-    yield { type: 'text', delta: decision.text };
-    yield { type: 'done' };
+    // "Answer everything" (owner's decision): the model answers from general knowledge, labelled as such in the UI.
+    // Fraud help is never sent to the model. Without a model or budget, or if the call fails, the rules' reply stays.
+    const canGeneral =
+      deps.generalKnowledge === true && decision.reason !== 'dishonest' && deps.model && (!deps.budget || deps.budget.canSpend());
+    if (canGeneral && deps.model) {
+      yield* generalAnswer(input.question, decision, deps.model, deps);
+      return;
+    }
+    yield* refusalEvents(decision, false);
     return;
   }
 
@@ -115,7 +122,7 @@ export async function* answerQuestion(input: AnswerInput, deps: AnswerDeps): Asy
     return;
   }
 
-  const prompt = buildPrompt(input.question, rows);
+  const prompt = buildPrompt(input.question, rows, { generalAdvice: deps.generalKnowledge === true });
   let text = '';
   let stopReason: string | null = null;
   let outputTokens = 0;
@@ -157,6 +164,69 @@ export async function* answerQuestion(input: AnswerInput, deps: AnswerDeps): Asy
   if (invented.length > 0) {
     deps.log?.(`[chat] answer contained numbers or dates not in the rows (${invented.join(', ')}), using deterministic fallback`);
     yield* fallback('unsupported_numbers', true);
+    return;
+  }
+  if (stopReason === 'max_tokens') yield { type: 'text', delta: '…' };
+  yield { type: 'done' };
+}
+
+type RefusalDecision = Extract<ReturnType<typeof guard>, { mode: 'refusal' }>;
+
+/** The rules' own reply. `afterStart`: replaces general-mode text that was already streamed. */
+function* refusalEvents(decision: RefusalDecision, afterStart: boolean): Generator<ChatEvent> {
+  if (afterStart) {
+    yield { type: 'reset', mode: 'refusal', reason: decision.reason };
+  } else {
+    yield {
+      type: 'meta',
+      mode: 'refusal',
+      reason: decision.reason,
+      rows: decision.rows.map(toPublicRow),
+      pointers: decision.pointers,
+      ...(decision.suggestion ? { suggestion: decision.suggestion } : {}),
+    };
+  }
+  yield { type: 'text', delta: decision.text };
+  yield { type: 'done' };
+}
+
+/**
+ * General-knowledge answer for a question the rows cannot answer. Any reference rows (e.g. a not-verified
+ * deadline with its official page) are passed along so the model can cite the official link. The meta carries the
+ * rules' reason so the UI can say why this is not a sourced answer.
+ */
+async function* generalAnswer(
+  question: string,
+  decision: RefusalDecision,
+  model: ChatModelClient,
+  deps: AnswerDeps,
+): AsyncGenerator<ChatEvent> {
+  yield { type: 'meta', mode: 'general', reason: decision.reason, rows: decision.rows.map(toPublicRow), pointers: decision.pointers };
+  const prompt = buildGeneralPrompt(question, decision.rows);
+  let text = '';
+  let stopReason: string | null = null;
+  let outputTokens = 0;
+  try {
+    for await (const ev of model.stream({ ...prompt, maxTokens: deps.maxTokens ?? DEFAULT_MAX_TOKENS, signal: deps.signal })) {
+      if (ev.type === 'text') {
+        if (!ev.text) continue;
+        text += ev.text;
+        yield { type: 'text', delta: ev.text };
+      } else {
+        stopReason = ev.stopReason;
+        outputTokens = ev.outputTokens;
+      }
+    }
+  } catch (err) {
+    deps.budget?.record(estimate(text));
+    if (deps.signal?.aborted) return;
+    deps.log?.('[chat] general answer failed, showing the rules reply', err);
+    yield* refusalEvents(decision, true);
+    return;
+  }
+  deps.budget?.record(outputTokens > 0 ? outputTokens : estimate(text));
+  if (stopReason === 'refusal' || text.trim() === '') {
+    yield* refusalEvents(decision, true);
     return;
   }
   if (stopReason === 'max_tokens') yield { type: 'text', delta: '…' };
