@@ -18,7 +18,7 @@ interface Step {
 export const JOURNEY_STEPS: readonly Step[] = [
   { id: 'profile', label: 'Profile', href: '/onboarding', next: { text: 'See your shortlist', href: '/shortlist' } },
   { id: 'shortlist', label: 'Shortlist', href: '/shortlist', next: { text: 'Open a program to check its requirements', href: null } },
-  { id: 'check', label: 'Check a program', href: null, next: { text: 'See other routes (Plan B)', href: '/plan-b' } },
+  { id: 'check', label: 'Check', href: null, next: { text: 'See other routes (Plan B)', href: '/plan-b' } },
   { id: 'plan-b', label: 'Plan B', href: '/plan-b', next: { text: 'Compare citizenship rules and costs', href: '/citizenship' } },
   { id: 'costs', label: 'Costs', href: '/citizenship', next: { text: 'Back to your shortlist', href: '/shortlist' } },
 ];
@@ -28,7 +28,7 @@ export function JourneyCue({ current }: { current: JourneyStepId }) {
   const step = JOURNEY_STEPS[idx];
   return (
     <nav aria-label="Your journey" className="mb-3" data-journey={current}>
-      <ol className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs">
+      <ol className="flex w-full items-center text-[0.6875rem] sm:text-xs">
         {JOURNEY_STEPS.map((s, i) => {
           const active = s.id === current;
           const cls = active
@@ -36,25 +36,25 @@ export function JourneyCue({ current }: { current: JourneyStepId }) {
             : 'text-muted' + (s.href ? ' hover:text-ink' : '');
           const inner = (
             <>
-              <span aria-hidden="true" className="tabular-nums">
+              <span aria-hidden="true" className="hidden tabular-nums sm:inline">
                 {i + 1}
               </span>
               {s.label}
             </>
           );
           return (
-            <li key={s.id} className="flex items-center gap-1">
+            <li key={s.id} className="flex min-w-0 flex-1 items-center justify-center sm:flex-none sm:gap-1">
               {i > 0 ? (
-                <span aria-hidden="true" className="text-line-strong">
+                <span aria-hidden="true" className="hidden text-line-strong sm:inline">
                   ›
                 </span>
               ) : null}
               {s.href && !active ? (
-                <Link href={s.href} className={`inline-flex min-h-tap items-center gap-1 rounded-chip px-2 font-semibold no-underline md:min-h-0 md:py-1 ${cls}`}>
+                <Link href={s.href} className={`inline-flex min-h-tap w-full items-center justify-center gap-1 rounded-chip px-1 text-center font-semibold no-underline sm:w-auto sm:px-1.5 md:min-h-0 md:py-1 ${cls}`}>
                   {inner}
                 </Link>
               ) : (
-                <span aria-current={active ? 'step' : undefined} className={`inline-flex min-h-8 items-center gap-1 rounded-chip px-2 font-semibold ${cls}`}>
+                <span aria-current={active ? 'step' : undefined} className={`inline-flex min-h-8 w-full items-center justify-center gap-1 rounded-chip px-1 text-center sm:w-auto sm:px-1.5 font-semibold ${cls}`}>
                   {inner}
                 </span>
               )}
