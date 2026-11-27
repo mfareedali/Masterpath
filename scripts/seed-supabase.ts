@@ -9,25 +9,12 @@
  * Rows that exist in the database but not in the seed files are left alone (nothing is deleted).
  * Run the migration in supabase/migrations first.
  */
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import './load-env';
 import { createClient } from '@supabase/supabase-js';
 import { buildSeedRows, validateSeedRows, type SeedRows } from '../src/lib/supabase/mappers';
 import { loadSeedFiles } from './seed-files';
 
 const root = process.cwd();
-
-function loadEnvLocal(): void {
-  for (const name of ['.env.local', '.env']) {
-    const file = join(root, name);
-    if (!existsSync(file)) continue;
-    try {
-      process.loadEnvFile(file);
-    } catch {
-      /* ignore unreadable env files; real env vars still apply */
-    }
-  }
-}
 
 /** Upsert order respects foreign keys (programs reference institutions). */
 const TABLE_ORDER: (keyof SeedRows)[] = ['institutions', 'programs', 'country_facts', 'conversion_rules', 'fx_rates'];
@@ -48,7 +35,6 @@ async function main() {
     return;
   }
 
-  loadEnvLocal();
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
   if (!url || !serviceKey) {

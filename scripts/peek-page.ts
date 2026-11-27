@@ -8,6 +8,7 @@
  *
  * Fetched text is cached in the OS temp folder for an hour, so several peeks at one page cost one request.
  */
+import './load-env';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';

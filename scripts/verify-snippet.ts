@@ -6,6 +6,7 @@
  * Fetches the page through safeFetch (https, allowlisted host, public IPs, robots.txt, throttled, 3MB cap), converts
  * HTML to text and checks the snippet appears verbatim. Exit code 1 if any snippet is NOT found. This never writes to the seed files.
  */
+import './load-env';
 import { readFileSync } from 'node:fs';
 import { fetchPageText } from '../src/lib/seed/page-text';
 import { snippetAppearsIn } from '../src/lib/text/evidence';

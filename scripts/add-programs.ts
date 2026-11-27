@@ -22,6 +22,7 @@
  *   }
  * Fact keys not given become "Not verified yet" ({ value: null, ... }). Never put a value without its evidence.
  */
+import './load-env';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PROGRAM_FACT_FIELDS, INSTITUTION_FACT_FIELDS } from '../src/lib/supabase/mappers';
