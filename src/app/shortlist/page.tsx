@@ -15,6 +15,7 @@ import { ShareShortlist } from '@/components/shortlist/share-shortlist';
 import { UniversityContextCard } from '@/components/university/context-card';
 import { ButtonLink } from '@/components/ui/button';
 import { Callout, Card, PageHeader } from '@/components/ui/card';
+import { StatGrid, StatTile } from '@/components/ui/stat';
 import { BadgeLegend } from '@/components/ui/legend';
 import { getDataset } from '@/lib/data';
 import { getNow, getRequestProfileState } from '@/lib/profile-server';
@@ -53,8 +54,8 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section aria-labelledby={id} className="space-y-3">
-      <div>
+    <section aria-labelledby={id} className="scroll-mt-20 space-y-3">
+      <div className="border-b border-line pb-2">
         <h2 id={id} className="text-xl font-bold">
           {title}
         </h2>
@@ -126,17 +127,22 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
         <Callout tone="neutral">We could not read the profile in this link, so we show the profile saved on this device.</Callout>
       ) : null}
       <PageHeader
+        eyebrow="Ranked by code over official data"
         title="Your shortlist"
         subtitle={
-          <>
-            <span className="break-words">{profileSummaryParts(profile).join(' · ')}</span>{' '}
+          <span className="mt-2 flex flex-wrap items-center gap-2">
+            {profileSummaryParts(profile).map((part) => (
+              <span key={part} className="inline-flex items-center rounded-chip border border-line bg-surface px-3 py-1 text-sm text-ink break-words">
+                {part}
+              </span>
+            ))}
             <Link href="/onboarding" className="inline-flex min-h-tap items-center px-1 font-semibold md:min-h-0">
               Edit<span className="sr-only"> your profile</span>
             </Link>
-          </>
+          </span>
         }
       >
-        <ul className="mt-1 flex flex-wrap gap-x-4 text-sm">
+        <ul className="mt-2 flex flex-wrap gap-x-4 text-sm">
           <li>
             <Link href="/citizenship" className="inline-flex min-h-tap items-center font-semibold">
               Compare citizenship rules and costs<span aria-hidden="true">&nbsp;→</span>
@@ -159,7 +165,7 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
         <>
           <ClosingSoon rows={closingSoon(s, now)} detailsHref={detailsHref} />
 
-          <section aria-labelledby="controls-heading" className="space-y-3">
+          <section aria-labelledby="controls-heading" className="space-y-3 rounded-card border border-line bg-surface/70 p-4 shadow-card">
             <h2 id="controls-heading" className="text-sm font-semibold text-muted">
               Rank by
             </h2>
@@ -168,11 +174,19 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
           </section>
 
           <div className="space-y-2">
-            <p role="status" aria-live="polite" className="text-sm font-semibold text-ink">
+            <p role="status" aria-live="polite" className="sr-only">
               {s.ranked.length} ranked by {rankLabel.toLowerCase()} · {s.notRanked.length} not ranked (data missing)
               {s.cantCheck.length > 0 ? ` · ${s.cantCheck.length} can't check` : ''}
               {s.ruledOut.length > 0 ? ` · ${s.ruledOut.length} ruled out` : ''}
             </p>
+            <div aria-hidden="true">
+              <StatGrid cols={s.cantCheck.length > 0 || s.ruledOut.length > 0 ? 4 : 2}>
+                <StatTile tone="accent" label="Ranked" value={s.ranked.length} caption={`by ${rankLabel.toLowerCase()}`} />
+                <StatTile label="Not ranked" value={s.notRanked.length} caption="data missing" />
+                {s.cantCheck.length > 0 ? <StatTile label="Can't check" value={s.cantCheck.length} caption="filter needs data" /> : null}
+                {s.ruledOut.length > 0 ? <StatTile label="Ruled out" value={s.ruledOut.length} caption="listed with reason" /> : null}
+              </StatGrid>
+            </div>
             <p className="text-sm text-muted">Only verified or likely values are ranked. Missing data is never treated as zero.</p>
             <HiddenNote s={s} sp={sp} />
             {s.filters.budgetUnavailable ? (

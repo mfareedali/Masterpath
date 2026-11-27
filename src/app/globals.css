@@ -62,7 +62,30 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+    .bento-in,
+    .hero-rise,
+    .hero-wordmark,
+    .hero-glow,
+    .hero-node,
+    .hero-pulse::after {
+      animation: none;
+    }
+    .hero-path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+    .hero-traveller {
+      display: none;
+    }
   }
+}
+
+/*
+ * Pages with a sticky scroll-spy bar: anchored sections land below the header (56px) and the bar (~64px).
+ * Unlayered on purpose so it wins over the scroll-mt-* utilities those sections already carry.
+ */
+.has-scroll-spy [id] {
+  scroll-margin-top: 8rem;
 }
 
 @layer components {
@@ -136,6 +159,186 @@
     font-weight: var(--btn-display-weight);
     letter-spacing: -0.02em;
     line-height: 1;
+  }
+  /*
+   * Bento tiles (src/components/ui/bento.tsx). The spotlight follows --spot-x/--spot-y, set by SpotlightTracker on
+   * hover-capable devices: a faint olive wash on the surface plus a 1px olive ring masked to the border.
+   * Decorative only; without JS the border simply turns olive on hover.
+   */
+  .bento-card {
+    --spot-x: -400px;
+    --spot-y: -400px;
+    transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .bento-card:hover,
+  .bento-card:focus-within {
+    border-color: var(--color-primary);
+  }
+  .bento-card::before,
+  .bento-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+  .bento-card::before {
+    z-index: -1;
+    background: radial-gradient(280px circle at var(--spot-x) var(--spot-y), color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 70%);
+  }
+  .bento-card::after {
+    z-index: 20;
+    padding: 1px;
+    background: radial-gradient(240px circle at var(--spot-x) var(--spot-y), var(--color-primary), transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .bento-card:hover::before,
+    .bento-card:hover::after {
+      opacity: 1;
+    }
+  }
+  /* Load-in stagger. Ends fully visible, so a slow or failed animation never hides content. */
+  .bento-in {
+    animation: bento-rise 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  @keyframes bento-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /*
+   * Home hero (src/components/home/hero.tsx). All decorative: olive glows drifting slowly over forest-950,
+   * route lines drawing in, nodes pulsing, a travelling dot, and the copy rising in. Everything ends visible;
+   * reduced motion stops it (see the base layer) and hides the travelling dot.
+   */
+  .hero-glow {
+    background:
+      radial-gradient(60% 55% at 85% 15%, color-mix(in srgb, var(--color-primary) 55%, transparent), transparent 70%),
+      radial-gradient(45% 50% at 10% 95%, color-mix(in srgb, var(--color-primary) 35%, transparent), transparent 70%),
+      radial-gradient(30% 35% at 60% 70%, color-mix(in srgb, var(--color-accent-soft) 10%, transparent), transparent 70%);
+    background-size: 140% 140%;
+    animation: hero-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes hero-drift {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 100% 60%;
+    }
+  }
+  .hero-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: hero-draw 2.2s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+  }
+  .hero-path-2 {
+    stroke-dasharray: 0.012 0.02;
+    stroke-dashoffset: 0;
+    animation: hero-fade 1.2s ease-out 1.2s both;
+  }
+  @keyframes hero-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes hero-fade {
+    from {
+      opacity: 0;
+    }
+  }
+  .hero-node {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hero-node 3.2s ease-in-out 2.2s infinite;
+  }
+  .hero-node-2 {
+    animation-delay: 2.8s;
+  }
+  @keyframes hero-node {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.6);
+      opacity: 0.45;
+    }
+  }
+  .hero-pulse::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    border: 1px solid var(--color-accent-soft);
+    animation: hero-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes hero-ping {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.8;
+    }
+    80%,
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  /* Wordmark: stone-100 into olive-100, both >= 12:1 on forest-950. */
+  .hero-wordmark {
+    background: linear-gradient(100deg, var(--color-on-chrome) 30%, var(--color-accent-soft) 70%, var(--color-on-chrome));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hero-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both, hero-sheen 9s ease-in-out 1.5s infinite;
+  }
+  @keyframes hero-sheen {
+    0%,
+    100% {
+      background-position: 0% 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+  }
+  .hero-rise {
+    animation: hero-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-rise-2 {
+    animation-delay: 120ms;
+  }
+  .hero-rise-3 {
+    animation-delay: 240ms;
+  }
+  .hero-rise-4 {
+    animation-delay: 360ms;
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /* Scroll-spy pill (src/components/ui/scroll-spy.tsx). */
+  .scroll-spy-thumb {
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), width 260ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .btn-primary-type {
     font-family: var(--font-button-primary);

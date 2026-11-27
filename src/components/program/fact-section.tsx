@@ -49,8 +49,9 @@ export function Section({
   const titleId = `${id}-title`;
   return (
     <section id={id} aria-labelledby={titleId} className="scroll-mt-20">
-      <Card>
-        <h2 id={titleId} className="text-xl font-bold">
+      <Card className="md:p-5">
+        <h2 id={titleId} className="flex items-center gap-2 text-xl font-bold">
+          <span aria-hidden="true" className="inline-block h-5 w-1 shrink-0 rounded-chip bg-accent" />
           {title}
         </h2>
         {intro ? <div className="mt-1 text-sm text-muted">{intro}</div> : null}

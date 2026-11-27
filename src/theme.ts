@@ -147,6 +147,14 @@ export const sizes = {
 export const shadows = {
   card: '0 1px 2px rgba(18, 26, 5, 0.05), 0 4px 14px rgba(18, 26, 5, 0.06)',
   sheet: '0 -6px 18px rgba(18, 26, 5, 0.18)',
+  /** Primary buttons: a faint top highlight plus a soft drop, so the pill reads as pressable. */
+  button: 'inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 1px 2px rgba(18, 26, 5, 0.22), 0 6px 14px -4px rgba(18, 26, 5, 0.28)',
+  /** Secondary buttons and chips. */
+  'button-soft': '0 1px 2px rgba(18, 26, 5, 0.06)',
+  /** Card lifted on hover. */
+  lift: '0 2px 4px rgba(18, 26, 5, 0.06), 0 12px 28px -6px rgba(18, 26, 5, 0.16)',
+  /** Floating mobile dock. */
+  dock: '0 10px 30px -6px rgba(18, 26, 5, 0.45), 0 2px 6px rgba(18, 26, 5, 0.2)',
 } as const;
 
 export const theme = { palette, semantic, status, fit, fonts, fontWeights, buttonType, radius, sizes, shadows };

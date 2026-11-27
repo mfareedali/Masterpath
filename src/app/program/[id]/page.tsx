@@ -113,7 +113,7 @@ export default async function ProgramPage({ params }: Props) {
   const askQuestions = missingFactQuestions(program, now);
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="has-scroll-spy mx-auto max-w-3xl">
       <ProgramHeader program={program} institution={institution} coverage={coverage} />
 
       {program.status === 'ruled_out' ? (

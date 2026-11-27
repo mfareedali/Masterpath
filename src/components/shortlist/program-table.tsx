@@ -43,7 +43,7 @@ export function ProgramTable({
     <div className="hidden overflow-x-auto rounded-card border border-line bg-surface shadow-card md:block">
       <table className="w-full border-collapse text-left text-sm">
         <caption className="sr-only">{caption}</caption>
-        <thead className="bg-surface-tint text-xs text-muted">
+        <thead className="bg-page text-xs uppercase tracking-wide text-muted">
           <tr>
             {showRank ? (
               <th scope="col" className={th}>
@@ -73,7 +73,7 @@ export function ProgramTable({
           {rows.map((row) => {
             const p = row.program;
             return (
-              <tr key={p.id} className="border-t border-line align-top">
+              <tr key={p.id} className="border-t border-line align-top transition-colors hover:bg-page/60">
                 {showRank ? <td className="px-3 py-3">{row.rank != null ? <RankBadge rank={row.rank} /> : null}</td> : null}
                 <th scope="row" className="min-w-48 px-3 py-3 font-normal">
                   <Link href={detailsHref(p.id)} className="font-bold text-heading break-words">

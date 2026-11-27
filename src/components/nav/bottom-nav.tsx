@@ -14,28 +14,30 @@ function isActive(pathname: string, href: string) {
   return href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
 }
 
-/** Mobile bottom navigation: Home, Shortlist, Plan B, Check. Active tab = olive text + yellow indicator bar. */
+/**
+ * Mobile navigation dock: a floating forest-950 bar above the safe area with Home, Shortlist, Plan B, Check.
+ * The active tab sits on an olive-100 pill (forest text), so it differs by fill and label, not colour alone.
+ */
 export function BottomNav() {
   const pathname = usePathname() ?? '/';
   return (
     <nav
       aria-label="Main"
-      className="on-chrome fixed inset-x-0 bottom-0 z-40 bg-chrome pb-[env(safe-area-inset-bottom)] shadow-sheet md:hidden"
+      className="on-chrome fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 md:hidden"
     >
-      <ul className="mx-auto grid h-bottom-nav max-w-screen-sm grid-cols-4">
+      <ul className="mx-auto grid h-bottom-nav max-w-sm grid-cols-4 gap-1 rounded-panel border border-on-chrome-muted/20 bg-chrome p-1.5 shadow-dock">
         {NAV_ITEMS.map((item) => {
           const active = isActive(pathname, item.href);
           return (
-            <li key={item.href} className="relative">
-              {active ? <span aria-hidden="true" className="absolute inset-x-6 top-0 h-1 rounded-b-full bg-accent" /> : null}
+            <li key={item.href} className="min-w-0">
               <Link
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex h-full min-h-tap flex-col items-center justify-center gap-0.5 text-xs font-semibold no-underline ${
-                  active ? 'text-on-chrome' : 'text-on-chrome-muted'
+                className={`flex h-full min-h-tap flex-col items-center justify-center gap-0.5 rounded-card text-xs font-semibold no-underline transition-colors ${
+                  active ? 'bg-accent-soft text-on-accent-soft' : 'text-on-chrome-muted hover:text-on-chrome'
                 }`}
               >
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                   <path d={item.icon} />
                 </svg>
                 {item.label}
@@ -62,8 +64,8 @@ export function TopNav() {
               <Link
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
-                className={`inline-flex min-h-tap items-center border-b-4 px-3 text-sm font-semibold no-underline ${
-                  active ? 'border-accent text-on-chrome' : 'border-transparent text-on-chrome-muted hover:text-on-chrome'
+                className={`inline-flex min-h-tap items-center rounded-chip px-3.5 text-sm font-semibold no-underline transition-colors ${
+                  active ? 'bg-accent-soft text-on-accent-soft' : 'text-on-chrome-muted hover:bg-on-chrome/10 hover:text-on-chrome'
                 }`}
               >
                 {item.label}

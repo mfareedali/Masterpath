@@ -49,7 +49,7 @@ export function RankedOn({ rankBy, rankKey }: { rankBy: ShortlistRankKey; rankKe
 function Item({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 py-2">
-      <dt className="font-semibold text-muted">{label}</dt>
+      <dt className="text-xs font-semibold uppercase tracking-wide text-muted">{label}</dt>
       <dd className="min-w-0 break-words">{children}</dd>
     </div>
   );
@@ -80,7 +80,10 @@ export function ProgramCard({
   const p = row.program;
   const titleId = `program-${p.id}`;
   return (
-    <article aria-labelledby={titleId} className="rounded-card border border-line bg-surface p-4 shadow-card">
+    <article
+      aria-labelledby={titleId}
+      className="rounded-card border border-line bg-surface p-4 shadow-card transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-lift"
+    >
       <div className="flex items-start gap-3">
         {rank != null ? <RankBadge rank={rank} /> : null}
         <div className="min-w-0 flex-1">
@@ -94,9 +97,9 @@ export function ProgramCard({
         <Pill className="shrink-0">{countryName(p.country)}</Pill>
       </div>
 
-      <div className="mt-3">
+      <div className="mt-3 rounded-button border border-line bg-page p-3">
         <FitBadge label={row.fit.label} />
-        <p className="mt-1 text-sm text-muted">{row.fit.reason.message}</p>
+        <p className="mt-1.5 text-sm text-ink">{row.fit.reason.message}</p>
         <PlanBLink row={row} href={planBHref} />
       </div>
 
@@ -133,8 +136,8 @@ export function ProgramCard({
 
       {note ? <div className="mt-3">{note}</div> : null}
 
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <ButtonLink href={detailsHref} variant="secondary" className="px-3">
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        <ButtonLink href={detailsHref} variant="secondary" className="px-4">
           Details<span className="sr-only"> for {p.name}</span>
         </ButtonLink>
         <SaveButton programId={p.id} programName={p.name} />
