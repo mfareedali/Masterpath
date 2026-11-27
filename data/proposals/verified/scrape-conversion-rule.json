@@ -1,0 +1,21 @@
+{
+  "area": "conversion-rule",
+  "generated_at": "2026-11-27",
+  "proposals": [
+    {
+      "target": "conversion_rule",
+      "id": "pk-cgpa4-to-german-modified-bavarian",
+      "field": "source",
+      "value": "modified_bavarian",
+      "source_url": "https://www.intl.kit.edu/ostudies/13602.php",
+      "evidence_snippet": "The Conference of Ministers of Education and Cultural Affairs recommends the modified Bavarian formula as a practical basis for converting examination results.",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "notes": "KIT (a German university) page describing the KMK-recommended formula. Variables: Nmax = maximum grade, Nd = grade to convert, Nmin = lowest passing grade. Rounding rule not confirmed from an official HTML page (KMK primary text is a PDF); each university decides the final conversion.",
+      "review": {
+        "verdict": "accept",
+        "checks": "ingest --verify FOUND on the live official page 2026-11-27. Extracted by hand (no ANTHROPIC_API_KEY in this environment), not by a second model reviewer; human review still required."
+      }
+    }
+  ]
+}
