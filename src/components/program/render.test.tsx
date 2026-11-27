@@ -643,7 +643,7 @@ describe('FitPanelView next steps (#2, #10): shown next to the label, never chan
     expect(html).not.toContain('/plan-b');
   });
 
-  it('live seed, persona A: Brookes links to Plan B; NYIT shows its route and keeps "Competitive range unknown"', () => {
+  it('live seed, persona A: Brookes links to Plan B; NYIT (verified minimum 2.85) is Below minimum and shows its route', () => {
     const live = loadSeedDataset();
     const find = (id: string) => live.programs.find((p) => p.id === id) as Program;
     const render = (p: Program) =>
@@ -659,7 +659,7 @@ describe('FitPanelView next steps (#2, #10): shown next to the label, never chan
     expect(brookes).toContain('Below minimum');
     expect(brookes).toContain('target=brookes-msc-cs');
     const nyit = render(find('nyit-mscs'));
-    expect(nyit).toContain('Competitive range unknown');
+    expect(nyit).toContain('Below minimum');
     expect(nyit).toContain('This program publishes a route below its minimum');
     expect(nyit).toContain('This route&#x27;s minimum: 2.5 or higher (CGPA out of 4.0)');
     expect(nyit).not.toContain(escapeHtml(find('nyit-mscs').conditional_admission.review_note as string));

@@ -121,10 +121,12 @@ describe('language_waiver on the live seed', () => {
 describe('conditional_admission on the live seed', () => {
   it('"Does NYIT offer conditional admission?" -> the official route in its own words, plus the lowest grade it names', () => {
     const rows = rowsOf('Does NYIT offer conditional admission?');
-    expect(rows.map((r) => r.id)).toEqual(['nyit-mscs:conditional_admission']);
-    expect(rows[0]).toMatchObject({ label: 'Conditional or provisional admission', confidence: 'Verified' });
-    expect(rows[0].value).toMatch(/^Undergraduate GPA between 2\.5 and 2\.84: /);
-    expect(rows[0].value).toMatch(/Lowest grade this route names: 2\.5 \(CGPA \(out of 4\.0\)\)\.$/);
+    // The programme's own minimum (2.85, verified 2026-11-27) is returned beside the route.
+    expect(rows.map((r) => r.id)).toContain('nyit-mscs:conditional_admission');
+    const row = rows.find((r) => r.id === 'nyit-mscs:conditional_admission')!;
+    expect(row).toMatchObject({ label: 'Conditional or provisional admission', confidence: 'Verified' });
+    expect(row.value).toMatch(/^Undergraduate GPA between 2\.5 and 2\.84: /);
+    expect(row.value).toMatch(/Lowest grade this route names: 2\.5 \(CGPA \(out of 4\.0\)\)\.$/);
   });
 
   it('UCCS names no floor: the text only, no invented lowest grade', () => {
@@ -150,7 +152,7 @@ describe('conditional_admission on the live seed', () => {
   });
 
   it('a minimum that is not verified stays a refusal: the conditional route is not attached to rescue it', () => {
-    const d = guard('What is the minimum GPA for NYIT?', retrieve('What is the minimum GPA for NYIT?', {}, seed, now));
+    const d = guard('What is the minimum GPA for Wurzburg?', retrieve('What is the minimum GPA for Wurzburg?', {}, seed, now));
     expect(d.mode).toBe('refusal');
     if (d.mode === 'refusal') expect(d.rows.map((r) => r.field)).toEqual(['min_gpa_rule']);
   });

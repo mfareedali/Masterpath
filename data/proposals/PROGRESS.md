@@ -20,3 +20,9 @@ write a proposals file in data/proposals/verified/ (merge format), run `npm run 
 
 ## Next
 - Batch 1: priority fields for existing programs (see below), then grow registry.
+
+## Batch 1 (done 2026-11-27)
+- nyit-mscs min_gpa_rule (2.85), uccs-mscs min_gpa_rule (3.0), uccs-mscs intake. Verified FOUND, merged.
+- Effect: both programmes are now "Below minimum" for persona A; live-seed snapshot tests updated to match.
+- Checked, nothing safe to extract: imperial (class-based, not numeric), QMUL pre-masters URL is a humanities stream page
+  (tuition £25,950 NOT used: wrong stream), utoronto/cmu/ethz pages carry no GPA/tuition text.
