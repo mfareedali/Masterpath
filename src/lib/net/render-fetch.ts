@@ -235,7 +235,9 @@ async function collectTabPanels(page: Page): Promise<string[]> {
 export async function renderFetch(rawUrl: string, options: RenderFetchOptions = {}): Promise<RenderResponse> {
   const allowlist = options.allowlist ?? INGEST_ALLOWLIST;
   const allowHttp = options.allowHttp ?? false;
-  const timeoutMs = options.timeoutMs ?? RENDER_TIMEOUT_MS;
+  // 20 s by default; INGEST_RENDER_TIMEOUT_MS raises it on a slow connection (never above 60 s).
+  const envMs = Number(process.env.INGEST_RENDER_TIMEOUT_MS);
+  const timeoutMs = options.timeoutMs ?? (Number.isFinite(envMs) && envMs >= 1000 ? Math.min(envMs, 60_000) : RENDER_TIMEOUT_MS);
   const maxBytes = options.maxBytes ?? RENDER_MAX_BYTES;
   const settleMs = options.settleMs ?? RENDER_SETTLE_MS;
   const lookup = options.lookup ?? defaultLookup;
@@ -265,7 +267,8 @@ export async function renderFetch(rawUrl: string, options: RenderFetchOptions = 
   const redirects: string[] = [];
   let navigationOpen = true;
   const checkedNav = new Set<string>();
-  const deadline = Date.now() + timeoutMs;
+  // The 20 s budget covers navigation + network idle; it starts when the page is ready to navigate (browser start-up is not counted).
+  let deadline = Date.now() + timeoutMs;
   let policyError: SafeFetchError | null = null;
   try {
     const context = await browser.newContext({
@@ -338,6 +341,7 @@ export async function renderFetch(rawUrl: string, options: RenderFetchOptions = 
       }
     });
 
+    deadline = Date.now() + timeoutMs;
     let response;
     let interruptions = 0;
     let target: URL = start;

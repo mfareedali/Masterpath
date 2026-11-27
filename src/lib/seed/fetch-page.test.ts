@@ -78,6 +78,14 @@ describe('fetchPage', () => {
     expect(f.renderNote).toMatch(/RENDER_UNAVAILABLE/);
   });
 
+  it('PDF rate sheets get a 30 s timeout, other pages the default', async () => {
+    safe.safeFetch.mockResolvedValue(resp(LONG));
+    await fetchPage('https://www.sbp.org.pk/rates/MTM_Rates_2026.pdf');
+    expect(safe.safeFetch.mock.calls[0][1]).toMatchObject({ timeoutMs: 30_000 });
+    await fetchPage('https://x.edu/p');
+    expect(safe.safeFetch.mock.calls[1][1]).not.toHaveProperty('timeoutMs');
+  });
+
   it('a 304 or an HTTP error never triggers the renderer', async () => {
     safe.safeFetch.mockResolvedValue(resp('', { status: 304, ok: false, notModified: true }));
     await fetchPage('https://x.edu/p');
