@@ -95,8 +95,10 @@ export function createXaiChatModel(
           signal,
         });
         if (res.ok && res.body) return res;
-        // Never log the key; the status is enough to diagnose.
-        lastError = new Error(`xAI API returned ${res.status}`);
+        // xAI's own short reason (e.g. no credits, unknown model, bad key) helps diagnose from the server logs.
+        // The request key is never echoed back in the response; trimmed and length-capped anyway.
+        const reason = (await res.text().catch(() => '')).replace(/\s+/g, ' ').trim().slice(0, 300);
+        lastError = new Error(`xAI API returned ${res.status}${reason ? `: ${reason}` : ''}`);
         if (!retryable(res.status)) break;
       } catch (err) {
         if (req.signal?.aborted) throw err;
