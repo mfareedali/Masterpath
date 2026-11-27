@@ -563,3 +563,18 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   static page has under 200 characters).
 - **CI stays light.** Browsers are installed only in the weekly re-verify workflow (cached); the browser tests skip
   themselves when Chromium is missing, and the policy helpers are tested without a browser.
+
+## UI conventions (2026-11-27 UI pass)
+
+- **One page layout** (`PageHeader`): where you are (journey cue) → title → one-line purpose → primary action → content.
+  The cue (`src/components/ui/journey.tsx`) runs Profile → Shortlist → Check → Plan B → Costs and names the next step.
+- **Spacing scale:** 4 / 8 / 12 / 16 / 24 px only (`gap-1`…`gap-6`, `space-y-3` inside cards, `space-y-6` between page sections).
+- **Type scale:** page title `text-2xl` (`md:text-3xl`), section `text-xl`, card title `text-lg`, body `text-base`, small `text-sm`, meta `text-xs`.
+- **Unknown values are a next action, not an admission.** A missing fit shows no pill, only a link to the official page
+  ("Check the minimum grade on the official page"). Missing details collapse to one "N details not on file yet" line per row.
+  The honesty rules are unchanged: no unverified value is shown as verified and no admission chance is ever shown.
+- **Reliability sits at the point of use:** each value shows "Source: <domain> · checked <date>" linking to the official page.
+  The old "How much is verified" box on the shortlist was removed for that reason.
+- **One list, no jargon:** programs that can be put in order are numbered ("Sorted by Fit"); the rest sit under "More programs
+  to explore". Nothing is hidden and nothing is mixed into the numbered order.
+- Screenshots for review: `node scripts/shoot.mjs docs/screenshots/<dir>` (needs a running `next start -p 3055`).

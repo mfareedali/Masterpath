@@ -318,7 +318,7 @@ describe('ranking', () => {
     expect(ids).toEqual(['cond', 'path', 'res', 'score']);
     for (const r of p.notRanked) {
       expect(r.rank).toBeNull();
-      expect(r.notRankedReason).toMatch(/^Not ranked/);
+      expect(r.notRankedReason).toMatch(/^To compare this route/);
     }
   });
 
@@ -581,7 +581,7 @@ describe('"Not ranked yet" says plainly why a route cannot be ordered', () => {
     const r = routeFor(plan(PROGRAMS, INSTITUTIONS), 'cond')!;
     expect(r.rank).toBeNull();
     expect(r.notRankedReason).toBe(
-      'Not ranked yet: minimum grade not verified yet, recognition not verified yet and total cost not verified yet',
+      'To compare this route, check: minimum grade not verified yet, recognition not verified yet and total cost not verified yet',
     );
   });
 
@@ -597,7 +597,7 @@ describe('"Not ranked yet" says plainly why a route cannot be ordered', () => {
     const r = routeFor(plan(progs, insts), 'cond')!;
     expect(r.fit.reason.code).toBe('MIN_CONFLICT');
     expect(r.notRankedReason).toBe(
-      'Not ranked yet: official sources disagree on the minimum grade, official sources disagree on recognition and total cost not verified yet',
+      'To compare this route, check: official sources disagree on the minimum grade, official sources disagree on recognition and total cost not verified yet',
     );
   });
 
@@ -612,7 +612,7 @@ describe('"Not ranked yet" says plainly why a route cannot be ordered', () => {
     const pre = routeFor(p, 'pre')!;
     expect(pre.score!.quality.missing).toBeNull();
     expect(pre.score!.cost.missing).toBeNull();
-    expect(notRankedText(pre.score!)).toBe('Not ranked yet: minimum grade not verified yet');
+    expect(notRankedText(pre.score!)).toBe('To compare this route, check: minimum grade not verified yet');
   });
 });
 
@@ -672,7 +672,7 @@ describe("today's seed + persona A + target usf-mscs: Plan B warns instead of pu
     const r = routeFor(p, qmul.id)!;
     expect(r.rank).toBeNull();
     expect(r.notRankedReason).toBe(
-      'Not ranked yet: minimum grade not verified yet, recognition not verified yet and total cost not verified yet',
+      'To compare this route, check: minimum grade not verified yet, recognition not verified yet and total cost not verified yet',
     );
   });
 

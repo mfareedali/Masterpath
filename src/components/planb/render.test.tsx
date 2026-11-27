@@ -196,7 +196,7 @@ describe("today's seed + persona A with a chosen target (review regressions)", (
     expect(html).toContain('we do not hide this route');
 
     // Not ranked: it says plainly why, and has no "Why this order".
-    expect(html).toContain('Not ranked yet: minimum grade not verified yet');
+    expect(html).toContain('To compare this route, check: minimum grade not verified yet');
     expect(html).not.toContain('Why this order');
 
     expectNoReviewNotes(html, rows);
@@ -335,8 +335,8 @@ describe('full fixture data', () => {
       const h = one(r);
       expect(h).not.toContain('Why this order');
       expect(h).toContain(`${r.notRankedReason}.`);
-      expect(r.notRankedReason).toMatch(/^Not ranked yet: /);
-      expect(h).toContain('We only put a route in order when at least one of these is verified.');
+      expect(r.notRankedReason).toMatch(/^To compare this route, check: /);
+      expect(h).toContain('A route is put in order once one of these is confirmed on its official page.');
     }
     expect((html.match(/Why this order/g) ?? []).length).toBe(plan.ranked.length);
   });
@@ -450,14 +450,14 @@ describe("today's seed + persona A: conditional route cards and the not-decided 
     const at = html.indexOf('id="undecided-h"');
     expect(at).toBeGreaterThan(-1);
     const section = decoded(html.slice(at, html.indexOf('id="improve-h"')));
-    expect(section).toMatch(/For \d+ programs in your field and countries we cannot tell yet/);
+    expect(section).toMatch(/\d+ programs need you to check the minimum grade on the official page/);
     expect(html).toContain('href="/shortlist?fit=unknown"');
     // Würzburg is no longer undecided: its German-scale conversion rule now has an official source.
     const w = section.slice(section.indexOf('data-undecided="wuerzburg-msc-cs"'));
     expect(w).toContain('Minimum grade not verified yet.');
     expect(w).toContain('Also shown above as a route');
     expect(section).not.toMatch(/no official source yet/);
-    // "Every route type" counts the conditional routes, including the one we cannot decide.
+    // "Routes with results" counts the conditional routes, including the one we cannot decide.
     expect(text).toContain('3 shown');
     // No "Not for your grade" section when nothing is below its own limit.
     expect(html).not.toContain('id="notforgrade-h"');

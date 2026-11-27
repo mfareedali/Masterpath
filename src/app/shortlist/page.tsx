@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { LoadPersonaButtons } from '@/components/demo/load-persona';
 import { ClosingSoon } from '@/components/shortlist/closing-soon';
 import { Filters, RankChips } from '@/components/shortlist/controls';
-import { CoverageMeter } from '@/components/shortlist/coverage-meter';
 import { EmptyFieldCard } from '@/components/shortlist/empty-field';
 import { ProgramCard, ReasonNote, RuledOutCard } from '@/components/shortlist/program-card';
 import { ProgramTable } from '@/components/shortlist/program-table';
@@ -15,7 +14,6 @@ import { ShareShortlist } from '@/components/shortlist/share-shortlist';
 import { UniversityContextCard } from '@/components/university/context-card';
 import { ButtonLink } from '@/components/ui/button';
 import { Callout, Card, PageHeader } from '@/components/ui/card';
-import { StatGrid, StatTile } from '@/components/ui/stat';
 import { BadgeLegend } from '@/components/ui/legend';
 import { getDataset } from '@/lib/data';
 import { getNow, getRequestProfileState } from '@/lib/profile-server';
@@ -28,6 +26,9 @@ import {
   hiddenSummary,
   listedCount,
   parseShortlistQuery,
+  sortedByText,
+  urgentBadgeText,
+  urgentDeadlines,
   planBTargetHref,
   profileQueryString,
   profileShortlistPath,
@@ -39,7 +40,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Your shortlist',
-  description: 'Masters programs ranked by plain code over verified data. Missing data is shown, never guessed.',
+  description: 'Masters programs sorted by plain code over official data. Every number links to its official page.',
 };
 
 function Section({
@@ -69,14 +70,18 @@ function Section({
 function NoProfile() {
   return (
     <div>
-      <PageHeader title="Your shortlist" subtitle="Programs that match your grade, field and budget, checked against official pages." />
+      <PageHeader
+        step="shortlist"
+        title="Your shortlist"
+        subtitle="Programs that match your grade, field and budget. Every number links to its official page."
+        action={<ButtonLink href="/onboarding">Add my profile</ButtonLink>}
+      />
       <Card>
         <h2 className="text-lg font-bold">Start with your profile</h2>
         <p className="mt-1 text-sm text-muted">
           Tell us your grade, field, budget and countries. It takes about a minute. No passport or ID number needed.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <ButtonLink href="/onboarding">Add my profile</ButtonLink>
           <LoadPersonaButtons compact />
         </div>
       </Card>
@@ -120,6 +125,16 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
   const rankLabel = RANK_LABEL[s.query.rank];
   const clearHref = shortlistHref(sp, { ...CLEAR_FILTERS, panel: null });
   const listed = listedCount(s);
+  const closing = closingSoon(s, now);
+  const urgent = urgentDeadlines(closing);
+  const more = [...s.notRanked, ...s.cantCheck];
+  const cardProps = (r: (typeof more)[number] | (typeof s.ranked)[number]) => ({
+    row: r,
+    now,
+    rankBy: s.query.rank,
+    detailsHref: detailsHref(r.program.id),
+    planBHref: planBHref(r.program.id),
+  });
 
   return (
     <div className="space-y-6">
@@ -127,44 +142,38 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
         <Callout tone="neutral">We could not read the profile in this link, so we show the profile saved on this device.</Callout>
       ) : null}
       <PageHeader
-        eyebrow="Ranked by code over official data"
+        step="shortlist"
         title="Your shortlist"
-        subtitle={
-          <span className="mt-2 flex flex-wrap items-center gap-2">
-            {profileSummaryParts(profile).map((part) => (
-              <span key={part} className="inline-flex items-center rounded-chip border border-line bg-surface px-3 py-1 text-sm text-ink break-words">
-                {part}
-              </span>
-            ))}
-            <Link href="/onboarding" className="inline-flex min-h-tap items-center px-1 font-semibold md:min-h-0">
-              Edit<span className="sr-only"> your profile</span>
-            </Link>
-          </span>
-        }
+        subtitle="Programs for your grade, field and budget. Every number links to its official page."
       >
-        <ul className="mt-2 flex flex-wrap gap-x-4 text-sm">
-          <li>
-            <Link href="/citizenship" className="inline-flex min-h-tap items-center font-semibold">
-              Compare citizenship rules and costs<span aria-hidden="true">&nbsp;→</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/saved" className="inline-flex min-h-tap items-center font-semibold">
-              Saved programs<span aria-hidden="true">&nbsp;→</span>
-            </Link>
-          </li>
-        </ul>
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          {profileSummaryParts(profile).map((part) => (
+            <span key={part} className="inline-flex items-center rounded-chip border border-line bg-surface px-3 py-1 text-sm text-ink break-words">
+              {part}
+            </span>
+          ))}
+          <Link href="/onboarding" className="inline-flex min-h-tap items-center px-1 font-semibold md:min-h-0">
+            Edit<span className="sr-only"> your profile</span>
+          </Link>
+        </div>
+        {urgent.length > 0 && !s.noProgramsForField ? (
+          <p className="mt-3">
+            <a
+              href="#closing-soon-heading"
+              className="inline-flex min-h-tap items-center gap-1.5 rounded-chip border border-conflict-fg bg-conflict-bg px-3 text-sm font-semibold text-conflict-fg no-underline md:min-h-0 md:py-1"
+              data-urgent-deadlines=""
+            >
+              <span aria-hidden="true">⏰</span>
+              {urgentBadgeText(urgent.length)}
+            </a>
+          </p>
+        ) : null}
       </PageHeader>
-
-      {/* "0 of 0 verified" says nothing useful when the field has no programs: the empty-field card explains instead. */}
-      {!s.noProgramsForField && <CoverageMeter coverage={s.coverage} fieldLabel={s.field.label} />}
 
       {s.noProgramsForField ? (
         <EmptyFieldCard shortlist={s} profile={profile} />
       ) : (
         <>
-          <ClosingSoon rows={closingSoon(s, now)} detailsHref={detailsHref} />
-
           <section aria-labelledby="controls-heading" className="space-y-3 rounded-card border border-line bg-surface/70 p-4 shadow-card">
             <h2 id="controls-heading" className="text-sm font-semibold text-muted">
               Rank by
@@ -175,19 +184,9 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
 
           <div className="space-y-2">
             <p role="status" aria-live="polite" className="sr-only">
-              {s.ranked.length} ranked by {rankLabel.toLowerCase()} · {s.notRanked.length} not ranked (data missing)
-              {s.cantCheck.length > 0 ? ` · ${s.cantCheck.length} can't check` : ''}
+              {listed} program{listed === 1 ? '' : 's'} shown, sorted by {rankLabel.toLowerCase()}
               {s.ruledOut.length > 0 ? ` · ${s.ruledOut.length} ruled out` : ''}
             </p>
-            <div aria-hidden="true">
-              <StatGrid cols={s.cantCheck.length > 0 || s.ruledOut.length > 0 ? 4 : 2}>
-                <StatTile tone="accent" label="Ranked" value={s.ranked.length} caption={`by ${rankLabel.toLowerCase()}`} />
-                <StatTile label="Not ranked" value={s.notRanked.length} caption="data missing" />
-                {s.cantCheck.length > 0 ? <StatTile label="Can't check" value={s.cantCheck.length} caption="filter needs data" /> : null}
-                {s.ruledOut.length > 0 ? <StatTile label="Ruled out" value={s.ruledOut.length} caption="listed with reason" /> : null}
-              </StatGrid>
-            </div>
-            <p className="text-sm text-muted">Only verified or likely values are ranked. Missing data is never treated as zero.</p>
             <HiddenNote s={s} sp={sp} />
             {s.filters.budgetUnavailable ? (
               <Callout tone="neutral">
@@ -199,11 +198,15 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
             ) : null}
           </div>
 
-          <Section id="ranked-heading" title={`Ranked by ${rankLabel} (${s.ranked.length})`}>
-            {s.ranked.length === 0 ? (
+          <Section
+            id="programs-heading"
+            title={s.ranked.length > 0 ? `Your programs (${listed})` : `Programs to explore (${listed})`}
+            description={s.ranked.length > 0 ? sortedByText(s.query.rank, s.query.dir) : undefined}
+          >
+            {listed === 0 ? (
               <Callout tone="neutral">
                 {emptyRankedMessage(s)}
-                {listed === 0 && s.activeFilterCount > 0 ? (
+                {s.activeFilterCount > 0 ? (
                   <>
                     {' '}
                     <Link href={clearHref} scroll={false} prefetch={false} className="font-semibold">
@@ -212,20 +215,14 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
                   </>
                 ) : null}
               </Callout>
-            ) : (
+            ) : null}
+
+            {s.ranked.length > 0 ? (
               <>
-                <ol className="space-y-3 md:hidden">
+                <ol className="space-y-3 md:hidden" data-program-list="ordered">
                   {s.ranked.map((r) => (
                     <li key={r.program.id}>
-                      <ProgramCard
-                        row={r}
-                        now={now}
-                        rank={r.rank}
-                        rankKey={r.key}
-                        rankBy={s.query.rank}
-                        detailsHref={detailsHref(r.program.id)}
-                        planBHref={planBHref(r.program.id)}
-                      />
+                      <ProgramCard {...cardProps(r)} rank={r.rank} rankKey={r.key} />
                     </li>
                   ))}
                 </ol>
@@ -233,83 +230,49 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
                   rows={s.ranked}
                   now={now}
                   rankBy={s.query.rank}
-                  caption={`Programs ranked by ${rankLabel}`}
+                  caption={`Programs sorted by ${rankLabel}`}
                   detailsHref={detailsHref}
                   planBHref={planBHref}
                 />
               </>
-            )}
+            ) : null}
+
+            {more.length > 0 ? (
+              <>
+                {s.ranked.length > 0 ? (
+                  <div className="flex items-center gap-3 pt-2" data-more-programs="">
+                    <hr className="flex-1 border-line" />
+                    <h3 className="text-sm font-semibold text-muted">More programs to explore</h3>
+                    <hr className="flex-1 border-line" />
+                  </div>
+                ) : null}
+                <ul className="space-y-3 md:hidden" data-program-list="more">
+                  {more.map((r) => (
+                    <li key={r.program.id}>
+                      <ProgramCard
+                        {...cardProps(r)}
+                        note={'reasons' in r ? <ReasonNote title="To use your filters, check on the official page" reasons={r.reasons} /> : null}
+                      />
+                    </li>
+                  ))}
+                </ul>
+                <ProgramTable
+                  rows={more}
+                  now={now}
+                  rankBy={s.query.rank}
+                  caption="More programs to explore"
+                  detailsHref={detailsHref}
+                  planBHref={planBHref}
+                />
+              </>
+            ) : null}
           </Section>
-
-          {s.notRanked.length > 0 ? (
-            <Section
-              id="not-ranked-heading"
-              title={`Not ranked: data missing (${s.notRanked.length})`}
-              description={`These programs are not hidden. We will not guess the value needed to rank them by ${rankLabel.toLowerCase()}.`}
-            >
-              <ul className="space-y-3 md:hidden">
-                {s.notRanked.map((r) => (
-                  <li key={r.program.id}>
-                    <ProgramCard
-                      row={r}
-                      now={now}
-                      rankBy={s.query.rank}
-                      detailsHref={detailsHref(r.program.id)}
-                      planBHref={planBHref(r.program.id)}
-                      note={<ReasonNote title="Not ranked because" reasons={[r.reason]} />}
-                    />
-                  </li>
-                ))}
-              </ul>
-              <ProgramTable
-                rows={s.notRanked.map((r) => ({ ...r, reasons: [r.reason] }))}
-                now={now}
-                rankBy={s.query.rank}
-                caption="Programs not ranked because data is missing"
-                reasonHeader="Why not ranked"
-                detailsHref={detailsHref}
-                planBHref={planBHref}
-              />
-            </Section>
-          ) : null}
-
-          {s.cantCheck.length > 0 ? (
-            <Section
-              id="cant-check-heading"
-              title={`Can't check: data missing (${s.cantCheck.length})`}
-              description="Your filters need data these programs do not have yet, or that we can't compare. They are not hidden and not counted as a match."
-            >
-              <ul className="space-y-3 md:hidden">
-                {s.cantCheck.map((r) => (
-                  <li key={r.program.id}>
-                    <ProgramCard
-                      row={r}
-                      now={now}
-                      rankBy={s.query.rank}
-                      detailsHref={detailsHref(r.program.id)}
-                      planBHref={planBHref(r.program.id)}
-                      note={<ReasonNote title="We can't check this filter" reasons={r.reasons} />}
-                    />
-                  </li>
-                ))}
-              </ul>
-              <ProgramTable
-                rows={s.cantCheck}
-                now={now}
-                rankBy={s.query.rank}
-                caption="Programs your filters cannot check yet"
-                reasonHeader="Why we can't check"
-                detailsHref={detailsHref}
-                planBHref={planBHref}
-              />
-            </Section>
-          ) : null}
 
           {s.ruledOut.length > 0 ? (
             <Section
               id="ruled-out-heading"
-              title={`Ruled out (${s.ruledOut.length})`}
-              description="Listed so you know why. Never ranked. Check the note and the official page."
+              title={`Not open to you (${s.ruledOut.length})`}
+              description="Listed so you know why. Check the note and the official page."
             >
               <ul className="grid gap-3 md:grid-cols-2">
                 {s.ruledOut.map((r) => (
@@ -320,6 +283,10 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
               </ul>
             </Section>
           ) : null}
+
+          <div id="closing-soon" className="scroll-mt-20">
+            <ClosingSoon rows={closing} detailsHref={detailsHref} />
+          </div>
 
           <ShareShortlist path={profileShortlistPath(profile, { rank: s.query.rank, dir: s.query.dir })} />
 

@@ -74,7 +74,7 @@ describe('CountryCard / CountryTable — seed data (today)', () => {
     const uk = entries(ranking).find((e) => e.row.country === 'UK')!;
     const html = renderToStaticMarkup(<CountryCard entry={uk} now={FIXED_NOW} fx={seed.fxRates} rankLabel="Citizenship rule" isTarget />);
     expect(html).not.toContain('Rank ');
-    expect(html).toContain('Not ranked: data missing');
+    expect(html).toContain('Check on the official page');
     expect(html).toContain('Citizenship rule not verified yet');
     expect(html).toContain('Graduate visa');
     expect(html).toContain('In your plan');

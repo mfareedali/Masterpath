@@ -38,7 +38,7 @@ export default async function Home() {
     .map((i) => i.name)
     .sort((a, b) => a.localeCompare(b));
   return (
-    <div className="space-y-12 md:space-y-20">
+    <div className="space-y-8 md:space-y-20">
       <Hero stats={stats} />
 
       <section id="start" aria-labelledby="home-start" className="scroll-mt-20">

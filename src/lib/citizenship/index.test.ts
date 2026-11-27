@@ -258,7 +258,7 @@ describe('rankCountries — seed data (today)', () => {
   it('summary line for screen readers', () => {
     const r = rankCountries(rows, parseCitizenshipQuery({}), seed.fxRates, FIXED_NOW);
     expect(rankingSummary(r)).toBe(
-      'Ranked by citizenship rule, shortest first. 2 countries ranked, 3 not ranked because data is missing.',
+      'Sorted by citizenship rule, shortest first. 2 countries in order, 3 more to explore.',
     );
   });
 });
@@ -708,7 +708,7 @@ describe('visa money (proof_of_funds): shown for every country, never ranked', (
   });
 
   it('copy: the not-ranked line explains why, with no numbers, no country claims and no outcome promise', () => {
-    expect(VISA_FUNDS_NOT_RANKED).toBe(`Not ranked. ${VISA_FUNDS_NOT_COMPARABLE} Read each country's rule.`);
+    expect(VISA_FUNDS_NOT_RANKED).toBe(`${VISA_FUNDS_NOT_COMPARABLE} Read each country's rule.`);
     expect(VISA_FUNDS_NOT_COMPARABLE).toContain('cannot be compared');
     for (const t of [VISA_FUNDS_NOT_RANKED, NO_PKR_RATE, NO_PKR_UNVERIFIED]) {
       expect(t).not.toMatch(/\d|guarantee|chance|will get|approved|Germany|Canada|United|Switzerland/i);

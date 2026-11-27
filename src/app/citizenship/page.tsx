@@ -50,6 +50,7 @@ export default async function CitizenshipPage({ searchParams }: { searchParams: 
     <div className="space-y-6">
       <div>
         <PageHeader
+          step="costs"
           title="Citizenship and cost"
           subtitle="Compare citizenship rules, post-study work and typical yearly costs by country, and see the money to show for the student visa. Every value shows where it comes from."
         />
@@ -68,20 +69,15 @@ export default async function CitizenshipPage({ searchParams }: { searchParams: 
       <section aria-labelledby="ranked-heading" className="space-y-3">
         <div>
           <h2 id="ranked-heading" className="text-xl font-bold">
-            Ranked by {opt.label.toLowerCase()} ({ranked.length})
+            {ranked.length > 0 ? `Countries (${ranked.length + notRanked.length})` : `Countries to explore (${notRanked.length})`}
           </h2>
-          <p className="mt-1 text-sm text-muted" aria-live="polite">
-            {rankingSummary(ranking)}
-          </p>
-        </div>
-        {ranked.length === 0 ? (
-          <Callout tone="neutral" title="Nothing to rank yet">
-            <p>
-              No country has a Verified or Likely value for {opt.label.toLowerCase()} yet, so we do not rank them. We never
-              guess a missing value. Each country is listed below with what is missing.
+          {ranked.length > 0 ? (
+            <p className="mt-1 text-sm text-muted" aria-live="polite">
+              {rankingSummary(ranking)}
             </p>
-          </Callout>
-        ) : (
+          ) : null}
+        </div>
+        {ranked.length > 0 ? (
           <>
             <ol className="space-y-3 md:hidden">
               {ranked.map((e) => (
@@ -95,41 +91,39 @@ export default async function CitizenshipPage({ searchParams }: { searchParams: 
               now={now}
               fx={fx}
               rankLabel={opt.label}
-              caption={`Countries ranked by ${opt.label.toLowerCase()}, ${opt.dirLabels[query.dir].toLowerCase()}`}
+              caption={`Countries sorted by ${opt.label.toLowerCase()}, ${opt.dirLabels[query.dir].toLowerCase()}`}
               targets={targets}
             />
           </>
-        )}
-      </section>
+        ) : null}
 
-      {notRanked.length > 0 ? (
-        <section aria-labelledby="not-ranked-heading" className="space-y-3">
-          <div>
-            <h2 id="not-ranked-heading" className="text-xl font-bold">
-              Not ranked: data missing ({notRanked.length})
-            </h2>
-            <p className="mt-1 text-sm text-muted">
-              These countries have no Verified or Likely value for {opt.label.toLowerCase()} yet. They are not treated as
-              zero or as last. The reason is shown for each one.
-            </p>
-          </div>
-          <ul className="space-y-3 md:hidden">
-            {notRanked.map((e) => (
-              <li key={e.row.country}>
-                <CountryCard entry={e} now={now} fx={fx} rankLabel={opt.label} isTarget={targets.has(e.row.country)} />
-              </li>
-            ))}
-          </ul>
-          <CountryTable
-            entries={notRanked}
-            now={now}
-            fx={fx}
-            rankLabel={opt.label}
-            caption={`Countries not ranked by ${opt.label.toLowerCase()} because data is missing`}
-            targets={targets}
-          />
-        </section>
-      ) : null}
+        {notRanked.length > 0 ? (
+          <>
+            {ranked.length > 0 ? (
+              <div className="flex items-center gap-3 pt-2" data-more-countries="">
+                <hr className="flex-1 border-line" />
+                <h3 className="text-sm font-semibold text-muted">More countries to explore</h3>
+                <hr className="flex-1 border-line" />
+              </div>
+            ) : null}
+            <ul className="space-y-3 md:hidden">
+              {notRanked.map((e) => (
+                <li key={e.row.country}>
+                  <CountryCard entry={e} now={now} fx={fx} rankLabel={opt.label} isTarget={targets.has(e.row.country)} />
+                </li>
+              ))}
+            </ul>
+            <CountryTable
+              entries={notRanked}
+              now={now}
+              fx={fx}
+              rankLabel={opt.label}
+              caption="More countries to explore"
+              targets={targets}
+            />
+          </>
+        ) : null}
+      </section>
 
       <PakistanNationalityCard fact={pkFact} now={now} />
 
