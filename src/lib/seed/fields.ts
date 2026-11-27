@@ -80,6 +80,9 @@ const COUNTRY_KEYS: Record<CountryFactKey, true> = {
   proof_of_funds: true,
   tuition_typical: true,
   living_cost_typical: true,
+  visa_fee: true,
+  visa_processing_time: true,
+  student_work_rights: true,
 };
 
 export const COUNTRY_FACT_KEYS = Object.keys(COUNTRY_KEYS) as CountryFactKey[];

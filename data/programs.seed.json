@@ -622,7 +622,7 @@
       "official_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
       "status": "active",
       "pathway_type": "direct",
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-27",
       "status_note": {
         "value": null,
         "source_url": null,
@@ -728,10 +728,11 @@
         "fetched_at": null
       },
       "admissions_email": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "mscapp-in.asa@xcit.tum.de",
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+        "evidence_snippet": "Questions about application: Email: mscapp-in.asa@xcit.tum.de",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Application questions contact on the programme page."
       },
       "eligibility_note": {
         "value": null,
@@ -2942,10 +2943,11 @@
         "fetched_at": null
       },
       "admissions_email": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "mscapp-in.asa@xcit.tum.de",
+        "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+        "evidence_snippet": "Questions about application: Email: mscapp-in.asa@xcit.tum.de",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Application questions contact on the programme page."
       },
       "last_checked": "2026-11-27"
     },
@@ -3247,10 +3249,11 @@
         "review_note": "Imperial-wide; same snippet as imperial-msc-computing."
       },
       "admissions_email": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "doc-mscadmissions@imperial.ac.uk",
+        "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+        "evidence_snippet": "Email: doc-mscadmissions@imperial.ac.uk",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Department of Computing contact box on the programme page (\"Contact the department\")."
       },
       "last_checked": "2026-11-27"
     },

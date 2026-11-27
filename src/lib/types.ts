@@ -183,7 +183,13 @@ export type CountryFactKey =
   | 'pr_route'
   | 'pakistan_dual_nationality'
   | 'tuition_typical'
-  | 'living_cost_typical';
+  | 'living_cost_typical'
+  /** Student-visa application fee, as the official government page states it. */
+  | 'visa_fee'
+  /** How long the student-visa decision takes, as the official page states it. */
+  | 'visa_processing_time'
+  /** What a student visa lets the holder do for work while studying (hours, conditions). */
+  | 'student_work_rights';
 
 export interface CountryFactValue {
   /** The exact rule in plain words. */

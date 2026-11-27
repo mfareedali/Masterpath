@@ -1,0 +1,54 @@
+{
+  "area": "extract-batch-1",
+  "generated_at": "2026-11-27",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "imperial-msc-artificial-intelligence",
+      "field": "admissions_email",
+      "value": "doc-mscadmissions@imperial.ac.uk",
+      "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "evidence_snippet": "Email: doc-mscadmissions@imperial.ac.uk",
+      "basis": "verbatim",
+      "fetched_at": "2026-11-27",
+      "fetch_method": "static",
+      "notes": "Department of Computing contact box on the programme page (\"Contact the department\").",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official page. Single reviewer. Human review still required."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-informatics",
+      "field": "admissions_email",
+      "value": "mscapp-in.asa@xcit.tum.de",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "evidence_snippet": "Questions about application: Email: mscapp-in.asa@xcit.tum.de",
+      "basis": "verbatim",
+      "fetched_at": "2026-11-27",
+      "fetch_method": "static",
+      "notes": "Application questions contact on the programme page.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official page. Single reviewer. Human review still required."
+      }
+    },
+    {
+      "target": "program",
+      "id": "tum-msc-data-engineering-analytics",
+      "field": "admissions_email",
+      "value": "mscapp-in.asa@xcit.tum.de",
+      "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "evidence_snippet": "Questions about application: Email: mscapp-in.asa@xcit.tum.de",
+      "basis": "verbatim",
+      "fetched_at": "2026-11-27",
+      "fetch_method": "static",
+      "notes": "Application questions contact on the programme page.",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official page. Single reviewer. Human review still required."
+      }
+    }
+  ]
+}
