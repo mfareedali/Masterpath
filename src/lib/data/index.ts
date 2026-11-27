@@ -78,6 +78,11 @@ export async function getPrograms(): Promise<Program[]> {
   return (await getDataset()).programs;
 }
 
+/** Field slugs that have at least one active program (for the profile pickers). */
+export async function getFieldsWithPrograms(): Promise<string[]> {
+  return [...new Set((await getDataset()).programs.filter((p) => p.status === 'active').map((p) => p.field))].sort();
+}
+
 export async function getProgram(id: string): Promise<Program | null> {
   return (await getDataset()).programs.find((p) => p.id === id) ?? null;
 }

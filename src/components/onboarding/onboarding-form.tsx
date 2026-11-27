@@ -41,7 +41,7 @@ import {
   validateStrengths,
   type StrengthsValues,
 } from '@/lib/onboarding/strengths-form';
-import { FIELDS, SUPPORTED_COUNTRIES } from '@/lib/profile';
+import { FIELDS, SUPPORTED_COUNTRIES, fieldOptionLabel } from '@/lib/profile';
 import { loadProfile, loadStrengths, saveProfile, saveStrengths } from '@/lib/profile-client';
 import type { Profile, Strengths } from '@/lib/types';
 
@@ -88,10 +88,24 @@ function getServerSnapshot(): string {
 }
 
 /** Reads what is saved on this device and (re)mounts the form with it as initial values. */
-export function Onboarding({ universities }: { universities: UniversityOption[] }) {
+export function Onboarding({
+  universities,
+  fieldsWithPrograms,
+}: {
+  universities: UniversityOption[];
+  fieldsWithPrograms?: readonly string[];
+}) {
   const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const saved = useMemo(() => JSON.parse(snapshot) as Saved, [snapshot]);
-  return <OnboardingForm key={snapshot} universities={universities} savedProfile={saved.p} savedStrengths={saved.s} />;
+  return (
+    <OnboardingForm
+      key={snapshot}
+      universities={universities}
+      fieldsWithPrograms={fieldsWithPrograms}
+      savedProfile={saved.p}
+      savedStrengths={saved.s}
+    />
+  );
 }
 
 /* ---------- The form ---------- */
@@ -113,10 +127,13 @@ function countLabel(n: number) {
 
 export function OnboardingForm({
   universities,
+  fieldsWithPrograms,
   savedProfile,
   savedStrengths,
 }: {
   universities: UniversityOption[];
+  /** Field slugs that have programs; the others are labelled "(no programs yet)". */
+  fieldsWithPrograms?: readonly string[];
   savedProfile: Profile | null;
   savedStrengths: Strengths | null;
 }) {
@@ -339,7 +356,7 @@ export function OnboardingForm({
             >
               {FIELDS.map((f) => (
                 <option key={f.slug} value={f.slug}>
-                  {f.label}
+                  {fieldOptionLabel(f, fieldsWithPrograms)}
                 </option>
               ))}
             </select>

@@ -483,3 +483,9 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
 - **Advisors**: security 0 findings. Performance: only "unused index" (INFO) on a 15-row database; kept.
 - **Keys**: `.env.local` holds the URL and the legacy anon key only. The service-role key must be pasted in by the
   owner (needed for accounts, stored reports and `seed:supabase`); it is never used in browser code.
+- **Fields without programs are labelled in the pickers (25 Nov).** Only Computer Science has programs, but the
+  home and profile pickers offered Data Science / AI, Software Engineering, Electrical Engineering and Other with no
+  warning, and choosing one led to an empty shortlist headed "0 of 0 ... fully verified". The pickers now say
+  "Electrical Engineering (no programs yet)" (from the dataset: `getFieldsWithPrograms`), the fields stay selectable
+  (the empty page explains how to add programs and links to the closest field), and the coverage meter is hidden
+  when a field has no programs. The home page now reads the dataset, so it is refreshed hourly instead of fully static.

@@ -1,8 +1,10 @@
 /**
- * Home (screen 1). Static: no data access, no cookies. The only client JS is the quick-start form
- * and the demo persona buttons (both work as plain links/forms first).
+ * Home (screen 1). Static, no cookies; refreshed hourly. Its only data read is which fields have programs, so the
+ * field picker can say "(no programs yet)" before anyone lands on an empty shortlist. The only client JS is the
+ * quick-start form and the demo persona buttons (both work as plain links/forms first).
  */
 import Link from 'next/link';
+import { getFieldsWithPrograms } from '@/lib/data';
 import { LoadPersonaButtons } from '@/components/demo/load-persona';
 import { Hero } from '@/components/home/hero';
 import { QuickStartForm } from '@/components/home/quick-start-form';
@@ -17,7 +19,11 @@ function countryList(): string {
   return names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names.join('');
 }
 
-export default function Home() {
+// Which fields have programs comes from the dataset; refresh it hourly (same as /onboarding).
+export const revalidate = 3600;
+
+export default async function Home() {
+  const fieldsWithPrograms = await getFieldsWithPrograms();
   return (
     <div className="space-y-10">
       <Hero eyebrow="Free and open source, for students in Pakistan" subtitle="Plan your Masters abroad without a paid consultant.">
@@ -25,7 +31,7 @@ export default function Home() {
           Enter your grade to see programs in {countryList()}. Every fact links to the official page. If we cannot
           verify something, we say so.
         </p>
-        <QuickStartForm />
+        <QuickStartForm fieldsWithPrograms={fieldsWithPrograms} />
       </Hero>
 
       <section aria-labelledby="home-more" className="space-y-3">

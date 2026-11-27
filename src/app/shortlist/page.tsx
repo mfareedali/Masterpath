@@ -150,7 +150,8 @@ export default async function ShortlistPage({ searchParams }: { searchParams: Pr
         </ul>
       </PageHeader>
 
-      <CoverageMeter coverage={s.coverage} fieldLabel={s.field.label} />
+      {/* "0 of 0 verified" says nothing useful when the field has no programs: the empty-field card explains instead. */}
+      {!s.noProgramsForField && <CoverageMeter coverage={s.coverage} fieldLabel={s.field.label} />}
 
       {s.noProgramsForField ? (
         <EmptyFieldCard shortlist={s} profile={profile} />
