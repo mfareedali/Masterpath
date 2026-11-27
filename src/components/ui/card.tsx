@@ -1,4 +1,5 @@
 import type { ComponentProps } from 'react';
+import { JourneyCue, type JourneyStepId } from './journey';
 
 export function Card({ className = '', ...rest }: ComponentProps<'div'>) {
   return <div className={`rounded-card border border-line bg-surface p-4 shadow-card ${className}`} {...rest} />;
@@ -30,23 +31,34 @@ export function Callout({
   );
 }
 
+/**
+ * The one page header: where you are (step), title, one-line purpose, primary action, then any extras (children).
+ */
 export function PageHeader({
   title,
   subtitle,
   eyebrow,
+  step,
+  action,
   children,
 }: {
   title: string;
   subtitle?: React.ReactNode;
   /** Small label above the title. */
   eyebrow?: React.ReactNode;
+  /** Highlights this screen in the journey cue (Profile → Shortlist → Check → Plan B → Costs). */
+  step?: JourneyStepId;
+  /** The primary action of the page, shown under the purpose line. */
+  action?: React.ReactNode;
   children?: React.ReactNode;
 }) {
   return (
     <header className="mb-4">
+      {step ? <JourneyCue current={step} /> : null}
       {eyebrow ? <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-primary-ink">{eyebrow}</p> : null}
       <h1 className="text-2xl font-bold md:text-3xl">{title}</h1>
       {subtitle ? <p className="mt-1 text-muted">{subtitle}</p> : null}
+      {action ? <div className="mt-3">{action}</div> : null}
       {children}
     </header>
   );

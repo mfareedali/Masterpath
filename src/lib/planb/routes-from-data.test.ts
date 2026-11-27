@@ -370,7 +370,7 @@ describe('"Not decided yet" list and explainNoTarget (proposal #2)', () => {
     // It is a list: nothing in it is ranked or scored.
     expect(Object.keys(p.undecided[0]).sort()).toEqual(['conditional', 'institution', 'isTarget', 'minimumReason', 'program', 'routeAbove']);
     expect(undecidedSummary(3)).toBe(
-      'For 3 programs in your field and countries we cannot tell yet whether your grade meets the minimum. Each one says why.',
+      '3 programs need you to check the minimum grade on the official page. Each one says what to look at.',
     );
   });
 

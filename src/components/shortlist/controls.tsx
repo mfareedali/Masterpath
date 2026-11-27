@@ -6,14 +6,16 @@
 import Link from 'next/link';
 import { ButtonLink } from '@/components/ui/button';
 import { ChipLink, ChipRow, chipClass } from '@/components/ui/chip';
+import { INTAKE_TERM_IDS, intakeTermKind } from '@/lib/shortlist/intake';
 import { countryName } from '@/lib/format';
 import {
   CLEAR_FILTERS,
   DIR_LABEL,
   FIT_FILTERS,
-  FIT_FILTER_LABEL,
   RANK_KEYS,
+  FIT_FILTER_LABEL,
   RANK_LABEL,
+  activeFilterSummary,
   intakeTermLabel,
   shortlistHref,
   toggleCountry,
@@ -31,22 +33,27 @@ export function RankChips({ sp, shortlist }: { sp: RawSearchParams; shortlist: S
   const { rank, dir } = shortlist.query;
   const other = dir === 'asc' ? 'desc' : 'asc';
   return (
-    <ChipRow label="Rank by">
-      {RANK_KEYS.map((k) => (
-        <ChipLink key={k} href={shortlistHref(sp, { rank: k, dir: null, panel: null })} active={rank === k} {...chipLinkProps}>
-          {RANK_LABEL[k]}
-        </ChipLink>
-      ))}
-      <ChipLink
-        href={shortlistHref(sp, { dir: other, panel: null })}
-        aria-label={`Order: ${DIR_LABEL[rank][dir]}. Change to ${DIR_LABEL[rank][other]}`}
-        className="border-dashed"
-        {...chipLinkProps}
-      >
-        <span aria-hidden="true">⇅</span>
-        {DIR_LABEL[rank][dir]}
-      </ChipLink>
-    </ChipRow>
+    <div className="space-y-2">
+      <ChipRow label="Rank by" wrap>
+        {RANK_KEYS.map((k) => (
+          <ChipLink key={k} href={shortlistHref(sp, { rank: k, dir: null, panel: null })} active={rank === k} {...chipLinkProps}>
+            {RANK_LABEL[k]}
+          </ChipLink>
+        ))}
+      </ChipRow>
+      <p className="text-sm text-muted">
+        Order: <span className="font-semibold text-ink">{DIR_LABEL[rank][dir]}</span>
+        {' · '}
+        <Link
+          href={shortlistHref(sp, { dir: other, panel: null })}
+          aria-label={`Order: ${DIR_LABEL[rank][dir]}. Change to ${DIR_LABEL[rank][other]}`}
+          className="inline-flex min-h-tap items-center font-semibold md:min-h-0"
+          {...chipLinkProps}
+        >
+          Switch to {DIR_LABEL[rank][other].toLowerCase()}
+        </Link>
+      </p>
+    </div>
   );
 }
 
@@ -55,7 +62,9 @@ function FilterRow({ title, children }: { title: string; children: React.ReactNo
     <div className="md:flex md:items-center md:gap-3">
       <p className="mb-1 text-sm font-semibold text-muted md:mb-0 md:w-20 md:shrink-0">{title}</p>
       <div className="min-w-0 md:flex-1">
-        <ChipRow label={title}>{children}</ChipRow>
+        <ChipRow label={title} wrap>
+          {children}
+        </ChipRow>
       </div>
     </div>
   );
@@ -98,7 +107,7 @@ function FilterGroups({
         <p className="text-xs text-muted">Showing the countries from your profile.</p>
       ) : null}
 
-      <FilterRow title="Fit">
+      <FilterRow title="Your grade">
         {FIT_FILTERS.map((f) => (
           <ChipLink key={f} href={href({ fit: toggleValue(query.fit, f) })} active={query.fit.includes(f)} {...chipLinkProps}>
             {FIT_FILTER_LABEL[f]}
@@ -107,18 +116,31 @@ function FilterGroups({
       </FilterRow>
 
       {options.intakes.length > 0 ? (
-        <FilterRow title="Intake">
-          {options.intakes.map((v) => (
-            <ChipLink
-              key={v}
-              href={href({ intake: toggleValue(filters.intake, v) })}
-              active={filters.intake.includes(v)}
-              {...chipLinkProps}
-            >
-              {intakeTermLabel(v)}
-            </ChipLink>
-          ))}
-        </FilterRow>
+        <>
+          {(
+            [
+              ['Start month', 'month'],
+              ['Start season or semester', 'season'],
+            ] as const
+          ).map(([title, group]) => {
+            const terms = INTAKE_TERM_IDS.filter((v) => options.intakes.includes(v) && (intakeTermKind(v) === 'month') === (group === 'month'));
+            if (terms.length === 0) return null;
+            return (
+              <FilterRow key={group} title={title}>
+                {terms.map((v) => (
+                  <ChipLink
+                    key={v}
+                    href={href({ intake: toggleValue(filters.intake, v) })}
+                    active={filters.intake.includes(v)}
+                    {...chipLinkProps}
+                  >
+                    {intakeTermLabel(v)}
+                  </ChipLink>
+                ))}
+              </FilterRow>
+            );
+          })}
+        </>
       ) : null}
 
       <FilterRow title="Cost">
@@ -149,16 +171,32 @@ export function Filters({ sp, shortlist, profile }: { sp: RawSearchParams; short
   const n = shortlist.activeFilterCount;
   const label = n > 0 ? `Filters (${n})` : 'Filters';
   const shownCount = shortlist.ranked.length + shortlist.notRanked.length + shortlist.cantCheck.length;
+  const f = shortlist.filters;
+  const summary = activeFilterSummary([
+    f.countries && f.countrySource !== 'profile' ? f.countries.map(countryName).join(', ') : '',
+    shortlist.query.fit.map((x) => FIT_FILTER_LABEL[x]).join(', '),
+    f.intake.map(intakeTermLabel).join(', '),
+    f.budget ? 'Within my budget' : '',
+  ]);
 
   return (
     <>
       {/* Mobile: bottom-sheet style panel. `panel=filters` keeps it open after a chip tap. */}
       <details className="group md:hidden" open={shortlist.query.panel || undefined}>
-        <summary className={chipClass(n > 0, 'cursor-pointer list-none [&::-webkit-details-marker]:hidden')}>
-          <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-            <path d="M4 6h16M7 12h10M10 18h4" />
-          </svg>
-          {label}
+        <summary className="flex min-h-tap cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 [&::-webkit-details-marker]:hidden">
+          <span className={chipClass(n > 0)}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+              <path d="M4 6h16M7 12h10M10 18h4" />
+            </svg>
+            {label}
+          </span>
+          {summary ? (
+            <span className="min-w-0 text-sm text-muted break-words" data-filter-summary="">
+              {summary}
+            </span>
+          ) : (
+            <span className="text-sm text-muted">Country, grade, start date, cost</span>
+          )}
         </summary>
         <div className="mt-3 rounded-card border border-line bg-surface px-4 pb-4 pt-2 shadow-sheet">
           <span aria-hidden="true" className="mx-auto mb-3 block h-1 w-10 rounded-chip bg-line" />

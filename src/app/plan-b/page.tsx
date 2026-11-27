@@ -55,7 +55,12 @@ export default async function PlanBPage({ searchParams }: { searchParams: Promis
   if (!profile) {
     return (
       <div>
-        <PageHeader title={TITLE} subtitle={SUBTITLE} />
+        <PageHeader
+          step="plan-b"
+          title={TITLE}
+          subtitle={SUBTITLE}
+          action={<ButtonLink href="/onboarding">Add your details</ButtonLink>}
+        />
         <IntegrityNote />
         <Card>
           <h2 className="text-lg font-bold">First, tell us your grade</h2>
@@ -64,7 +69,6 @@ export default async function PlanBPage({ searchParams }: { searchParams: Promis
             ask for passport or ID numbers.
           </p>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/onboarding">Add your details</ButtonLink>
             <LoadPersonaButtons compact />
           </div>
         </Card>
@@ -107,7 +111,7 @@ export default async function PlanBPage({ searchParams }: { searchParams: Promis
   return (
     <div>
       {linkNotice}
-      <PageHeader title={TITLE} subtitle={SUBTITLE} />
+      <PageHeader step="plan-b" title={TITLE} subtitle={SUBTITLE} />
       <IntegrityNote />
 
       <TargetChips plan={plan} hrefFor={(t) => planBHref(sp, t)} />
@@ -123,38 +127,33 @@ export default async function PlanBPage({ searchParams }: { searchParams: Promis
 
       <DirectSection plan={plan} programHref={(id) => programHref(sp, id)} now={now} />
 
-      <section aria-labelledby="routes-h" className="mb-6">
-        <h2 id="routes-h" className="text-xl font-bold">
-          Other routes, best first
-        </h2>
-        <p className="mt-1 text-sm text-muted">{ORDER_NOTE}</p>
-        {plan.direct ? null : (
-          <p className="mt-1 text-sm text-ink">Pick one target above to compare each route with going direct.</p>
-        )}
-        {plan.ranked.length > 0 ? (
+      {plan.ranked.length > 0 ? (
+        <section aria-labelledby="routes-h" className="mb-6">
+          <h2 id="routes-h" className="text-xl font-bold">
+            Other routes, best first
+          </h2>
+          <p className="mt-1 text-sm text-muted">{ORDER_NOTE}</p>
+          {plan.direct ? null : (
+            <p className="mt-1 text-sm text-ink">Pick one target above to compare each route with going direct.</p>
+          )}
           <ol className="mt-3 space-y-3">
             {plan.ranked.map((r) => (
               <li key={r.id}>{card(r)}</li>
             ))}
           </ol>
-        ) : (
-          <Card className="mt-3">
-            <p className="text-sm text-ink">
-              No route can be ranked yet, because the facts we would rank by are not verified. We will not guess an order.
-              {plan.notRanked.length > 0 ? ' The routes we found are listed below, with their warnings.' : ''}
-            </p>
-          </Card>
-        )}
-      </section>
+        </section>
+      ) : null}
+
+      {/* Lead with what the student can do: improve and reapply is always an option. */}
+      <ImproveCard />
 
       {plan.notRanked.length > 0 ? (
         <section aria-labelledby="notranked-h" className="mb-6">
           <h2 id="notranked-h" className="text-xl font-bold">
-            Not ranked: data missing
+            More routes to look into
           </h2>
           <p className="mt-1 text-sm text-muted">
-            We show these so nothing is hidden. Their minimum grade, recognition and cost are not verified yet, so we do
-            not put them in order.
+            Check each one&apos;s minimum grade, recognition and cost on its official page. Warnings are shown on the card.
           </p>
           <ul className="mt-3 space-y-3">
             {plan.notRanked.map((r) => (
@@ -171,7 +170,6 @@ export default async function PlanBPage({ searchParams }: { searchParams: Promis
       />
       <NotForYourGradeSection rows={plan.notForYourGrade} programHref={(id) => programHref(sp, id)} />
 
-      <ImproveCard />
       <RouteTypesSection coverage={plan.coverage} />
       <BlockedSection blocked={plan.blocked} />
       <ExcludedSection excluded={plan.excluded} now={now} />

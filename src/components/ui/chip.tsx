@@ -25,9 +25,14 @@ export function ChipLink({ active = false, className = '', children, ...rest }: 
   );
 }
 
-export function ChipRow({ label, children }: { label: string; children: React.ReactNode }) {
+/** A row of chips. `wrap` lets the chips flow onto more lines (filters) instead of scrolling sideways. */
+export function ChipRow({ label, children, wrap = false }: { label: string; children: React.ReactNode; wrap?: boolean }) {
   return (
-    <div role="group" aria-label={label} className="chip-row -mx-4 px-4 md:mx-0 md:px-0">
+    <div
+      role="group"
+      aria-label={label}
+      className={wrap ? 'flex flex-wrap gap-2' : 'chip-row -mx-4 px-4 md:mx-0 md:px-0'}
+    >
       {children}
     </div>
   );
