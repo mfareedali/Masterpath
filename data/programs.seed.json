@@ -2677,11 +2677,11 @@
       "pathway_type": "direct",
       "last_checked": null,
       "status_note": {
-        "value": "Not accepting Pakistan applicants for 2026/27 (verify on the official page).",
+        "value": null,
         "source_url": null,
         "evidence_snippet": null,
         "fetched_at": null,
-        "note": "Reported, not yet verified. Verify before relying on it."
+        "note": "An earlier report said LJMU was not accepting Pakistan applicants for 2026/27. That could not be checked: ljmu.ac.uk disallows automated reading (robots.txt), so nothing is shown as fact. Check the official LJMU page before relying on it."
       },
       "intake": {
         "value": null,

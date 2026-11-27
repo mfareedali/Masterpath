@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 !.env.example
+
+# run reports: only the latest per tool is kept in git (see scripts/report-io.ts)
+/data/proposals/reports/*
+!/data/proposals/reports/latest-*.json

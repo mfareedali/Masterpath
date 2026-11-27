@@ -83,7 +83,9 @@ describe('text normalisation (same line rules as htmlToText)', () => {
 
 /* ---------------- browser tests (local fixture server) ---------------- */
 
-const available = await renderAvailable();
+// Browser tests run only where Chromium is installed on purpose: always locally when it is there, in CI only with
+// RUN_BROWSER_TESTS=1 (normal CI never downloads a browser, and a missing or half-installed one must not stall the job).
+const available = process.env.CI && process.env.RUN_BROWSER_TESTS !== '1' ? false : await renderAvailable();
 const FIXTURE: Record<string, { status?: number; type?: string; delayMs?: number; body: string; headers?: Record<string, string> }> = {};
 let server: http.Server;
 let origin = '';
