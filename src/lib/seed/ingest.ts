@@ -484,7 +484,9 @@ export function verifyItemsFrom(data: unknown): { items: VerifyItem[]; error: st
     ? data
     : data && typeof data === 'object' && Array.isArray((data as { accepted?: unknown }).accepted)
       ? (data as { accepted: unknown[] }).accepted
-      : null;
+      : data && typeof data === 'object' && Array.isArray((data as { proposals?: unknown }).proposals)
+        ? (data as { proposals: unknown[] }).proposals // merge-format files (data/proposals/**)
+        : null;
   if (!list) return { items: [], error: 'Expected a proposals file with an "accepted" list, or an array' };
   const programId =
     data && typeof data === 'object' && !Array.isArray(data) ? String((data as { program_id?: unknown }).program_id ?? '') : '';
@@ -493,7 +495,7 @@ export function verifyItemsFrom(data: unknown): { items: VerifyItem[]; error: st
     if (!x || typeof x !== 'object') return;
     const o = x as Record<string, unknown>;
     if (typeof o.source_url !== 'string' || typeof o.evidence_snippet !== 'string') return;
-    const label = [programId || null, typeof o.field === 'string' ? o.field : `#${i}`].filter(Boolean).join('.');
+    const label = [programId || (typeof o.id === 'string' ? o.id : null), typeof o.field === 'string' ? o.field : `#${i}`].filter(Boolean).join('.');
     items.push({ label, source_url: o.source_url, evidence_snippet: o.evidence_snippet });
   });
   return { items, error: null };
