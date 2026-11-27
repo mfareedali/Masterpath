@@ -79,7 +79,7 @@ export function CountryTable({
             <Fragment key={e.row.country}>
             <tr>
               <td className={td}>
-                {e.rank != null ? <RankBadge rank={e.rank} /> : <span className="text-xs font-semibold text-muted">Not ranked</span>}
+                {e.rank != null ? <RankBadge rank={e.rank} /> : <span className="text-xs font-semibold text-muted">–</span>}
               </td>
               <th scope="row" className={`${td} text-left font-normal`}>
                 <span className="block text-base font-bold text-heading">{e.row.name}</span>

@@ -531,9 +531,9 @@ describe('helpers', () => {
     // Listed but not rankable (minimum grade missing).
     const unrankable = buildShortlist(input([de]));
     expect(unrankable.ranked).toHaveLength(0);
-    expect(emptyRankedMessage(unrankable)).toMatch(/^No program can be ranked by fit yet/);
+    expect(emptyRankedMessage(unrankable)).toMatch(/^Open a program to check its fit/);
     const unrankableTuition = buildShortlist(input([fullProgram({ tuition: emptyFact() })], { query: { rank: 'tuition' } }));
-    expect(emptyRankedMessage(unrankableTuition)).toMatch(/^No program can be ranked by tuition yet/);
+    expect(emptyRankedMessage(unrankableTuition)).toMatch(/^Open a program to check its tuition/);
   });
 
   it('profile summary text', () => {

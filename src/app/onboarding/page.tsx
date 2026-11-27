@@ -19,7 +19,7 @@ export default async function OnboardingPage() {
   ]);
   return (
     <div className="mx-auto max-w-xl">
-      <PageHeader title="Your profile" subtitle="About a minute. Only your grade is required; the rest helps us sort your options." />
+      <PageHeader step="profile" title="Your profile" subtitle="About a minute. Only your grade is required; the rest helps us sort your options." />
       <Onboarding universities={universities} fieldsWithPrograms={fieldsWithPrograms} />
     </div>
   );

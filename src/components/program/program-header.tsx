@@ -1,5 +1,6 @@
 import { Pill } from '@/components/ui/badges';
 import { NotVerified, SourceLink } from '@/components/ui/fact';
+import { JourneyCue } from '@/components/ui/journey';
 import { BadgeLegend } from '@/components/ui/legend';
 import { ScrollSpy } from '@/components/ui/scroll-spy';
 import { countryName, formatDate, safeHref } from '@/lib/format';
@@ -25,6 +26,7 @@ export function ProgramHeader({
 
   return (
     <header className="mb-4">
+      <JourneyCue current="check" />
       <BackToShortlistLink />
       <div className="rounded-panel border border-line bg-surface p-5 shadow-card md:p-6">
         <ul className="flex flex-wrap gap-2" aria-label="Program summary">

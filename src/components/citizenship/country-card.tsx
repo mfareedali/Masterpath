@@ -45,8 +45,8 @@ export function RankedValue({ entry, rankLabel }: { entry: CountryEntry; rankLab
   }
   return (
     <div>
-      <p className="text-xs font-semibold text-muted">Not ranked: data missing</p>
-      <p className="text-sm break-words text-ink">{entry.reason ?? entry.key.missingReason ?? 'Data missing or not verified yet'}</p>
+      <p className="text-xs font-semibold text-muted">Check on the official page</p>
+      <p className="text-sm break-words text-ink">{entry.reason ?? entry.key.missingReason ?? 'Not on file yet'}</p>
     </div>
   );
 }

@@ -152,7 +152,7 @@ export function ChatPanel({ programId, country, title = 'Ask about this data', s
           {title}
         </Heading>
         <p className="mt-1 text-sm text-muted">
-          Ask in plain words. If a fact is not verified in our data, I will say so and link the official page. I never guess.
+          Ask in plain words. If a fact is not verified in our data, I link the official page so you can check it there.
         </p>
       </header>
 

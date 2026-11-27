@@ -20,7 +20,7 @@ export const FAQ = [
   },
   {
     q: 'What happens when something is missing?',
-    a: 'It says “Not verified yet” with a link to the official page. We never guess, and a program with a missing value is listed under “Not ranked” instead of being treated as zero.',
+    a: 'You see what to check, with a link to the official page, and the program is listed under “More programs to explore” instead of being put in the order.',
   },
   {
     q: 'Do I need an account, my passport or my ID number?',

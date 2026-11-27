@@ -53,6 +53,7 @@ import {
 
 export * from './intake';
 export * from './query';
+export * from './presentation';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -649,7 +650,7 @@ export function emptyRankedMessage(
   if (listedCount(s) === 0) {
     return s.hidden.total > 0 ? 'No programs match your filters.' : 'No open programs for these countries yet.';
   }
-  return `No program can be ranked by ${label} yet: the data it needs is not verified. Every program is still listed below with the reason.`;
+  return `Open a program to check its ${label} on the official page. Every program is listed below.`;
 }
 
 /* ------------------------------------------------------------- the build */

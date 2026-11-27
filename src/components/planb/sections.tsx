@@ -11,7 +11,6 @@ import { countryName, formatDate } from '@/lib/format';
 import {
   IMPROVE_REAPPLY,
   INTEGRITY_NOTE,
-  ROUTE_EMPTY,
   ROUTE_HELP,
   ROUTE_LABEL,
   directConditionalText,
@@ -253,10 +252,25 @@ export function coverageText(c: TypeCoverage): string {
 
 /** Every route type with a plain explanation, including the ones with nothing to show yet. */
 export function RouteTypesSection({ coverage }: { coverage: TypeCoverage[] }) {
+  const withResults = coverage.filter((c) => !coverageEmpty(c));
+  const comingSoon = coverage.filter((c) => coverageEmpty(c)).map((c) => ROUTE_LABEL[c.type]);
+  return (
+    <>
+      {withResults.length > 0 ? <RouteTypesList coverage={withResults} /> : null}
+      {comingSoon.length > 0 ? (
+        <p className="mb-6 text-sm text-muted" data-routes-coming="">
+          More routes we&apos;re adding: {comingSoon.join(', ')}.
+        </p>
+      ) : null}
+    </>
+  );
+}
+
+function RouteTypesList({ coverage }: { coverage: TypeCoverage[] }) {
   return (
     <section aria-labelledby="types-h" className="mb-6">
       <h2 id="types-h" className="text-xl font-bold">
-        Every route type
+        Routes with results
       </h2>
       <p className="mt-1 text-sm text-muted">What each route means, and what we found in your field and countries.</p>
       <ul className="mt-2 divide-y divide-line rounded-card border border-line bg-surface">
@@ -267,7 +281,6 @@ export function RouteTypesSection({ coverage }: { coverage: TypeCoverage[] }) {
               <Pill>{coverageText(c)}</Pill>
             </div>
             <p className="mt-0.5 text-sm text-ink">{ROUTE_HELP[c.type]}</p>
-            {coverageEmpty(c) ? <p className="mt-0.5 text-sm text-muted">{ROUTE_EMPTY[c.type]}</p> : null}
           </li>
         ))}
         <li className="p-3">
@@ -284,45 +297,39 @@ export function RouteTypesSection({ coverage }: { coverage: TypeCoverage[] }) {
 
 /** Blocked routes: never ranked, shown last, collapsed. */
 export function BlockedSection({ blocked }: { blocked: PlanRoute[] }) {
+  if (blocked.length === 0) return null;
   return (
     <section aria-labelledby="blocked-h" className="mb-6">
       <h2 id="blocked-h" className="text-xl font-bold">
         Blocked routes
       </h2>
-      {blocked.length === 0 ? (
-        <p className="mt-1 text-sm text-muted">
-          No route is blocked right now. We block a route when its institution is not on the destination&apos;s official
-          recognition list.
-        </p>
-      ) : (
-        <details className="mt-2 rounded-card border border-dashed border-blocked-fg bg-surface p-4">
-          <summary className="flex min-h-tap cursor-pointer flex-wrap items-center gap-2 font-semibold text-ink">
-            <BlockedBadge />
-            Show {blocked.length} blocked route{blocked.length === 1 ? '' : 's'}
-          </summary>
-          <p className="mt-2 text-sm text-muted">These failed the integrity gate. We do not rank them or suggest them.</p>
-          <ul className="mt-2 space-y-3">
-            {blocked.map((r) => (
-              <li key={r.id} className="border-t border-line pt-3">
-                <p className="font-semibold text-ink break-words">{r.program.name}</p>
-                <p className="text-sm text-muted break-words">
-                  {r.institution?.name ?? 'Institution not in our data yet'} · {ROUTE_LABEL[r.type]}
-                </p>
-                {r.gate.block ? (
-                  <>
-                    <p className="mt-1 text-sm text-ink">{r.gate.block.reason}</p>
-                    <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
-                      <ConfidenceBadge confidence={r.gate.block.confidence} />
-                      {r.gate.block.checkedAt ? <span>Checked {formatDate(r.gate.block.checkedAt)}</span> : null}
-                      <SourceLink url={r.gate.block.sourceUrl} label="Recognition list source" />
-                    </div>
-                  </>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </details>
-      )}
+      <details className="mt-2 rounded-card border border-dashed border-blocked-fg bg-surface p-4">
+        <summary className="flex min-h-tap cursor-pointer flex-wrap items-center gap-2 font-semibold text-ink">
+          <BlockedBadge />
+          Show {blocked.length} blocked route{blocked.length === 1 ? '' : 's'}
+        </summary>
+        <p className="mt-2 text-sm text-muted">These failed the integrity gate. We do not rank them or suggest them.</p>
+        <ul className="mt-2 space-y-3">
+          {blocked.map((r) => (
+            <li key={r.id} className="border-t border-line pt-3">
+              <p className="font-semibold text-ink break-words">{r.program.name}</p>
+              <p className="text-sm text-muted break-words">
+                {r.institution?.name ?? 'Institution not in our data yet'} · {ROUTE_LABEL[r.type]}
+              </p>
+              {r.gate.block ? (
+                <>
+                  <p className="mt-1 text-sm text-ink">{r.gate.block.reason}</p>
+                  <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
+                    <ConfidenceBadge confidence={r.gate.block.confidence} />
+                    {r.gate.block.checkedAt ? <span>Checked {formatDate(r.gate.block.checkedAt)}</span> : null}
+                    <SourceLink url={r.gate.block.sourceUrl} label="Recognition list source" />
+                  </div>
+                </>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </details>
     </section>
   );
 }
@@ -397,12 +404,9 @@ export function NotDecidedSection({
   return (
     <section aria-labelledby="undecided-h" className="mb-6">
       <h2 id="undecided-h" className="text-xl font-bold">
-        Not decided yet
+        Programs to check
       </h2>
       <p className="mt-1 text-sm text-ink">{undecidedSummary(n)}</p>
-      <p className="mt-1 text-sm text-muted">
-        We list them so nothing is hidden. We do not rank or score them, and we never guess a minimum.
-      </p>
       <Link href={shortlistHref} className="inline-flex min-h-tap items-center text-sm font-semibold">
         See them on your shortlist<span aria-hidden="true">&nbsp;→</span>
       </Link>

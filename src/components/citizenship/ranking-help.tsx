@@ -32,8 +32,8 @@ export function HowRankingWorks() {
           {VISA_FUNDS_NOT_COMPARABLE} A PKR amount is shown only with a Verified or Likely exchange rate.
         </li>
         <li>
-          Only Verified or Likely rows are ranked. Everything else is listed under &ldquo;Not ranked: data missing&rdquo;
-          with the reason. We never fill a gap with a guess.
+          Countries are put in order by Verified or Likely values. The rest are listed under &ldquo;More countries to
+          explore&rdquo;, each with what to check on the official page.
         </li>
         <li>
           This is not legal or immigration advice. Read the{' '}
