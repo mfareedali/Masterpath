@@ -315,6 +315,9 @@ const COUNTRY_FACT_KEYS: readonly CountryFactKey[] = [
   'proof_of_funds',
   'tuition_typical',
   'living_cost_typical',
+  'visa_fee',
+  'visa_processing_time',
+  'student_work_rights',
 ];
 
 const PATHWAY_TYPES: readonly Program['pathway_type'][] = [

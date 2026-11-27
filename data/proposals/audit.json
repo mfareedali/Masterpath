@@ -1,0 +1,351 @@
+{
+  "priority": [
+    "tuition",
+    "min_gpa_rule",
+    "language_req",
+    "deadline",
+    "intake",
+    "duration_months",
+    "admissions_email"
+  ],
+  "page_types": {
+    "tuition": "tuition & fees / bursar page (international rate)",
+    "min_gpa_rule": "programme page or graduate admissions requirements",
+    "language_req": "international applicant / English-language requirements page",
+    "deadline": "programme page or graduate admissions deadlines page",
+    "intake": "programme page or admissions calendar",
+    "duration_months": "programme page or graduate catalog",
+    "admissions_email": "programme page contact box or graduate admissions office page"
+  },
+  "programs": [
+    {
+      "id": "tum-msc-informatics",
+      "country": "DE",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "language_req"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "ethz-msc-cs",
+      "country": "CH",
+      "missing": [
+        "min_gpa_rule",
+        "intake"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "wuerzburg-msc-cs",
+      "country": "DE",
+      "missing": [
+        "min_gpa_rule",
+        "intake"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "imperial-msc-computing",
+      "country": "UK",
+      "missing": [
+        "min_gpa_rule",
+        "deadline"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "cardiff-msc-cs",
+      "country": "UK",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "language_req",
+        "deadline",
+        "intake",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 0
+    },
+    {
+      "id": "brookes-msc-cs",
+      "country": "UK",
+      "missing": [
+        "deadline",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "qmul-premasters-cs",
+      "country": "UK",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "deadline",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "utoronto-mscac",
+      "country": "CA",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "intake"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "cmu-mscs",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "language_req",
+        "intake",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "uiuc-mscs",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "intake",
+        "duration_months"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "csudh-mscs",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "language_req",
+        "deadline",
+        "intake",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 0
+    },
+    {
+      "id": "nyit-mscs",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "deadline",
+        "intake",
+        "duration_months"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "usf-mscs",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "intake",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "uccs-mscs",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "ljmu-msc-cs",
+      "country": "UK",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "language_req",
+        "deadline",
+        "intake",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 0
+    },
+    {
+      "id": "tum-msc-data-engineering-analytics",
+      "country": "DE",
+      "missing": [
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "ethz-msc-data-science",
+      "country": "CH",
+      "missing": [
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "imperial-msc-artificial-intelligence",
+      "country": "UK",
+      "missing": [
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "usf-ms-artificial-intelligence",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "cmu-mse",
+      "country": "US",
+      "missing": [
+        "min_gpa_rule",
+        "language_req"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "imperial-msc-computing-se",
+      "country": "UK",
+      "missing": [],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "rwth-msc-sse",
+      "country": "DE",
+      "missing": [
+        "tuition",
+        "language_req",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "utdallas-msse",
+      "country": "US",
+      "missing": [
+        "tuition",
+        "deadline",
+        "duration_months",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "tum-msc-communications-electronics-engineering",
+      "country": "DE",
+      "missing": [
+        "tuition",
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "ethz-msc-electrical-engineering",
+      "country": "CH",
+      "missing": [
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "imperial-msc-future-power-networks",
+      "country": "UK",
+      "missing": [
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "utoronto-meng-ece",
+      "country": "CA",
+      "missing": [
+        "min_gpa_rule"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "coventry-msc-cs",
+      "country": "UK",
+      "missing": [
+        "min_gpa_rule",
+        "deadline",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "coventry-msc-data-science",
+      "country": "UK",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "deadline",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    },
+    {
+      "id": "coventry-msc-electrical-electronic-engineering",
+      "country": "UK",
+      "missing": [
+        "tuition",
+        "min_gpa_rule",
+        "deadline",
+        "admissions_email"
+      ],
+      "unsourced": [],
+      "pages": 1
+    }
+  ]
+}

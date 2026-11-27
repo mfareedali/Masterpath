@@ -72,6 +72,10 @@ export const FIELD_INFO: Record<ChatField, FieldInfo> = {
     phrase: 'money you must show for the student visa',
     listOnlyKnown: true,
   },
+  // Visa details: stored and shown when sourced; no question patterns route to them yet (see docs/data-report.md).
+  visa_fee: { entity: 'country', label: 'Student visa fee', phrase: 'student visa fee', listOnlyKnown: true },
+  visa_processing_time: { entity: 'country', label: 'Student visa processing time', phrase: 'student visa processing time', listOnlyKnown: true },
+  student_work_rights: { entity: 'country', label: 'Work while studying', phrase: 'work rights on a student visa', listOnlyKnown: true },
 };
 
 /**
