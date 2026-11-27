@@ -42,6 +42,18 @@ function expectRules(html: string) {
 describe('Privacy page', () => {
   afterEach(() => vi.unstubAllEnvs());
 
+  it('names the AI provider that actually receives chat questions', () => {
+    vi.stubEnv('XAI_API_KEY', 'test-xai');
+    vi.stubEnv('ANTHROPIC_API_KEY', 'test-anthropic');
+    let copy = text(render(PrivacyPage));
+    expect(copy).toMatch(/xAI's API\. xAI's model, Grok/);
+    expect(copy).not.toMatch(/Anthropic/);
+
+    vi.stubEnv('XAI_API_KEY', '');
+    copy = text(render(PrivacyPage));
+    expect(copy).toMatch(/Anthropic's API\. Anthropic's model, Claude/);
+  });
+
   it('states every promise from the brief', () => {
     const html = render(PrivacyPage);
     const copy = text(html);
@@ -49,7 +61,7 @@ describe('Privacy page', () => {
     expect(copy).toMatch(/cookie/i);
     expect(copy).toMatch(/localStorage/);
     expect(copy).toMatch(/row-level security/i);
-    expect(copy).toMatch(/Anthropic/);
+    expect(copy).toMatch(/AI is currently switched off/); // no AI key in the test env
     expect(copy).toMatch(/public data rows/i);
     expect(copy).toMatch(/No profile data is attached/i);
     expect(copy).toMatch(/hashed client id/i);

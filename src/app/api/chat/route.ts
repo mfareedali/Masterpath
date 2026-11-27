@@ -3,13 +3,16 @@
  *   {"type":"meta","mode":"refusal"|"answer"|"fallback","rows":[...]}  then  {"type":"text","delta":"..."}*  then  {"type":"done"}
  *
  * Pipeline (see src/lib/chat/answer.ts): retrieve -> guard (refuses before any model call) -> model or fallback.
- * The Anthropic key stays on the server. Without ANTHROPIC_API_KEY the chat still works (deterministic answers).
+ * AI provider (src/lib/chat/provider.ts): xAI Grok when XAI_API_KEY is set, else Anthropic Claude when
+ * ANTHROPIC_API_KEY is set. Keys stay on the server. With neither, the chat still works (deterministic answers).
  * Rate limits and token budgets are in memory per server instance (see src/lib/chat/budget.ts).
  */
 import Anthropic from '@anthropic-ai/sdk';
 import { getDataset } from '@/lib/data';
 import { getNow, getRequestProfile } from '@/lib/profile-server';
 import { createAnthropicChatModel, chatModelName } from '@/lib/chat/anthropic';
+import { chatProvider } from '@/lib/chat/provider';
+import { createXaiChatModel, xaiModelName } from '@/lib/chat/xai';
 import { answerQuestion, type ChatModelClient } from '@/lib/chat/answer';
 import { ChatBudget, clientIdFrom, clientIpFrom, limitsFromEnv } from '@/lib/chat/budget';
 import { NDJSON_CONTENT_TYPE, eventsToStream } from '@/lib/chat/ndjson';
@@ -25,12 +28,15 @@ const budget = new ChatBudget(limitsFromEnv());
 let cachedModel: { key: string; model: ChatModelClient } | null = null;
 
 function getModel(): ChatModelClient | null {
-  const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
-  if (!apiKey) return null;
-  const name = chatModelName();
-  const cacheKey = `${name}|${apiKey.slice(-6)}`;
+  const provider = chatProvider();
+  if (!provider) return null;
+  const apiKey = (provider === 'xai' ? process.env.XAI_API_KEY : process.env.ANTHROPIC_API_KEY)?.trim() ?? '';
+  const name = provider === 'xai' ? xaiModelName() : chatModelName();
+  const cacheKey = `${provider}|${name}|${apiKey.slice(-6)}`;
   if (!cachedModel || cachedModel.key !== cacheKey) {
-    cachedModel = { key: cacheKey, model: createAnthropicChatModel(new Anthropic({ apiKey }), name) };
+    const model =
+      provider === 'xai' ? createXaiChatModel(apiKey, name) : createAnthropicChatModel(new Anthropic({ apiKey }), name);
+    cachedModel = { key: cacheKey, model };
   }
   return cachedModel.model;
 }
