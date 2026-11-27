@@ -1,5 +1,6 @@
 /**
- * Chat types. The chat answers ONLY from database rows: code retrieves and decides, the model only explains.
+ * Chat types. Data questions are answered from database rows (code retrieves and decides, the model explains);
+ * anything the rows cannot answer goes to the model's general knowledge ('general' mode, labelled in the UI).
  * Pure types, safe on server and client.
  */
 import type { Confidence, CountryFactKey, Program } from '@/lib/types';
@@ -66,7 +67,8 @@ export interface ChatRow {
   email_draft?: string;
 }
 
-export type ChatMode = 'refusal' | 'answer' | 'fallback';
+/** 'general' = AI answer from general knowledge (labelled in the UI; may be wrong or out of date). */
+export type ChatMode = 'refusal' | 'answer' | 'fallback' | 'general';
 
 export type RefusalReason =
   | 'not_verified'
@@ -113,8 +115,9 @@ export type ChatEvent =
       suggestion?: ChatSuggestion;
     }
   | { type: 'text'; delta: string }
-  /** The text streamed so far must be discarded and replaced by what follows (deterministic fallback). */
+  /** The text streamed so far must be discarded and replaced by what follows (deterministic fallback or refusal). */
   | { type: 'reset'; mode: 'fallback'; reason: FallbackReason }
+  | { type: 'reset'; mode: 'refusal'; reason: RefusalReason }
   | { type: 'error'; message: string }
   | { type: 'done' };
 

@@ -2,7 +2,7 @@
  * NDJSON (one JSON object per line) encoding for the chat stream, plus a tolerant decoder for the browser.
  * JSON.stringify escapes newlines inside strings, so one event is always exactly one line.
  */
-import type { ChatEvent, FallbackReason } from './types';
+import type { ChatEvent, FallbackReason, RefusalReason } from './types';
 
 export const NDJSON_CONTENT_TYPE = 'application/x-ndjson; charset=utf-8';
 
@@ -36,7 +36,17 @@ export function eventsToStream(events: AsyncIterable<ChatEvent>, onError?: (err:
   });
 }
 
-const MODES = new Set(['refusal', 'answer', 'fallback']);
+const MODES = new Set(['refusal', 'answer', 'fallback', 'general']);
+const REFUSAL_REASONS = new Set<RefusalReason>([
+  'not_verified',
+  'conflict',
+  'no_data',
+  'prediction',
+  'legal',
+  'dishonest',
+  'unknown_name',
+  'getting_started',
+]);
 const FALLBACK_REASONS = new Set<FallbackReason>(['no_model', 'budget', 'model_error', 'model_refusal', 'unsupported_numbers', 'empty']);
 
 /** Validate one decoded line. Unknown or malformed events are dropped (returns null). */
@@ -50,6 +60,10 @@ export function parseChatEvent(raw: unknown): ChatEvent | null {
     case 'text':
       return typeof e.delta === 'string' ? (e as unknown as ChatEvent) : null;
     case 'reset':
+      // A general answer that failed is replaced by the rules' reply (refusal); anything else is a fallback.
+      if (e.mode === 'refusal' && REFUSAL_REASONS.has(e.reason as RefusalReason)) {
+        return { type: 'reset', mode: 'refusal', reason: e.reason as RefusalReason };
+      }
       return {
         type: 'reset',
         mode: 'fallback',

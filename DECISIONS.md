@@ -521,3 +521,12 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   choice (`GROQ_API_KEY`, default model `openai/gpt-oss-20b` from Groq's production list, `reasoning_effort: low`).
   Because the names are easy to confuse, a key's prefix wins over the variable it was saved under (`gsk_` = Groq,
   `xai-` = xAI). Only `delta.content` is shown; reasoning deltas are ignored. Errors log the provider's short reason.
+- **Chat answers everything (owner's decision, 27 Nov; supersedes "no data means no answer" for the live site).**
+  When the rows cannot answer (no data, not verified, conflict, unknown name, prediction, legal, greeting), the model
+  answers from general knowledge (`mode: 'general'`, `GENERAL_SYSTEM_PROMPT`), shown under a yellow "AI answer from
+  general knowledge" label with "may be wrong or out of date; confirm on the official page". Reference rows (e.g. a
+  not-verified deadline's official page) are passed so it can cite them. Fraud help ('dishonest') never reaches the
+  model. Data answers may add a "General advice:" paragraph (rule 12), still under the number/date post-check. If the
+  call fails, the rules' reply replaces the partial text (`reset` to refusal). Off switch: `CHAT_GENERAL_KNOWLEDGE=0`
+  (the strict data-only mode stays the default inside `answerQuestion` and keeps its tests). The owner was told the
+  trade-off: answers outside the data can be confidently wrong.
