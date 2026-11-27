@@ -182,6 +182,26 @@ export function ChatAnswer({
         <Skeleton className="h-4 w-2/3" />
       </Card>
     );
+  } else if (answer.mode === 'general') {
+    body = (
+      <Card className="border-likely-bg">
+        <p className="mb-2 inline-flex items-center gap-1.5 rounded-badge bg-likely-bg px-2 py-0.5 text-xs font-semibold text-likely-fg">
+          <span aria-hidden="true">~</span> AI answer from general knowledge
+        </p>
+        <AnswerText text={answer.text} rows={answer.rows} />
+        {answer.status === 'error' ? (
+          <p role="alert" className="mt-2 text-sm font-semibold text-conflict-fg">
+            {answer.error}
+          </p>
+        ) : null}
+        {answer.status === 'done' ? (
+          <p className="mt-3 text-xs text-muted">
+            Not checked against official pages, so it may be wrong or out of date. Confirm deadlines, fees and
+            requirements on the official page before you apply or pay anyone.
+          </p>
+        ) : null}
+      </Card>
+    );
   } else if (answer.mode === 'refusal' && answer.reason === 'getting_started') {
     body = (
       <Callout tone="accent" title={refusalTitle(answer.reason)}>

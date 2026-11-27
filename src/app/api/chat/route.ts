@@ -104,6 +104,8 @@ export async function POST(request: Request): Promise<Response> {
       budget: budget.gate(clientId, () => new Date()),
       signal: request.signal,
       log: (message, err) => console.error(message, err instanceof Error ? err.message : (err ?? '')),
+      // Owner's decision: answer everything (labelled as general knowledge). CHAT_GENERAL_KNOWLEDGE=0 turns it off.
+      generalKnowledge: process.env.CHAT_GENERAL_KNOWLEDGE?.trim() !== '0',
     },
   );
 

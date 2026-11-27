@@ -28,7 +28,7 @@ export const FAQ = [
   },
   {
     q: 'Does the AI decide anything?',
-    a: 'No. Fit, ranking, deadlines and cost are plain code over the data. The chat only explains rows from our database, with links, and says so when we hold no verified answer.',
+    a: 'No. Fit, ranking, deadlines and cost are plain code over the data. The chat answers anything: facts we hold come with their official links, and everything else is marked as AI general knowledge that you should confirm on the official page.',
   },
   {
     q: 'My consultant told me something different. Who is right?',
