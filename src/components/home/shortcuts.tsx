@@ -128,7 +128,7 @@ export const SHORTCUTS = [
   {
     href: '/ask',
     title: 'Ask',
-    text: 'Ask a question in plain words. Answers come only from our sourced data, with links.',
+    text: 'Ask anything in plain words. Sourced facts come with links; general answers are clearly marked.',
     icon: ICONS.chat,
     visual: <ChatVisual />,
     span: 2,
@@ -170,7 +170,7 @@ export const HOW_IT_WORKS = [
   },
   {
     title: 'Code decides',
-    text: 'Ranking, fit, deadlines and cost are plain code over the data rows. The AI only explains; it never decides.',
+    text: 'Ranking, fit, deadlines and cost are plain code over the data rows. The AI explains and answers questions; it never decides your fit or rank.',
   },
   {
     title: 'No percentages',

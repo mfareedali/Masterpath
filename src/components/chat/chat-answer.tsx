@@ -25,7 +25,15 @@ const REFUSAL_TITLE: Record<RefusalReason, string> = {
   legal: 'Not legal or immigration advice',
   dishonest: "I can't help with that",
   unknown_name: 'Name not found',
+  getting_started: 'Let’s get you started',
 };
+
+/** Example questions on the getting-started card. Each one is answered from verified rows in the seed data. */
+export const STARTER_QUESTIONS = [
+  'What IELTS score does Oxford Brookes need?',
+  'How long can I work in the UK after my Masters?',
+  'What is the tuition at Oxford Brookes?',
+] as const;
 
 /** Same look as the UI kit chips, but long questions may wrap onto two lines (also used by ChatPanel). */
 export const SUGGESTION_CLASS =
@@ -173,6 +181,45 @@ export function ChatAnswer({
         <Skeleton className="mb-2 h-4 w-4/5" />
         <Skeleton className="h-4 w-2/3" />
       </Card>
+    );
+  } else if (answer.mode === 'general') {
+    body = (
+      <Card className="border-likely-bg">
+        <p className="mb-2 inline-flex items-center gap-1.5 rounded-badge bg-likely-bg px-2 py-0.5 text-xs font-semibold text-likely-fg">
+          <span aria-hidden="true">~</span> AI answer from general knowledge
+        </p>
+        <AnswerText text={answer.text} rows={answer.rows} />
+        {answer.status === 'error' ? (
+          <p role="alert" className="mt-2 text-sm font-semibold text-conflict-fg">
+            {answer.error}
+          </p>
+        ) : null}
+        {answer.status === 'done' ? (
+          <p className="mt-3 text-xs text-muted">
+            Not checked against official pages, so it may be wrong or out of date. Confirm deadlines, fees and
+            requirements on the official page before you apply or pay anyone.
+          </p>
+        ) : null}
+      </Card>
+    );
+  } else if (answer.mode === 'refusal' && answer.reason === 'getting_started') {
+    body = (
+      <Callout tone="accent" title={refusalTitle(answer.reason)}>
+        <AnswerText text={answer.text} rows={answer.rows} />
+        {onAsk && answer.status === 'done' ? (
+          <div className="mt-3">
+            <p className="mb-2 text-sm font-semibold text-muted">Or tap a question to try:</p>
+            <div className="flex flex-wrap gap-2">
+              {STARTER_QUESTIONS.map((q) => (
+                <button key={q} type="button" className={SUGGESTION_CLASS} disabled={retryDisabled} onClick={() => onAsk(q)}>
+                  {q}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : null}
+        <p className="mt-3 text-xs text-muted">Written by MastersPath. No AI was used for this answer.</p>
+      </Callout>
     );
   } else if (answer.mode === 'refusal') {
     body = (

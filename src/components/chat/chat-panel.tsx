@@ -42,7 +42,8 @@ const MAX_TURNS = 5;
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
 
-export const CHAT_DISCLAIMER = 'Answers come only from MastersPath data. Not legal or immigration advice.';
+export const CHAT_DISCLAIMER =
+  'Facts come from MastersPath data with sources. Anything else is AI general knowledge, marked as such. Not legal or immigration advice.';
 
 export function ChatPanel({ programId, country, title = 'Ask about this data', suggestions = [], headingLevel = 2 }: ChatPanelProps) {
   const uid = useId();

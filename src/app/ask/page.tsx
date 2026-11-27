@@ -10,7 +10,7 @@ import { ASK_SUGGESTIONS } from './suggestions';
 export const metadata: Metadata = {
   title: 'Ask',
   description:
-    'Ask about Masters programs, costs and visa rules. Answers come only from sourced MastersPath data. If a fact is not verified, we say so and link the official page.',
+    'Ask anything about studying abroad. Facts from MastersPath data come with their official sources; anything else is answered from AI general knowledge and clearly marked, so you know what to double-check.',
 };
 
 export default function AskPage() {
