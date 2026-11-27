@@ -16,6 +16,7 @@ import {
   reviewProposals,
   sanitizePageText,
   verifyItemsFrom,
+  verifyItemsFromSeed,
   verifySnippets,
   type RawProposal,
   type ReviewContext,
@@ -61,8 +62,18 @@ describe('reviewProposals — acceptance', () => {
         fetched_at: '2026-11-24T10:00:00.000Z',
         basis: 'verbatim',
         review_notes: [],
+        flags: [],
       },
     ]);
+  });
+
+  it('flags implausible values for a human without rejecting them', () => {
+    const r = reviewProposals(
+      [p('deadline', '2027-01-15', 'The application deadline is 15 January 2027.')],
+      { ...CTX, fetchedAt: '2028-03-01T10:00:00.000Z' },
+    );
+    expect(r.rejected).toEqual([]);
+    expect(r.accepted[0].flags.join(' ')).toMatch(/already in the past/);
   });
 
   it('accepts structured values that pass their schema', () => {
@@ -271,6 +282,34 @@ describe('parseIngestArgs', () => {
   it('parses verify mode and help', () => {
     expect(parseIngestArgs(['--verify', 'data/proposals/x.json'])).toEqual({ mode: 'verify', file: 'data/proposals/x.json' });
     expect(parseIngestArgs(['--help'])).toEqual({ mode: 'help' });
+  });
+
+  it('parses --all with its filters and --verify-seed', () => {
+    expect(parseIngestArgs(['--all'])).toEqual({ mode: 'all', staleDays: undefined, country: undefined, only: undefined, force: false, fetchOnly: false });
+    expect(parseIngestArgs(['--all', '--stale-days', '7', '--country', 'de', '--only', 'a, b', '--force', '--fetch-only'])).toEqual({
+      mode: 'all',
+      staleDays: 7,
+      country: 'DE',
+      only: ['a', 'b'],
+      force: true,
+      fetchOnly: true,
+    });
+    expect(parseIngestArgs(['--verify-seed'])).toEqual({ mode: 'verify-seed' });
+    expect(parseIngestArgs(['--all', '--program', 'x'])).toMatchObject({ mode: 'error' });
+    expect(parseIngestArgs(['--all', '--stale-days', 'soon'])).toMatchObject({ mode: 'error' });
+    expect(parseIngestArgs(['--all', '--country', 'Germany'])).toMatchObject({ mode: 'error' });
+    expect(parseIngestArgs(['--force', '--program', 'x', '--url', 'https://a.b'])).toMatchObject({ mode: 'error', message: '--force only works with --all' });
+    expect(parseIngestArgs(['--verify-seed', '--all'])).toMatchObject({ mode: 'error' });
+  });
+
+  it('lists every stored snippet of the seed files once, with its location', () => {
+    const items = verifyItemsFromSeed({
+      'programs.seed.json': { programs: [{ deadline: { value: '2027-01-15', source_url: 'https://a.edu/p', evidence_snippet: 'Deadline is 15 January 2027.', conflicts: [{ value: 'x', source_url: 'https://b.edu/p', evidence_snippet: 'Other date shown here.' }] }, tuition: { value: null, source_url: null, evidence_snippet: null } }, { deadline: { value: '2027-01-15', source_url: 'https://a.edu/p', evidence_snippet: 'Deadline is 15 January 2027.' } }] },
+    });
+    expect(items).toEqual([
+      { label: 'programs/programs/0/deadline', source_url: 'https://a.edu/p', evidence_snippet: 'Deadline is 15 January 2027.' },
+      { label: 'programs/programs/0/deadline/conflicts/0', source_url: 'https://b.edu/p', evidence_snippet: 'Other date shown here.' },
+    ]);
   });
 
   it('reports bad input', () => {
