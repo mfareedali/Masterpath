@@ -388,12 +388,13 @@ describe('visa money claims against proof_of_funds', () => {
     expect(noCountry.explanation).toContain("We couldn't tell which country");
   });
 
-  it("today's data: UK and Germany differ, Germany in PKR and Switzerland are not decided", () => {
+  it("today's data: UK and Germany differ, Germany in PKR is checked against the SBP rate, Switzerland is not decided", () => {
     const uk = check('No bank statement needed for UK', seed, 'visa_money');
     expect(uk.verdict).toBe('conflict');
     expect(uk.sources[0].source_url).toBe('https://www.gov.uk/student-visa/money');
     expect(check('No blocked account for Germany', seed, 'visa_money').verdict).toBe('conflict');
-    expect(check('Germany blocked account is only 5 lakh', seed, 'visa_money').verdict).toBe('cant_verify');
+    // Germany now has a dated State Bank of Pakistan EUR rate, so 5 lakh can be compared with EUR 11,904 and is refuted.
+    expect(check('Germany blocked account is only 5 lakh', seed, 'visa_money').verdict).toBe('conflict');
     expect(check('No bank statement needed for Switzerland', seed, 'visa_money').verdict).toBe('cant_verify');
     // "Show only 10 lakh" for a UK university: the UK rule gives no single amount, so it is not decided.
     const show = check('Show only 10 lakh, Oxford Brookes', seed, 'visa_money');

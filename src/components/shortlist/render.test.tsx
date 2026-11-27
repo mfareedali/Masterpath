@@ -675,7 +675,9 @@ describe('budget chip, empty field, share and cost caveats', () => {
   const live = loadSeedDataset();
 
   it('"Within my budget" explains itself while no PKR rate is usable; the behaviour is unchanged', () => {
-    const s = buildShortlist({ ...live, profile: PERSONA_A, now, query: { budget: true } });
+    // The live seed now has dated State Bank of Pakistan rates, so blank them to test the no-rate behaviour.
+    const noRates = live.fxRates.map((r) => ({ ...r, pkr_per_unit: { value: null, source_url: null, evidence_snippet: null, fetched_at: null } }));
+    const s = buildShortlist({ ...live, fxRates: noRates, profile: PERSONA_A, now, query: { budget: true } });
     expect(s.options.pkrRateAvailable).toBe(false);
     const html = renderToStaticMarkup(<Filters sp={{ inbudget: '1' }} shortlist={s} profile={PERSONA_A} />);
     expect(html).toContain('Within my budget');
@@ -688,7 +690,7 @@ describe('budget chip, empty field, share and cost caveats', () => {
     const withRate = buildShortlist(fixtureInput([full()]));
     expect(renderToStaticMarkup(<Filters sp={{}} shortlist={withRate} profile={profile} />)).not.toContain(BUDGET_NEEDS_RATE);
     const noBudget = { ...PERSONA_A, budget_pkr: null };
-    const nb = buildShortlist({ ...live, profile: noBudget, now });
+    const nb = buildShortlist({ ...live, fxRates: noRates, profile: noBudget, now });
     expect(renderToStaticMarkup(<Filters sp={{}} shortlist={nb} profile={noBudget} />)).not.toContain(BUDGET_NEEDS_RATE);
   });
 

@@ -46,6 +46,7 @@
     "tailwindcss": "4.3.3",
     "tsx": "4.23.15",
     "typescript": "^5",
+    "unpdf": "2.2.3",
     "vitest": "5.1.1"
   },
   "engines": {

@@ -481,21 +481,22 @@ describe('Money to show for the student visa (live seed)', () => {
     expectCleanCopy(html);
   });
 
-  it('DE: EUR 11,904 per year and "No verified PKR rate yet" (no usable EUR rate today)', () => {
+  it('DE: EUR 11,904 per year with a PKR amount from the dated State Bank of Pakistan rate', () => {
     const html = block('DE');
     expect(html).toContain('Amount: </span>€11,904 per year');
-    expect(html).toContain(`In Pakistani rupees: </span><span class="text-muted">${NO_PKR_RATE}</span>`);
+    expect(html).toContain('In Pakistani rupees: </span>');
+    expect(html).not.toContain(NO_PKR_RATE);
     expect(html).toContain('href="https://pakistan.diplo.de/pk-en/service/1995528-1995528"');
     expect(html).toContain('11.904,00 Euros yearly'); // verbatim evidence
     expect(html).not.toContain('(original German)'); // the embassy page is in English
-    expect(html).not.toMatch(/PKR \d/);
     expectCleanCopy(html);
   });
 
   it('CA: CAD 23,448 per year and "No verified PKR rate yet"', () => {
     const html = block('CA');
     expect(html).toContain('Amount: </span>CA$23,448 per year');
-    expect(html).toContain(`In Pakistani rupees: </span><span class="text-muted">${NO_PKR_RATE}</span>`);
+    expect(html).toContain('In Pakistani rupees: </span>');
+    expect(html).not.toContain(NO_PKR_RATE);
     expect(html).toContain('not including tuition and transport');
     expect(html).toContain('How it is checked: </span>The amount is for the first year of your program');
     expect(html).toContain('href="https://www.canada.ca/en/immigration-refugees-citizenship/');
