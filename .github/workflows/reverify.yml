@@ -1,0 +1,109 @@
+# Weekly re-verification of the evidence behind every fact (and of every registered source page).
+#
+#  1. `ingest --verify-seed` re-fetches each source_url stored in data/*.seed.json and checks that the evidence
+#     snippet is STILL on the page, word for word. No API key is needed.
+#  2. `check-links` checks every official_url / website / source_url and every page in data/sources.json.
+#  3. The JSON run reports are uploaded as an artifact, and ONE GitHub issue is opened or updated with the NOT FOUND
+#     items so a human can re-check them. This workflow never edits the seed files and never commits anything.
+name: Re-verify evidence
+
+on:
+  schedule:
+    - cron: "17 5 * * 1" # Mondays 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: reverify
+  cancel-in-progress: false
+
+env:
+  NEXT_TELEMETRY_DISABLED: "1"
+  # Shown in the bot's User-Agent so site owners can find out who is fetching their pages.
+  INGEST_CONTACT_URL: ${{ github.server_url }}/${{ github.repository }}
+
+jobs:
+  reverify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Re-check every stored evidence snippet
+        id: snippets
+        continue-on-error: true
+        run: npm run ingest -- --verify-seed
+
+      - name: Check every link and registered source page
+        id: links
+        continue-on-error: true
+        run: npm run check-links
+
+      - name: Upload run reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reverify-reports
+          path: data/proposals/reports/*.json
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Open or update the re-verification issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const dir = 'data/proposals/reports';
+            const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort() : [];
+            const latest = (tool) => {
+              const f = files.filter((x) => x.startsWith(tool + '-')).pop();
+              return f ? { file: f, report: JSON.parse(fs.readFileSync(`${dir}/${f}`, 'utf8')) } : null;
+            };
+            const verify = latest('verify');
+            const links = latest('check-links');
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            const notFound = verify ? verify.report.entries.filter((e) => e.outcome === 'not_found') : [];
+            const errored = verify ? verify.report.entries.filter((e) => ['error', 'http_error', 'blocked', 'robots'].includes(e.outcome)) : [];
+            const broken = links ? links.report.entries.filter((e) => ['http_error', 'error'].includes(e.outcome)) : [];
+
+            const row = (e) => `- \`${e.ref}\` — ${e.url ?? ''}${e.detail ? ` (${e.detail})` : ''}`;
+            const section = (title, items, max = 60) =>
+              items.length ? `### ${title} (${items.length})\n${items.slice(0, max).map(row).join('\n')}${items.length > max ? `\n- … and ${items.length - max} more (see the artifact)` : ''}\n` : '';
+
+            const total = verify ? verify.report.summary.entries : 0;
+            const body = [
+              `Weekly re-verification, run ${runUrl}. Updated ${new Date().toISOString()}.`,
+              '',
+              verify ? `**Snippets:** ${total - notFound.length - errored.length} of ${total} still appear verbatim on their official page; ${notFound.length} NOT FOUND, ${errored.length} could not be fetched.` : '**Snippets:** the verify step produced no report (see the run log).',
+              links ? `**Links:** ${links.report.summary.entries} checked, ${broken.length} broken.` : '**Links:** the link check produced no report (see the run log).',
+              '',
+              section('NOT FOUND: the page no longer says this', notFound),
+              section('Could not be fetched (blocked, robots.txt, HTTP error, timeout)', errored),
+              section('Broken links', broken),
+              'What to do: open each page, and either update the value with a new verbatim snippet (through a normal data pull request) or set it to "Not verified yet". This issue is updated by the workflow; it never edits the data itself.',
+            ].filter((x) => x !== '').join('\n');
+
+            const title = 'Weekly re-verification: evidence to re-check';
+            const label = 'reverify';
+            try { await github.rest.issues.createLabel({ ...context.repo, name: label, color: 'fbca04' }); } catch (e) { /* exists */ }
+            const open = await github.rest.issues.listForRepo({ ...context.repo, state: 'open', labels: label, per_page: 1 });
+            const needsWork = notFound.length + errored.length + broken.length > 0;
+            if (open.data.length > 0) {
+              await github.rest.issues.update({ ...context.repo, issue_number: open.data[0].number, title, body });
+            } else if (needsWork) {
+              await github.rest.issues.create({ ...context.repo, title, body, labels: [label] });
+            }
+            core.summary.addRaw(body).write();
