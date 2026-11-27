@@ -45,7 +45,7 @@ jobs:
       # data/sources.json are read with Chromium, so their snippets must be re-verified the same way.
       - name: Cache Playwright browsers
         id: pw-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
