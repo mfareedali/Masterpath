@@ -4,6 +4,7 @@
  *
  *   npx tsx scripts/peek-page.ts <https-url> "<regex>" [--context N]   lines matching the regex (+/- N lines)
  *   npx tsx scripts/peek-page.ts <https-url> --head [--chars N]        the title line and the first N characters
+ *   npx tsx scripts/peek-page.ts <https-url> --links "<regex>"          links on the page whose URL or text matches (to find the right page)
  *
  * Fetched text is cached in the OS temp folder for an hour, so several peeks at one page cost one request.
  */
@@ -11,6 +12,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { safeFetch } from '../src/lib/net/safe-fetch';
 import { fetchPageText, describeFetchError } from '../src/lib/seed/page-text';
 
 const CACHE_DIR = join(tmpdir(), 'masterspath-peek');
@@ -34,6 +36,26 @@ async function main() {
   const ctx = ctxIdx >= 0 ? Math.max(0, Number(args[ctxIdx + 1]) || 0) : 0;
   const charsIdx = args.indexOf('--chars');
   const chars = charsIdx >= 0 ? Number(args[charsIdx + 1]) || 1500 : 1500;
+  const linksIdx = args.indexOf('--links');
+  if (raw && linksIdx >= 0) {
+    const re = new RegExp(args[linksIdx + 1] ?? '.', 'i');
+    try {
+      const res = await safeFetch(raw);
+      const seen = new Set<string>();
+      for (const m of res.body.matchAll(/<a\b[^>]*\bhref\s*=\s*["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+        const text = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        let href: string;
+        try { href = new URL(m[1], res.url).toString(); } catch { continue; }
+        if (seen.has(href) || !(re.test(href) || re.test(text))) continue;
+        seen.add(href);
+        console.log(`${text.slice(0, 80).padEnd(80)}  ${href}`);
+      }
+    } catch (e) {
+      console.error(describeFetchError(e));
+      process.exit(3);
+    }
+    return;
+  }
   const pattern = args[1] && !args[1].startsWith('--') ? args[1] : null;
   if (!raw || (!head && !pattern)) {
     console.error('Usage: tsx scripts/peek-page.ts <https-url> "<regex>" [--context N] | <https-url> --head [--chars N]');
