@@ -8,6 +8,7 @@ export const NAV_ITEMS = [
   { href: '/shortlist', label: 'Shortlist', icon: 'M4 6h16M4 12h16M4 18h10' },
   { href: '/plan-b', label: 'Plan B', icon: 'M6 3v12a4 4 0 0 0 4 4h8M14 15l4 4-4 4' },
   { href: '/check', label: 'Check', icon: 'M9 12l2 2 4-4M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z' },
+  { href: '/saved', label: 'Saved', icon: 'M6 3h12v18l-6-4-6 4z' },
 ] as const;
 
 function isActive(pathname: string, href: string) {
@@ -15,7 +16,7 @@ function isActive(pathname: string, href: string) {
 }
 
 /**
- * Mobile navigation dock: a floating forest-950 bar above the safe area with Home, Shortlist, Plan B, Check.
+ * Mobile navigation dock: a floating forest-950 bar above the safe area with Home, Shortlist, Plan B, Check, Saved.
  * The active tab sits on an olive-100 pill (forest text), so it differs by fill and label, not colour alone.
  */
 export function BottomNav() {
@@ -25,7 +26,7 @@ export function BottomNav() {
       aria-label="Main"
       className="on-chrome fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 md:hidden"
     >
-      <ul className="mx-auto grid h-bottom-nav max-w-sm grid-cols-4 gap-1 rounded-panel border border-on-chrome-muted/20 bg-chrome p-1.5 shadow-dock">
+      <ul className="mx-auto grid h-bottom-nav max-w-sm grid-cols-5 gap-1 rounded-panel border border-on-chrome-muted/20 bg-chrome p-1.5 shadow-dock">
         {NAV_ITEMS.map((item) => {
           const active = isActive(pathname, item.href);
           return (
@@ -33,7 +34,7 @@ export function BottomNav() {
               <Link
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex h-full min-h-tap flex-col items-center justify-center gap-0.5 rounded-card text-xs font-semibold no-underline transition-colors ${
+                className={`flex h-full min-h-tap flex-col items-center justify-center gap-0.5 rounded-card text-[0.6875rem] font-semibold no-underline transition-colors ${
                   active ? 'bg-accent-soft text-on-accent-soft' : 'text-on-chrome-muted hover:text-on-chrome'
                 }`}
               >

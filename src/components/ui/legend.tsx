@@ -5,7 +5,7 @@ import { BlockedBadge, ConfidenceBadge, FitBadge } from './badges';
 const CONFS: Confidence[] = ['Verified', 'Likely', 'Unverified', 'Conflict'];
 const FITS: { label: FitLabel; help: string }[] = [
   { label: 'Meets minimum', help: 'Your converted grade is at or above the verified minimum.' },
-  { label: 'Competitive range unknown', help: 'No verified minimum, or your grade range crosses it. We will not guess.' },
+  { label: 'Competitive range unknown', help: 'No confirmed minimum yet, or your grade range crosses it. Check the official page.' },
   { label: 'Below minimum', help: 'Your converted grade is below the verified minimum. See Plan B.' },
 ];
 

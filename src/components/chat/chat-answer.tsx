@@ -18,7 +18,7 @@ import { CopyButton } from '@/components/ui/copy-button';
 import { SourceLink } from '@/components/ui/fact';
 
 const REFUSAL_TITLE: Record<RefusalReason, string> = {
-  not_verified: "Not verified yet, so I won't guess",
+  not_verified: "Not verified yet: check the official page",
   conflict: 'Official sources disagree',
   no_data: 'No data on this yet',
   prediction: 'No predictions or chances',

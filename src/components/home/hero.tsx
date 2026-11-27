@@ -32,7 +32,7 @@ export function Hero({ stats }: { stats: HomeStats }) {
   return (
     <section
       aria-labelledby="home-title"
-      className={`${display.variable} relative -mx-4 -mt-4 overflow-hidden px-4 pb-16 pt-14 text-center md:pb-24 md:pt-24`}
+      className={`${display.variable} relative -mx-4 -mt-4 overflow-hidden px-4 pb-6 pt-6 text-center sm:pb-16 sm:pt-14 md:pb-24 md:pt-24`}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <span className="hero-glow-light absolute inset-0" />
@@ -41,7 +41,7 @@ export function Hero({ stats }: { stats: HomeStats }) {
 
       <Link
         href="/about"
-        className="hero-rise group inline-flex min-h-tap items-center gap-2 whitespace-nowrap rounded-chip border border-line bg-surface/80 px-3 py-1.5 text-[0.8125rem] font-semibold sm:px-4 sm:text-sm text-ink no-underline shadow-button-soft backdrop-blur transition-colors hover:border-primary"
+        className="hero-rise group hidden min-h-tap sm:inline-flex items-center gap-2 whitespace-nowrap rounded-chip border border-line bg-surface/80 px-3 py-1.5 text-[0.8125rem] font-semibold sm:px-4 sm:text-sm text-ink no-underline shadow-button-soft backdrop-blur transition-colors hover:border-primary"
       >
         <span aria-hidden="true" className="hero-pulse relative inline-block h-2 w-2 rounded-full bg-primary" />
         Free and open source, for students in Pakistan
@@ -53,7 +53,7 @@ export function Hero({ stats }: { stats: HomeStats }) {
       <h1
         id="home-title"
         aria-label={plain}
-        className="hero-rise hero-rise-2 mx-auto mt-8 max-w-5xl font-display text-[2.75rem] font-light leading-[1.05] tracking-tight text-heading sm:text-6xl md:text-7xl lg:text-[5rem]"
+        className="hero-rise hero-rise-2 mx-auto mt-0 max-w-5xl font-display text-[2.25rem] font-light sm:mt-8 leading-[1.05] tracking-tight text-heading sm:text-6xl md:text-7xl lg:text-[5rem]"
       >
         <span aria-hidden="true" className="block">
           Plan your Masters abroad
@@ -74,12 +74,12 @@ export function Hero({ stats }: { stats: HomeStats }) {
         </span>
       </h1>
 
-      <p className="hero-rise hero-rise-3 mx-auto mt-8 max-w-2xl text-lg text-ink md:text-xl">
+      <p className="hero-rise hero-rise-3 mx-auto mt-4 hidden max-w-2xl text-base text-ink sm:mt-8 sm:block sm:text-lg md:text-xl">
         See which programs your grade meets, what they really cost and how long citizenship takes. Every fact links to the
-        official page. If we cannot verify something, we say so.
+        official page, so you can check it yourself.
       </p>
 
-      <div className="hero-rise hero-rise-4 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <div className="hero-rise hero-rise-4 mt-9 hidden flex-col sm:flex items-center justify-center gap-3 sm:flex-row">
         <a href="#start" className={buttonClass('primary', 'w-full px-8 sm:w-auto')}>
           Check my grade
         </a>
@@ -88,7 +88,7 @@ export function Hero({ stats }: { stats: HomeStats }) {
         </Link>
       </div>
 
-      <dl aria-label="What is in the dataset today" className="hero-rise hero-rise-4 mx-auto mt-12 flex max-w-xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted">
+      <dl aria-label="What is in the dataset today" className="hero-rise hero-rise-4 mx-auto mt-12 hidden max-w-xl sm:flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted">
         <div className="flex flex-row-reverse items-baseline gap-1.5">
           <dt>{stats.programs === 1 ? 'program' : 'programs'}</dt>
           <dd className="text-2xl font-semibold tabular-nums text-heading">{stats.programs}</dd>

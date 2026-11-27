@@ -335,9 +335,9 @@ export function rankingSummary(r: CitizenshipRanking): string {
   const opt = rankOption(r.rank);
   const n = r.ranked.length;
   const m = r.notRanked.length;
-  return `Ranked by ${opt.label.toLowerCase()}, ${opt.dirLabels[r.dir].toLowerCase()}. ${n} ${
+  return `Sorted by ${opt.label.toLowerCase()}, ${opt.dirLabels[r.dir].toLowerCase()}. ${n} ${
     n === 1 ? 'country' : 'countries'
-  } ranked, ${m} not ranked because data is missing.`;
+  } in order${m > 0 ? `, ${m} more to explore` : ''}.`;
 }
 
 /* ---------------- Conflicts ---------------- */
@@ -418,7 +418,7 @@ export const VISA_FUNDS_NOT_COMPARABLE =
   'Countries count this money differently (per month or per year, with or without tuition, or worked out by your university), so the amounts cannot be compared.';
 
 /** The one line under every visa-money block. */
-export const VISA_FUNDS_NOT_RANKED = `Not ranked. ${VISA_FUNDS_NOT_COMPARABLE} Read each country's rule.`;
+export const VISA_FUNDS_NOT_RANKED = `${VISA_FUNDS_NOT_COMPARABLE} Read each country's rule.`;
 
 /** Shown instead of a PKR amount when there is no Verified/Likely exchange rate. */
 export const NO_PKR_RATE = 'No verified PKR rate yet';

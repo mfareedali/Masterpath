@@ -3,16 +3,16 @@
  * The wrapper scrolls sideways on its own if needed, so the page itself never scrolls horizontally.
  */
 import Link from 'next/link';
-import { FitBadge, RankBadge } from '@/components/ui/badges';
+import { RankBadge } from '@/components/ui/badges';
 import { countryName } from '@/lib/format';
 import type { RankKey } from '@/lib/rank';
-import type { ProgramView, ShortlistRankKey } from '@/lib/shortlist';
-import { CitizenshipCell, DeadlineCell, TotalCostCell, TuitionCell } from './fact-cells';
-import { PlanBLink, RankedOn } from './program-card';
+import { missingDetailCount, rowDetailPresence, type ProgramView, type ShortlistRankKey } from '@/lib/shortlist';
+import { CitizenshipCell, DeadlineCell, MissingDetails, NotOnFile, TotalCostCell, TuitionCell } from './fact-cells';
+import { FitBlock, RankedOn } from './program-card';
 import { ConditionalRouteMarker, NoteMarkers } from './program-notes';
 import { SaveButton } from './save-button';
 
-export type TableRow = ProgramView & { rank?: number; key?: RankKey; reasons?: string[] };
+export type TableRow = ProgramView & { rank?: number; key?: RankKey };
 
 /** Rank keys whose value has no column of its own, so ranked tables add a "Ranked on" column. */
 const RANKED_ON_COLUMN: readonly ShortlistRankKey[] = ['tuition', 'citizenship', 'study'];
@@ -22,7 +22,6 @@ export function ProgramTable({
   now,
   caption,
   rankBy,
-  reasonHeader,
   detailsHref,
   planBHref,
 }: {
@@ -30,8 +29,6 @@ export function ProgramTable({
   now: Date;
   caption: string;
   rankBy: ShortlistRankKey;
-  /** When set, adds a last column with each row's reasons (e.g. "Why not ranked"). */
-  reasonHeader?: string;
   detailsHref: (id: string) => string;
   /** /plan-b?…&target=<id>. The link shows only when planBSuggested(row). */
   planBHref?: (id: string) => string;
@@ -62,16 +59,12 @@ export function ProgramTable({
                 Ranked on
               </th>
             ) : null}
-            {reasonHeader ? (
-              <th scope="col" className={th}>
-                {reasonHeader}
-              </th>
-            ) : null}
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => {
             const p = row.program;
+            const have = rowDetailPresence(row);
             return (
               <tr key={p.id} className="border-t border-line align-top transition-colors hover:bg-page/60">
                 {showRank ? <td className="px-3 py-3">{row.rank != null ? <RankBadge rank={row.rank} /> : null}</td> : null}
@@ -81,39 +74,32 @@ export function ProgramTable({
                   </Link>
                   <p className="text-xs text-muted break-words">{row.institutionName}</p>
                   <NoteMarkers program={p} now={now} />
+                  <div className="mt-1">
+                    <MissingDetails count={missingDetailCount(have, rankBy === 'study')} program={p} institution={row.institution} />
+                  </div>
                   <div className="mt-2">
                     <SaveButton programId={p.id} programName={p.name} />
                   </div>
                 </th>
                 <td className="px-3 py-3">{countryName(p.country)}</td>
                 <td className="px-3 py-3">
-                  <FitBadge label={row.fit.label} />
-                  <PlanBLink row={row} href={planBHref?.(p.id)} compact />
+                  <FitBlock row={row} planBHref={planBHref?.(p.id)} compact />
                   <ConditionalRouteMarker program={p} fit={row.fit} now={now} />
                 </td>
                 <td className="px-3 py-3">
-                  <DeadlineCell program={p} now={now} daysLeft={row.deadlineDaysLeft} />
+                  {have.deadline ? <DeadlineCell program={p} now={now} daysLeft={row.deadlineDaysLeft} /> : <NotOnFile />}
                 </td>
                 <td className="px-3 py-3">
-                  <TuitionCell program={p} now={now} />
+                  {have.tuition ? <TuitionCell program={p} now={now} /> : <NotOnFile />}
                 </td>
                 <td className="px-3 py-3">
-                  <TotalCostCell cost={row.totalCost} withinBudget={row.withinBudget} />
+                  {have.totalCost ? <TotalCostCell cost={row.totalCost} withinBudget={row.withinBudget} /> : <NotOnFile />}
                 </td>
                 <td className="min-w-40 px-3 py-3">
-                  <CitizenshipCell fact={row.citizenship} now={now} showLink={false} />
+                  {have.citizenship ? <CitizenshipCell fact={row.citizenship} now={now} showLink={false} /> : <NotOnFile />}
                 </td>
                 {showRankedOn ? (
                   <td className="min-w-32 px-3 py-3">{row.key ? <RankedOn rankBy={rankBy} rankKey={row.key} /> : null}</td>
-                ) : null}
-                {reasonHeader ? (
-                  <td className="min-w-40 px-3 py-3">
-                    <ul className="space-y-1">
-                      {(row.reasons ?? []).map((r) => (
-                        <li key={r}>{r}</li>
-                      ))}
-                    </ul>
-                  </td>
                 ) : null}
               </tr>
             );

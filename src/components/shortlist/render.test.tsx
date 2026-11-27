@@ -16,7 +16,6 @@ import { FIXED_NOW, conflicting, likely, makeInstitution, makeProgram, verified,
 import type { CountryFact, CountryFactValue, FxRate, Money, Profile, Program } from '@/lib/types';
 import { ClosingSoon } from './closing-soon';
 import { BUDGET_NEEDS_RATE, Filters, RankChips } from './controls';
-import { CoverageMeter } from './coverage-meter';
 import { EmptyFieldCard } from './empty-field';
 import { TotalCostCell } from './fact-cells';
 import { PLAN_B_LINK_TEXT, ProgramCard, ReasonNote, RuledOutCard } from './program-card';
@@ -93,7 +92,7 @@ function fixtureInput(programs: Program[], over: Partial<ShortlistInput> = {}): 
 describe('shortlist components — seed data with persona A (today)', () => {
   const s = buildShortlist({ ...seed, profile: PERSONA_A, now });
 
-  it('a not-ranked card shows "Not verified yet" with badges, the reason, and a university link from data', () => {
+  it('an unknown-fit card has no Fit pill, one action line to the official page, and one "not on file" line', () => {
     const row = s.notRanked.find((r) => r.program.id === 'tum-msc-informatics')!;
     const html = renderToStaticMarkup(
       <ProgramCard
@@ -101,15 +100,16 @@ describe('shortlist components — seed data with persona A (today)', () => {
         now={now}
         rankBy="fit"
         detailsHref={details(row.program.id)}
-        note={<ReasonNote title="Not ranked because" reasons={[row.reason]} />}
       />,
     );
     expectCleanCopy(html);
     expect(html).toContain('Germany');
-    expect(html).toContain('Competitive range unknown');
-    expect(html).toContain('Not verified yet');
-    expect(html).toContain('Unverified');
-    expect(html).toContain('Minimum grade not verified yet');
+    expect(html).not.toContain('Competitive range unknown');
+    expect(html).toContain('Check the minimum grade on the official page');
+    expect(html).toMatch(/\d details? not on file yet/);
+    expect(html.match(/not on file yet/g)?.length).toBe(1); // once per row
+    expect(html).not.toContain('Not verified yet'); // no repeated "Not verified yet" badges
+    expect(html).not.toContain('Minimum grade not verified yet');
     expect(html).toContain('href="/program/tum-msc-informatics"');
     expect(html).toContain('href="https://www.tum.de/"'); // institution website from data (no program page yet)
     expect(html).toContain('aria-pressed="false"'); // SaveButton
@@ -137,28 +137,22 @@ describe('shortlist components — seed data with persona A (today)', () => {
     expect(html).toContain('Reported, not yet verified');
   });
 
-  it('the not-ranked table lists each reason', () => {
+  it('the "more programs" table has no reason column and shows an action line instead of a Fit pill', () => {
     const html = renderToStaticMarkup(
-      <ProgramTable
-        rows={s.notRanked.map((r) => ({ ...r, reasons: [r.reason] }))}
-        now={now}
-        rankBy="fit"
-        caption="Programs not ranked"
-        reasonHeader="Why not ranked"
-        detailsHref={details}
-      />,
+      <ProgramTable rows={s.notRanked} now={now} rankBy="fit" caption="More programs to explore" detailsHref={details} />,
     );
     expectCleanCopy(html);
-    expect(html).toContain('Why not ranked');
+    expect(html).not.toContain('Why not ranked');
     expect(html).not.toContain('Ranked on');
+    expect(html).not.toContain('Competitive range unknown');
+    expect(html).toContain('data-fit-action');
+    expect(html).toContain('Check the minimum grade on the official page');
     expect(html.match(/<tr[\s>]/g)?.length).toBe(s.notRanked.length + 1); // header + one row each
   });
 
-  it('coverage meter shows "0 of N" with an accessible progress element', () => {
-    const html = renderToStaticMarkup(<CoverageMeter coverage={s.coverage} fieldLabel={s.field.label} />);
-    expect(html).toContain(`0 of ${s.coverage.total}`);
-    expect(html).toMatch(/<progress[^>]*value="0"/);
-    expect(html).toMatch(/aria-label="0 of \d+ Computer Science programs fully verified"/);
+  it('coverage is still computed in code (it is no longer shown as a box on the shortlist)', () => {
+    expect(s.coverage.verified).toBe(0);
+    expect(s.coverage.total).toBeGreaterThan(0);
   });
 
   it('controls: rank chips are links with an order toggle; no intake chips without usable intakes', () => {
@@ -172,7 +166,7 @@ describe('shortlist components — seed data with persona A (today)', () => {
 
     const filters = renderToStaticMarkup(<Filters sp={{}} shortlist={s} profile={PERSONA_A} />);
     expect(filters).toContain('<details');
-    expect(filters).toContain('Filters</summary>'); // label without a count
+    expect(filters).toContain('>Filters</span>'); // label without a count
     expect(filters).not.toContain('Intake');
     expect(filters).toContain('Within my budget');
     expect(filters).toContain('Showing the countries from your profile.');
@@ -372,7 +366,8 @@ describe('shortlist notes — live seed data', () => {
       />,
     );
     expectCleanCopy(html);
-    expect(html.match(/<details/g)?.length).toBe(2);
+    // Two compact markers, plus "Read more" expanders for long deadline/tuition notes.
+    expect(html.match(/<details/g)?.length).toBeGreaterThanOrEqual(2);
     expect(html).toMatch(/<summary[^>]*>.*Who it&#x27;s for<\/span><\/summary>/);
     expect(html).toMatch(/<summary[^>]*>.*Note<\/summary>/);
     expect(html).toContain('Extra compliance measures for Pakistan applicants');
@@ -442,17 +437,14 @@ describe('shortlist notes — fixtures', () => {
   });
 });
 
-describe('coverage meter wording with 20 facts per program', () => {
-  it('says "N of M individual facts verified" and "fully verified"', () => {
+describe('coverage numbers with 20 facts per program', () => {
+  it('count 20 fact fields per active program', () => {
     // 20 fact fields per program: the 18 before, plus conditional_admission and language_waiver.
     const FACTS_PER_PROGRAM = 20;
     const live = loadSeedDataset();
     const s = buildShortlist({ ...live, profile: PERSONA_A, now });
     const n = live.programs.filter((p) => p.field === 'cs' && p.status === 'active').length;
     expect(s.coverage.facts.total).toBe(FACTS_PER_PROGRAM * n);
-    const html = renderToStaticMarkup(<CoverageMeter coverage={s.coverage} fieldLabel={s.field.label} />);
-    expect(html).toContain(`of ${FACTS_PER_PROGRAM * n} individual facts verified`);
-    expect(html).toContain('Computer Science programs fully verified');
   });
 });
 

@@ -403,7 +403,7 @@ export const IMPROVE_REAPPLY: ImproveRoute = {
     'Reapply in the next application cycle with your new evidence. Check each official page for what it looks at.',
   ],
   timeText: 'At least one application cycle',
-  costText: 'Depends on what you choose. We do not guess a number.',
+  costText: 'Depends on what you choose. Ask each program for its current cost.',
 };
 
 /* ------------------------------------------------------------------ */
@@ -941,11 +941,11 @@ export function notRankedText(score: RouteScore): string {
   const reasons = [score.feasibility, score.quality, score.cost]
     .map((p) => p.missing)
     .filter((m): m is string => m != null && m !== '');
-  return `Not ranked yet: ${reasons.length > 0 ? joinPlain(reasons) : 'the facts we rank by are not verified yet'}`;
+  return `To compare this route, check: ${reasons.length > 0 ? joinPlain(reasons) : 'its minimum grade, recognition and cost on the official page'}`;
 }
 
 /** Shown after "Not ranked yet: …" on a route card. */
-export const NOT_RANKED_HELP = 'We only put a route in order when at least one of these is verified. We do not guess.';
+export const NOT_RANKED_HELP = 'A route is put in order once one of these is confirmed on its official page.';
 
 /** Under every conditional route: it decides nothing about fit and promises nothing. */
 export const CONDITIONAL_FIT_NOTE =
@@ -971,7 +971,7 @@ export function directConditionalText(direct: Pick<DirectRoute, 'fit' | 'conditi
 
 /** Lead sentence of the "Not decided yet" list. */
 export function undecidedSummary(n: number): string {
-  return `For ${plural(n, 'program')} in your field and countries we cannot tell yet whether your grade meets the minimum. Each one says why.`;
+  return `${plural(n, 'program')} ${n === 1 ? 'needs' : 'need'} you to check the minimum grade on the official page. Each one says what to look at.`;
 }
 
 /** Row label for a program's status note: names Pakistan only when the official note itself is about Pakistan. */

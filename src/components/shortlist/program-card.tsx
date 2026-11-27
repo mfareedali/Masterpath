@@ -8,8 +8,18 @@ import { ButtonLink } from '@/components/ui/button';
 import { FactInline } from '@/components/ui/fact';
 import { countryName, formatMonths } from '@/lib/format';
 import type { RankKey } from '@/lib/rank';
-import { planBSuggested, rankValueText, type ProgramView, type ShortlistRankKey } from '@/lib/shortlist';
-import { CitizenshipCell, DeadlineCell, FactNote, OfficialPageLinks, TotalCostCell, TuitionCell } from './fact-cells';
+import {
+  fitActionText,
+  fitActionUrl,
+  fitIsKnown,
+  missingDetailCount,
+  planBSuggested,
+  rankValueText,
+  rowDetailPresence,
+  type ProgramView,
+  type ShortlistRankKey,
+} from '@/lib/shortlist';
+import { CitizenshipCell, DeadlineCell, FactNote, MissingDetails, OfficialPageLinks, TotalCostCell, TuitionCell } from './fact-cells';
 import { ConditionalRouteItem, EligibilityWarning, StatusNoteItem } from './program-notes';
 import { SaveButton } from './save-button';
 
@@ -28,6 +38,42 @@ export function PlanBLink({ row, href, compact = false }: { row: Pick<ProgramVie
       <span aria-hidden="true">&nbsp;→</span>
       <span className="sr-only"> for {row.program.name}</span>
     </Link>
+  );
+}
+
+/**
+ * The fit block of a row. A real result ("Meets minimum" / "Below minimum") keeps its pill and reason.
+ * When the fit is unknown there is no pill: one action line sends the student to the official page instead.
+ */
+export function FitBlock({ row, planBHref, compact = false }: { row: ProgramView; planBHref?: string; compact?: boolean }) {
+  if (fitIsKnown(row.fit)) {
+    return (
+      <>
+        <FitBadge label={row.fit.label} />
+        {compact ? null : <p className="mt-1.5 text-sm text-ink">{row.fit.reason.message}</p>}
+        <PlanBLink row={row} href={planBHref} compact={compact} />
+      </>
+    );
+  }
+  return <FitAction row={row} />;
+}
+
+export function FitAction({ row }: { row: Pick<ProgramView, 'program' | 'fit'> }) {
+  const text = fitActionText(row.fit);
+  const href = fitActionUrl(row.program, row.fit);
+  if (!href) return <span className="text-sm text-ink" data-fit-action="">{text}</span>;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className="inline-flex min-h-tap items-center text-sm font-semibold text-link underline md:min-h-0"
+      data-fit-action=""
+    >
+      {text}
+      <span aria-hidden="true">&nbsp;↗</span>
+      <span className="sr-only"> (opens official page in a new tab)</span>
+    </a>
   );
 }
 
@@ -79,6 +125,8 @@ export function ProgramCard({
 }) {
   const p = row.program;
   const titleId = `program-${p.id}`;
+  const have = rowDetailPresence(row);
+  const missing = missingDetailCount(have, rankBy === 'study');
   return (
     <article
       aria-labelledby={titleId}
@@ -98,9 +146,7 @@ export function ProgramCard({
       </div>
 
       <div className="mt-3 rounded-button border border-line bg-page p-3">
-        <FitBadge label={row.fit.label} />
-        <p className="mt-1.5 text-sm text-ink">{row.fit.reason.message}</p>
-        <PlanBLink row={row} href={planBHref} />
+        <FitBlock row={row} planBHref={planBHref} />
       </div>
 
       {/* Read-only notes from the official pages: never change fit or rank. */}
@@ -114,25 +160,36 @@ export function ProgramCard({
         ) : null}
         <StatusNoteItem program={p} now={now} />
         <ConditionalRouteItem program={p} fit={row.fit} now={now} />
-        <Item label="Deadline">
-          <DeadlineCell program={p} now={now} daysLeft={row.deadlineDaysLeft} />
-        </Item>
-        <Item label="Tuition">
-          <TuitionCell program={p} now={now} />
-        </Item>
-        <Item label="Total cost">
-          <TotalCostCell cost={row.totalCost} withinBudget={row.withinBudget} />
-        </Item>
-        {rankBy === 'study' ? (
+        {have.deadline ? (
+          <Item label="Deadline">
+            <DeadlineCell program={p} now={now} daysLeft={row.deadlineDaysLeft} />
+          </Item>
+        ) : null}
+        {have.tuition ? (
+          <Item label="Tuition">
+            <TuitionCell program={p} now={now} />
+          </Item>
+        ) : null}
+        {have.totalCost ? (
+          <Item label="Total cost">
+            <TotalCostCell cost={row.totalCost} withinBudget={row.withinBudget} />
+          </Item>
+        ) : null}
+        {rankBy === 'study' && have.study ? (
           <Item label="Study time">
             <FactInline fact={p.duration_months} now={now} render={(v) => formatMonths(v)} />
             <FactNote fact={p.duration_months} now={now} />
           </Item>
         ) : null}
-        <Item label="Citizenship rule">
-          <CitizenshipCell fact={row.citizenship} now={now} />
-        </Item>
+        {have.citizenship ? (
+          <Item label="Citizenship rule">
+            <CitizenshipCell fact={row.citizenship} now={now} />
+          </Item>
+        ) : null}
       </dl>
+      <div className="mt-2">
+        <MissingDetails count={missing} program={p} institution={row.institution} />
+      </div>
 
       {note ? <div className="mt-3">{note}</div> : null}
 
