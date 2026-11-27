@@ -39,18 +39,20 @@ export default async function Home() {
     .sort((a, b) => a.localeCompare(b));
   return (
     <div className="space-y-12 md:space-y-20">
-      <Hero
-        eyebrow="Free and open source, for students in Pakistan"
-        subtitle="Plan your Masters abroad without a paid consultant."
-        stats={stats}
-      >
-        <h2 className="text-xl font-bold">See your programs</h2>
-        <p className="mt-1 text-ink">
-          Enter your grade to see programs in {countryList()}. Every fact links to the official page. If we cannot
-          verify something, we say so.
-        </p>
-        <QuickStartForm fieldsWithPrograms={fieldsWithPrograms} />
-      </Hero>
+      <Hero stats={stats} />
+
+      <section id="start" aria-labelledby="home-start" className="scroll-mt-20">
+        <div className="mx-auto max-w-2xl rounded-panel border border-line bg-surface p-5 shadow-lift md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary-ink">Start here · about 30 seconds</p>
+          <h2 id="home-start" className="mt-1 text-2xl font-bold">
+            See your programs
+          </h2>
+          <p className="mt-1 text-ink">
+            Enter your grade to see programs in {countryList()}. No sign-up, no passport or ID number.
+          </p>
+          <QuickStartForm fieldsWithPrograms={fieldsWithPrograms} />
+        </div>
+      </section>
 
       <UniversityMarquee names={universityNames} />
 

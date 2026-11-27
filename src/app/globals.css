@@ -64,20 +64,15 @@
     }
     .bento-in,
     .hero-rise,
-    .hero-wordmark,
-    .hero-blob,
-    .hero-float,
+    .hero-glow-light,
+    .cycle-char,
     .marquee-track,
-    .hero-node,
     .hero-pulse::after {
       animation: none;
     }
-    .hero-path {
+    .hero-underline path {
       animation: none;
       stroke-dashoffset: 0;
-    }
-    .hero-traveller {
-      display: none;
     }
   }
 }
@@ -220,134 +215,60 @@
     }
   }
   /*
-   * Home hero (src/components/home/hero.tsx). All decorative: olive glows drifting slowly over forest-950,
-   * route lines drawing in, nodes pulsing, a travelling dot, and the copy rising in. Everything ends visible;
-   * reduced motion stops it (see the base layer) and hides the travelling dot.
+   * Home hero (src/components/home/hero.tsx): typography only. Decorative olive light and a fading grid behind the
+   * text; the rotating phrase blurs in letter by letter; the underline draws in. Everything ends visible, and
+   * reduced motion stops it (see the base layer).
    */
-  /* Drifting light: three blurred olive blobs on forest-950. Behind the text; contrast stays >= 4.5:1. */
-  .hero-blob {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(70px);
-    will-change: transform;
+  .hero-glow-light {
+    background:
+      radial-gradient(50% 60% at 50% 0%, color-mix(in srgb, var(--color-primary) 30%, transparent), transparent 70%),
+      radial-gradient(35% 45% at 85% 40%, color-mix(in srgb, var(--color-accent-soft) 90%, transparent), transparent 70%),
+      radial-gradient(35% 45% at 12% 55%, color-mix(in srgb, var(--color-accent-soft) 80%, transparent), transparent 70%);
+    background-size: 120% 120%;
+    animation: hero-drift 16s ease-in-out infinite alternate;
   }
-  .hero-blob-1 {
-    width: 520px;
-    height: 520px;
-    right: -140px;
-    top: -200px;
-    background: color-mix(in srgb, var(--color-primary) 75%, transparent);
-    animation: hero-blob-a 16s ease-in-out infinite alternate;
-  }
-  .hero-blob-2 {
-    width: 420px;
-    height: 420px;
-    left: -160px;
-    bottom: -220px;
-    background: color-mix(in srgb, var(--color-primary) 55%, transparent);
-    animation: hero-blob-b 20s ease-in-out infinite alternate;
-  }
-  .hero-blob-3 {
-    width: 300px;
-    height: 300px;
-    left: 38%;
-    top: 30%;
-    background: color-mix(in srgb, var(--color-accent-soft) 16%, transparent);
-    animation: hero-blob-a 24s ease-in-out -6s infinite alternate-reverse;
-  }
-  @keyframes hero-blob-a {
+  @keyframes hero-drift {
+    from {
+      background-position: 0% 0%;
+    }
     to {
-      transform: translate(-120px, 90px) scale(1.15);
+      background-position: 100% 40%;
     }
   }
-  @keyframes hero-blob-b {
-    to {
-      transform: translate(140px, -70px) scale(0.9);
-    }
-  }
-  /* Faint grid, fading out towards the edges. */
-  .hero-grid {
+  .hero-grid-light {
     background-image:
-      linear-gradient(color-mix(in srgb, var(--color-on-chrome) 7%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--color-on-chrome) 7%, transparent) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 80%);
-    mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 80%);
+      linear-gradient(color-mix(in srgb, var(--color-heading) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-heading) 6%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 35%, #000 25%, transparent 75%);
+    mask-image: radial-gradient(ellipse 60% 70% at 50% 35%, #000 25%, transparent 75%);
   }
-  /* Example badges bobbing around the hero form. */
-  .hero-float {
-    animation: hero-bob 6s ease-in-out infinite;
+  /* One letter of the rotating phrase (TextCycle): blur + rise, staggered by --n. */
+  .cycle-char {
+    display: inline-block;
+    animation: cycle-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--n, 0) * 28ms);
   }
-  .hero-float-2 {
-    animation-duration: 7s;
-    animation-delay: -2s;
-  }
-  .hero-float-3 {
-    animation-duration: 8s;
-    animation-delay: -4s;
-  }
-  @keyframes hero-bob {
-    0%,
-    100% {
-      transform: translateY(0) rotate(-1deg);
+  @keyframes cycle-in {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(0.25em);
     }
-    50% {
-      transform: translateY(-10px) rotate(1deg);
-    }
-  }
-  /* University marquee (Home). Two identical runs; the track slides one run's width. */
-  .marquee {
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  }
-  .marquee-track {
-    animation: marquee 60s linear infinite;
-  }
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-  @keyframes marquee {
     to {
-      transform: translateX(-50%);
+      opacity: 1;
+      filter: none;
+      transform: none;
     }
   }
-  .hero-path {
+  .hero-underline path {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    animation: hero-draw 2.2s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
-  }
-  .hero-path-2 {
-    stroke-dasharray: 0.012 0.02;
-    stroke-dashoffset: 0;
-    animation: hero-fade 1.2s ease-out 1.2s both;
+    animation: hero-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.7s forwards;
   }
   @keyframes hero-draw {
     to {
       stroke-dashoffset: 0;
-    }
-  }
-  @keyframes hero-fade {
-    from {
-      opacity: 0;
-    }
-  }
-  .hero-node {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: hero-node 3.2s ease-in-out 2.2s infinite;
-  }
-  .hero-node-2 {
-    animation-delay: 2.8s;
-  }
-  @keyframes hero-node {
-    0%,
-    100% {
-      transform: scale(1);
-      opacity: 0.9;
-    }
-    50% {
-      transform: scale(1.6);
-      opacity: 0.45;
     }
   }
   .hero-pulse::after {
@@ -355,7 +276,7 @@
     position: absolute;
     inset: -4px;
     border-radius: 999px;
-    border: 1px solid var(--color-accent-soft);
+    border: 1px solid var(--color-primary);
     animation: hero-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
   @keyframes hero-ping {
@@ -367,24 +288,6 @@
     100% {
       transform: scale(1.8);
       opacity: 0;
-    }
-  }
-  /* Wordmark: stone-100 into olive-100, both >= 12:1 on forest-950. */
-  .hero-wordmark {
-    background: linear-gradient(100deg, var(--color-on-chrome) 30%, var(--color-accent-soft) 70%, var(--color-on-chrome));
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: hero-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both, hero-sheen 9s ease-in-out 1.5s infinite;
-  }
-  @keyframes hero-sheen {
-    0%,
-    100% {
-      background-position: 0% 0;
-    }
-    50% {
-      background-position: 100% 0;
     }
   }
   .hero-rise {
@@ -407,6 +310,22 @@
     to {
       opacity: 1;
       transform: none;
+    }
+  }
+  /* University marquee (Home). Two identical runs; the track slides one run's width. */
+  .marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
     }
   }
   /* Scroll-spy pill (src/components/ui/scroll-spy.tsx). */

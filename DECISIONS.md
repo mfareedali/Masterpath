@@ -505,3 +505,8 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
 - **Shortlist**: counts became stat tiles; the original sentence stays as the `role="status"` live region (sr-only).
 - **Theme**: new shadow tokens (`button`, `button-soft`, `lift`, `dock`) in `src/theme.ts`; buttons and chips get
   fills, borders and a press state; the mobile bottom nav is a floating dock with the active tab on an olive-100 pill.
+- **Home hero is typography only (owner's request, 27 Nov).** After the 21st.dev "Animated Hero" / "Text Cycle"
+  pattern: pill badge, large centred headline whose last line cycles "honestly. / for free. / with sources. /
+  no guessing." with a per-letter blur (`src/components/home/text-cycle.tsx`, no motion library), one paragraph,
+  two buttons, live dataset numbers. The h1 carries the full sentence for screen readers; the cycling text is
+  aria-hidden and stops under reduced motion. The quick-start form moved to its own "Start here" card (#start).
