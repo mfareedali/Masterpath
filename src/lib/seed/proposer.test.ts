@@ -43,8 +43,10 @@ describe('resolveProposer', () => {
     expect(r.ok).toBe(false);
   });
   it('the key is never part of the reason text', () => {
-    const r = resolveProposer({ INGEST_PROVIDER: 'nope', XAI_API_KEY: 'xai-secret-123' });
-    expect(JSON.stringify(r)).not.toContain('xai-secret-123');
+    // Built at runtime so no key-shaped literal exists in the source (secret scanners flag those).
+    const fakeKey = ['xai', 'x'.repeat(24)].join('-');
+    const r = resolveProposer({ INGEST_PROVIDER: 'nope', XAI_API_KEY: fakeKey });
+    expect(JSON.stringify(r)).not.toContain(fakeKey);
   });
 });
 

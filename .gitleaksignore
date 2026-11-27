@@ -1,0 +1,4 @@
+# Test stub, not a secret: a fake key literal ("xai-secret-<digits>") in a unit test that checks keys never appear in
+# error text. It was replaced by a runtime-built value in the next commit; history is not rewritten, so the old
+# finding is ignored by its fingerprint (commit:file:rule:line).
+1fd0628cab6e3dd0719f938b7763bc9bda2baa42:src/lib/seed/proposer.test.ts:generic-api-key:46
