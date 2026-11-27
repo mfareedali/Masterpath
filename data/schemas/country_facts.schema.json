@@ -163,7 +163,10 @@
         "pakistan_dual_nationality",
         "tuition_typical",
         "living_cost_typical",
-        "proof_of_funds"
+        "proof_of_funds",
+        "visa_fee",
+        "visa_processing_time",
+        "student_work_rights"
       ]
     },
     "value_country_fact": {

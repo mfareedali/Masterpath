@@ -29,6 +29,7 @@ jobs:
           cache: npm
 
       - name: Install
+        timeout-minutes: 10
         run: npm ci
 
       - name: Design tokens are up to date (src/theme.ts -> src/app/tokens.css)
@@ -37,15 +38,19 @@ jobs:
           git diff --exit-code src/app/tokens.css
 
       - name: Typecheck
+        timeout-minutes: 5
         run: npm run typecheck
 
       - name: Lint
+        timeout-minutes: 5
         run: npm run lint
 
       - name: Unit tests
+        timeout-minutes: 10
         run: npm test
 
       - name: Seed data (schemas, evidence rules, coverage)
+        timeout-minutes: 5
         run: npm run validate:seed
 
       - name: Cache Next.js build
@@ -57,6 +62,7 @@ jobs:
             nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
 
       - name: Build
+        timeout-minutes: 15
         run: npm run build
 
   gitleaks:
@@ -89,11 +95,14 @@ jobs:
           cache: npm
 
       - name: Install
+        timeout-minutes: 10
         run: npm ci
 
       - name: Build
+        timeout-minutes: 15
         run: npm run build
 
       # Pinned version: bump deliberately (check with `npm view @lhci/cli version`).
       - name: Lighthouse CI (lighthouserc.json)
+        timeout-minutes: 15
         run: npx --yes @lhci/cli@0.16.1 autorun --config=./lighthouserc.json

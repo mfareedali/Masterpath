@@ -428,6 +428,206 @@
       "evidence_snippet": null,
       "fetched_at": null,
       "note": "Not verified yet."
+    },
+    {
+      "id": "ca-visa-fee",
+      "country": "CA",
+      "key": "visa_fee",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-visa-processing-time",
+      "country": "CA",
+      "key": "visa_processing_time",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ca-student-work-rights",
+      "country": "CA",
+      "key": "student_work_rights",
+      "value": {
+        "text": "A study permit can carry the condition: \"May work 24 hours per week off campus or full-time during regular breaks\" if you meet the criteria in paragraph 186(v) of the Immigration and Refugee Protection Regulations."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/work-off-campus.html",
+      "evidence_snippet": "May work 24 hours per week off campus or full-time during regular breaks if meeting criteria outlined in paragraph 186(v) of the Immigration and Refugee Protection Regulations (IRPR).",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. IRCC \"Work off campus\". The condition is quoted on the page as the wording added to the permit."
+    },
+    {
+      "id": "de-visa-fee",
+      "country": "DE",
+      "key": "visa_fee",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-visa-processing-time",
+      "country": "DE",
+      "key": "visa_processing_time",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "de-student-work-rights",
+      "country": "DE",
+      "key": "student_work_rights",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "uk-visa-fee",
+      "country": "UK",
+      "key": "visa_fee",
+      "value": {
+        "text": "£558 to apply for a Student visa from outside the UK.",
+        "money": {
+          "amount": 558,
+          "currency": "GBP",
+          "period": "total"
+        }
+      },
+      "source_url": "https://www.gov.uk/student-visa",
+      "evidence_snippet": "£558 to apply for a Student visa from outside the UK",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. GOV.UK Student visa. Same page: £558 to extend or switch from inside the UK. The immigration health surcharge is separate."
+    },
+    {
+      "id": "uk-visa-processing-time",
+      "country": "UK",
+      "key": "visa_processing_time",
+      "value": {
+        "text": "You will usually get a decision on your visa within 3 weeks if you are outside the UK (8 weeks if you are inside the UK). You may be able to pay for a faster decision."
+      },
+      "source_url": "https://www.gov.uk/student-visa",
+      "evidence_snippet": "You’ll usually get a decision on your visa within: 3 weeks, if you’re outside the UK",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. GOV.UK Student visa, \"How long it takes to get a decision\"."
+    },
+    {
+      "id": "uk-student-work-rights",
+      "country": "UK",
+      "key": "student_work_rights",
+      "value": {
+        "text": "You may be able to work on a Student visa. How much depends on what you are studying and whether you are working in or out of term-time."
+      },
+      "source_url": "https://www.gov.uk/student-visa",
+      "evidence_snippet": "You may be able to work - how much depends on what you’re studying and whether you’re working in or out of term-time.",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. GOV.UK gives no hour limit on this page; the conditions are on your visa decision letter. Do not read a number into it."
+    },
+    {
+      "id": "us-visa-fee",
+      "country": "US",
+      "key": "visa_fee",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-visa-processing-time",
+      "country": "US",
+      "key": "visa_processing_time",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "us-student-work-rights",
+      "country": "US",
+      "key": "student_work_rights",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-visa-fee",
+      "country": "CH",
+      "key": "visa_fee",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-visa-processing-time",
+      "country": "CH",
+      "key": "visa_processing_time",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "ch-student-work-rights",
+      "country": "CH",
+      "key": "student_work_rights",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "au-visa-fee",
+      "country": "AU",
+      "key": "visa_fee",
+      "value": {
+        "text": "The Student visa (subclass 500) costs from AUD 2,500 (concessions apply in limited circumstances). An extra Onshore Application Charge may apply if you apply inside Australia under an exemption.",
+        "money": {
+          "amount": 2500,
+          "currency": "AUD",
+          "period": "total"
+        }
+      },
+      "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+      "evidence_snippet": "From AUD2,500.00 (concessions apply in limited circumstances).",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Department of Home Affairs, Student visa (subclass 500). \"From\" is the page wording: this is the base charge, not a quote for every applicant."
+    },
+    {
+      "id": "au-visa-processing-time",
+      "country": "AU",
+      "key": "visa_processing_time",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
+    },
+    {
+      "id": "au-student-work-rights",
+      "country": "AU",
+      "key": "student_work_rights",
+      "value": null,
+      "source_url": null,
+      "evidence_snippet": null,
+      "fetched_at": null,
+      "note": "Not verified yet."
     }
   ]
 }

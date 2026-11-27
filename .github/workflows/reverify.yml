@@ -38,6 +38,7 @@ jobs:
           cache: npm
 
       - name: Install
+        timeout-minutes: 10
         run: npm ci
 
       # Browsers are installed ONLY in this weekly job (normal CI never downloads them). Pages marked "render": true in
@@ -58,11 +59,13 @@ jobs:
         run: npx playwright install-deps chromium
 
       - name: Re-check every stored evidence snippet
+        timeout-minutes: 60
         id: snippets
         continue-on-error: true
         run: npm run ingest -- --verify-seed
 
       - name: Check every link and registered source page
+        timeout-minutes: 30
         id: links
         continue-on-error: true
         run: npm run check-links
