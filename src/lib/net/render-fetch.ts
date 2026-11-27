@@ -168,7 +168,7 @@ async function launchChromium(): Promise<Browser> {
     throw new SafeFetchError('RENDER_UNAVAILABLE', 'The playwright package is not installed (npm install).');
   }
   try {
-    return await pw.chromium.launch({ headless: true });
+    return await pw.chromium.launch({ headless: true, timeout: 15_000 });
   } catch (e) {
     throw new SafeFetchError(
       'RENDER_UNAVAILABLE',
