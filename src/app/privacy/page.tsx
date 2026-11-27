@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Callout, Card, PageHeader } from '@/components/ui/card';
 import { formatDate } from '@/lib/format';
 import { PROFILE_COOKIE, PROFILE_COOKIE_MAX_AGE } from '@/lib/profile';
+import { chatProvider, PROVIDER_LABEL } from '@/lib/chat/provider';
 import { IssuesLink } from './issues-link';
 
 export const metadata: Metadata = {
@@ -39,6 +40,9 @@ const SHORT_VERSION = [
 ] as const;
 
 export default function PrivacyPage() {
+  // Read at build/render time on the server; names the company that actually receives chat questions.
+  const provider = chatProvider();
+  const ai = provider ? PROVIDER_LABEL[provider] : null;
   return (
     <div className="mx-auto max-w-2xl space-y-10">
       <PageHeader title="Privacy" subtitle={`What we keep, where, and how to delete it. Last updated ${formatDate(UPDATED)}.`} />
@@ -102,16 +106,22 @@ export default function PrivacyPage() {
       <Section id="chat" title="The AI chat">
         <p>
           When you ask the chat a question, we send <strong>your question</strong> and the <strong>public data rows</strong>{' '}
-          it needs (for example a program&apos;s listed requirements and their official links) to Anthropic&apos;s API.
-          Anthropic&apos;s model, Claude, uses them to write the answer.
+          it needs (for example a program&apos;s listed requirements and their official links) to{' '}
+          {ai ? (
+            <>
+              {ai.company}&apos;s API. {ai.company}&apos;s model, {ai.model}, uses them to write the answer.
+            </>
+          ) : (
+            <>the AI provider this site is configured with. On this site the AI is currently switched off.</>
+          )}
         </p>
         <p>
           <strong>No profile data is attached</strong>: not your grade, budget, strengths, email or anything else you
           saved. Anything you type into the question itself is sent, so please do not type private details there.
         </p>
         <p className="text-sm text-muted">
-          If the AI is switched off, answers are built by our own code from the same rows, and nothing is sent to
-          Anthropic.
+          If the AI is switched off, answers are built by our own code from the same rows, and nothing is sent to any
+          AI provider.
         </p>
       </Section>
 

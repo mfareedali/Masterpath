@@ -510,3 +510,9 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   no guessing." with a per-letter blur (`src/components/home/text-cycle.tsx`, no motion library), one paragraph,
   two buttons, live dataset numbers. The h1 carries the full sentence for screen readers; the cycling text is
   aria-hidden and stops under reduced motion. The quick-start form moved to its own "Start here" card (#start).
+- **Chat can use xAI Grok (owner's request, 27 Nov).** `src/lib/chat/xai.ts` implements the same `ChatModelClient`
+  over xAI's OpenAI-compatible streaming API with plain fetch (no new dependency). Provider choice is one function
+  (`src/lib/chat/provider.ts`): `XAI_API_KEY` wins, then `ANTHROPIC_API_KEY`, else the no-AI answer. Grok's
+  `content_filter` maps to `refusal` and `length` to `max_tokens`, so the existing fallback and "…" handling apply;
+  the same rate limits and daily token budgets apply. The privacy page names the provider actually in use.
+  Default model `grok-4` (override with `XAI_MODEL`): sources disagreed on the newest model id.
