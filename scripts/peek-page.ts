@@ -4,6 +4,7 @@
  *
  *   npx tsx scripts/peek-page.ts <https-url> "<regex>" [--context N]   lines matching the regex (+/- N lines)
  *   npx tsx scripts/peek-page.ts <https-url> --head [--chars N]        the title line and the first N characters
+ *   add --render to read a JavaScript-only page with the browser renderer (auto: static first, renderer when the page is empty)
  *   npx tsx scripts/peek-page.ts <https-url> --links "<regex>"          links on the page whose URL or text matches (to find the right page)
  *
  * Fetched text is cached in the OS temp folder for an hour, so several peeks at one page cost one request.
@@ -19,11 +20,11 @@ import { fetchPageText, describeFetchError } from '../src/lib/seed/page-text';
 const CACHE_DIR = join(tmpdir(), 'masterspath-peek');
 const CACHE_MS = 60 * 60 * 1000;
 
-async function textOf(url: string): Promise<{ text: string; final: string }> {
+async function textOf(url: string, method: 'auto' | 'render'): Promise<{ text: string; final: string }> {
   mkdirSync(CACHE_DIR, { recursive: true });
-  const file = join(CACHE_DIR, createHash('sha1').update(url).digest('hex') + '.json');
+  const file = join(CACHE_DIR, createHash('sha1').update(`${method}:${url}`).digest('hex') + '.json');
   if (existsSync(file) && Date.now() - statSync(file).mtimeMs < CACHE_MS) return JSON.parse(readFileSync(file, 'utf8'));
-  const page = await fetchPageText(url);
+  const page = await fetchPageText(url, method === 'render' ? { fetchMethod: 'render' } : {});
   const out = { text: page.text, final: page.url };
   writeFileSync(file, JSON.stringify(out), 'utf8');
   return out;
@@ -64,7 +65,7 @@ async function main() {
   }
   let page;
   try {
-    page = await textOf(raw);
+    page = await textOf(raw, args.includes('--render') ? 'render' : 'auto');
   } catch (e) {
     console.error(describeFetchError(e));
     process.exit(3);

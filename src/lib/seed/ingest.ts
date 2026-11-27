@@ -41,6 +41,8 @@ export interface AcceptedProposal {
   evidence_snippet: string;
   fetched_at: string;
   basis: 'verbatim';
+  /** 'static' = safeFetch + htmlToText; 'render' = Playwright visible text. Re-verification uses the same method. */
+  fetch_method?: 'static' | 'render';
   /** Things a human should double-check (never a reason to reject). */
   review_notes: string[];
   /**
@@ -58,8 +60,10 @@ export interface RejectedProposal {
 }
 
 export interface ReviewContext {
-  /** Plain text of the fetched official page (htmlToText output). */
+  /** Plain text of the fetched official page (htmlToText output, or the rendered visible text). */
   pageText: string;
+  /** How the page text was produced; recorded on every accepted proposal so --verify uses the same method. */
+  fetchMethod?: 'static' | 'render';
   /** Final URL of the page after redirects (this becomes source_url). */
   sourceUrl: string;
   /** ISO timestamp of the fetch. */
@@ -85,7 +89,7 @@ export interface ProposalsFile {
   accepted: AcceptedProposal[];
   rejected: RejectedProposal[];
   /** Pages read for this file (written by `--all`, which can read several pages per program). */
-  pages?: { url: string; final_url: string; chars: number; hash: string }[];
+  pages?: { url: string; final_url: string; chars: number; hash: string; fetch_method?: 'static' | 'render' }[];
 }
 
 /* ---------------- argument parsing ---------------- */
@@ -420,6 +424,7 @@ export function reviewProposals(raw: readonly RawProposal[], ctx: ReviewContext)
       evidence_snippet: snippet,
       fetched_at: ctx.fetchedAt,
       basis: 'verbatim',
+      ...(ctx.fetchMethod ? { fetch_method: ctx.fetchMethod } : {}),
       review_notes: reviewNotes(kind, p.value, snippet),
       flags: plausibilityFlags(kind, p.value, snippet, ctx.fetchedAt),
     });
@@ -476,6 +481,8 @@ export interface VerifyItem {
   label: string;
   source_url: string;
   evidence_snippet: string;
+  /** How the snippet was found. Absent = unknown (auto: static, then render when the static page is empty). */
+  fetch_method?: 'static' | 'render';
 }
 
 /** Reads items to re-check from a proposals file ({accepted: [...]}) or a plain array of {source_url, evidence_snippet}. */
@@ -496,7 +503,7 @@ export function verifyItemsFrom(data: unknown): { items: VerifyItem[]; error: st
     const o = x as Record<string, unknown>;
     if (typeof o.source_url !== 'string' || typeof o.evidence_snippet !== 'string') return;
     const label = [programId || (typeof o.id === 'string' ? o.id : null), typeof o.field === 'string' ? o.field : `#${i}`].filter(Boolean).join('.');
-    items.push({ label, source_url: o.source_url, evidence_snippet: o.evidence_snippet });
+    items.push({ label, source_url: o.source_url, evidence_snippet: o.evidence_snippet, ...(o.fetch_method === 'static' || o.fetch_method === 'render' ? { fetch_method: o.fetch_method } : {}) });
   });
   return { items, error: null };
 }
@@ -517,7 +524,7 @@ export function verifyItemsFromSeed(files: Record<string, unknown>): VerifyItem[
         const key = `${o.source_url} ${o.evidence_snippet}`;
         if (!seen.has(key)) {
           seen.add(key);
-          items.push({ label: `${file}${pointer}`, source_url: o.source_url, evidence_snippet: o.evidence_snippet });
+          items.push({ label: `${file}${pointer}`, source_url: o.source_url, evidence_snippet: o.evidence_snippet, ...(o.fetch_method === 'static' || o.fetch_method === 'render' ? { fetch_method: o.fetch_method } : {}) });
         }
       }
       for (const [k, x] of Object.entries(o)) walk(x, file, `${pointer}/${k}`);

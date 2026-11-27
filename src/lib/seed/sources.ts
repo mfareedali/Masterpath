@@ -24,6 +24,8 @@ export interface SourcePage {
   target: SourceTarget;
   fields: string[];
   role?: 'primary' | 'secondary';
+  /** true = the page needs JavaScript: read it with renderFetch (Playwright) instead of safeFetch. */
+  render?: boolean;
   notes?: string;
 }
 
