@@ -530,3 +530,36 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   call fails, the rules' reply replaces the partial text (`reset` to refusal). Off switch: `CHAT_GENERAL_KNOWLEDGE=0`
   (the strict data-only mode stays the default inside `answerQuestion` and keeps its tests). The owner was told the
   trade-off: answers outside the data can be confidently wrong.
+
+## Playwright for JavaScript-only official pages (27 Nov 2026)
+
+- **Why.** Some official pages only have their text after JavaScript runs (and some facts, like the ETH programme
+  contact e-mail, sit in the rendered page only). `src/lib/net/render-fetch.ts` reads them with Playwright 1.65.1
+  (pinned, devDependency) and Chromium. Same return shape as `safeFetch`, so ingest and the verifiers use either.
+- **Same policy, enforced by us.** Allowlist/https/credentials/IP-literal checks and a public-address DNS check run for
+  the first URL and for **every sub-request** (`page.route`); robots.txt (same parser, same User-Agent with the contact
+  URL, same cache) and the shared per-host throttle run for every page navigation (sub-requests are not throttled: they
+  are part of one page view). Images, media, fonts, pings and websockets are blocked. 20 s budget, 3 MB of text,
+  fresh browser and context per call, no cookies carried over, no downloads, pop-ups or service workers.
+- **Redirects are followed by our code, not by Chromium.** Chromium does not route redirect hops through
+  `page.route`, so a redirect to another host would have skipped every check (found by a test). Sub-requests are
+  fetched through `route.fetch(maxRedirects: 0)` and each hop is validated; a main-page redirect aborts the hop and
+  navigates to the validated target.
+- **Known limit.** Chromium resolves DNS itself, so unlike `safeFetch` the connection is not pinned to the addresses
+  we checked; a DNS rebind between our check and Chromium's lookup is possible in theory. The renderer is an offline
+  tool with an allowlist of official domains, and it is used only as a fallback, which is why this was accepted.
+  Sub-requests to CDNs that are not on the allowlist are aborted on purpose; a page that needs one will render partly
+  or not at all, and we report that instead of widening the list.
+- **No bot-challenge workarounds.** No stealth plugin, no fingerprint changes, the honest User-Agent stays. A challenge
+  page, a Cloudflare `cf-mitigated` header or a redirect to a challenge service (for example Radware's
+  `perfdrive.com`) stops the fetch with `BLOCKED_BY_CHALLENGE` and the page goes on the blocked list.
+- **Text = visible text.** `innerText` after network idle + a short settle, `<details>` opened, collapsed
+  `aria-expanded` buttons clicked (never links) and each tab panel read, then normalised like `htmlToText`
+  (one trimmed line per block). The result is `text/plain`, so `pageTextOf` uses it as is. Visible text is not a
+  superset of the static text (hidden menus are dropped), which is why rendering is a fallback and not the default.
+- **Method is recorded.** Accepted proposals carry `fetch_method: "static" | "render"`; `--verify` re-reads with the
+  recorded method. The seed has no such field, so a page that is read with the renderer must be registered with
+  `"render": true` in `data/sources.json`; `--verify-seed` uses that flag (otherwise: static, then render only when the
+  static page has under 200 characters).
+- **CI stays light.** Browsers are installed only in the weekly re-verify workflow (cached); the browser tests skip
+  themselves when Chromium is missing, and the policy helpers are tested without a browser.

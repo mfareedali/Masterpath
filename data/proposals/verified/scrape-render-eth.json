@@ -1,0 +1,54 @@
+{
+  "area": "render-eth",
+  "generated_at": "2026-11-27",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "ethz-msc-cs",
+      "field": "admissions_email",
+      "value": "master@inf.ethz.ch",
+      "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "evidence_snippet": "Email master@inf.ethz.ch",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "fetch_method": "render",
+      "notes": "Programme contact box (\"Email\") on the official ETH programme page. The address is only in the rendered page (the static HTML has no email).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Read with the Playwright renderer; ingest --verify FOUND with the same method. Single reviewer. Human review still required."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-data-science",
+      "field": "admissions_email",
+      "value": "master@inf.ethz.ch",
+      "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+      "evidence_snippet": "Email master@inf.ethz.ch",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "fetch_method": "render",
+      "notes": "Programme contact box (\"Email\") on the official ETH programme page. The address is only in the rendered page (the static HTML has no email).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Read with the Playwright renderer; ingest --verify FOUND with the same method. Single reviewer. Human review still required."
+      }
+    },
+    {
+      "target": "program",
+      "id": "ethz-msc-electrical-engineering",
+      "field": "admissions_email",
+      "value": "info@ee.ethz.ch",
+      "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+      "evidence_snippet": "Email info@ee.ethz.ch",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "fetch_method": "render",
+      "notes": "Programme contact box (\"Email\") on the official ETH programme page. The address is only in the rendered page (the static HTML has no email).",
+      "review": {
+        "verdict": "accept",
+        "checks": "Read with the Playwright renderer; ingest --verify FOUND with the same method. Single reviewer. Human review still required."
+      }
+    }
+  ]
+}
