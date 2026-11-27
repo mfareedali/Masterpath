@@ -46,6 +46,7 @@
         "target": { "$ref": "#/$defs/target" },
         "fields": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/field" } },
         "role": { "description": "primary = the official page for the target; secondary = embassy or other official page used only to cross-check.", "enum": ["primary", "secondary"] },
+        "render": { "description": "true = the page only has its text after JavaScript runs; ingest and verify read it with the Playwright renderer (same safety policy as safeFetch).", "type": "boolean" },
         "notes": { "type": "string", "maxLength": 500 }
       }
     }

@@ -97,7 +97,7 @@ export class RunRecorder {
 export function outcomeOfError(e: unknown): { outcome: Outcome; http_status: number | null; detail: string } {
   if (e instanceof SafeFetchError) {
     if (e.code === 'ROBOTS') return { outcome: 'robots', http_status: null, detail: e.message };
-    if (['HOST_NOT_ALLOWED', 'PRIVATE_ADDRESS', 'PROTOCOL', 'CREDENTIALS', 'BAD_URL', 'BAD_REDIRECT'].includes(e.code)) {
+    if (['HOST_NOT_ALLOWED', 'PRIVATE_ADDRESS', 'PROTOCOL', 'CREDENTIALS', 'BAD_URL', 'BAD_REDIRECT', 'BLOCKED_BY_CHALLENGE'].includes(e.code)) {
       return { outcome: 'blocked', http_status: null, detail: `${e.code}: ${e.message}` };
     }
     return { outcome: 'error', http_status: null, detail: `${e.code}: ${e.message}` };

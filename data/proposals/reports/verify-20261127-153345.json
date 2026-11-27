@@ -1,0 +1,52 @@
+{
+  "tool": "verify",
+  "mode": "file",
+  "args": [
+    "--verify",
+    "data/proposals/verified/scrape-render-eth.json"
+  ],
+  "user_agent": "MastersPathIngest/0.2 (open-source evidence bot; +https://github.com/mfareedali/Masterpath)",
+  "started_at": "2026-11-27T15:33:22.131Z",
+  "finished_at": "2026-11-27T15:33:45.994Z",
+  "duration_ms": 23863,
+  "summary": {
+    "entries": 3,
+    "by_outcome": {
+      "found": 3
+    },
+    "accepted": 0,
+    "rejected": 0
+  },
+  "accepted": [],
+  "rejections": [],
+  "entries": [
+    {
+      "kind": "snippet",
+      "ref": "ethz-msc-cs.admissions_email",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 9571
+    },
+    {
+      "kind": "snippet",
+      "ref": "ethz-msc-data-science.admissions_email",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 5686
+    },
+    {
+      "kind": "snippet",
+      "ref": "ethz-msc-electrical-engineering.admissions_email",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 8603
+    }
+  ],
+  "notes": []
+}
