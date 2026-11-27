@@ -43,15 +43,20 @@ describe('Privacy page', () => {
   afterEach(() => vi.unstubAllEnvs());
 
   it('names the AI provider that actually receives chat questions', () => {
-    vi.stubEnv('XAI_API_KEY', 'test-xai');
+    vi.stubEnv('GROQ_API_KEY', 'gsk_test');
     vi.stubEnv('ANTHROPIC_API_KEY', 'test-anthropic');
     let copy = text(render(PrivacyPage));
-    expect(copy).toMatch(/xAI's API\. xAI's model, Grok/);
+    expect(copy).toMatch(/Groq's API\. An open model hosted by Groq uses them/);
     expect(copy).not.toMatch(/Anthropic/);
+
+    vi.stubEnv('GROQ_API_KEY', '');
+    vi.stubEnv('XAI_API_KEY', 'xai-test');
+    copy = text(render(PrivacyPage));
+    expect(copy).toMatch(/xAI's API\. xAI’s model, Grok, uses them/);
 
     vi.stubEnv('XAI_API_KEY', '');
     copy = text(render(PrivacyPage));
-    expect(copy).toMatch(/Anthropic's API\. Anthropic's model, Claude/);
+    expect(copy).toMatch(/Anthropic's API\. Anthropic’s model, Claude, uses them/);
   });
 
   it('states every promise from the brief', () => {

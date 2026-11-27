@@ -109,7 +109,7 @@ export default function PrivacyPage() {
           it needs (for example a program&apos;s listed requirements and their official links) to{' '}
           {ai ? (
             <>
-              {ai.company}&apos;s API. {ai.company}&apos;s model, {ai.model}, uses them to write the answer.
+              {ai.company}&apos;s API. {ai.writer} uses them to write the answer.
             </>
           ) : (
             <>the AI provider this site is configured with. On this site the AI is currently switched off.</>

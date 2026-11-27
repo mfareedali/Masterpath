@@ -516,3 +516,8 @@ with the Supabase MCP and saved in `supabase/migrations/`; the applied SQL was c
   `content_filter` maps to `refusal` and `length` to `max_tokens`, so the existing fallback and "…" handling apply;
   the same rate limits and daily token budgets apply. The privacy page names the provider actually in use.
   Default model `grok-4` (override with `XAI_MODEL`): sources disagreed on the newest model id.
+- **Groq added; the connector is shared (27 Nov).** The owner's key was from Groq (groq.com, `gsk_…`), not xAI
+  Grok, so the xAI client became `src/lib/chat/openai-compat.ts` (any OpenAI-compatible API) and Groq is the first
+  choice (`GROQ_API_KEY`, default model `openai/gpt-oss-20b` from Groq's production list, `reasoning_effort: low`).
+  Because the names are easy to confuse, a key's prefix wins over the variable it was saved under (`gsk_` = Groq,
+  `xai-` = xAI). Only `delta.content` is shown; reasoning deltas are ignored. Errors log the provider's short reason.
