@@ -34,12 +34,6 @@ export interface SourcesFile {
   pages: SourcePage[];
 }
 
-/**
- * Country keys that are NOT in the database yet (visa fee, processing time, work rights). Pages may be registered for
- * them so the data gets collected, but they only ever become proposals in data/proposals/new-fields/.
- */
-export const PROPOSED_COUNTRY_KEYS = ['visa_fee', 'visa_processing_time', 'student_work_rights'] as const;
-
 export const FX_FIELD = 'pkr_per_unit';
 export const CONVERSION_FIELD = 'rule';
 
@@ -93,7 +87,7 @@ function allowedFields(t: SourceTarget): readonly string[] {
     case 'institution':
       return INSTITUTION_FACT_KEYS;
     case 'country':
-      return [...COUNTRY_FACT_KEYS, ...PROPOSED_COUNTRY_KEYS];
+      return COUNTRY_FACT_KEYS;
     case 'fx':
       return [FX_FIELD];
     case 'conversion_rule':

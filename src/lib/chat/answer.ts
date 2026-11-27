@@ -30,7 +30,7 @@ export interface ModelStreamRequest {
 
 export type ModelStreamEvent =
   | { type: 'text'; text: string }
-  | { type: 'end'; stopReason: string | null; outputTokens: number };
+  | { type: 'end'; stopReason: string | null; outputTokens: number; /** Prompt tokens, when the provider reports them. */ inputTokens?: number };
 
 /** The only thing answerQuestion needs from an LLM. See ./anthropic.ts for the real implementation. */
 export interface ChatModelClient {

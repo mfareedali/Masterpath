@@ -1,4 +1,7 @@
-/** Writes run reports to data/proposals/reports/ (shared by ingest, verify and check-links). */
+/**
+ * Writes run reports to data/proposals/reports/ (shared by ingest, verify and check-links). Each run writes a timestamped
+ * file (git-ignored) and overwrites latest-<tool>.json (the only report kept in git).
+ */
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, relative, resolve, sep } from 'node:path';
 import { formatRunSummary, reportFileName, type RunReport } from '../src/lib/seed/run-report';

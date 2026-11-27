@@ -1,0 +1,101 @@
+{
+  "area": "visa-1",
+  "generated_at": "2026-11-27",
+  "proposals": [
+    {
+      "target": "country_fact",
+      "field": "value",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official government page. Single reviewer. Human review still required."
+      },
+      "id": "uk-visa-fee",
+      "value": {
+        "text": "£558 to apply for a Student visa from outside the UK.",
+        "money": {
+          "amount": 558,
+          "currency": "GBP",
+          "period": "total"
+        }
+      },
+      "source_url": "https://www.gov.uk/student-visa",
+      "evidence_snippet": "£558 to apply for a Student visa from outside the UK",
+      "notes": "GOV.UK Student visa. Same page: £558 to extend or switch from inside the UK. The immigration health surcharge is separate."
+    },
+    {
+      "target": "country_fact",
+      "field": "value",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official government page. Single reviewer. Human review still required."
+      },
+      "id": "uk-visa-processing-time",
+      "value": {
+        "text": "You will usually get a decision on your visa within 3 weeks if you are outside the UK (8 weeks if you are inside the UK). You may be able to pay for a faster decision."
+      },
+      "source_url": "https://www.gov.uk/student-visa",
+      "evidence_snippet": "You’ll usually get a decision on your visa within: 3 weeks, if you’re outside the UK",
+      "notes": "GOV.UK Student visa, \"How long it takes to get a decision\"."
+    },
+    {
+      "target": "country_fact",
+      "field": "value",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official government page. Single reviewer. Human review still required."
+      },
+      "id": "uk-student-work-rights",
+      "value": {
+        "text": "You may be able to work on a Student visa. How much depends on what you are studying and whether you are working in or out of term-time."
+      },
+      "source_url": "https://www.gov.uk/student-visa",
+      "evidence_snippet": "You may be able to work - how much depends on what you’re studying and whether you’re working in or out of term-time.",
+      "notes": "GOV.UK gives no hour limit on this page; the conditions are on your visa decision letter. Do not read a number into it."
+    },
+    {
+      "target": "country_fact",
+      "field": "value",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official government page. Single reviewer. Human review still required."
+      },
+      "id": "ca-student-work-rights",
+      "value": {
+        "text": "A study permit can carry the condition: \"May work 24 hours per week off campus or full-time during regular breaks\" if you meet the criteria in paragraph 186(v) of the Immigration and Refugee Protection Regulations."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/work-off-campus.html",
+      "evidence_snippet": "May work 24 hours per week off campus or full-time during regular breaks if meeting criteria outlined in paragraph 186(v) of the Immigration and Refugee Protection Regulations (IRPR).",
+      "notes": "IRCC \"Work off campus\". The condition is quoted on the page as the wording added to the permit."
+    },
+    {
+      "target": "country_fact",
+      "field": "value",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "review": {
+        "verdict": "accept",
+        "checks": "Extracted by hand (no model key); ingest --verify FOUND on the live official government page. Single reviewer. Human review still required."
+      },
+      "id": "au-visa-fee",
+      "value": {
+        "text": "The Student visa (subclass 500) costs from AUD 2,500 (concessions apply in limited circumstances). An extra Onshore Application Charge may apply if you apply inside Australia under an exemption.",
+        "money": {
+          "amount": 2500,
+          "currency": "AUD",
+          "period": "total"
+        }
+      },
+      "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+      "evidence_snippet": "From AUD2,500.00 (concessions apply in limited circumstances).",
+      "notes": "Department of Home Affairs, Student visa (subclass 500). \"From\" is the page wording: this is the base charge, not a quote for every applicant."
+    }
+  ]
+}

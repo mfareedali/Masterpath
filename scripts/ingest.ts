@@ -2,7 +2,7 @@
  * OFFLINE ingestion: proposes program facts from official pages. Never runs in the app; never edits seed files.
  *
  *   npx tsx scripts/ingest.ts --program tum-msc-informatics --url https://www.tum.de/... [--fields deadline,tuition]
- *       one page, one program. Needs ANTHROPIC_API_KEY (optional ANTHROPIC_MODEL, default claude-opus-5-5)
+ *       one page, one program. Needs a model: INGEST_PROVIDER=xai + XAI_API_KEY (XAI_MODEL, XAI_REVIEW_MODEL) or ANTHROPIC_API_KEY
  *   npx tsx scripts/ingest.ts --all [--stale-days 7] [--country DE] [--only page-id,...] [--force] [--fetch-only]
  *       walks data/sources.json, one proposals file per program; pages whose content hash is unchanged are skipped
  *   npx tsx scripts/ingest.ts --verify data/proposals/tum-msc-informatics-20261124-1030.json
@@ -21,7 +21,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { loadSeedDataset } from '../src/lib/data/seed-source';
 import { USER_AGENT, type SafeResponse } from '../src/lib/net/safe-fetch';
-import { ingestModel, makeClaudeProposer } from '../src/lib/seed/claude-proposer';
+import { estimateCostUsd, resolveProposer, type Proposer } from '../src/lib/seed/proposer';
+import { reviewAccepted } from '../src/lib/seed/review-pass';
 import { isProgramFactField, type ProgramFactField } from '../src/lib/seed/fields';
 import {
   INGEST_USAGE,
@@ -113,8 +114,9 @@ function printResult(result: ReviewResult): void {
 /* ---------------- --program / --url (one page) ---------------- */
 
 async function propose(programId: string, url: string, fields: ProgramFactField[], argv: string[]) {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    fail('ANTHROPIC_API_KEY is not set. Propose mode needs it; "--verify <file>" works without a key.', 2);
+  const choice = resolveProposer();
+  if (!choice.ok) {
+    fail(`${choice.reason} Propose mode needs a model; "--verify <file>" works without a key.`, 2);
   }
   const ds = loadSeedDataset();
   const program = ds.programs.find((p) => p.id === programId);
@@ -149,7 +151,7 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
   if (fetchMethod === 'render') console.log('Read with the browser renderer (the page needs JavaScript).');
   if (page.redirects.length) console.log(`Redirected to ${page.url}`);
 
-  const model = ingestModel();
+  const model = choice.proposer.model;
   const prompt = buildExtractionPrompt({
     programName: program.name,
     institutionName: institution?.name ?? program.institution_id,
@@ -160,7 +162,7 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
   console.log(`Asking ${model} for proposals on ${fields.length} field(s) ...`);
   let output: string;
   try {
-    output = await makeClaudeProposer({ model })(prompt);
+    output = await choice.proposer.propose(prompt);
   } catch (e) {
     rec.entry({ kind: 'page', ref: programId, url, outcome: 'error', http_status: page.status, detail: `model call failed: ${describeFetchError(e)}`, duration_ms: Date.now() - t0 });
     writeRunReport(rec.finish());
@@ -204,15 +206,18 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
   if (problems.length) fail(`data/sources.json has ${problems.length} error(s); run npm run validate:seed.\n${problems.slice(0, 5).map((p) => `  ${p.path}: ${p.message}`).join('\n')}`, 2);
 
   const useModel = !args.fetchOnly;
-  if (useModel && !process.env.ANTHROPIC_API_KEY) fail('ANTHROPIC_API_KEY is not set. Use --fetch-only to fetch and hash pages without a model.', 2);
+  const choice = useModel ? resolveProposer() : null;
+  if (useModel && choice && !choice.ok) fail(`${choice.reason} Use --fetch-only to fetch and hash pages without a model.`, 2);
+  const proposer: Proposer | null = choice && choice.ok ? choice.proposer : null;
+  const reviewer: Proposer | null = choice && choice.ok ? choice.reviewer : null;
 
   const now = new Date();
   const state = loadState();
   const pages = selectPages(sources, state, seed, { country: args.country, staleDays: args.staleDays, only: args.only, now });
   const groups = groupByTarget(pages);
   const ds = loadSeedDataset();
-  const model = useModel ? ingestModel() : 'none';
-  const propose = useModel ? makeClaudeProposer({ model }) : null;
+  const model = proposer ? `${proposer.provider}:${proposer.model}${reviewer ? ` (second pass ${reviewer.model})` : ''}` : 'none';
+  const propose = proposer ? proposer.propose : null;
   const rec = new RunRecorder('ingest', args.fetchOnly ? 'all-fetch-only' : 'all', argv, USER_AGENT);
   rec.notes.push(`${pages.length} page(s) selected of ${sources.pages.length} in the registry; model: ${model}`);
   console.log(`${pages.length} page(s) in ${groups.size} target(s). Model: ${model}.`);
@@ -288,6 +293,11 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
       const parsed = parseModelOutput(output);
       const result = reviewProposals(parsed.proposals, { pageText: text, fetchMethod: method, sourceUrl: res.url, fetchedAt: now.toISOString(), fields });
       if (parsed.error) result.rejected.push({ field: null, value: null, evidence_snippet: null, reasons: [parsed.error] });
+      if (reviewer && result.accepted.length > 0) {
+        const second = await reviewAccepted({ programName: program.name, institutionName: institution?.name ?? program.institution_id, accepted: result.accepted }, reviewer.propose, reviewer.model);
+        result.accepted = second.kept;
+        result.rejected.push(...second.vetoed);
+      }
       accepted.push(...result.accepted);
       rejected.push(...result.rejected);
       fields.forEach((f) => fieldsSeen.add(f));
@@ -317,6 +327,11 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
     saveState(state);
   }
   saveState(state);
+  for (const p of [proposer, reviewer]) {
+    if (!p) continue;
+    const cost = estimateCostUsd(p.model, p.usage);
+    rec.notes.push(`${p.provider}:${p.model}: ${p.usage.calls} call(s), ${p.usage.failures} failed, ${p.usage.inputTokens} input / ${p.usage.outputTokens} output tokens${cost !== null ? `, about $${cost.toFixed(4)}` : ''}`);
+  }
   writeRunReport(rec.finish());
 }
 

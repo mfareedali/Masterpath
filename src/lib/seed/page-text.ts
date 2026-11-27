@@ -16,6 +16,8 @@ export interface PageText {
   method?: FetchMethod;
 }
 
+export const PDF_TIMEOUT_MS = 30_000;
+
 export type FetchMethod = 'static' | 'render';
 
 export interface FetchPageOptions {
@@ -47,7 +49,9 @@ export async function fetchPage(url: string, options: FetchPageOptions = {}): Pr
     const res = await renderFetch(url);
     return { res, text: res.body, method: 'render' };
   }
-  const res = await safeFetch(url, { acceptTypes: PAGE_TYPES, conditional: options.conditional });
+  // Rate sheets (SBP) are large PDFs on a slow host: they get 30 s instead of the default 10 s.
+  const timeoutMs = /.pdf(?:[?#]|$)/i.test(url) ? PDF_TIMEOUT_MS : undefined;
+  const res = await safeFetch(url, { acceptTypes: PAGE_TYPES, conditional: options.conditional, ...(timeoutMs ? { timeoutMs } : {}) });
   if (res.notModified || !res.ok) return { res, text: '', method: 'static' };
   const text = await textOfResponse(res);
   const html = !res.raw;
@@ -67,7 +71,7 @@ export async function fetchPage(url: string, options: FetchPageOptions = {}): Pr
 export async function fetchPageText(url: string, options: SafeFetchOptions & FetchPageOptions = {}): Promise<PageText> {
   const { fetchMethod, render, ...safe } = options;
   if (fetchMethod === undefined && !render && Object.keys(safe).length > 0) {
-    const res = await safeFetch(url, { acceptTypes: PAGE_TYPES, ...safe });
+    const res = await safeFetch(url, { acceptTypes: PAGE_TYPES, ...(/.pdf(?:[?#]|$)/i.test(url) ? { timeoutMs: PDF_TIMEOUT_MS } : {}), ...safe });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return { url: res.url, text: await textOfResponse(res), etag: res.etag, lastModified: res.lastModified, method: 'static' };
   }
