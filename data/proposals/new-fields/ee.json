@@ -1,0 +1,352 @@
+{
+  "programs": [
+    {
+      "id": "tum-msc-communications-electronics-engineering",
+      "institution_id": "tum",
+      "name": "MSc Communications and Electronics Engineering",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "ee",
+      "official_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Winter semester (October)",
+          "source_url": "https://www.tum.de/en/studies/degree-programs/detail/communications-engineering-master-of-science-msc",
+          "evidence_snippet": "Start of Degree Program Winter Semester (October)",
+          "fetched_at": "2026-11-27",
+          "review_note": "TUM central programme page. Winter-only intake; CIT page also says 'Start of Degree Program: Winter Semester'. Target intake for current applicants: winter semester 2027/28."
+        },
+        "deadline": {
+          "value": "2027-05-31",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "We encourage applying as early as possible! Late application increases the likelihood that international students not have adequate time to complete the visa application process if admitted. We strongly recommend applying no later than March 15. Timetable and Deadlines Online application and upload of required documents: February 1st – May 31st",
+          "fetched_at": "2026-11-27",
+          "basis": "inferred",
+          "note": "Applications open 1 February. TUM strongly recommends that international applicants apply by 15 March so there is time for the visa.",
+          "review_note": "Page gives dates without a year; 31 May 2027 is the next occurrence of the close of the winter-semester window (winter semester 2027/28). Apply via TUMonline; uni-assist VPD required for a non-German bachelor's."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": null,
+            "toefl_ibt": null,
+            "waiver": "An official document from your university confirming that at least 50% of your bachelor's programme was taught in English is accepted instead of a language certificate.",
+            "text": "English. Submit one of TUM's recognised English language certificates, or an authenticated university document confirming the bachelor's language of instruction was at least 50% English."
+          },
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "Applicants must also submit one of the recognized language certificates listed here or an authenticated copy of an original document issued by your university verifying that the language of instruction in your bachelor’s degree program was at least 50% English.",
+          "fetched_at": "2026-11-27",
+          "review_note": "No numeric IELTS/TOEFL minimum on the programme page (it links to TUM's list of recognised certificates)."
+        },
+        "language_waiver": {
+          "value": "Yes: instead of a test, you can submit an authenticated copy of an original document from your university confirming that at least 50% of your bachelor's was taught in English.",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "Applicants must also submit one of the recognized language certificates listed here or an authenticated copy of an original document issued by your university verifying that the language of instruction in your bachelor’s degree program was at least 50% English.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Applies to Pakistani English-medium degrees if the university issues such a document."
+        },
+        "duration_months": {
+          "value": 24,
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "Type of Study: Full-time Standard Duration of Studies: 4 Semesters Credits: 120 ECTS",
+          "fetched_at": "2026-11-27",
+          "review_note": "4 semesters = 24 months."
+        },
+        "lor_count": {
+          "value": 2,
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "Statement of Purpose - Please use template below provided below Two letters of References - Please use template below provided below",
+          "fetched_at": "2026-11-27",
+          "review_note": "TUM provides a template for the letters. Letters are scored in stage 1 (max. 25 points)."
+        },
+        "sop_requirements": {
+          "value": "Statement of Purpose using TUM's template; it is scored in stage 1 of the aptitude assessment (up to 20 of 100 points).",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "Overall grade in your bachelor’s degree (max. 30 points) Subjects during your bachelor’s degree (max. 25 points) Mathematics max. 10 points Electrical Engineering max. 5 points Communications Engineering max. 10 points A statement of purpose (max. 20 points) Two letters of reference (max. 25 points)",
+          "fetched_at": "2026-11-27",
+          "review_note": "Template link 'Template for Statement of Purpose' is on the same page. Stage 1: at least 95 points = direct admission; 75-94 points = 20-minute interview."
+        },
+        "cv_requirements": {
+          "value": "Curriculum Vitae (CV) is a required upload in TUMonline.",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "APS Certificate – required only for applicants from China, India, Vietnam Curriculum Vitae (CV) Transcript of Records and Module Catalog (recommended, submit together with the transcript)",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "For holders of a bachelor's (or equivalent) in electrical engineering and/or information technology with a focus on communications engineering, from a university rated H+ in Anabin.",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "To be eligible to apply for the master’s program in Communications and Electronics Engineering, applicants must hold a Bachelor’s degree or equivalent from a university that rated H+ at Anabin in electrical engineering and/or information technology, with focus on communications engineering.",
+          "fetched_at": "2026-11-27",
+          "note": "Check that your Pakistani university is rated H+ in the Anabin database before applying."
+        },
+        "admissions_email": {
+          "value": "app-msce.asa@xcit.tum.de",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+          "evidence_snippet": "E-mail: msce.asa@xcit.tum.de Application Questions about application: app-msce.asa@xcit.tum.de",
+          "fetched_at": "2026-11-27",
+          "review_note": "Application questions address; general programme email is msce.asa@xcit.tum.de."
+        },
+        "scholarship_info": {
+          "value": "TUM scholarship for international students: a one-time study grant of 500 to 1,800 euros per semester. Both academic performance and financial circumstances are considered in selection, and you can apply again each semester.",
+          "source_url": "https://www.tum.de/en/studies/fees/tuition",
+          "evidence_snippet": "TUM scholarship for international students TUM supports international students through scholarships. Both academic performance and financial circumstances are taken into account during the selection process. You can receive a one-time study grant of 500 to 1,800 euros per semester. Applications can be submitted again each semester.",
+          "fetched_at": "2026-11-27",
+          "review_note": "TUM-wide, same source as tum-msc-informatics. The programme detail page adds 'Many international students can have their fees waived or receive scholarships to finance them.'"
+        }
+      }
+    },
+    {
+      "id": "ethz-msc-electrical-engineering",
+      "institution_id": "ethz",
+      "name": "MSc Electrical Engineering and Information Technology",
+      "country": "CH",
+      "degree": "MSc",
+      "field": "ee",
+      "official_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Autumn (fall) semester 2027",
+          "source_url": "https://ee.ethz.ch/studies/Admission.html",
+          "evidence_snippet": "Deadlines for applications: November 1 to November 30 (of the previous year) Students with a bachelor's degree from a Swiss university who do not need a visa or already have a valid Swiss residence permit may also apply from April 1 to April 30 of the same year the program starts. Applications are only possible to the fall semester.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Department (D-ITET) admission page. Fall-only entry; the current window is for autumn semester 2027."
+        },
+        "deadline": {
+          "value": "2026-11-30",
+          "source_url": "https://www.lehrbetrieb.ethz.ch/eApply/",
+          "evidence_snippet": "The application period for Master's degree programmes lasts from 1 November 2026 00:00 to 30 November 2026 12:00 CET \"(noon)\". Late applications are not possible.",
+          "fetched_at": "2026-11-27",
+          "note": "Applications close at 12:00 noon CET on 30 November 2026. Late applications are not possible.",
+          "review_note": "ETH-wide eApply window for Master's starting autumn semester 2027 (same source as ethz-msc-cs). Department page confirms 'November 1 to November 30 (of the previous year)'; the April window is only for Swiss bachelor's holders. URGENT: only 3 days after this research date."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": null,
+            "toefl_ibt": null,
+            "waiver": null,
+            "text": "English, Level C1; proof of proficiency required by the application deadline (see ETH Language requirements)."
+          },
+          "source_url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+          "evidence_snippet": "English, proof of proficiency required by the application deadline: Level C1, see Language requirements",
+          "fetched_at": "2026-11-27",
+          "review_note": "No numeric IELTS/TOEFL minimum in the static text of this page."
+        },
+        "language_waiver": {
+          "value": "Exempt only if the whole bachelor's programme was taught completely in English and this is officially confirmed by the university.",
+          "source_url": "https://ethz.ch/en/studies/master/application/language-requirements.html",
+          "evidence_snippet": "Applicants who complete a Bachelor’s degree programme completely taught in English. The language of instruction must be officially confirmed by the university. No confirmations are required for Bachelor's degrees from Australia, Ireland, New Zealand, the United Kingdom and the United States.",
+          "fetched_at": "2026-11-27",
+          "review_note": "ETH-wide page, same source as ethz-msc-cs. Confirmations that do not meet the exemption lead to direct rejection, so take a test if unsure."
+        },
+        "tuition": {
+          "value": { "amount": 2190, "currency": "CHF", "period": "semester" },
+          "source_url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+          "evidence_snippet": "Threefold tuition fee: CHF 2190 / semester All students who do not fulfil the criteria for simple tuition fee will be assigned to the second group paying a threefold tuition fee.",
+          "fetched_at": "2026-11-27",
+          "note": "Tuition only; semester fees are extra.",
+          "review_note": "Same source as ethz-msc-cs. Applies to students who were not resident in Switzerland/Liechtenstein when they obtained their university entrance qualification, i.e. typical Pakistani applicants."
+        },
+        "duration_months": {
+          "value": 24,
+          "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+          "evidence_snippet": "Credits | duration 120 ECTS | 2 years",
+          "fetched_at": "2026-11-27",
+          "review_note": "2 years = 24 months."
+        },
+        "tests_required": {
+          "value": "GRE General Test required for applicants whose bachelor's is not from an EU/EFTA country (so required for Pakistani degrees). Minimum expected scores: Analytical 3.5, Quantitative 165, Verbal 155.",
+          "source_url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+          "evidence_snippet": "GRE General Test Required for students who have not obtained their Bachelor's degree in one of the external page EU/EFTA Member State countries. Minimum expected GRE scores: GRE Analytical = 3.5 or 50% GRE Quantitative = 165 or 90% GRE Verbal = 155 or 70%.",
+          "fetched_at": "2026-11-27"
+        },
+        "lor_count": {
+          "value": 2,
+          "source_url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+          "evidence_snippet": "Please provide two recommendation letters. We prefer letters from academia or from referees with an academic background. The letters will be part of a potential ESOP Scholarship application.",
+          "fetched_at": "2026-11-27"
+        },
+        "sop_requirements": {
+          "value": "Motivation letter of approximately one A4 page in English stating your motivation for choosing this specific Master's programme at ETH Zurich.",
+          "source_url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+          "evidence_snippet": "Approximately one A4 page in the language of instruction of the chosen programme, stating your motivation for choosing this specific Master's degree programme at ETH Zurich.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Language of instruction is English. Applicants must also choose a specialisation matching their bachelor's curriculum."
+        },
+        "scholarship_info": {
+          "value": "Excellence Scholarship & Opportunity Programme (ESOP): scholarship, mentorship and a network of the ETH Foundation; it covers the full study and living costs during the Master's. Apply in the window 1 to 30 November 2026 for a start in autumn semester 2027 (HS27).",
+          "source_url": "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html",
+          "evidence_snippet": "The Excellence Scholarship & Opportunity Programme (ESOP) supports students with a scholarship, mentorship and a network of the ETH Foundation. The scholarship covers the full study and living costs during the Master’s degree course. The next application window is open Nov, 1 - Nov, 30 2026, 11.59h, MEZ for a start in the Master programme in HS27.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same source as ethz-msc-cs. Applied for through eApply alongside the Master's application; the programme page says the two recommendation letters are part of a potential ESOP application."
+        }
+      }
+    },
+    {
+      "id": "imperial-msc-future-power-networks",
+      "institution_id": "imperial",
+      "name": "MSc Future Power Networks",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "ee",
+      "official_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "October 2027",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+          "evidence_snippet": "Duration 1 year Start date October 2027",
+          "fetched_at": "2026-11-27"
+        },
+        "deadline": {
+          "value": "2027-04-28",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+          "evidence_snippet": "Round 4 Applications open on Thursday 11 March 2027 Applications close on Wednesday 28 April 2027 Decision by Thursday 1 July 2027 We recommend applying as early as you can – we cannot guarantee that places will be available, or that courses will remain open, in later rounds.",
+          "fetched_at": "2026-11-27",
+          "note": "This is the last application round. Earlier rounds close on 6 January 2027 (Round 2) and 10 March 2027 (Round 3); Imperial says places may not be available in later rounds, so apply early.",
+          "review_note": "Staged rounds: Round 2 closes Wed 6 Jan 2027, Round 3 closes Wed 10 Mar 2027, Round 4 closes Wed 28 Apr 2027 (all 23.59 UK time). Value = final round close."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 7,
+            "toefl_ibt": null,
+            "waiver": null,
+            "text": "Higher university requirement: IELTS Academic 7.0 overall (minimum 6.5 in all elements)."
+          },
+          "source_url": "https://www.imperial.ac.uk/study/apply/english-language/",
+          "evidence_snippet": "IELTS – Academic (Test-Centre/UKVI SELT/Online) Standard Higher 6.5 overall (minimum 6.0 in all elements) 7.0 overall (minimum 6.5 in all elements)",
+          "fetched_at": "2026-11-27",
+          "note": "The course page says: \"For admission to this course, you must achieve the higher university requirement in the appropriate English language qualification.\"",
+          "review_note": "Same source as imperial-msc-computing. Course page requires the higher requirement. TOEFL iBT moved to a 1-6 band scale in Jan 2026, so no iBT number proposed."
+        },
+        "language_waiver": {
+          "value": "No waiver for a Pakistani degree: Imperial exempts only applicants who completed a qualification equivalent to a UK degree in Australia, Canada, Guyana, Ireland, Malta, New Zealand, South Africa, the United Kingdom, the USA or the West Indies.",
+          "source_url": "https://www.imperial.ac.uk/study/apply/english-language/english-language-exemption/",
+          "evidence_snippet": "You do not need to prove your knowledge of English as part of your application if you’ve completed a qualification equivalent to a UK degree in one of the following countries: Australia Canada Guyana Ireland Malta New Zealand South Africa United Kingdom United States of America West Indies",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same source as imperial-msc-computing. Pakistan is not on the list."
+        },
+        "tuition": {
+          "value": { "amount": 47250, "currency": "GBP", "period": "year" },
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+          "evidence_snippet": "Overseas fee 2027 entry £47,250",
+          "fetched_at": "2026-11-27",
+          "review_note": "Overseas fee, 2027 entry, one-year course (year = total). Home fee £20,350. Application fee £90."
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+          "evidence_snippet": "Qualification MSc Duration 1 year Start date October 2027 Study mode Full-time",
+          "fetched_at": "2026-11-27",
+          "review_note": "1 year = 12 months."
+        },
+        "eligibility_note": {
+          "value": "Typically requires a First-Class degree (or equivalent) in Electrical/Electronic Engineering or a related subject with a substantial EEE component. For degrees from outside the UK, grades slightly higher than the UK 2:1 equivalent are needed. The course suits both power-background graduates and general electrical engineers who want to specialise.",
+          "source_url": "https://www.imperial.ac.uk/electrical-engineering/study/postgraduate/applying/",
+          "evidence_snippet": "If you studied outside the UK, you need a degree that is the same level as a UK first-class honours. You can check how international grades compare to UK grades in our qualification guidance. The grades shown in the guidance for equivalent to a UK Upper Second Class degree (2.1). To meet our requirement of First class equivalence, you will need slightly higher grades.",
+          "fetched_at": "2026-11-27",
+          "review_note": "EEE department applying page. Course page minimum entry standard: 'First-Class Honours in Electrical/Electronic Engineering or a related subject with a substantial Electrical/ Electronic Engineering component.' Course page also: 'This course is both for those who wish to refresh their skillset from a power background, and those with a generic electrical engineering background who want to specialise.' No numeric Pakistan threshold for first-class equivalence found, so min_gpa_rule left out."
+        },
+        "admissions_email": {
+          "value": "eee.pgadmissions@imperial.ac.uk",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+          "evidence_snippet": "Contact the department Email: eee.pgadmissions@imperial.ac.uk",
+          "fetched_at": "2026-11-27"
+        },
+        "scholarship_info": {
+          "value": "Imperial Inspires Scholarships (Postgraduate taught): £15,000 per award for overseas students, listed on this course page.",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+          "evidence_snippet": "Imperial Inspires Scholarships (Postgraduate taught) Value per award £15,000 Who it's for Overseas students",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    },
+    {
+      "id": "utoronto-meng-ece",
+      "institution_id": "utoronto",
+      "name": "MEng Electrical and Computer Engineering",
+      "country": "CA",
+      "degree": "MEng",
+      "field": "ee",
+      "official_url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Fall 2027 (September)",
+          "source_url": "https://www.ece.utoronto.ca/graduates/admission/",
+          "evidence_snippet": "Application deadline for Fall start (September 2027) International April 15, 2027",
+          "fetched_at": "2026-11-27",
+          "review_note": "A Winter start (January 2028) is also offered, deadline May 31, 2027 (domestic & international). MEng Co-op is Fall start only."
+        },
+        "deadline": {
+          "value": "2027-04-15",
+          "source_url": "https://www.ece.utoronto.ca/graduates/admission/",
+          "evidence_snippet": "The deadlines for applicants to complete their applications, including two references, are below. Please review the application instructions before initiating the submission process. Professional Stream MEng Program Application Type Deadline Date Application deadline for MEng Co-op for Fall start (September 2027) Domestic & International February 8, 2027 Application deadline for Fall start (September 2027) International April 15, 2027",
+          "fetched_at": "2026-11-27",
+          "note": "International deadline for a September 2027 start. The Co-op option closes earlier, on 8 February 2027. The application, including two references, must be complete by the deadline.",
+          "review_note": "For 2027-28, MEng applicants apply through the SGS Application System only."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 7,
+            "toefl_ibt": null,
+            "waiver": "Not needed if your degree was taught and examined uniformly in English and this is officially verified (transcript note or an official statement sent by your university to ECE).",
+            "text": "IELTS Academic 7.0 overall with at least 6.5 in each component (School of Graduate Studies minimum). Must be met at the time of application; tests must be no older than two years."
+          },
+          "source_url": "https://www.sgs.utoronto.ca/future-students/admission-application-requirements/english-language-proficiency-testing/",
+          "evidence_snippet": "Minimum required score: 7.0 (Academic) with at least 6.5 for each component.",
+          "fetched_at": "2026-11-27",
+          "review_note": "SGS (university-wide graduate) page; it says to consult the department for any higher score. ECE's minimum-requirements page defers to the SGS options. TOEFL moved to a 1-6 scale in Jan 2026, so no iBT number proposed."
+        },
+        "language_waiver": {
+          "value": "Yes, possibly: for degrees from countries not on ECE's exempt list (Pakistan is not on it), an English-medium degree counts if the language of instruction and examination is officially verified, usually by a note on the transcript, or by an official statement your university sends directly to grad.admissions.ece@utoronto.ca.",
+          "source_url": "https://www.ece.utoronto.ca/graduates/minimum-admission-requirements/",
+          "evidence_snippet": "If the degree was completed in a country not on the above list, the language of instruction and examination will require official verification. Official verification is usually provided in the form of a note on the transcript confirming the use of English as the language of instruction and examination.",
+          "fetched_at": "2026-11-27",
+          "review_note": "This applies to applicants 'who will complete a degree where English is uniformly the language of instruction and examination'. If English was not used uniformly, a test is required."
+        },
+        "tuition": {
+          "value": { "amount": 76090.39, "currency": "CAD", "period": "year" },
+          "source_url": "https://gradstudies.engineering.utoronto.ca/prospective-students/money-matters/",
+          "evidence_snippet": "Presented are 2026-2027 tuition amounts (including incidental fees) for our professional- and research-stream graduate programs. For details on tuition (including tuition for part-time students) and making fee payments, please visit the U of T Student Accounts website. Application Type MEng* & MEngCEM MASc PhD Domestic (full-time) $15,932 $8,622.39 $8,622.39 International (full-time) $76,090.39",
+          "fetched_at": "2026-11-27",
+          "note": "2026-2027 amount including incidental fees; the 2027-2028 fee is likely to be higher. The full-time MEng is designed to take 12 months.",
+          "review_note": "U of T Engineering Graduate Studies page. The table is MEng / MASc / PhD columns; the first international figure is MEng. Co-op students starting Fall 2027 pay an extra $3,865 ancillary fee."
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.ece.utoronto.ca/graduates/admission/",
+          "evidence_snippet": "The MEng Full-Time (FT) option is designed to be completed in 12 months, while the Extended Full-Time (EFT) option allows for completion within 16 to 24 months.",
+          "fetched_at": "2026-11-27",
+          "review_note": "EFT students pay approximately the same total programme fee as FT."
+        },
+        "lor_count": {
+          "value": 2,
+          "source_url": "https://www.ece.utoronto.ca/graduates/admission/",
+          "evidence_snippet": "The deadlines for applicants to complete their applications, including two references, are below.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same page: academic referees preferred; managers or other engineering professionals may be appropriate referees for MEng applications."
+        },
+        "eligibility_note": {
+          "value": "Requires the equivalent of a U of T four-year bachelor's in electrical or computer engineering or a related field (e.g. computer science, mathematics, physics), with at least a mid-B average in the final year. Final-year and overall GPA, the letter of intent and references are all considered.",
+          "source_url": "https://www.ece.utoronto.ca/graduates/minimum-admission-requirements/",
+          "evidence_snippet": "To be eligible for admission to the MASc or MEng program, an applicant must hold the equivalent of a University of Toronto four-year Bachelor’s degree in electrical or computer engineering, or a related field, with an average equivalent to at least a mid-B in the final year (as per the SGS International Credential Equivalencies tool).",
+          "fetched_at": "2026-11-27",
+          "review_note": "No numeric Pakistan equivalent on this page (it points to the SGS International Credential Equivalencies tool), so min_gpa_rule left out. Admission page FAQ: 'Both your final-year GPA and overall GPA are considered in the admissions process.'"
+        },
+        "sop_requirements": {
+          "value": "A letter of intent is part of the application and is considered in the admissions evaluation together with GPA and references.",
+          "source_url": "https://www.ece.utoronto.ca/graduates/admission/",
+          "evidence_snippet": "Both your final-year GPA and overall GPA are considered in the admissions process. Your final-year GPA must meet the minimum requirement set out by the School of Graduate Studies (SGS). Your letter of intent and references are also relevant to the evaluation process. Meeting the minimum GPA does not guarantee admission.",
+          "fetched_at": "2026-11-27"
+        },
+        "admissions_email": {
+          "value": "grad.admissions.ece@utoronto.ca",
+          "source_url": "https://www.ece.utoronto.ca/graduates/minimum-admission-requirements/",
+          "evidence_snippet": "If an applicant believes that one of the below scenarios applies to them, they should contact grad.admissions.ece@utoronto.ca with a detailed explanation and a request for more information about a possible exemption:",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    }
+  ]
+}

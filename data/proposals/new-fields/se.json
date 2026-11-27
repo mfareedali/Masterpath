@@ -1,0 +1,338 @@
+{
+  "institutions": [
+    {
+      "id": "rwth",
+      "name": "RWTH Aachen University",
+      "country": "DE",
+      "kind": "destination",
+      "website": "https://www.rwth-aachen.de"
+    },
+    {
+      "id": "utdallas",
+      "name": "The University of Texas at Dallas",
+      "country": "US",
+      "kind": "destination",
+      "website": "https://www.utdallas.edu"
+    }
+  ],
+  "programs": [
+    {
+      "id": "cmu-mse",
+      "institution_id": "cmu",
+      "name": "Master of Software Engineering",
+      "country": "US",
+      "degree": "MSE",
+      "field": "se",
+      "official_url": "https://mse.s3d.cmu.edu/applicants/mse-as/index.html",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Fall 2027",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/apply.html",
+          "evidence_snippet": "Fall 2027 Program Start: MSE applications open on Wednesday, September 9, 2026 and close on Wednesday, December 9, 2026.",
+          "fetched_at": "2026-11-27",
+          "review_note": "From the 'MSE Campus Programs (One admissions cycle per year)' block of the How to Apply page."
+        },
+        "deadline": {
+          "value": "2026-12-09",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "Application Deadline December 9, 2026 (3pm EST)",
+          "fetched_at": "2026-11-27",
+          "note": "Deadline is 3pm US Eastern time. An online coding assessment follows (invitations 11 December, due 17 December 2026).",
+          "review_note": "Admissions Timeline on the MSE How to Apply page for the Fall 2027 campus MSE / MSE-Applied Study. Same page: 'Coding Assessment Deadline December 17, 2026'."
+        },
+        "tuition": {
+          "value": { "amount": 27000, "currency": "USD", "period": "semester" },
+          "source_url": "https://mse.s3d.cmu.edu/applicants/tuition.html",
+          "evidence_snippet": "2026-27 MSE MSE-SS & MSE-ES MSE Online MSE Graduate Certificates Program Length 4 semesters 4 semesters 6-8 semesters 2 semesters Total Units 198 153 108 24 Tuition per Semester $27,000",
+          "fetched_at": "2026-11-27",
+          "note": "This is the 2026-27 rate for the MSE (the page has no 2027-28 rate yet). The MSE runs 4 semesters. Health insurance, technology and other fees are extra.",
+          "review_note": "First column of the 2026-27 table = MSE. CMU charges the same tuition to US and international students. 2025-26 was $26,250."
+        },
+        "duration_months": {
+          "value": 16,
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/index.html",
+          "evidence_snippet": "The program is an on-campus, 16 or 20-month long program when pursued full-time.",
+          "fetched_at": "2026-11-27",
+          "note": "16 months for the MSE; 20 months for the MSE - Applied Study (with internship).",
+          "review_note": "Home page table also lists 'Master of Software Engineering Full-Time Yes 16 months'."
+        },
+        "lor_count": {
+          "value": 3,
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "Letters of Recommendation: At least three letters of recommendation should be submitted on your behalf from academic and/or industry personnel who have worked closely with you recently.",
+          "fetched_at": "2026-11-27"
+        },
+        "tests_required": {
+          "value": "GRE optional: an application without GRE scores is not at a disadvantage. An online coding assessment is required after the deadline.",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "Unofficial GRE Scores (optional): GRE scores are optional. An application without GRE scores is not at a disadvantage; however, applicants who have taken the GREs are encouraged to submit their scores.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same page: 'Online Coding Assessment: Invitations will be sent out two days after the application deadline.'"
+        },
+        "admissions_email": {
+          "value": "mse-applications@andrew.cmu.edu",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "If you submitted an application but do not receive a coding invitation on December 11th, please contact mse-applications@andrew.cmu.edu as soon as possible.",
+          "fetched_at": "2026-11-27"
+        },
+        "sop_requirements": {
+          "value": "Statement of Purpose written by you, with specific details about your professional goals and your software engineering experience on teams and projects. A video essay is also required.",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "Statement of Purpose: Your statement should be written by you and include specific details about your professional goals and about your software engineering experience on teams and projects.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same page: 'Video Essay: The guidelines for the video essay will be available in the application.'"
+        },
+        "cv_requirements": {
+          "value": "A resume/CV is required with the application.",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "The following materials are required with your application: Statement of Purpose: Your statement should be written by you and include specific details about your professional goals and about your software engineering experience on teams and projects. Resume/CV",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "Needs an undergraduate degree (preferably Computer Science or engineering-related) and a cumulative QPA higher than 2.5. Professional software engineering experience is recommended, not required.",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "An undergraduate degree, preferably in Computer Science or other scientific or other engineering-related discipline. Cumulative QPA higher than 2.5. Professional software engineering experience is recommended, but not a requirement.",
+          "fetched_at": "2026-11-27",
+          "review_note": "QPA 2.5 was NOT put in min_gpa_rule because the page does not name the scale (CMU's QPA is on 4.0, but the page does not say so)."
+        },
+        "language_waiver": {
+          "value": "No waiver: CMU does not waive the English test for non-native speakers on an F-1/J-1 visa, including for study in English outside the US. A TOEFL (preferred), IELTS or Duolingo score is required.",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+          "evidence_snippet": "We also do not issue waivers based on previous study at an English-language high school, college, or university outside of the United States. No amount of educational experience in English, regardless of which country it occurred in, will result in a test waiver.",
+          "fetched_at": "2026-11-27",
+          "review_note": "The page names no minimum TOEFL/IELTS/Duolingo score, so language_req was left empty."
+        },
+        "scholarship_info": {
+          "value": "James E. Tomayko Scholarship for one or more students with academic excellence, leadership and financial need; usually identified after the first semester in the program.",
+          "source_url": "https://mse.s3d.cmu.edu/applicants/tuition.html",
+          "evidence_snippet": "The James E. Tomayko Scholarship is awarded to one or more students who demonstrate academic excellence, leadership potential, strong communication skills, exceptional personal initiative, and demonstrated financial need. Prospective awardees are generally identified upon the completion of one full semester in the program, with recipients chosen by committee.",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    },
+    {
+      "id": "imperial-msc-computing-se",
+      "institution_id": "imperial",
+      "name": "Computing (Software Engineering) MSc",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "se",
+      "official_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "October 2027",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+          "evidence_snippet": "Duration 1 year Start date October 2027",
+          "fetched_at": "2026-11-27"
+        },
+        "deadline": {
+          "value": "2027-01-06",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+          "evidence_snippet": "Round 2 Applications open on Wednesday 30 September 2026 Applications close on Wednesday 6 January 2027 Decision by Wednesday 3 March 2027",
+          "fetched_at": "2026-11-27",
+          "note": "Imperial admits in rounds (23.59 UK time on the closing date). This is the round open now; Round 3 closes 10 March 2027 and Round 4 closes 28 April 2027, but places in later rounds are not guaranteed.",
+          "review_note": "Same page: 'Round 3 ... Applications close on Wednesday 10 March 2027' and 'Round 4 ... Applications close on Wednesday 28 April 2027'; 'we cannot guarantee that places will be available, or that courses will remain open, in later rounds.' Chosen the currently open round. NOTE: imperial-msc-computing deliberately keeps its deadline null for a demo; drop this deadline if that demo should also cover this course."
+        },
+        "min_gpa_rule": {
+          "value": {
+            "scale": "percent",
+            "min": 75,
+            "text": "Imperial's general minimum for Pakistani applicants: a four-year HEC-funded Bachelor's (awarded 2016 or later) with a final overall mark of 75% or better. This course asks for a First-Class degree, and selectors may demand a higher mark."
+          },
+          "source_url": "https://www.imperial.ac.uk/study/apply/postgraduate-taught/entry-requirements/accepted-qualifications/",
+          "evidence_snippet": "To be considered for admission to postgraduate study, applicants should have completed a four year Bachelor's degree awarded from 2016 onwards from one of the prestigious universities funded by the Higher Education Commission (HEC). Degrees should have been awarded with a final overall mark of 75% or better. Selectors may demand a higher mark from some institutions.",
+          "fetched_at": "2026-11-27",
+          "note": "This is Imperial's university-wide Pakistan minimum, not specific to this course. The course page says the standards listed are the minimum for entry to Imperial, and not specifically this Department.",
+          "review_note": "Pakistan entry of the PGT accepted-qualifications page. Same page: 'Where Bachelor degrees were awarded before or up to 2015, a Master's degree is also normally required'. Course page minimum: 'First-Class degree in a subject with substantial Computing content.'"
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 7,
+            "toefl_ibt": null,
+            "waiver": null,
+            "text": "Higher university requirement: IELTS Academic 7.0 overall (minimum 6.5 in all elements)"
+          },
+          "source_url": "https://www.imperial.ac.uk/study/apply/english-language/",
+          "evidence_snippet": "IELTS – Academic (Test-Centre/UKVI SELT/Online) Standard Higher 6.5 overall (minimum 6.0 in all elements) 7.0 overall (minimum 6.5 in all elements)",
+          "fetched_at": "2026-11-27",
+          "note": "The course page says: \"For admission to this course, you must achieve the higher university requirement in the appropriate English language qualification.\"",
+          "review_note": "Course page states the higher requirement applies. No TOEFL iBT number proposed (same approach as imperial-msc-computing)."
+        },
+        "tuition": {
+          "value": { "amount": 48300, "currency": "GBP", "period": "year" },
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+          "evidence_snippet": "Overseas fee 2027 entry £48,300",
+          "fetched_at": "2026-11-27"
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+          "evidence_snippet": "Qualification MSc Duration 1 year Start date October 2027 Study mode Full-time",
+          "fetched_at": "2026-11-27",
+          "basis": "inferred",
+          "review_note": "'1 year' full-time converted to 12 months."
+        },
+        "admissions_email": {
+          "value": "doc-mscadmissions@imperial.ac.uk",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+          "evidence_snippet": "Email: doc-mscadmissions@imperial.ac.uk",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "Needs a First-Class degree in a subject with substantial computing content, close to the first two years of Imperial's undergraduate computing syllabus.",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+          "evidence_snippet": "A First-Class degree in a subject with substantial computing content. Footnotes The amount of computing covered should be close to the first two years of our undergraduate computing syllabus.",
+          "fetched_at": "2026-11-27"
+        },
+        "language_waiver": {
+          "value": "No waiver for a Pakistani degree: Imperial exempts only applicants who completed a qualification equivalent to a UK degree in Australia, Canada, Guyana, Ireland, Malta, New Zealand, South Africa, the United Kingdom, the USA or the West Indies.",
+          "source_url": "https://www.imperial.ac.uk/study/apply/english-language/english-language-exemption/",
+          "evidence_snippet": "You do not need to prove your knowledge of English as part of your application if you’ve completed a qualification equivalent to a UK degree in one of the following countries: Australia Canada Guyana Ireland Malta New Zealand South Africa United Kingdom United States of America West Indies",
+          "fetched_at": "2026-11-27",
+          "review_note": "Pakistan is not on the list (same evidence as imperial-msc-computing)."
+        },
+        "scholarship_info": {
+          "value": "Imperial Inspires Scholarships (Postgraduate taught, 2027/2028): £15,000 for international students who pay the Overseas tuition rate on a full-time course; Computing is one of the listed departments.",
+          "source_url": "https://www.imperial.ac.uk/study/fees-and-funding/scholarships-search/imperial-inspires-scholarships-postgraduate-taught-20272028.php",
+          "evidence_snippet": "Imperial Inspires Scholarships (Postgraduate taught) Scholarship overview Degree level Postgraduate taught, Master's research Value £15,000 Number of awards 200 Academic year 2027/2028 Tuition fee status Overseas Mode of study Full time",
+          "fetched_at": "2026-11-27",
+          "review_note": "Department list (including Computing) is on the same page below the snippet, as for imperial-msc-computing."
+        }
+      }
+    },
+    {
+      "id": "rwth-msc-sse",
+      "institution_id": "rwth",
+      "name": "Software Systems Engineering M.Sc.",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "se",
+      "official_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Winter semester (October)",
+          "source_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+          "evidence_snippet": "The SSE master program starts each winter term, which begins around October.",
+          "fetched_at": "2026-11-27",
+          "note": "Next first-semester start for 2027 applicants: winter semester 2027/28."
+        },
+        "deadline": {
+          "value": "2027-03-01",
+          "source_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+          "evidence_snippet": "Non-EU & Non-EEA applicants March 1st1 This is the deadline for the application for admission for a first semester start in the following winter term. The applications can be submitted between December and March 1st.",
+          "fetched_at": "2026-11-27",
+          "basis": "inferred",
+          "note": "Hard deadline for non-EU applicants (Pakistan) for the winter semester start. The GRE result must be uploaded before this date.",
+          "review_note": "Page gives 'March 1st' with no year; next occurrence = 2027-03-01 for winter 2027/28. The '1' after 'March 1st' is a footnote marker pointing to RWTH's central international master's application page, which the faculty says prevails if the two differ."
+        },
+        "min_gpa_rule": {
+          "value": {
+            "scale": "percent",
+            "min": 65,
+            "text": "Strongly recommended (not a stated hard cut-off): a CGPA of at least 65% in a computer science or closely related bachelor's degree."
+          },
+          "source_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+          "evidence_snippet": "We strongly recommend that an applicant should have a minimum Cumulative Grade Point Average (CGPA) of 65% in his/her computer science or closely related undergraduate / bachelor degree.",
+          "fetched_at": "2026-11-27",
+          "note": "RWTH calls this a strong recommendation, not a strict rule. Admission also depends on matching required computer science and mathematics courses."
+        },
+        "duration_months": {
+          "value": 24,
+          "source_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnhr/software-systems-engineering-m-sc/?lidx=1",
+          "evidence_snippet": "Start of Studies Winter Semester Standard Period of Studies 4 semesters",
+          "fetched_at": "2026-11-27",
+          "basis": "inferred",
+          "review_note": "4 semesters converted to 24 months."
+        },
+        "tests_required": {
+          "value": "GRE General Test required for non-EU applicants: quantitative above the 75th percentile, verbal above the 15th percentile, analytical writing at least 3.5, uploaded before the deadline.",
+          "source_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+          "evidence_snippet": "An applicant must have one Graduate Record Examination (GRE) General Test result that meets all of the following requirements (see exception below): quantitative reasoning score: above 75th percentile (among 25% best) verbal reasoning score: above 15th percentile (among 85% best) analytical writing score: at least 3.5",
+          "fetched_at": "2026-11-27",
+          "review_note": "Exception on same page applies only to EU/EEA citizens or people who completed secondary school in Germany."
+        },
+        "eligibility_note": {
+          "value": "Needs a first degree in Computer Science or a closely related field (e.g. BS/BE in Computer Science, Computer Engineering, Informatics). Applicants must also show coursework matching required computer science and mathematics subjects.",
+          "source_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+          "evidence_snippet": "An applicant must have a first degree in Computer Science or closely related field awarded by an internationally recognised university-level institution. This can be a Bachelor of Science or Bachelor of Engineering in Computer Science, Computer Engineering, Informatics, or other closely related discipline.",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    },
+    {
+      "id": "utdallas-msse",
+      "institution_id": "utdallas",
+      "name": "Master of Science in Software Engineering",
+      "country": "US",
+      "degree": "MS",
+      "field": "se",
+      "official_url": "https://engineering.utdallas.edu/academics/graduate-education/software-engineering/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Fall, spring or summer semester",
+          "source_url": "https://engineering.utdallas.edu/academics/graduate-education/software-engineering/",
+          "evidence_snippet": "Applications are accepted for fall, spring, and summer semesters.",
+          "fetched_at": "2026-11-27"
+        },
+        "min_gpa_rule": {
+          "value": {
+            "scale": "cgpa_4",
+            "min": 3.0,
+            "text": "GPA of 3.0 or better on a 4.0 scale in upper-division quantitative coursework."
+          },
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "A grade point average (GPA) in upper-division quantitative coursework of 3.0 or better on a 4.0-point scale.",
+          "fetched_at": "2026-11-27",
+          "note": "Measured on upper-division (later-year) quantitative courses, not necessarily your overall CGPA."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": null,
+            "toefl_ibt": 80,
+            "waiver": null,
+            "text": "TOEFL iBT of at least 80, less than two years old."
+          },
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "International applicants must submit a TOEFL score of at least 80 on the internet-based test. Scores must be less than two years old.",
+          "fetched_at": "2026-11-27",
+          "review_note": "No IELTS figure on this page; the page points to the Graduate Catalog for other English proficiency rules (catalog.utdallas.edu is disallowed by robots.txt for the verifier)."
+        },
+        "lor_count": {
+          "value": 3,
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "Letters of Recommendation: Applicants must submit three letters of recommendation from individuals able to judge the candidate’s potential for success in the master’s degree program.",
+          "fetched_at": "2026-11-27"
+        },
+        "tests_required": {
+          "value": "GRE recommended but optional (advisable scores: 308 combined, 153 verbal, 155 quantitative, 4 analytical writing). The page states the optional rule for Fall 26 applicants.",
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "GRE Test Scores: GRE revised scores of 308, 153, 155, and 4 for the combined, verbal, quantitative and analytical writing components, respectively, are advisable based on our experience with student success in the program. The GRE is recommended but optional for Fall 26 applicants.",
+          "fetched_at": "2026-11-27",
+          "note": "The page only says GRE is optional for Fall 2026 applicants; check whether this continues for 2027."
+        },
+        "sop_requirements": {
+          "value": "An essay outlining your background, education and professional goals.",
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "Admissions Essay: Applicants must submit an essay outlining their background, education, and professional goals.",
+          "fetched_at": "2026-11-27"
+        },
+        "cv_requirements": {
+          "value": "A resume is required.",
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "Admissions Essay: Applicants must submit an essay outlining their background, education, and professional goals. A resume.",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "Needs a bachelor's degree in computer science, software engineering or a related field from a US institution or a comparable institution abroad.",
+          "source_url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+          "evidence_snippet": "A bachelor’s degree in computer science, software engineering or a related field from an institution of higher education in the U.S. or from a comparable institution abroad.",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    }
+  ]
+}

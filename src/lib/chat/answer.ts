@@ -38,6 +38,8 @@ export interface AnswerInput {
   question: string;
   programId?: string;
   country?: string;
+  /** The student's field from their profile (null = unknown: the default field is used). */
+  field?: string | null;
 }
 
 export interface AnswerDeps {
@@ -72,7 +74,12 @@ function estimate(text: string): number {
 }
 
 export async function* answerQuestion(input: AnswerInput, deps: AnswerDeps): AsyncGenerator<ChatEvent> {
-  const retrieval = retrieve(input.question, { programId: input.programId, country: input.country }, deps.dataset, deps.now);
+  const retrieval = retrieve(
+    input.question,
+    { programId: input.programId, country: input.country, field: input.field },
+    deps.dataset,
+    deps.now,
+  );
   const decision = guard(input.question, retrieval);
 
   if (decision.mode === 'refusal') {
