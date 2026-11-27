@@ -961,11 +961,11 @@ describe('Plan B link and the official route below the minimum', () => {
     expect(planBTargetHref('', 'a b')).toBe('/plan-b?target=a%20b');
   });
 
-  it('live seed, persona A: the link is offered for USF and Brookes (Below minimum) only', () => {
+  it('live seed, persona A: the link is offered for the Below-minimum programmes only (Brookes, NYIT, UCCS, USF)', () => {
     const live = loadSeedDataset();
     const s = buildShortlist({ ...live, profile: { ...PERSONA_A, target_countries: [] }, now });
     const offered = [...s.ranked, ...s.notRanked, ...s.cantCheck].filter(planBSuggested).map((r) => r.program.id).sort();
-    expect(offered).toEqual(['brookes-msc-cs', 'usf-mscs']);
+    expect(offered).toEqual(['brookes-msc-cs', 'nyit-mscs', 'uccs-mscs', 'usf-mscs']);
   });
 
   it('conditionalRoute: usable routes only, never when the regular minimum is met, never on ruled-out programs', () => {

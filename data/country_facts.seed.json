@@ -122,11 +122,15 @@
       "id": "ca-post-study-work",
       "country": "CA",
       "key": "post_study_work",
-      "value": null,
-      "source_url": null,
-      "evidence_snippet": null,
-      "fetched_at": null,
-      "note": "Not verified yet."
+      "value": {
+        "text": "A master's graduate can apply for a 3-year post-graduation work permit (PGWP), even if the programme was under 2 years, if it lasted at least 8 months and all other requirements are met.",
+        "sort_months": 36,
+        "clock_note": "The permit cannot run past the expiry date of your passport."
+      },
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html",
+      "evidence_snippet": "You can apply for a 3-year PGWP, even if your master’s program was less than 2 years, as long as your program was at least 8 months (or 900 hours for Quebec programs) and you meet all other eligibility requirements",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. IRCC page 'About the PGWP'. Snippet lines are joined from consecutive list lines on the page."
     },
     {
       "id": "ca-pr-route",
@@ -152,11 +156,15 @@
       "id": "de-post-study-work",
       "country": "DE",
       "key": "post_study_work",
-      "value": null,
-      "source_url": null,
-      "evidence_snippet": null,
-      "fetched_at": null,
-      "note": "Not verified yet."
+      "value": {
+        "text": "After graduating in Germany you can apply for a residence permit for jobseekers, issued for up to 18 months, to look for qualified employment.",
+        "sort_months": 18,
+        "clock_note": "You can then convert it into a work visa for qualified professionals or an EU Blue Card once you find a suitable job."
+      },
+      "source_url": "https://www.daad.de/en/studying-in-germany/work-career/career-planning/",
+      "evidence_snippet": "you must apply for a residence permit for jobseekers (go to “Staying in Germany after graduation”). It is issued for up to 18 months as a means of finding qualified employment.",
+      "fetched_at": "2026-11-27",
+      "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. DAAD (official German academic exchange service). The Make it in Germany portal sits behind a bot challenge so it was not read."
     },
     {
       "id": "de-pr-route",

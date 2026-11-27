@@ -1,0 +1,34 @@
+{
+  "tool": "verify",
+  "mode": "file",
+  "args": [
+    "--verify",
+    "data/proposals/scrape-2026-11-27/country-facts.json"
+  ],
+  "user_agent": "MastersPathIngest/0.2 (open-source evidence bot; contact URL not configured: set INGEST_CONTACT_URL)",
+  "started_at": "2026-11-27T11:46:36.509Z",
+  "finished_at": "2026-11-27T11:46:43.059Z",
+  "duration_ms": 6550,
+  "summary": {
+    "entries": 1,
+    "by_outcome": {
+      "found": 1
+    },
+    "accepted": 0,
+    "rejected": 0
+  },
+  "accepted": [],
+  "rejections": [],
+  "entries": [
+    {
+      "kind": "snippet",
+      "ref": "ca-post-study-work.value",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6548
+    }
+  ],
+  "notes": []
+}

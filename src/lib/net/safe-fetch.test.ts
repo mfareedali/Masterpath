@@ -211,7 +211,23 @@ describe('safeFetch', () => {
     await safeFetch(PAGE, o);
     const robotsHits = net.requests.filter((r) => r.url.pathname === '/robots.txt').length;
     expect(robotsHits).toBe(1);
-    expect(net.requests[0].headers['user-agent']).toBe('MastersPathIngest/0.1 (open-source evidence bot)');
+    expect(net.requests[0].headers['user-agent']).toMatch(/^MastersPathIngest\/0\.2 \(open-source evidence bot; /);
+  });
+
+  it('sends If-None-Match / If-Modified-Since and reports a 304 as notModified (robots.txt is never conditional)', async () => {
+    const net = fakeNetwork({
+      [PAGE]: { status: 304, body: '', headers: { etag: '"v2"', 'content-type': 'text/html' } },
+      'https://fixture.example.edu/robots.txt': { headers: { 'content-type': 'text/plain' }, body: 'User-agent: *\nAllow: /' },
+    });
+    const res = await safeFetch(PAGE, opts(net, { conditional: { etag: '"v1"', lastModified: 'Wed, 01 Jan 2025 00:00:00 GMT' } }));
+    expect(res.notModified).toBe(true);
+    expect(res.ok).toBe(false);
+    expect(res.etag).toBe('"v2"');
+    const page = net.requests.find((r) => r.url.pathname === '/program')!;
+    expect(page.headers['if-none-match']).toBe('"v1"');
+    expect(page.headers['if-modified-since']).toBe('Wed, 01 Jan 2025 00:00:00 GMT');
+    const robots = net.requests.find((r) => r.url.pathname === '/robots.txt')!;
+    expect(robots.headers['if-none-match']).toBeUndefined();
   });
 
   it('refuses paths disallowed by robots.txt', async () => {

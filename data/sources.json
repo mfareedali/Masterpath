@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "tum-msc-informatics-official",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "target": {
+        "type": "program",
+        "id": "tum-msc-informatics"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "language_req",
+        "admissions_email",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "ethz-msc-cs-official",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "target": {
+        "type": "program",
+        "id": "ethz-msc-cs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "intake",
+        "admissions_email"
+      ]
+    },
+    {
+      "id": "wuerzburg-msc-cs-official",
+      "url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+      "target": {
+        "type": "program",
+        "id": "wuerzburg-msc-cs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "intake",
+        "lor_count",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "imperial-msc-computing-official",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "target": {
+        "type": "program",
+        "id": "imperial-msc-computing"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "deadline",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "brookes-msc-cs-official",
+      "url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "target": {
+        "type": "program",
+        "id": "brookes-msc-cs"
+      },
+      "fields": [
+        "deadline",
+        "admissions_email",
+        "lor_count",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "qmul-premasters-cs-official",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "target": {
+        "type": "program",
+        "id": "qmul-premasters-cs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "deadline",
+        "duration_months",
+        "admissions_email",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "utoronto-mscac-official",
+      "url": "https://mscac.utoronto.ca/",
+      "target": {
+        "type": "program",
+        "id": "utoronto-mscac"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "intake"
+      ]
+    },
+    {
+      "id": "cmu-mscs-official",
+      "url": "https://csd.cmu.edu/academics/masters/overview",
+      "target": {
+        "type": "program",
+        "id": "cmu-mscs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "language_req",
+        "intake",
+        "admissions_email"
+      ]
+    },
+    {
+      "id": "uiuc-mscs-official",
+      "url": "https://siebelschool.illinois.edu/academics/graduate/ms-program",
+      "target": {
+        "type": "program",
+        "id": "uiuc-mscs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "intake",
+        "duration_months",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "nyit-mscs-official",
+      "url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "target": {
+        "type": "program",
+        "id": "nyit-mscs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "deadline",
+        "intake",
+        "duration_months",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "usf-mscs-official",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/mscs.aspx",
+      "target": {
+        "type": "program",
+        "id": "usf-mscs"
+      },
+      "fields": [
+        "tuition",
+        "intake",
+        "duration_months",
+        "admissions_email",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "uccs-mscs-official",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "target": {
+        "type": "program",
+        "id": "uccs-mscs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "intake",
+        "duration_months",
+        "admissions_email",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "tum-msc-data-engineering-analytics-official",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "target": {
+        "type": "program",
+        "id": "tum-msc-data-engineering-analytics"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "admissions_email",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "ethz-msc-data-science-official",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+      "target": {
+        "type": "program",
+        "id": "ethz-msc-data-science"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "admissions_email"
+      ]
+    },
+    {
+      "id": "imperial-msc-artificial-intelligence-official",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "target": {
+        "type": "program",
+        "id": "imperial-msc-artificial-intelligence"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "admissions_email",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "usf-ms-artificial-intelligence-official",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+      "target": {
+        "type": "program",
+        "id": "usf-ms-artificial-intelligence"
+      },
+      "fields": [
+        "tuition",
+        "admissions_email",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "cmu-mse-official",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/index.html",
+      "target": {
+        "type": "program",
+        "id": "cmu-mse"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "language_req"
+      ]
+    },
+    {
+      "id": "imperial-msc-computing-se-official",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "target": {
+        "type": "program",
+        "id": "imperial-msc-computing-se"
+      },
+      "fields": [
+        "lor_count"
+      ]
+    },
+    {
+      "id": "rwth-msc-sse-official",
+      "url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/",
+      "target": {
+        "type": "program",
+        "id": "rwth-msc-sse"
+      },
+      "fields": [
+        "tuition",
+        "language_req",
+        "admissions_email",
+        "lor_count",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "utdallas-msse-official",
+      "url": "https://engineering.utdallas.edu/academics/graduate-education/software-engineering/",
+      "target": {
+        "type": "program",
+        "id": "utdallas-msse"
+      },
+      "fields": [
+        "tuition",
+        "deadline",
+        "duration_months",
+        "admissions_email",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "tum-msc-communications-electronics-engineering-official",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "target": {
+        "type": "program",
+        "id": "tum-msc-communications-electronics-engineering"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition"
+      ]
+    },
+    {
+      "id": "ethz-msc-electrical-engineering-official",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+      "target": {
+        "type": "program",
+        "id": "ethz-msc-electrical-engineering"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "admissions_email"
+      ]
+    },
+    {
+      "id": "imperial-msc-future-power-networks-official",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "target": {
+        "type": "program",
+        "id": "imperial-msc-future-power-networks"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "lor_count"
+      ]
+    },
+    {
+      "id": "utoronto-meng-ece-official",
+      "url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "target": {
+        "type": "program",
+        "id": "utoronto-meng-ece"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "scholarship_info"
+      ]
+    },
+    {
+      "id": "coventry-msc-cs-official",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "target": {
+        "type": "program",
+        "id": "coventry-msc-cs"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "deadline"
+      ]
+    },
+    {
+      "id": "coventry-msc-data-science-official",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "target": {
+        "type": "program",
+        "id": "coventry-msc-data-science"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "deadline"
+      ]
+    },
+    {
+      "id": "coventry-msc-electrical-electronic-engineering-official",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "target": {
+        "type": "program",
+        "id": "coventry-msc-electrical-electronic-engineering"
+      },
+      "fields": [
+        "min_gpa_rule",
+        "tuition",
+        "deadline"
+      ]
+    }
+  ]
+}

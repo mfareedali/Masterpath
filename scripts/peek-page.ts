@@ -1,50 +1,97 @@
 /**
- * Contributor helper: print the lines of an official page that match a pattern, so you can copy a verbatim snippet.
- *   npx tsx scripts/peek-page.ts <https-url> "<regex>"
- * Honest User-Agent, robots.txt respected (refuses if the path is disallowed), https only, 15s timeout, 3MB cap.
+ * Contributor / research helper: print the lines of an official page that match a pattern, so you can copy a verbatim
+ * snippet. Goes through safeFetch (https, allowlisted host, public IPs, robots.txt, per-host throttle, size caps).
+ *
+ *   npx tsx scripts/peek-page.ts <https-url> "<regex>" [--context N]   lines matching the regex (+/- N lines)
+ *   npx tsx scripts/peek-page.ts <https-url> --head [--chars N]        the title line and the first N characters
+ *   npx tsx scripts/peek-page.ts <https-url> --links "<regex>"          links on the page whose URL or text matches (to find the right page)
+ *
+ * Fetched text is cached in the OS temp folder for an hour, so several peeks at one page cost one request.
  */
-import { htmlToText } from '../src/lib/text/evidence';
-import { robotsAllows } from '../src/lib/net/robots';
+import './load-env';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { safeFetch } from '../src/lib/net/safe-fetch';
+import { fetchPageText, describeFetchError } from '../src/lib/seed/page-text';
 
-const UA = 'MastersPathEvidenceCheck/0.1 (open-source evidence verification)';
+const CACHE_DIR = join(tmpdir(), 'masterspath-peek');
+const CACHE_MS = 60 * 60 * 1000;
 
-async function get(url: URL): Promise<Response> {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), 15_000);
-  try {
-    return await fetch(url, { signal: ctrl.signal, headers: { 'user-agent': UA, accept: 'text/html,text/plain' } });
-  } finally {
-    clearTimeout(t);
-  }
+async function textOf(url: string): Promise<{ text: string; final: string }> {
+  mkdirSync(CACHE_DIR, { recursive: true });
+  const file = join(CACHE_DIR, createHash('sha1').update(url).digest('hex') + '.json');
+  if (existsSync(file) && Date.now() - statSync(file).mtimeMs < CACHE_MS) return JSON.parse(readFileSync(file, 'utf8'));
+  const page = await fetchPageText(url);
+  const out = { text: page.text, final: page.url };
+  writeFileSync(file, JSON.stringify(out), 'utf8');
+  return out;
 }
 
 async function main() {
-  const [raw, pattern] = process.argv.slice(2);
-  if (!raw || !pattern) {
-    console.error('Usage: tsx scripts/peek-page.ts <https-url> "<regex>"');
+  const args = process.argv.slice(2);
+  const raw = args[0];
+  const head = args.includes('--head');
+  const ctxIdx = args.indexOf('--context');
+  const ctx = ctxIdx >= 0 ? Math.max(0, Number(args[ctxIdx + 1]) || 0) : 0;
+  const charsIdx = args.indexOf('--chars');
+  const chars = charsIdx >= 0 ? Number(args[charsIdx + 1]) || 1500 : 1500;
+  const linksIdx = args.indexOf('--links');
+  if (raw && linksIdx >= 0) {
+    const re = new RegExp(args[linksIdx + 1] ?? '.', 'i');
+    try {
+      const res = await safeFetch(raw);
+      const seen = new Set<string>();
+      for (const m of res.body.matchAll(/<a\b[^>]*\bhref\s*=\s*["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+        const text = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        let href: string;
+        try { href = new URL(m[1], res.url).toString(); } catch { continue; }
+        if (seen.has(href) || !(re.test(href) || re.test(text))) continue;
+        seen.add(href);
+        console.log(`${text.slice(0, 80).padEnd(80)}  ${href}`);
+      }
+    } catch (e) {
+      console.error(describeFetchError(e));
+      process.exit(3);
+    }
+    return;
+  }
+  const pattern = args[1] && !args[1].startsWith('--') ? args[1] : null;
+  if (!raw || (!head && !pattern)) {
+    console.error('Usage: tsx scripts/peek-page.ts <https-url> "<regex>" [--context N] | <https-url> --head [--chars N]');
     process.exit(2);
   }
-  const url = new URL(raw);
-  if (url.protocol !== 'https:') throw new Error('Only https URLs');
-  const robots = await get(new URL('/robots.txt', url.origin)).catch(() => null);
-  const robotsTxt = robots && robots.ok ? await robots.text() : '';
-  if (!robotsAllows(robotsTxt, url.pathname + url.search, 'MastersPathEvidenceCheck')) {
-    console.error(`robots.txt disallows ${url.pathname} for automated access. Check this page by hand in a browser.`);
+  let page;
+  try {
+    page = await textOf(raw);
+  } catch (e) {
+    console.error(describeFetchError(e));
     process.exit(3);
   }
-  const res = await get(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  if (buf.byteLength > 3 * 1024 * 1024) throw new Error('Page too large');
-  const text = htmlToText(buf.toString('utf8'));
-  const re = new RegExp(pattern, 'i');
-  const lines = text.split('\n');
+  const lines = page.text.split('\n');
+  if (page.final !== raw) console.log(`(redirected to ${page.final})`);
+  if (head) {
+    console.log(`${lines.length} lines, ${page.text.length} characters`);
+    console.log(page.text.slice(0, chars));
+    return;
+  }
+  const re = new RegExp(pattern!, 'i');
+  const shown = new Set<number>();
   lines.forEach((l, i) => {
-    if (re.test(l)) console.log(`${String(i).padStart(4)}: ${[lines[i - 1], l, lines[i + 1]].filter(Boolean).join(' ⏎ ').slice(0, 600)}`);
+    if (!re.test(l)) return;
+    for (let k = Math.max(0, i - ctx); k <= Math.min(lines.length - 1, i + ctx); k++) shown.add(k);
   });
+  if (shown.size === 0) {
+    console.log(`No line matches /${pattern}/ (${lines.length} lines, ${page.text.length} characters).`);
+    return;
+  }
+  let prev = -2;
+  for (const i of [...shown].sort((a, b) => a - b)) {
+    if (i !== prev + 1) console.log('--');
+    console.log(lines[i].length > 400 ? `${lines[i].slice(0, 400)}…` : lines[i]);
+    prev = i;
+  }
 }
 
-main().catch((e) => {
-  console.error((e as Error).message);
-  process.exit(1);
-});
+main();

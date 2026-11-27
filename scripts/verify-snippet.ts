@@ -3,35 +3,13 @@
  *   npx tsx scripts/verify-snippet.ts <https-url> "<exact snippet>"
  *   npx tsx scripts/verify-snippet.ts --file proposals.json      (array of { source_url, evidence_snippet, ... })
  *
- * Fetches the page (https only, 15s timeout, 3MB cap), converts HTML to text and checks the snippet appears
- * verbatim. Exit code 1 if any snippet is NOT found. This never writes to the seed files.
+ * Fetches the page through safeFetch (https, allowlisted host, public IPs, robots.txt, throttled, 3MB cap), converts
+ * HTML to text and checks the snippet appears verbatim. Exit code 1 if any snippet is NOT found. This never writes to the seed files.
  */
+import './load-env';
 import { readFileSync } from 'node:fs';
-import { htmlToText, snippetAppearsIn } from '../src/lib/text/evidence';
-
-const MAX_BYTES = 3 * 1024 * 1024;
-
-async function fetchText(url: string): Promise<string> {
-  const u = new URL(url);
-  if (u.protocol !== 'https:') throw new Error('Only https URLs are allowed');
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 15_000);
-  try {
-    const res = await fetch(u, {
-      signal: ctrl.signal,
-      redirect: 'follow',
-      headers: { 'user-agent': 'MastersPathEvidenceCheck/0.1 (+open-source; evidence verification)', accept: 'text/html,text/plain' },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.byteLength > MAX_BYTES) throw new Error('Page too large');
-    const body = buf.toString('utf8');
-    const type = res.headers.get('content-type') ?? '';
-    return type.includes('html') ? htmlToText(body) : body;
-  } finally {
-    clearTimeout(timer);
-  }
-}
+import { fetchPageText } from '../src/lib/seed/page-text';
+import { snippetAppearsIn } from '../src/lib/text/evidence';
 
 type Item = { source_url: string; evidence_snippet: string; id?: string; field?: string };
 
@@ -53,7 +31,7 @@ async function main() {
   for (const it of items) {
     const label = [it.id, it.field].filter(Boolean).join('.') || it.source_url;
     try {
-      if (!cache.has(it.source_url)) cache.set(it.source_url, fetchText(it.source_url));
+      if (!cache.has(it.source_url)) cache.set(it.source_url, fetchPageText(it.source_url).then((p) => p.text));
       const text = await cache.get(it.source_url)!;
       const ok = snippetAppearsIn(it.evidence_snippet, text);
       if (!ok) failed++;

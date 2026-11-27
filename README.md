@@ -62,7 +62,10 @@ Optional environment variables (copy `.env.example` to `.env.local`):
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Server-only: chat explanations with Claude (default model `claude-opus-5-5`), used when no xAI key is set. Without any key the chat still answers from rows and still refuses. |
 | `CHAT_DAILY_TOKEN_BUDGET`, `CHAT_GLOBAL_DAILY_TOKEN_CAP` | Per-user and global daily spend caps for chat. |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | Optional Cloudflare Turnstile on sign-in and chat. |
+| `INGEST_CONTACT_URL` | Contact URL added to the scraper's User-Agent (`+https://...`), so site owners can reach the project. Never invented: without it the User-Agent says it is not configured. |
 | `MASTERSPATH_NOW` | Pin "today" for a recorded demo so confidence ages don't change. |
+
+The scripts (`ingest`, `add-programs`, `verify-snippet`, `check-links`, `peek-page`, `seed-supabase`) load `.env.local` (then `.env`) automatically through Node's built-in `process.loadEnvFile`. A real environment variable always overrides the file, a missing file is skipped silently, and no value is ever printed.
 
 ### Supabase
 

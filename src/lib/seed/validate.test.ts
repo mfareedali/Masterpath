@@ -454,3 +454,25 @@ describe('formatReport', () => {
     expect(formatReport(run())).toMatch(/Seed validation passed/);
   });
 });
+
+describe('duplicate programmes', () => {
+  it('rejects the same institution + normalised name under two ids', () => {
+    const a = fullProgram({ id: 'fixture-a', name: 'MSc Data Science', official_url: 'https://fixture.example.edu/a' });
+    const b = fullProgram({ id: 'fixture-b', name: 'Master of Science in Data Science', official_url: 'https://fixture.example.edu/b' });
+    const r = run({ programs: [a, b] });
+    expect(hasError(r, '/programs/1/name', /same programme as \/programs\/0/)).toBe(true);
+  });
+
+  it('rejects two programmes with the same canonical official_url (www, trailing slash and tracking ignored)', () => {
+    const a = fullProgram({ id: 'fixture-a', name: 'MSc Alpha', official_url: 'https://www.fixture.example.edu/p/' });
+    const b = fullProgram({ id: 'fixture-b', name: 'MSc Beta', official_url: 'https://fixture.example.edu/p?utm_source=x' });
+    const r = run({ programs: [a, b] });
+    expect(hasError(r, '/programs/1/official_url', /same canonical official_url/)).toBe(true);
+  });
+
+  it('allows different programmes at one institution and the same name at different institutions', () => {
+    const a = fullProgram({ id: 'fixture-a', name: 'MSc Alpha', official_url: 'https://fixture.example.edu/a' });
+    const b = fullProgram({ id: 'fixture-b', name: 'MSc Beta', official_url: 'https://fixture.example.edu/b' });
+    expect(errors(run({ programs: [a, b] })).filter((i) => /same programme|canonical/.test(i.message))).toEqual([]);
+  });
+});

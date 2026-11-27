@@ -484,24 +484,27 @@ describe("today's seed + persona A: conditional routes, deadlines, not decided",
         expect(codes(uccs)).toContain('CONDITIONAL_NO_FLOOR');
         expect(codes(nyit)).not.toContain('CONDITIONAL_NO_FLOOR');
         expect(nyit.rank!).toBeLessThan(uccs.rank!);
-        expect(p.coverage.find((c) => c.type === 'conditional')).toMatchObject({ shown: 2, notDecided: 1, notForYourGrade: 0 });
+        expect(p.coverage.find((c) => c.type === 'conditional')).toMatchObject({ shown: 3, notDecided: 0, notForYourGrade: 0 });
       });
 
-      it('Würzburg (German scale, no sourced conversion) is listed as not decided, never as a route', () => {
-        expect(allRoutes(p).some((r) => r.program.id === 'wuerzburg-msc-cs')).toBe(false);
-        const w = p.undecided.find((u) => u.program.id === 'wuerzburg-msc-cs')!;
-        expect(w.conditional?.status).toBe('undecided');
-        expect(w.conditional?.reason).toMatch(/German grade/);
-        expect(w.conditional?.reason).toMatch(/no official source yet/);
+      it('Würzburg (German scale, conversion rule now sourced) is no longer blanket "not decided"', () => {
+        const w = route(p, 'conditional:wuerzburg-msc-cs');
+        // The rule is sourced (KIT page citing the KMK recommendation), so the German-scale programme can be judged,
+        // either as a conditional route or as undecided for a reason other than the missing source.
+        if (w) expect(w.conditional?.status).not.toBe('undecided');
+        else expect(p.undecided.find((u) => u.program.id === 'wuerzburg-msc-cs')?.conditional?.reason ?? '').not.toMatch(/no official source yet/);
         expect(p.notForYourGrade).toEqual([]);
       });
 
       it('the not-decided list names unverified minimums and marks the conditional routes above', () => {
         const ids = p.undecided.map((u) => u.program.id);
-        expect(ids).toEqual(expect.arrayContaining(['tum-msc-informatics', 'nyit-mscs', 'uccs-mscs']));
+        expect(ids).toEqual(expect.arrayContaining(['tum-msc-informatics']));
+        // NYIT (2.85) and UCCS (3.0) got Verified minimums on 2026-11-27, so they are decided, not listed here.
+        expect(ids).not.toContain('nyit-mscs');
+        expect(ids).not.toContain('uccs-mscs');
         expect(ids).not.toContain('usf-mscs');
         expect(ids).not.toContain('ljmu-msc-cs');
-        expect(p.undecided.find((u) => u.program.id === 'nyit-mscs')?.routeAbove).toBe(true);
+        expect(p.undecided.find((u) => u.program.id === 'wuerzburg-msc-cs')?.routeAbove).toBe(true);
       });
 
       it('the UCCS card has its deadline with days left; no live route has a passed deadline', () => {

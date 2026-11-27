@@ -9,6 +9,9 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { loadSeedDataset } from '../src/lib/data/seed-source';
+import { INGEST_ALLOWLIST } from '../src/lib/net/hosts';
+import { validateSources, type SeedIds } from '../src/lib/seed/sources';
 import { formatReport, validateSeed, type SeedFiles } from '../src/lib/seed/validate';
 
 function readJson(name: string): unknown {
@@ -33,7 +36,22 @@ function main() {
   const report = validateSeed(files, new Date());
   const shown = quiet ? { ...report, issues: report.issues.filter((i) => i.severity === 'error') } : report;
   console.log(formatReport(shown));
-  process.exit(report.errors > 0 ? 1 : 0);
+
+  // The source registry: schema, unique ids and URLs, allowlisted hosts, existing targets, valid fields.
+  const ds = loadSeedDataset();
+  const ids: SeedIds = {
+    programs: new Map(ds.programs.map((p) => [p.id, { country: p.country, institution_id: p.institution_id }])),
+    institutions: new Map(ds.institutions.map((i) => [i.id, { country: i.country }])),
+    conversionRules: new Set(ds.conversionRules.map((r) => r.id)),
+    fxCurrencies: new Set(ds.fxRates.map((r) => r.currency)),
+    countries: new Set<string>(ds.countryFacts.map((f) => f.country)),
+  };
+  const sourceIssues = validateSources(readJson('sources.json'), ids, INGEST_ALLOWLIST);
+  const sourceErrors = sourceIssues.filter((i) => i.severity === 'error');
+  console.log(`\nSource registry (data/sources.json): ${sourceErrors.length} error(s), ${sourceIssues.length - sourceErrors.length} warning(s)`);
+  for (const i of quiet ? sourceErrors : sourceIssues) console.log(`  ${i.severity === 'error' ? 'x' : '!'} ${i.path}: ${i.message}`);
+
+  process.exit(report.errors > 0 || sourceErrors.length > 0 ? 1 : 0);
 }
 
 main();

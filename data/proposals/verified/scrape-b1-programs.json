@@ -1,0 +1,59 @@
+{
+  "area": "programs-b1",
+  "generated_at": "2026-11-27",
+  "proposals": [
+    {
+      "target": "program",
+      "id": "nyit-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 2.85,
+        "text": "Minimum GPA of 2.85 for your undergraduate coursework"
+      },
+      "source_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "evidence_snippet": "Minimum GPA of 2.85 for your undergraduate coursework",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "notes": "Programme page. The catalog (already in the seed as conditional_admission) lets the director admit 2.5-2.84 conditionally.",
+      "review": {
+        "verdict": "accept",
+        "checks": "ingest --verify FOUND on the live official page 2026-11-27; extracted by hand (no API key), single reviewer. Human review still required."
+      }
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "min_gpa_rule",
+      "value": {
+        "scale": "cgpa_4",
+        "min": 3,
+        "text": "Undergraduate grade point average of at least 3.0 on a scale of 4.0. An average below 3.0 but above 2.75 is considered individually."
+      },
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "The student should have an undergraduate grade point average of at least 3.0 on a scale of 4.0.",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "notes": "Page adds: \"Students with an average below 3.0 but above 2.75 will be considered on an individual basis\".",
+      "review": {
+        "verdict": "accept",
+        "checks": "ingest --verify FOUND on the live official page 2026-11-27; extracted by hand (no API key), single reviewer. Human review still required."
+      }
+    },
+    {
+      "target": "program",
+      "id": "uccs-mscs",
+      "field": "intake",
+      "value": "Fall Semester and Spring Semester",
+      "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "evidence_snippet": "by March 1st for Fall Semester and by October 1st for Spring Semester",
+      "fetched_at": "2026-11-27",
+      "basis": "verbatim",
+      "notes": "Two intakes (international deadlines quoted on the same page).",
+      "review": {
+        "verdict": "accept",
+        "checks": "ingest --verify FOUND on the live official page 2026-11-27; extracted by hand (no API key), single reviewer. Human review still required."
+      }
+    }
+  ]
+}

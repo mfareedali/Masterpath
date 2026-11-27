@@ -6,55 +6,66 @@
       "id": "eur-pkr",
       "currency": "EUR",
       "pkr_per_unit": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null,
-        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+        "value": 303.1114,
+        "source_url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+        "evidence_snippet": "EUR 303.1114",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. State Bank of Pakistan mark-to-market revaluation sheet dated 27-Nov-26, \"READY\" column (PKR per 1 EUR). Rates move daily: this is a dated reference, not a live quote."
       }
     },
     {
       "id": "gbp-pkr",
       "currency": "GBP",
       "pkr_per_unit": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null,
-        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+        "value": 362.7081,
+        "source_url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+        "evidence_snippet": "GBP 362.7081",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. State Bank of Pakistan mark-to-market revaluation sheet dated 27-Nov-26, \"READY\" column (PKR per 1 GBP). Rates move daily: this is a dated reference, not a live quote."
       }
     },
     {
       "id": "usd-pkr",
       "currency": "USD",
       "pkr_per_unit": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null,
-        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+        "value": 276.4228,
+        "source_url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+        "evidence_snippet": "USD 276.4228",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. State Bank of Pakistan mark-to-market revaluation sheet dated 27-Nov-26, \"READY\" column (PKR per 1 USD). Rates move daily: this is a dated reference, not a live quote."
       }
     },
     {
       "id": "cad-pkr",
       "currency": "CAD",
       "pkr_per_unit": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null,
-        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+        "value": 194.0899,
+        "source_url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+        "evidence_snippet": "CAD 194.0899",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. State Bank of Pakistan mark-to-market revaluation sheet dated 27-Nov-26, \"READY\" column (PKR per 1 CAD). Rates move daily: this is a dated reference, not a live quote."
       }
     },
     {
       "id": "chf-pkr",
       "currency": "CHF",
       "pkr_per_unit": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null,
-        "note": "Add a dated rate from an official source (e.g. State Bank of Pakistan) with a snippet."
+        "value": 330.6295,
+        "source_url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+        "evidence_snippet": "CHF 330.6295",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. State Bank of Pakistan mark-to-market revaluation sheet dated 27-Nov-26, \"READY\" column (PKR per 1 CHF). Rates move daily: this is a dated reference, not a live quote."
+      }
+    },
+    {
+      "id": "aud-pkr",
+      "currency": "AUD",
+      "pkr_per_unit": {
+        "value": 184.4984,
+        "source_url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+        "evidence_snippet": "AUD 184.4984",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. State Bank of Pakistan mark-to-market revaluation sheet dated 27-Nov-26, \"READY\" column (PKR per 1 AUD). Rates move daily: this is a dated reference, not a live quote."
       }
     }
   ]

@@ -22,39 +22,22 @@
  *   }
  * Fact keys not given become "Not verified yet" ({ value: null, ... }). Never put a value without its evidence.
  */
+import './load-env';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PROGRAM_FACT_FIELDS, INSTITUTION_FACT_FIELDS } from '../src/lib/supabase/mappers';
 import { formatReport, validateSeed, type SeedFiles } from '../src/lib/seed/validate';
-import { htmlToText, snippetAppearsIn } from '../src/lib/text/evidence';
+import { fetchPageText } from '../src/lib/seed/page-text';
+import { snippetAppearsIn } from '../src/lib/text/evidence';
 
 const root = process.cwd();
 const SEED = join(root, 'data', 'programs.seed.json');
-const UA = 'MastersPathEvidenceCheck/0.1 (+open-source; evidence verification)';
-const MAX_BYTES = 3 * 1024 * 1024;
 
 type Obj = Record<string, unknown>;
 const empty = () => ({ value: null, source_url: null, evidence_snippet: null, fetched_at: null });
 
 function readJson<T>(path: string): T {
   return JSON.parse(readFileSync(path, 'utf8')) as T;
-}
-
-async function fetchText(url: string): Promise<string> {
-  const u = new URL(url);
-  if (u.protocol !== 'https:') throw new Error('Only https URLs are allowed');
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 20_000);
-  try {
-    const res = await fetch(u, { signal: ctrl.signal, redirect: 'follow', headers: { 'user-agent': UA, accept: 'text/html,text/plain' } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.byteLength > MAX_BYTES) throw new Error('Page too large');
-    const body = buf.toString('utf8');
-    return (res.headers.get('content-type') ?? '').includes('html') ? htmlToText(body) : body;
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 function sourcesOf(fact: Obj): Obj[] {
@@ -150,7 +133,7 @@ async function main() {
         const url = typeof s.source_url === 'string' ? s.source_url : null;
         const snippet = typeof s.evidence_snippet === 'string' ? s.evidence_snippet : null;
         if (!url || !snippet) continue;
-        if (!cache.has(url)) cache.set(url, fetchText(url));
+        if (!cache.has(url)) cache.set(url, fetchPageText(url).then((p) => p.text));
         checked++;
         try {
           const ok = snippetAppearsIn(snippet, await cache.get(url)!);
