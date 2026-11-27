@@ -1,0 +1,143 @@
+{
+  "institutions": [
+    {
+      "id": "coventry",
+      "name": "Coventry University",
+      "country": "UK",
+      "kind": "destination",
+      "website": "https://www.coventry.ac.uk"
+    }
+  ],
+  "programs": [
+    {
+      "id": "coventry-msc-cs",
+      "institution_id": "coventry",
+      "name": "MSc Computer Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "cs",
+      "official_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "pathway_type": "direct",
+      "status": "active",
+      "facts": {
+        "intake": {
+          "value": "January 2027, March 2027, May 2027, July 2027",
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+          "evidence_snippet": "Start date January 2027 March 2027 May 2027 July 2027",
+          "fetched_at": "2026-11-27"
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+          "evidence_snippet": "Duration 1 year full-time",
+          "fetched_at": "2026-11-27"
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 6.5,
+            "text": "IELTS: 6.5 overall, with no component lower than 5.5"
+          },
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+          "evidence_snippet": "IELTS: 6.5 overall, with no component lower than 5.5",
+          "fetched_at": "2026-11-27"
+        },
+        "tuition": {
+          "value": {
+            "amount": 19500,
+            "currency": "GBP",
+            "period": "year"
+          },
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+          "evidence_snippet": "International £19,500 per year",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "An honours degree 2:2 or above (or international equivalent) in a computational discipline.",
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+          "evidence_snippet": "An honours degree 2:2 or above (or international equivalent) in a computational discipline.",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    },
+    {
+      "id": "coventry-msc-data-science",
+      "institution_id": "coventry",
+      "name": "MSc Data Science",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "ds",
+      "official_url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "pathway_type": "direct",
+      "status": "active",
+      "facts": {
+        "intake": {
+          "value": "January 2027, March 2027, May 2027, July 2027",
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+          "evidence_snippet": "Start date January 2027 March 2027 May 2027 July 2027",
+          "fetched_at": "2026-11-27"
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+          "evidence_snippet": "Duration 1 year full-time",
+          "fetched_at": "2026-11-27"
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 6.5,
+            "text": "IELTS: 6.5 overall, with no component lower than 5.5"
+          },
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+          "evidence_snippet": "IELTS: 6.5 overall, with no component lower than 5.5",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "An honours degree 2:2 or above (or international equivalent) in any discipline.",
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+          "evidence_snippet": "An honours degree 2:2 or above (or international equivalent) in any discipline.",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    },
+    {
+      "id": "coventry-msc-electrical-electronic-engineering",
+      "institution_id": "coventry",
+      "name": "MSc Electrical and Electronic Engineering",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "ee",
+      "official_url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "pathway_type": "direct",
+      "status": "active",
+      "facts": {
+        "intake": {
+          "value": "January 2027, March 2027, May 2027, July 2027",
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+          "evidence_snippet": "Start date January 2027 March 2027 May 2027 July 2027",
+          "fetched_at": "2026-11-27"
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+          "evidence_snippet": "Duration 1 year full-time",
+          "fetched_at": "2026-11-27"
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 6.5,
+            "text": "IELTS: 6.5 overall, with no component lower than 5.5"
+          },
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+          "evidence_snippet": "IELTS: 6.5 overall, with no component lower than 5.5",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "An honours degree 2:2 or above (or international equivalent) in a related discipline such as electronic engineering, computer engineering, communication engineering or physics, or at least two years professional sector experience.",
+          "source_url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+          "evidence_snippet": "An honours degree 2:2 or above (or international equivalent) in a related discipline such as electronic engineering, computer engineering, communication engineering or physics, or at least two years professional sector experience.",
+          "fetched_at": "2026-11-27"
+        }
+      }
+    }
+  ]
+}
