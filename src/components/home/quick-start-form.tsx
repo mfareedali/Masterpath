@@ -23,7 +23,7 @@ import {
   type QuickStartField,
 } from '@/lib/onboarding/profile-form';
 import { EMPTY_STRENGTHS } from '@/lib/onboarding/strengths-form';
-import { FIELDS } from '@/lib/profile';
+import { FIELDS, fieldOptionLabel } from '@/lib/profile';
 import { loadProfile, loadStrengths, saveProfile, saveStrengths } from '@/lib/profile-client';
 import type { Profile, Strengths } from '@/lib/types';
 
@@ -41,7 +41,7 @@ function safeLoadProfile(): Profile | null {
   }
 }
 
-export function QuickStartForm() {
+export function QuickStartForm({ fieldsWithPrograms }: { fieldsWithPrograms?: readonly string[] } = {}) {
   const router = useRouter();
   const uid = useId();
   const id = (k: string) => `${uid}-${k}`;
@@ -164,7 +164,7 @@ export function QuickStartForm() {
           <select {...control} ref={fieldRef} name="field" defaultValue={DEFAULT_FIELD} className={INPUT_CLASS}>
             {FIELDS.map((f) => (
               <option key={f.slug} value={f.slug}>
-                {f.label}
+                {fieldOptionLabel(f, fieldsWithPrograms)}
               </option>
             ))}
           </select>

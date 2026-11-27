@@ -23,6 +23,14 @@ export const FIELDS = [
   { slug: 'other', label: 'Other' },
 ] as const;
 
+/**
+ * Label for a field in the profile pickers. When the list of fields that have programs is known, a field without any
+ * says so up front, so nobody lands on an empty shortlist by surprise. Unknown list (null/undefined) = plain label.
+ */
+export function fieldOptionLabel(field: (typeof FIELDS)[number], fieldsWithPrograms?: readonly string[] | null): string {
+  return fieldsWithPrograms && !fieldsWithPrograms.includes(field.slug) ? `${field.label} (no programs yet)` : field.label;
+}
+
 const SCALE_MAX_FOR = { cgpa_4: 4, cgpa_5: 5, percent: 100 } as const;
 
 /** A blank or missing value is "not given": never 0. */

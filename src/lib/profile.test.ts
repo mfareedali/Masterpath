@@ -6,8 +6,10 @@ import { describe, expect, it } from 'vitest';
 import { convertGrade } from './fit';
 import { parseAmount, parseDecimal } from './parse';
 import {
+  FIELDS,
   PERSONA_A,
   deserializeProfile,
+  fieldOptionLabel,
   normaliseCountryCodes,
   parseProfile,
   profileFromSearchParams,
@@ -164,5 +166,18 @@ describe('saved profiles still round-trip', () => {
     expect(p).toEqual({ cgpa: 3, scale: 'cgpa_4', field: 'cs', target_countries: [] });
     expect(p && 'min_pass' in p).toBe(false);
     expect(p && 'budget_pkr' in p).toBe(false);
+  });
+});
+
+describe('fieldOptionLabel', () => {
+  const ee = FIELDS.find((f) => f.slug === 'ee')!;
+  const cs = FIELDS.find((f) => f.slug === 'cs')!;
+  it('says "(no programs yet)" for a field without programs', () => {
+    expect(fieldOptionLabel(ee, ['cs'])).toBe('Electrical Engineering (no programs yet)');
+    expect(fieldOptionLabel(cs, ['cs'])).toBe('Computer Science');
+  });
+  it('shows the plain label when the list is unknown', () => {
+    expect(fieldOptionLabel(ee, undefined)).toBe('Electrical Engineering');
+    expect(fieldOptionLabel(ee, null)).toBe('Electrical Engineering');
   });
 });
