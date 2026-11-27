@@ -498,10 +498,13 @@ describe("today's seed + persona A: conditional routes, deadlines, not decided",
 
       it('the not-decided list names unverified minimums and marks the conditional routes above', () => {
         const ids = p.undecided.map((u) => u.program.id);
-        expect(ids).toEqual(expect.arrayContaining(['tum-msc-informatics', 'nyit-mscs', 'uccs-mscs']));
+        expect(ids).toEqual(expect.arrayContaining(['tum-msc-informatics']));
+        // NYIT (2.85) and UCCS (3.0) got Verified minimums on 2026-11-27, so they are decided, not listed here.
+        expect(ids).not.toContain('nyit-mscs');
+        expect(ids).not.toContain('uccs-mscs');
         expect(ids).not.toContain('usf-mscs');
         expect(ids).not.toContain('ljmu-msc-cs');
-        expect(p.undecided.find((u) => u.program.id === 'nyit-mscs')?.routeAbove).toBe(true);
+        expect(p.undecided.find((u) => u.program.id === 'wuerzburg-msc-cs')?.routeAbove).toBe(true);
       });
 
       it('the UCCS card has its deadline with days left; no live route has a passed deadline', () => {

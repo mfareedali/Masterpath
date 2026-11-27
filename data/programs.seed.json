@@ -2188,7 +2188,7 @@
       "official_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
       "status": "active",
       "pathway_type": "direct",
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-27",
       "status_note": {
         "value": null,
         "source_url": null,
@@ -2208,10 +2208,15 @@
         "fetched_at": null
       },
       "min_gpa_rule": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": {
+          "scale": "cgpa_4",
+          "min": 2.85,
+          "text": "Minimum GPA of 2.85 for your undergraduate coursework"
+        },
+        "source_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+        "evidence_snippet": "Minimum GPA of 2.85 for your undergraduate coursework",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Programme page. The catalog (already in the seed as conditional_admission) lets the director admit 2.5-2.84 conditionally."
       },
       "language_req": {
         "value": {
@@ -2483,7 +2488,7 @@
       "official_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
       "status": "active",
       "pathway_type": "direct",
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-27",
       "status_note": {
         "value": null,
         "source_url": null,
@@ -2491,10 +2496,11 @@
         "fetched_at": null
       },
       "intake": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "Fall Semester and Spring Semester",
+        "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+        "evidence_snippet": "by March 1st for Fall Semester and by October 1st for Spring Semester",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Two intakes (international deadlines quoted on the same page)."
       },
       "deadline": {
         "value": "2027-03-01",
@@ -2506,10 +2512,15 @@
         "note": "For international applicants starting in the Fall semester (Spring: 1 October)."
       },
       "min_gpa_rule": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": {
+          "scale": "cgpa_4",
+          "min": 3,
+          "text": "Undergraduate grade point average of at least 3.0 on a scale of 4.0. An average below 3.0 but above 2.75 is considered individually."
+        },
+        "source_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+        "evidence_snippet": "The student should have an undergraduate grade point average of at least 3.0 on a scale of 4.0.",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Page adds: \"Students with an average below 3.0 but above 2.75 will be considered on an individual basis\"."
       },
       "language_req": {
         "value": {

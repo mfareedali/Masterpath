@@ -622,7 +622,7 @@ describe('Plan B link and the official route below the minimum', () => {
     expect(routeRow).toMatch(/Verified|Likely/);
     // The fit label is the one code computed without the route.
     expect(uccs).toContain(row('uccs-mscs').fit.label);
-    expect(row('uccs-mscs').fit.label).toBe('Competitive range unknown');
+    expect(row('uccs-mscs').fit.label).toBe('Below minimum'); // minimum 3.0 verified on 2026-11-27
 
     const nyit = card('nyit-mscs');
     expect(nyit).toContain('>Official route below the minimum</dt>');
