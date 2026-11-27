@@ -1,25 +1,36 @@
 /**
- * Model client for answerQuestion using xAI's Grok (OpenAI-compatible chat completions, streamed as SSE).
- * Plain fetch, no SDK. Server only: the key is read in the route and never reaches the browser.
+ * Model client for answerQuestion over any OpenAI-compatible chat-completions API, streamed as SSE.
+ * Used for Groq (api.groq.com) and xAI Grok (api.x.ai). Plain fetch, no SDK. Server only: the key is read in the
+ * route (see provider.ts) and never reaches the browser.
  *
- *  - Model: XAI_MODEL or 'grok-4'. Low temperature: the model only explains rows (see prompt.ts).
+ *  - Low temperature: the model only explains rows (see prompt.ts). Provider-specific extras via `extraBody`.
  *  - finish_reason is mapped to the stop reasons answerQuestion already understands:
  *      'stop' -> 'end_turn', 'length' -> 'max_tokens', 'content_filter' -> 'refusal' (shows the no-AI answer).
- *  - Output tokens come from the final usage chunk (stream_options.include_usage) for the daily budget.
+ *  - Output tokens for the daily budget come from `usage` (stream_options.include_usage) or Groq's `x_groq.usage`.
+ *  - Only `delta.content` is shown; reasoning deltas (some models stream them separately) are ignored.
  *  - 30 s timeout per attempt, 1 retry on network errors / 429 / 5xx, then the caller falls back.
  */
 import type { ChatModelClient, ModelStreamEvent, ModelStreamRequest } from './answer';
 
-export const XAI_BASE_URL = 'https://api.x.ai/v1';
-export const DEFAULT_XAI_MODEL = 'grok-4';
-export const XAI_TIMEOUT_MS = 30_000;
-export const XAI_MAX_RETRIES = 1;
+export const COMPAT_TIMEOUT_MS = 30_000;
+export const COMPAT_MAX_RETRIES = 1;
 
-export function xaiModelName(env: Record<string, string | undefined> = process.env): string {
-  return env.XAI_MODEL?.trim() || DEFAULT_XAI_MODEL;
+export interface CompatConfig {
+  /** e.g. https://api.groq.com/openai/v1 */
+  baseUrl: string;
+  apiKey: string;
+  model: string;
+  /** Name used in error messages / logs, e.g. "Groq". */
+  label: string;
+  /** Provider-specific request fields, e.g. { reasoning_effort: 'low' }. */
+  extraBody?: Record<string, unknown>;
 }
 
-export function buildXaiBody(req: Pick<ModelStreamRequest, 'system' | 'user' | 'maxTokens'>, model: string) {
+export function buildCompatBody(
+  req: Pick<ModelStreamRequest, 'system' | 'user' | 'maxTokens'>,
+  model: string,
+  extraBody: Record<string, unknown> = {},
+) {
   return {
     model,
     stream: true,
@@ -30,6 +41,7 @@ export function buildXaiBody(req: Pick<ModelStreamRequest, 'system' | 'user' | '
       { role: 'system', content: req.system },
       { role: 'user', content: req.user },
     ],
+    ...extraBody,
   };
 }
 
@@ -44,9 +56,10 @@ export function mapFinishReason(reason: string | null | undefined): string | nul
   return FINISH_TO_STOP[reason] ?? reason;
 }
 
-interface XaiChunk {
+interface CompatChunk {
   choices?: { delta?: { content?: string | null }; finish_reason?: string | null }[];
   usage?: { completion_tokens?: number } | null;
+  x_groq?: { usage?: { completion_tokens?: number } | null } | null;
 }
 
 /** Splits an SSE byte stream into `data:` payloads (one per event). */
@@ -77,35 +90,31 @@ function retryable(status: number): boolean {
   return status === 429 || status >= 500;
 }
 
-export function createXaiChatModel(
-  apiKey: string,
-  model: string = xaiModelName(),
-  fetchImpl: typeof fetch = fetch,
-): ChatModelClient {
+export function createCompatChatModel(cfg: CompatConfig, fetchImpl: typeof fetch = fetch): ChatModelClient {
   async function open(req: ModelStreamRequest): Promise<Response> {
     let lastError: unknown;
-    for (let attempt = 0; attempt <= XAI_MAX_RETRIES; attempt++) {
-      const timeout = AbortSignal.timeout(XAI_TIMEOUT_MS);
+    for (let attempt = 0; attempt <= COMPAT_MAX_RETRIES; attempt++) {
+      const timeout = AbortSignal.timeout(COMPAT_TIMEOUT_MS);
       const signal = req.signal ? AbortSignal.any([req.signal, timeout]) : timeout;
       try {
-        const res = await fetchImpl(`${XAI_BASE_URL}/chat/completions`, {
+        const res = await fetchImpl(`${cfg.baseUrl}/chat/completions`, {
           method: 'POST',
-          headers: { 'content-type': 'application/json', authorization: `Bearer ${apiKey}` },
-          body: JSON.stringify(buildXaiBody(req, model)),
+          headers: { 'content-type': 'application/json', authorization: `Bearer ${cfg.apiKey}` },
+          body: JSON.stringify(buildCompatBody(req, cfg.model, cfg.extraBody)),
           signal,
         });
         if (res.ok && res.body) return res;
-        // xAI's own short reason (e.g. no credits, unknown model, bad key) helps diagnose from the server logs.
+        // The provider's own short reason (no credits, unknown model, bad key…) helps diagnose from the server logs.
         // The request key is never echoed back in the response; trimmed and length-capped anyway.
         const reason = (await res.text().catch(() => '')).replace(/\s+/g, ' ').trim().slice(0, 300);
-        lastError = new Error(`xAI API returned ${res.status}${reason ? `: ${reason}` : ''}`);
+        lastError = new Error(`${cfg.label} API returned ${res.status}${reason ? `: ${reason}` : ''}`);
         if (!retryable(res.status)) break;
       } catch (err) {
         if (req.signal?.aborted) throw err;
         lastError = err;
       }
     }
-    throw lastError instanceof Error ? lastError : new Error('xAI API request failed');
+    throw lastError instanceof Error ? lastError : new Error(`${cfg.label} API request failed`);
   }
 
   return {
@@ -115,9 +124,9 @@ export function createXaiChatModel(
       let outputTokens = 0;
       for await (const data of sseData(res.body as ReadableStream<Uint8Array>)) {
         if (data === '[DONE]') break;
-        let chunk: XaiChunk;
+        let chunk: CompatChunk;
         try {
-          chunk = JSON.parse(data) as XaiChunk;
+          chunk = JSON.parse(data) as CompatChunk;
         } catch {
           continue; // keep-alive or partial noise
         }
@@ -125,7 +134,8 @@ export function createXaiChatModel(
         const text = choice?.delta?.content;
         if (text) yield { type: 'text', text };
         if (choice?.finish_reason) stopReason = mapFinishReason(choice.finish_reason);
-        if (chunk.usage?.completion_tokens != null) outputTokens = chunk.usage.completion_tokens;
+        const used = chunk.usage?.completion_tokens ?? chunk.x_groq?.usage?.completion_tokens;
+        if (used != null) outputTokens = used;
       }
       yield { type: 'end', stopReason, outputTokens };
     },

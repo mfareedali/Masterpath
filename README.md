@@ -57,7 +57,8 @@ Optional environment variables (copy `.env.example` to `.env.local`):
 | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Read data from Supabase instead of the bundled seed; enable optional accounts. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only: seed script, report storage, hard-delete account. |
-| `XAI_API_KEY`, `XAI_MODEL` | Server-only: chat explanations with xAI Grok (default model `grok-4`). Takes priority over Anthropic when set. |
+| `GROQ_API_KEY`, `GROQ_MODEL` | Server-only: chat explanations via Groq (free tier; default model `openai/gpt-oss-20b`). Used first when set. A `gsk_` key saved as `XAI_API_KEY` also works. |
+| `XAI_API_KEY`, `XAI_MODEL` | Server-only: chat explanations with xAI Grok (default model `grok-4`), used when no Groq key is set. |
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Server-only: chat explanations with Claude (default model `claude-opus-5-5`), used when no xAI key is set. Without any key the chat still answers from rows and still refuses. |
 | `CHAT_DAILY_TOKEN_BUDGET`, `CHAT_GLOBAL_DAILY_TOKEN_CAP` | Per-user and global daily spend caps for chat. |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | Optional Cloudflare Turnstile on sign-in and chat. |
