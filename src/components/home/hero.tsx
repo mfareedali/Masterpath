@@ -28,8 +28,34 @@ function HeroStat({ value, label, evidence = false }: { value: ReactNode; label:
 }
 
 /**
- * Forest-950 hero panel: eyebrow, thin wordmark, subtitle and live dataset numbers on the left; the quick-start
- * form card on the right from md (below and overlapping the panel on phones).
+ * Floating example badges around the form (desktop only, decorative). They show what the labels LOOK like, not
+ * facts about any program, so they carry no values.
+ */
+function FloatingBadges() {
+  const card = 'hero-float absolute z-20 hidden items-center gap-2 rounded-card border px-3 py-2 text-sm font-semibold shadow-lift lg:inline-flex';
+  return (
+    <div aria-hidden="true">
+      <span className={`${card} -left-10 -top-5 border-verified-bg bg-verified-bg text-verified-fg`}>
+        <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3.5 8.5l3 3 6-7" />
+        </svg>
+        Verified from the official page
+      </span>
+      <span className={`${card} hero-float-2 -right-8 bottom-12 border-fit-meets-bg bg-fit-meets-bg text-fit-meets-fg`}>
+        <span>●</span> Meets minimum
+      </span>
+      <span className={`${card} hero-float-3 -bottom-5 -left-8 border-line bg-unverified-bg text-unverified-fg`}>
+        <span className="font-bold">?</span> Not verified yet: we say so
+      </span>
+    </div>
+  );
+}
+
+/**
+ * Home hero: a forest-950 stage with drifting olive light, a faint grid, route lines that draw in and a dot that
+ * travels them. Left: eyebrow, gradient wordmark, subtitle and live dataset numbers. Right: the quick-start form
+ * floating on the stage, with example badges bobbing around it (desktop). All motion is CSS/SMIL, decorative, and
+ * off under prefers-reduced-motion (globals.css).
  */
 export function Hero({
   eyebrow,
@@ -43,51 +69,88 @@ export function Hero({
   children: ReactNode;
 }) {
   return (
-    <section aria-labelledby="home-title" className={`${display.variable} md:grid md:grid-cols-[1.1fr_1fr] md:items-stretch md:gap-0`}>
-      <div className="on-chrome relative overflow-hidden rounded-panel bg-chrome px-5 pb-14 pt-6 text-on-chrome shadow-card md:rounded-r-none md:px-8 md:pb-10 md:pt-8">
-        {/* Decorative, aria-hidden: slow olive glows, route lines that draw in, and a dot travelling the path. */}
-        <div aria-hidden="true" className="hero-glow pointer-events-none absolute inset-0" />
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 400 300"
-          preserveAspectRatio="xMaxYMax slice"
-          className="pointer-events-none absolute inset-0 h-full w-full"
-          fill="none"
-          strokeLinecap="round"
-        >
-          <path id="hero-route" className="hero-path text-on-chrome-muted" pathLength="1" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1.4" d="M-20 260 C 80 240, 120 160, 220 150 S 360 80, 430 20" />
-          <path className="hero-path hero-path-2 text-accent-soft" pathLength="1" stroke="currentColor" strokeOpacity="0.22" strokeWidth="1.2" d="M-20 290 C 100 270, 160 200, 260 190 S 380 130, 430 90" />
-          <circle className="hero-node text-accent-soft" cx="220" cy="150" r="4" fill="currentColor" />
-          <circle className="hero-node hero-node-2 text-accent-soft" cx="260" cy="190" r="3" fill="currentColor" />
-          {/* Travelling dot. SMIL follows the path at any size; globals.css hides it under reduced motion. */}
-          <g className="hero-traveller text-accent-soft">
-            <circle r="9" fill="currentColor" opacity="0.18" />
-            <circle r="3.5" fill="currentColor" />
-            <animateMotion dur="9s" begin="1.6s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1">
-              <mpath href="#hero-route" />
-            </animateMotion>
-          </g>
-        </svg>
-        <div className="relative">
+    <section
+      aria-labelledby="home-title"
+      className={`${display.variable} on-chrome relative -mx-4 -mt-4 overflow-hidden bg-chrome text-on-chrome md:mx-0 md:mt-0 md:rounded-panel md:shadow-lift`}
+    >
+      {/* Light, grid and routes: decorative layers. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <span className="hero-blob hero-blob-1" />
+        <span className="hero-blob hero-blob-2" />
+        <span className="hero-blob hero-blob-3" />
+        <span className="hero-grid absolute inset-0" />
+      </div>
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 800 500"
+        preserveAspectRatio="xMidYMax slice"
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        fill="none"
+        strokeLinecap="round"
+      >
+        <path id="hero-route" className="hero-path text-accent-soft" pathLength="1" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.6" d="M-40 450 C 140 430, 220 300, 400 290 S 680 170, 860 60" />
+        <path className="hero-path hero-path-2 text-on-chrome-muted" pathLength="1" stroke="currentColor" strokeOpacity="0.3" strokeWidth="1.2" d="M-40 490 C 180 470, 300 380, 470 360 S 720 260, 860 200" />
+        <circle className="hero-node text-accent-soft" cx="400" cy="290" r="5" fill="currentColor" />
+        <circle className="hero-node hero-node-2 text-accent-soft" cx="470" cy="360" r="4" fill="currentColor" />
+        {/* Travelling dot: SMIL follows the path at any size; hidden under reduced motion. */}
+        <g className="hero-traveller text-accent-soft">
+          <circle r="12" fill="currentColor" opacity="0.18" />
+          <circle r="4.5" fill="currentColor" />
+          <animateMotion dur="8s" begin="1.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1">
+            <mpath href="#hero-route" />
+          </animateMotion>
+        </g>
+      </svg>
+
+      <div className="relative grid gap-8 px-5 pb-8 pt-8 md:grid-cols-[1.05fr_1fr] md:items-center md:gap-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
+        <div>
           <p className="hero-rise inline-flex items-center gap-2 rounded-chip border border-on-chrome-muted/40 bg-chrome/60 px-3 py-1 text-[0.8125rem] font-semibold text-on-chrome-muted backdrop-blur-sm">
             <span aria-hidden="true" className="hero-pulse relative inline-block h-1.5 w-1.5 rounded-full bg-accent-soft" />
             {eyebrow}
           </p>
-          <h1 id="home-title" className="hero-rise hero-rise-2 hero-wordmark wordmark mt-5 text-[3.25rem] md:text-7xl">
+          <h1 id="home-title" className="hero-rise hero-rise-2 hero-wordmark wordmark mt-6 text-[3.4rem] md:text-7xl lg:text-[5.5rem]">
             MastersPath
           </h1>
-          <p className="hero-rise hero-rise-3 mt-3 max-w-md text-base text-on-chrome md:text-lg">{subtitle}</p>
+          <p className="hero-rise hero-rise-3 mt-4 max-w-md text-lg text-on-chrome md:text-xl">{subtitle}</p>
 
-          <dl aria-label="What is in the dataset today" className="hero-rise hero-rise-4 mt-7 grid grid-cols-3 gap-3 md:mt-10">
+          <dl aria-label="What is in the dataset today" className="hero-rise hero-rise-4 mt-8 grid max-w-md grid-cols-3 gap-3 md:mt-12">
             <HeroStat value={stats.programs} label={stats.programs === 1 ? 'program' : 'programs'} />
             <HeroStat value={stats.countries} label={stats.countries === 1 ? 'country' : 'countries'} />
             <HeroStat value={stats.facts.verified} label="facts verified from official pages" evidence />
           </dl>
         </div>
-      </div>
 
-      <div className="hero-rise hero-rise-3 relative z-10 mx-3 -mt-8 rounded-card border border-line bg-surface p-5 shadow-card md:m-0 md:flex md:flex-col md:justify-center md:rounded-l-none md:rounded-r-panel md:border-l-0 md:p-8">
-        {children}
+        <div className="hero-rise hero-rise-3 relative">
+          <FloatingBadges />
+          <div className="relative z-10 rounded-panel border border-on-chrome-muted/30 bg-surface p-5 text-ink shadow-lift md:p-7">
+            {children}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Slowly scrolling strip of university names from the dataset (pauses on hover; static under reduced motion). */
+export function UniversityMarquee({ names }: { names: readonly string[] }) {
+  if (names.length === 0) return null;
+  const items = (copy: boolean) =>
+    names.map((n) => (
+      <li key={`${copy ? 'b' : 'a'}-${n}`} aria-hidden={copy || undefined} className="flex shrink-0 items-center gap-6 pr-6">
+        <span className="whitespace-nowrap text-base font-semibold text-muted">{n}</span>
+        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-line-strong" />
+      </li>
+    ));
+  return (
+    <section aria-labelledby="home-unis" className="space-y-3">
+      <h2 id="home-unis" className="text-center text-xs font-semibold uppercase tracking-wide text-muted">
+        Programs from universities including
+      </h2>
+      <div className="marquee relative overflow-hidden">
+        <ul className="marquee-track flex w-max">
+          {items(false)}
+          {items(true)}
+        </ul>
       </div>
     </section>
   );
