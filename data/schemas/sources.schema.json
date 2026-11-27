@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MastersPath source registry",
+  "description": "Which official page(s) each program, institution, country fact, exchange rate or conversion rule is read from, and which fields each page is expected to state. Used by `ingest --all` and the weekly re-verification. A page listed here is only a place to LOOK: nothing becomes a fact without a verbatim snippet.",
+  "type": "object",
+  "required": ["version", "pages"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "pages": { "type": "array", "items": { "$ref": "#/$defs/page" } }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "maxLength": 100 },
+    "httpsUrl": { "type": "string", "format": "uri", "pattern": "^https://", "maxLength": 2048 },
+    "field": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "maxLength": 60 },
+    "target": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["type", "id"],
+          "additionalProperties": false,
+          "properties": { "type": { "enum": ["program", "institution", "conversion_rule"] }, "id": { "$ref": "#/$defs/id" } }
+        },
+        {
+          "type": "object",
+          "required": ["type", "country"],
+          "additionalProperties": false,
+          "properties": { "type": { "const": "country" }, "country": { "type": "string", "pattern": "^[A-Z]{2}$" } }
+        },
+        {
+          "type": "object",
+          "required": ["type", "currency"],
+          "additionalProperties": false,
+          "properties": { "type": { "const": "fx" }, "currency": { "type": "string", "pattern": "^[A-Z]{3}$" } }
+        }
+      ]
+    },
+    "page": {
+      "type": "object",
+      "required": ["id", "url", "target", "fields"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "target": { "$ref": "#/$defs/target" },
+        "fields": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/field" } },
+        "role": { "description": "primary = the official page for the target; secondary = embassy or other official page used only to cross-check.", "enum": ["primary", "secondary"] },
+        "notes": { "type": "string", "maxLength": 500 }
+      }
+    }
+  }
+}

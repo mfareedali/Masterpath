@@ -32,6 +32,7 @@ import {
   type ValueKind,
 } from './fields';
 import { validateSeedFileSchema, type SeedFileName } from './schemas';
+import { canonicalUrl } from './sources';
 import {
   hasForbiddenText,
   hasHtmlTag,
@@ -313,12 +314,53 @@ function truncate(s: string, n = 60): string {
 
 /* ---------------- per-file rules ---------------- */
 
+/** Lower-case, no accents, no punctuation, degree words dropped: "MSc Data Science" = "Master of Science in Data Science". */
+export function normaliseProgramName(name: string): string {
+  return name
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .split(' ')
+    .filter((w) => w && !['master', 'masters', 'of', 'science', 'in', 'msc', 'ms', 'm', 'sc', 'meng', 'mse', 'the', 'and'].includes(w))
+    .join(' ');
+}
+
+/**
+ * Two programs may not be the same programme twice: same institution + same normalised name, or the same canonical
+ * official_url (host without www, no tracking parameters, no trailing slash).
+ */
+function checkProgramDuplicates(c: Collector, file: SeedFileName, programs: unknown[]) {
+  const names = new Map<string, number>();
+  const urls = new Map<string, number>();
+  programs.forEach((p, i) => {
+    if (!isObj(p)) return;
+    const base = `/programs/${i}`;
+    const inst = str(p.institution_id);
+    const name = str(p.name);
+    if (inst !== null && name !== null) {
+      const key = `${inst}|${normaliseProgramName(name)}`;
+      const first = names.get(key);
+      if (first !== undefined) c.error(file, `${base}/name`, `"${name}" is the same programme as /programs/${first} (same institution, same normalised name)`);
+      else names.set(key, i);
+    }
+    const url = str(p.official_url);
+    if (url !== null) {
+      const key = canonicalUrl(url);
+      const first = urls.get(key);
+      if (first !== undefined) c.error(file, `${base}/official_url`, `same canonical official_url as /programs/${first} (${key})`);
+      else urls.set(key, i);
+    }
+  });
+}
+
 function checkPrograms(c: Collector, data: unknown, now: Date, allowlist: readonly string[], cov: Coverage) {
   const file: SeedFileName = 'programs.seed.json';
   const institutions = arrayAt(data, 'institutions');
   const programs = arrayAt(data, 'programs');
   const institutionIds = checkUniqueIds(c, file, 'institutions', institutions);
   checkUniqueIds(c, file, 'programs', programs);
+  checkProgramDuplicates(c, file, programs);
 
   const institutionCountry = new Map<string, string>();
   institutions.forEach((inst, i) => {

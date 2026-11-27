@@ -102,3 +102,15 @@ export function validateFieldValue(kind: ValueKind, value: unknown): SchemaIssue
   }
   return v(value) ? [] : formatAjvErrors(v.errors);
 }
+
+const adHocValidators = new Map<object, ValidateFunction>();
+
+/** Validates any data against a standalone JSON Schema from data/schemas (compiled once per schema object). */
+export function validateAgainst(schema: object, data: unknown): SchemaIssue[] {
+  let v = adHocValidators.get(schema);
+  if (!v) {
+    v = ajv().compile(schema);
+    adHocValidators.set(schema, v);
+  }
+  return v(data) ? [] : formatAjvErrors(v.errors);
+}

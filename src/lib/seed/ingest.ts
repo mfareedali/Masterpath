@@ -17,6 +17,7 @@ import {
   type ProgramFactField,
   type ValueKind,
 } from './fields';
+import { plausibilityFlags } from './plausibility';
 import { validateFieldValue } from './schemas';
 import { hasForbiddenText, hasHtmlTag, mentionsNumber, snippetLengthProblem, walkJson } from './text-rules';
 
@@ -42,6 +43,11 @@ export interface AcceptedProposal {
   basis: 'verbatim';
   /** Things a human should double-check (never a reason to reject). */
   review_notes: string[];
+  /**
+   * Plausibility flags (range checks, date without a year, ...). A proposal with any flag is never merged
+   * automatically: it goes to data/proposals/needs-human.
+   */
+  flags: string[];
 }
 
 export interface RejectedProposal {
@@ -78,6 +84,8 @@ export interface ProposalsFile {
   page_chars: number;
   accepted: AcceptedProposal[];
   rejected: RejectedProposal[];
+  /** Pages read for this file (written by `--all`, which can read several pages per program). */
+  pages?: { url: string; final_url: string; chars: number; hash: string }[];
 }
 
 /* ---------------- argument parsing ---------------- */
@@ -85,19 +93,31 @@ export interface ProposalsFile {
 export type IngestArgs =
   | { mode: 'propose'; programId: string; url: string; fields: ProgramFactField[] }
   | { mode: 'verify'; file: string }
+  | { mode: 'verify-seed' }
+  | { mode: 'all'; staleDays?: number; country?: string; only?: string[]; force: boolean; fetchOnly: boolean }
   | { mode: 'help' }
   | { mode: 'error'; message: string };
 
 export const INGEST_USAGE = [
   'Usage:',
   '  npx tsx scripts/ingest.ts --program <id> --url <official-https-url> [--fields deadline,tuition,...]',
+  '  npx tsx scripts/ingest.ts --all [--stale-days N] [--country DE] [--only page-id,...] [--force] [--fetch-only]',
   '  npx tsx scripts/ingest.ts --verify data/proposals/<file>.json',
+  '  npx tsx scripts/ingest.ts --verify-seed',
   '',
-  'Propose mode needs ANTHROPIC_API_KEY (optional ANTHROPIC_MODEL). Verify mode needs no key.',
+  '--all walks data/sources.json (one proposals file per program/target), skips pages whose content hash is unchanged',
+  'since the last run (--force ignores that), and with --stale-days N only looks at pages not checked in N days.',
+  '--fetch-only fetches and records hashes but calls no model (no API key needed).',
+  '--verify-seed re-checks every evidence snippet stored in data/*.seed.json against its live page (no key needed).',
+  'Every run writes a JSON report to data/proposals/reports/.',
+  'Propose and --all need ANTHROPIC_API_KEY (optional ANTHROPIC_MODEL: use a cheaper model for a first pass).',
   `Fields: ${Object.keys(PROGRAM_FACT_FIELDS).join(', ')}`,
 ].join('\n');
 
-/** Parses CLI arguments (pure). Accepts "--flag value" and "--flag=value". */
+const VALUE_FLAGS = ['program', 'url', 'fields', 'verify', 'stale-days', 'country', 'only'];
+const BOOLEAN_FLAGS = ['all', 'verify-seed', 'force', 'fetch-only'];
+
+/** Parses CLI arguments (pure). Accepts "--flag value" and "--flag=value"; boolean flags take no value. */
 export function parseIngestArgs(argv: readonly string[]): IngestArgs {
   const flags = new Map<string, string>();
   for (let i = 0; i < argv.length; i++) {
@@ -106,18 +126,44 @@ export function parseIngestArgs(argv: readonly string[]): IngestArgs {
     if (!a.startsWith('--')) return { mode: 'error', message: `Unexpected argument "${a}"` };
     const eq = a.indexOf('=');
     const name = eq > 0 ? a.slice(2, eq) : a.slice(2);
-    let value: string | undefined = eq > 0 ? a.slice(eq + 1) : argv[i + 1];
+    if (BOOLEAN_FLAGS.includes(name)) {
+      if (eq > 0) return { mode: 'error', message: `--${name} takes no value` };
+      flags.set(name, '');
+      continue;
+    }
+    if (!VALUE_FLAGS.includes(name)) return { mode: 'error', message: `Unknown option --${name}` };
+    const value: string | undefined = eq > 0 ? a.slice(eq + 1) : argv[i + 1];
     if (eq < 0) i++;
     if (value === undefined || value.startsWith('--')) return { mode: 'error', message: `--${name} needs a value` };
-    value = value.trim();
-    if (!['program', 'url', 'fields', 'verify'].includes(name)) return { mode: 'error', message: `Unknown option --${name}` };
-    flags.set(name, value);
+    flags.set(name, value.trim());
   }
 
   const verify = flags.get('verify');
   if (verify !== undefined) {
     if (flags.size > 1) return { mode: 'error', message: '--verify cannot be combined with other options' };
     return { mode: 'verify', file: verify };
+  }
+  if (flags.has('verify-seed')) {
+    if (flags.size > 1) return { mode: 'error', message: '--verify-seed cannot be combined with other options' };
+    return { mode: 'verify-seed' };
+  }
+  if (flags.has('all')) {
+    for (const bad of ['program', 'url', 'fields']) {
+      if (flags.has(bad)) return { mode: 'error', message: `--all cannot be combined with --${bad}` };
+    }
+    let staleDays: number | undefined;
+    const rawStale = flags.get('stale-days');
+    if (rawStale !== undefined) {
+      staleDays = Number(rawStale);
+      if (!Number.isFinite(staleDays) || staleDays < 0) return { mode: 'error', message: '--stale-days must be a number of days (0 or more)' };
+    }
+    const country = flags.get('country')?.toUpperCase();
+    if (country !== undefined && !/^[A-Z]{2}$/.test(country)) return { mode: 'error', message: '--country must be a 2-letter code such as DE or UK' };
+    const only = flags.get('only')?.split(',').map((x) => x.trim()).filter(Boolean);
+    return { mode: 'all', staleDays, country, only, force: flags.has('force'), fetchOnly: flags.has('fetch-only') };
+  }
+  for (const bad of ['stale-days', 'country', 'only', 'force', 'fetch-only']) {
+    if (flags.has(bad)) return { mode: 'error', message: `--${bad} only works with --all` };
   }
   const programId = flags.get('program');
   const url = flags.get('url');
@@ -375,6 +421,7 @@ export function reviewProposals(raw: readonly RawProposal[], ctx: ReviewContext)
       fetched_at: ctx.fetchedAt,
       basis: 'verbatim',
       review_notes: reviewNotes(kind, p.value, snippet),
+      flags: plausibilityFlags(kind, p.value, snippet, ctx.fetchedAt),
     });
   }
 
@@ -450,6 +497,32 @@ export function verifyItemsFrom(data: unknown): { items: VerifyItem[]; error: st
     items.push({ label, source_url: o.source_url, evidence_snippet: o.evidence_snippet });
   });
   return { items, error: null };
+}
+
+/**
+ * Every stored (source_url, evidence_snippet) pair in the seed files, including "conflicts" sources. The label is the
+ * file and JSON pointer so a NOT FOUND can be traced to its row. Pairs repeated verbatim are listed once.
+ */
+export function verifyItemsFromSeed(files: Record<string, unknown>): VerifyItem[] {
+  const items: VerifyItem[] = [];
+  const seen = new Set<string>();
+  const walk = (v: unknown, file: string, pointer: string) => {
+    if (Array.isArray(v)) {
+      v.forEach((x, i) => walk(x, file, `${pointer}/${i}`));
+    } else if (v && typeof v === 'object') {
+      const o = v as Record<string, unknown>;
+      if (typeof o.source_url === 'string' && typeof o.evidence_snippet === 'string' && o.evidence_snippet.trim() !== '' && o.source_url.trim() !== '') {
+        const key = `${o.source_url} ${o.evidence_snippet}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          items.push({ label: `${file}${pointer}`, source_url: o.source_url, evidence_snippet: o.evidence_snippet });
+        }
+      }
+      for (const [k, x] of Object.entries(o)) walk(x, file, `${pointer}/${k}`);
+    }
+  };
+  for (const [file, data] of Object.entries(files)) walk(data, file.replace('.seed.json', ''), '');
+  return items;
 }
 
 export type VerifyOutcome = { item: VerifyItem; status: 'found' | 'not_found' | 'error'; detail?: string };
