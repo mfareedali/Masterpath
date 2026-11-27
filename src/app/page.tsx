@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { getDataset, getFieldsWithPrograms } from '@/lib/data';
 import { LoadPersonaButtons } from '@/components/demo/load-persona';
 import { FaqList } from '@/components/home/faq';
-import { Hero } from '@/components/home/hero';
+import { Hero, UniversityMarquee } from '@/components/home/hero';
 import { QuickStartForm } from '@/components/home/quick-start-form';
 import { HowItWorksList, ShortcutCards } from '@/components/home/shortcuts';
 import { ButtonLink } from '@/components/ui/button';
@@ -31,8 +31,14 @@ const moreLink = 'inline-flex min-h-tap items-center text-sm font-semibold';
 export default async function Home() {
   const [fieldsWithPrograms, data] = await Promise.all([getFieldsWithPrograms(), getDataset()]);
   const stats = homeStats(data.programs, getNow());
+  // Universities with at least one active program, from the dataset (alphabetical).
+  const activeInstitutions = new Set(data.programs.filter((p) => p.status === 'active').map((p) => p.institution_id));
+  const universityNames = data.institutions
+    .filter((i) => activeInstitutions.has(i.id))
+    .map((i) => i.name)
+    .sort((a, b) => a.localeCompare(b));
   return (
-    <div className="space-y-14 md:space-y-20">
+    <div className="space-y-12 md:space-y-20">
       <Hero
         eyebrow="Free and open source, for students in Pakistan"
         subtitle="Plan your Masters abroad without a paid consultant."
@@ -45,6 +51,8 @@ export default async function Home() {
         </p>
         <QuickStartForm fieldsWithPrograms={fieldsWithPrograms} />
       </Hero>
+
+      <UniversityMarquee names={universityNames} />
 
       <section aria-labelledby="home-more" className="space-y-5">
         <SectionHeading

@@ -75,7 +75,7 @@ export function BentoCard({
 }) {
   return (
     <Tag
-      className={`bento-card bento-in group/bento relative isolate flex flex-col overflow-hidden rounded-card border border-line bg-surface p-4 text-ink shadow-card ${COL_SPAN[colSpan]} ${ROW_SPAN[rowSpan]} ${className}`}
+      className={`bento-card bento-in group/bento relative isolate flex flex-col overflow-hidden rounded-card border border-line bg-surface p-4 text-ink shadow-card hover:shadow-lift md:p-5 ${COL_SPAN[colSpan]} ${ROW_SPAN[rowSpan]} ${className}`}
       style={{ ['--i' as string]: index }}
     >
       {visual ? (
