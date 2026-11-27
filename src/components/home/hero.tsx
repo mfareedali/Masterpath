@@ -1,9 +1,11 @@
 import { Outfit } from 'next/font/google';
-import type { ReactNode } from 'react';
+import Link from 'next/link';
+import { buttonClass } from '@/components/ui/button';
 import type { HomeStats } from '@/lib/home/stats';
+import { TextCycle } from './text-cycle';
 
 /**
- * Display face for the hero wordmark ONLY (>= 40px; thin weights are never used below 28px).
+ * Display face for the hero headline ONLY (>= 40px; thin weights are never used below 28px).
  * Self-hosted by next/font at build time (no third-party request, CSP font-src 'self'), Latin subset,
  * font-display: swap, size-adjusted fallback (no layout shift). Loaded on the Home route only.
  * To change the font: swap the import here and the --font-display stack in src/theme.ts.
@@ -16,117 +18,92 @@ const display = Outfit({
   adjustFontFallback: true,
 });
 
-/** One number on the dark hero panel. Values come from homeStats (code over data rows). */
-function HeroStat({ value, label, evidence = false }: { value: ReactNode; label: string; evidence?: boolean }) {
-  return (
-    // dt before dd in the DOM (valid <dl>); flex-col-reverse puts the number on top.
-    <div className={`flex min-w-0 flex-col-reverse border-l-2 pl-3 ${evidence ? 'border-evidence-bar' : 'border-on-chrome-muted/40'}`}>
-      <dt className="text-xs text-on-chrome-muted">{label}</dt>
-      <dd className="text-2xl font-semibold tabular-nums text-on-chrome md:text-3xl">{value}</dd>
-    </div>
-  );
-}
+/** Rotating end of the headline. Short, so the line fits a 360px phone at display size. All true of the product. */
+export const HERO_PHRASES = ['honestly.', 'for free.', 'with sources.', 'no guessing.'] as const;
 
 /**
- * Floating example badges around the form (desktop only, decorative). They show what the labels LOOK like, not
- * facts about any program, so they carry no values.
+ * Home hero, typography only (after the 21st.dev "Animated Hero" pattern): a pill badge, a large centred headline
+ * whose last line cycles through phrases with a per-letter blur, one paragraph, two buttons and a line of live
+ * dataset numbers. Background: soft olive light and a fading grid (decorative). Motion is CSS, off under
+ * prefers-reduced-motion; without JS the headline shows its first phrase.
  */
-function FloatingBadges() {
-  const card = 'hero-float absolute z-20 hidden items-center gap-2 rounded-card border px-3 py-2 text-sm font-semibold shadow-lift lg:inline-flex';
-  return (
-    <div aria-hidden="true">
-      <span className={`${card} -left-10 -top-5 border-verified-bg bg-verified-bg text-verified-fg`}>
-        <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3.5 8.5l3 3 6-7" />
-        </svg>
-        Verified from the official page
-      </span>
-      <span className={`${card} hero-float-2 -right-8 bottom-12 border-fit-meets-bg bg-fit-meets-bg text-fit-meets-fg`}>
-        <span>●</span> Meets minimum
-      </span>
-      <span className={`${card} hero-float-3 -bottom-5 -left-8 border-line bg-unverified-bg text-unverified-fg`}>
-        <span className="font-bold">?</span> Not verified yet: we say so
-      </span>
-    </div>
-  );
-}
-
-/**
- * Home hero: a forest-950 stage with drifting olive light, a faint grid, route lines that draw in and a dot that
- * travels them. Left: eyebrow, gradient wordmark, subtitle and live dataset numbers. Right: the quick-start form
- * floating on the stage, with example badges bobbing around it (desktop). All motion is CSS/SMIL, decorative, and
- * off under prefers-reduced-motion (globals.css).
- */
-export function Hero({
-  eyebrow,
-  subtitle,
-  stats,
-  children,
-}: {
-  eyebrow: string;
-  subtitle: string;
-  stats: HomeStats;
-  children: ReactNode;
-}) {
+export function Hero({ stats }: { stats: HomeStats }) {
+  const plain = `Plan your Masters abroad ${HERO_PHRASES[0].replace(/\.$/, '')}`;
   return (
     <section
       aria-labelledby="home-title"
-      className={`${display.variable} on-chrome relative -mx-4 -mt-4 overflow-hidden bg-chrome text-on-chrome md:mx-0 md:mt-0 md:rounded-panel md:shadow-lift`}
+      className={`${display.variable} relative -mx-4 -mt-4 overflow-hidden px-4 pb-16 pt-14 text-center md:pb-24 md:pt-24`}
     >
-      {/* Light, grid and routes: decorative layers. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <span className="hero-blob hero-blob-1" />
-        <span className="hero-blob hero-blob-2" />
-        <span className="hero-blob hero-blob-3" />
-        <span className="hero-grid absolute inset-0" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <span className="hero-glow-light absolute inset-0" />
+        <span className="hero-grid-light absolute inset-0" />
       </div>
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 800 500"
-        preserveAspectRatio="xMidYMax slice"
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        fill="none"
-        strokeLinecap="round"
+
+      <Link
+        href="/about"
+        className="hero-rise group inline-flex min-h-tap items-center gap-2 whitespace-nowrap rounded-chip border border-line bg-surface/80 px-3 py-1.5 text-[0.8125rem] font-semibold sm:px-4 sm:text-sm text-ink no-underline shadow-button-soft backdrop-blur transition-colors hover:border-primary"
       >
-        <path id="hero-route" className="hero-path text-accent-soft" pathLength="1" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.6" d="M-40 450 C 140 430, 220 300, 400 290 S 680 170, 860 60" />
-        <path className="hero-path hero-path-2 text-on-chrome-muted" pathLength="1" stroke="currentColor" strokeOpacity="0.3" strokeWidth="1.2" d="M-40 490 C 180 470, 300 380, 470 360 S 720 260, 860 200" />
-        <circle className="hero-node text-accent-soft" cx="400" cy="290" r="5" fill="currentColor" />
-        <circle className="hero-node hero-node-2 text-accent-soft" cx="470" cy="360" r="4" fill="currentColor" />
-        {/* Travelling dot: SMIL follows the path at any size; hidden under reduced motion. */}
-        <g className="hero-traveller text-accent-soft">
-          <circle r="12" fill="currentColor" opacity="0.18" />
-          <circle r="4.5" fill="currentColor" />
-          <animateMotion dur="8s" begin="1.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1">
-            <mpath href="#hero-route" />
-          </animateMotion>
-        </g>
-      </svg>
+        <span aria-hidden="true" className="hero-pulse relative inline-block h-2 w-2 rounded-full bg-primary" />
+        Free and open source, for students in Pakistan
+        <span aria-hidden="true" className="text-primary-ink transition-transform group-hover:translate-x-0.5">
+          →
+        </span>
+      </Link>
 
-      <div className="relative grid gap-8 px-5 pb-8 pt-8 md:grid-cols-[1.05fr_1fr] md:items-center md:gap-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
-        <div>
-          <p className="hero-rise inline-flex items-center gap-2 rounded-chip border border-on-chrome-muted/40 bg-chrome/60 px-3 py-1 text-[0.8125rem] font-semibold text-on-chrome-muted backdrop-blur-sm">
-            <span aria-hidden="true" className="hero-pulse relative inline-block h-1.5 w-1.5 rounded-full bg-accent-soft" />
-            {eyebrow}
-          </p>
-          <h1 id="home-title" className="hero-rise hero-rise-2 hero-wordmark wordmark mt-6 text-[3.4rem] md:text-7xl lg:text-[5.5rem]">
-            MastersPath
-          </h1>
-          <p className="hero-rise hero-rise-3 mt-4 max-w-md text-lg text-on-chrome md:text-xl">{subtitle}</p>
+      <h1
+        id="home-title"
+        aria-label={plain}
+        className="hero-rise hero-rise-2 mx-auto mt-8 max-w-5xl font-display text-[2.75rem] font-light leading-[1.05] tracking-tight text-heading sm:text-6xl md:text-7xl lg:text-[5rem]"
+      >
+        <span aria-hidden="true" className="block">
+          Plan your Masters abroad
+        </span>
+        <span aria-hidden="true" className="relative mt-1 block text-primary-ink">
+          <TextCycle phrases={HERO_PHRASES} />
+          <svg
+            viewBox="0 0 300 12"
+            preserveAspectRatio="none"
+            className="hero-underline absolute -bottom-2 left-1/2 h-3 w-[min(70%,22rem)] -translate-x-1/2 text-primary"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+          >
+            <path pathLength="1" d="M2 9 C 80 2, 220 2, 298 7" />
+          </svg>
+        </span>
+      </h1>
 
-          <dl aria-label="What is in the dataset today" className="hero-rise hero-rise-4 mt-8 grid max-w-md grid-cols-3 gap-3 md:mt-12">
-            <HeroStat value={stats.programs} label={stats.programs === 1 ? 'program' : 'programs'} />
-            <HeroStat value={stats.countries} label={stats.countries === 1 ? 'country' : 'countries'} />
-            <HeroStat value={stats.facts.verified} label="facts verified from official pages" evidence />
-          </dl>
-        </div>
+      <p className="hero-rise hero-rise-3 mx-auto mt-8 max-w-2xl text-lg text-ink md:text-xl">
+        See which programs your grade meets, what they really cost and how long citizenship takes. Every fact links to the
+        official page. If we cannot verify something, we say so.
+      </p>
 
-        <div className="hero-rise hero-rise-3 relative">
-          <FloatingBadges />
-          <div className="relative z-10 rounded-panel border border-on-chrome-muted/30 bg-surface p-5 text-ink shadow-lift md:p-7">
-            {children}
-          </div>
-        </div>
+      <div className="hero-rise hero-rise-4 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="#start" className={buttonClass('primary', 'w-full px-8 sm:w-auto')}>
+          Check my grade
+        </a>
+        <Link href="/check" className={buttonClass('secondary', 'w-full min-h-button px-7 sm:w-auto')}>
+          Check a consultant’s claim
+        </Link>
       </div>
+
+      <dl aria-label="What is in the dataset today" className="hero-rise hero-rise-4 mx-auto mt-12 flex max-w-xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted">
+        <div className="flex flex-row-reverse items-baseline gap-1.5">
+          <dt>{stats.programs === 1 ? 'program' : 'programs'}</dt>
+          <dd className="text-2xl font-semibold tabular-nums text-heading">{stats.programs}</dd>
+        </div>
+        <span aria-hidden="true" className="hidden h-5 w-px bg-line sm:block" />
+        <div className="flex flex-row-reverse items-baseline gap-1.5">
+          <dt>{stats.countries === 1 ? 'country' : 'countries'}</dt>
+          <dd className="text-2xl font-semibold tabular-nums text-heading">{stats.countries}</dd>
+        </div>
+        <span aria-hidden="true" className="hidden h-5 w-px bg-line sm:block" />
+        <div className="flex flex-row-reverse items-baseline gap-1.5">
+          <dt>facts verified from official pages</dt>
+          <dd className="text-2xl font-semibold tabular-nums text-link">{stats.facts.verified}</dd>
+        </div>
+      </dl>
     </section>
   );
 }
