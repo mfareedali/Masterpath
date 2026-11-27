@@ -76,7 +76,9 @@ export type RefusalReason =
   | 'legal'
   | 'dishonest'
   /** The question names no university exactly, but one name is a near miss: we ask, we never guess. */
-  | 'unknown_name';
+  | 'unknown_name'
+  /** A greeting or a general "how do I start / apply" with no data question in it: fixed guidance, no AI. */
+  | 'getting_started';
 
 export type FallbackReason = 'no_model' | 'budget' | 'model_error' | 'model_refusal' | 'unsupported_numbers' | 'empty';
 

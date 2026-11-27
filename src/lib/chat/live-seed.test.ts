@@ -193,3 +193,23 @@ describe('student-facing notes on the live seed', () => {
     expect(status).toMatchObject({ confidence: 'Unverified', value: null });
   });
 });
+
+describe('getting-started card on the live seed', () => {
+  it('each tappable example question is answered from data (the model is called, never a refusal)', async () => {
+    const { STARTER_QUESTIONS } = await import('@/components/chat/chat-answer');
+    for (const q of STARTER_QUESTIONS) {
+      const model = mockModel(['ok']);
+      const r = await collectAnswer({ question: q }, deps({ model }));
+      expect(r.mode, q).toBe('answer');
+      expect(model.calls, q).toHaveLength(1);
+    }
+  });
+
+  it('"hi i want to apply from pakistan" gets the guide, not "No data on this yet"', async () => {
+    const model = mockModel(['should not be called']);
+    const r = await collectAnswer({ question: 'hi iw ant to apply from pakistan' }, deps({ model }));
+    expect(model.calls).toHaveLength(0);
+    expect(r.mode).toBe('refusal');
+    expect(r.reason).toBe('getting_started');
+  });
+});

@@ -299,3 +299,36 @@ describe('text helpers', () => {
     expect(t).toContain('Source 2: B — https://b.example');
   });
 });
+
+describe('getting started (greetings and general "how do I apply")', () => {
+  it.each([
+    'hi',
+    'Hello!',
+    'hi iw ant to apply from pakistan',
+    'hi i want to apply from pakistan',
+    'Assalam o alaikum',
+    'AoA',
+    'How do I apply?',
+    'I want to study abroad',
+    'apply kaise karun',
+  ])('%s -> friendly guide, no AI, no rows', (q) => {
+    const d = decide(q);
+    expect(d.mode).toBe('refusal');
+    if (d.mode !== 'refusal') return;
+    expect(d.reason).toBe('getting_started');
+    expect(d.rows).toEqual([]);
+    expect(d.pointers.map((p) => p.href)).toEqual(['/shortlist', '/citizenship', '/check']);
+  });
+
+  it('a greeting never overrides a safety refusal', () => {
+    const d = decide('hi, will I definitely get a UK visa?');
+    expect(d.mode === 'refusal' && d.reason).toBe('prediction');
+  });
+
+  it('words that only look like a greeting do not trigger it', () => {
+    for (const q of ['history masters deadline', 'What is the hiring rate?', 'thinking about costs']) {
+      const d = decide(q);
+      expect(d.mode === 'refusal' && d.reason).not.toBe('getting_started');
+    }
+  });
+});
