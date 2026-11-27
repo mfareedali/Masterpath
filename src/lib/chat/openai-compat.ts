@@ -8,7 +8,8 @@
  *      'stop' -> 'end_turn', 'length' -> 'max_tokens', 'content_filter' -> 'refusal' (shows the no-AI answer).
  *  - Output tokens for the daily budget come from `usage` (stream_options.include_usage) or Groq's `x_groq.usage`.
  *  - Only `delta.content` is shown; reasoning deltas (some models stream them separately) are ignored.
- *  - 30 s timeout per attempt, 1 retry on network errors / 429 / 5xx, then the caller falls back.
+ *  - 30 s timeout per attempt, 1 retry on network errors / 429 / 5xx, then the caller falls back. Offline callers (ingest)
+ *    can raise `maxRetries` and set `retryBaseMs`: exponential backoff, and a Retry-After header is honoured.
  */
 import type { ChatModelClient, ModelStreamEvent, ModelStreamRequest } from './answer';
 
@@ -24,6 +25,20 @@ export interface CompatConfig {
   label: string;
   /** Provider-specific request fields, e.g. { reasoning_effort: 'low' }. */
   extraBody?: Record<string, unknown>;
+  /** Default COMPAT_MAX_RETRIES. */
+  maxRetries?: number;
+  /** Backoff base in ms (doubles each retry). Default 0 = retry at once (the chat path). */
+  retryBaseMs?: number;
+  /** Test seam for the backoff wait. */
+  sleep?: (ms: number) => Promise<void>;
+}
+
+/** Seconds or an HTTP date in Retry-After -> ms (capped at 60 s); null when absent or unreadable. */
+export function retryAfterMs(header: string | null | undefined, now = Date.now()): number | null {
+  if (!header) return null;
+  const secs = Number(header);
+  const ms = Number.isFinite(secs) ? secs * 1000 : Date.parse(header) - now;
+  return Number.isFinite(ms) && ms >= 0 ? Math.min(ms, 60_000) : null;
 }
 
 export function buildCompatBody(
@@ -58,7 +73,7 @@ export function mapFinishReason(reason: string | null | undefined): string | nul
 
 interface CompatChunk {
   choices?: { delta?: { content?: string | null }; finish_reason?: string | null }[];
-  usage?: { completion_tokens?: number } | null;
+  usage?: { completion_tokens?: number; prompt_tokens?: number } | null;
   x_groq?: { usage?: { completion_tokens?: number } | null } | null;
 }
 
@@ -93,7 +108,12 @@ function retryable(status: number): boolean {
 export function createCompatChatModel(cfg: CompatConfig, fetchImpl: typeof fetch = fetch): ChatModelClient {
   async function open(req: ModelStreamRequest): Promise<Response> {
     let lastError: unknown;
-    for (let attempt = 0; attempt <= COMPAT_MAX_RETRIES; attempt++) {
+    const maxRetries = cfg.maxRetries ?? COMPAT_MAX_RETRIES;
+    const wait = cfg.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
+    let nextDelay = 0;
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      if (attempt > 0 && nextDelay > 0) await wait(nextDelay);
+      nextDelay = (cfg.retryBaseMs ?? 0) * 2 ** attempt;
       const timeout = AbortSignal.timeout(COMPAT_TIMEOUT_MS);
       const signal = req.signal ? AbortSignal.any([req.signal, timeout]) : timeout;
       try {
@@ -109,6 +129,7 @@ export function createCompatChatModel(cfg: CompatConfig, fetchImpl: typeof fetch
         const reason = (await res.text().catch(() => '')).replace(/\s+/g, ' ').trim().slice(0, 300);
         lastError = new Error(`${cfg.label} API returned ${res.status}${reason ? `: ${reason}` : ''}`);
         if (!retryable(res.status)) break;
+        nextDelay = retryAfterMs(res.headers.get('retry-after')) ?? nextDelay;
       } catch (err) {
         if (req.signal?.aborted) throw err;
         lastError = err;
@@ -122,6 +143,7 @@ export function createCompatChatModel(cfg: CompatConfig, fetchImpl: typeof fetch
       const res = await open(req);
       let stopReason: string | null = null;
       let outputTokens = 0;
+      let inputTokens: number | undefined;
       for await (const data of sseData(res.body as ReadableStream<Uint8Array>)) {
         if (data === '[DONE]') break;
         let chunk: CompatChunk;
@@ -136,8 +158,9 @@ export function createCompatChatModel(cfg: CompatConfig, fetchImpl: typeof fetch
         if (choice?.finish_reason) stopReason = mapFinishReason(choice.finish_reason);
         const used = chunk.usage?.completion_tokens ?? chunk.x_groq?.usage?.completion_tokens;
         if (used != null) outputTokens = used;
+        if (chunk.usage?.prompt_tokens != null) inputTokens = chunk.usage.prompt_tokens;
       }
-      yield { type: 'end', stopReason, outputTokens };
+      yield { type: 'end', stopReason, outputTokens, ...(inputTokens !== undefined ? { inputTokens } : {}) };
     },
   };
 }
