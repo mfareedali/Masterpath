@@ -762,7 +762,7 @@
       "official_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
       "status": "active",
       "pathway_type": "direct",
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-27",
       "status_note": {
         "value": null,
         "source_url": null,
@@ -877,10 +877,11 @@
         "fetched_at": null
       },
       "admissions_email": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "master@inf.ethz.ch",
+        "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+        "evidence_snippet": "Email master@inf.ethz.ch",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Programme contact box (\"Email\") on the official ETH programme page. The address is only in the rendered page (the static HTML has no email)."
       },
       "eligibility_note": {
         "value": null,
@@ -3094,10 +3095,11 @@
         "review_note": "ETH-wide; same snippet as ethz-msc-cs. Confirmations that do not meet the exemption lead to direct rejection."
       },
       "admissions_email": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "master@inf.ethz.ch",
+        "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+        "evidence_snippet": "Email master@inf.ethz.ch",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Programme contact box (\"Email\") on the official ETH programme page. The address is only in the rendered page (the static HTML has no email)."
       },
       "last_checked": "2026-11-27"
     },
@@ -4285,10 +4287,11 @@
         "review_note": "ETH-wide page, same source as ethz-msc-cs. Confirmations that do not meet the exemption lead to direct rejection, so take a test if unsure."
       },
       "admissions_email": {
-        "value": null,
-        "source_url": null,
-        "evidence_snippet": null,
-        "fetched_at": null
+        "value": "info@ee.ethz.ch",
+        "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+        "evidence_snippet": "Email info@ee.ethz.ch",
+        "fetched_at": "2026-11-27",
+        "review_note": "Proposed from the official page on 2026-11-27 and checked by a second reviewer. Awaiting human review. Programme contact box (\"Email\") on the official ETH programme page. The address is only in the rendered page (the static HTML has no email)."
       },
       "last_checked": "2026-11-27"
     },

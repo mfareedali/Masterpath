@@ -63,9 +63,29 @@ Optional environment variables (copy `.env.example` to `.env.local`):
 | `CHAT_DAILY_TOKEN_BUDGET`, `CHAT_GLOBAL_DAILY_TOKEN_CAP` | Per-user and global daily spend caps for chat. |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | Optional Cloudflare Turnstile on sign-in and chat. |
 | `INGEST_CONTACT_URL` | Contact URL added to the scraper's User-Agent (`+https://...`), so site owners can reach the project. Never invented: without it the User-Agent says it is not configured. |
+| `INGEST_RENDER` | Set to `0` to turn off the automatic Playwright fallback for JavaScript-only official pages (a machine without Chromium). |
 | `MASTERSPATH_NOW` | Pin "today" for a recorded demo so confidence ages don't change. |
 
 The scripts (`ingest`, `add-programs`, `verify-snippet`, `check-links`, `peek-page`, `seed-supabase`) load `.env.local` (then `.env`) automatically through Node's built-in `process.loadEnvFile`. A real environment variable always overrides the file, a missing file is skipped silently, and no value is ever printed.
+
+### JavaScript-only official pages (Playwright)
+
+Most official pages are plain HTML and are read with `safeFetch`. A few only show their text after JavaScript runs.
+`src/lib/net/render-fetch.ts` reads those with Playwright + Chromium under the **same safety policy** as `safeFetch`:
+the allowlist, https only, no private addresses, `robots.txt` and the per-host throttle apply, and every redirect hop and
+every sub-request is checked again (anything off the allowlist is aborted); there is a 20 s limit, a 3 MB text cap, no
+images/fonts/media, and a fresh browser context per run. There is **no stealth and no workaround for bot challenges**: a
+Radware/Cloudflare/CAPTCHA page stops the fetch with `BLOCKED_BY_CHALLENGE`.
+
+- Install the browser once on your machine: `npx playwright install chromium`. Normal CI never downloads it (the
+  browser tests skip themselves when Chromium is missing); the weekly re-verify workflow installs and caches it.
+- It is a fallback: used when `safeFetch` returns under 200 characters of text, or when a page in `data/sources.json`
+  has `"render": true`. `INGEST_RENDER=0` switches the automatic fallback off.
+- The text is the page's **visible text** (collapsed accordions and tabs are expanded), normalised like `htmlToText`, so
+  the verbatim-snippet check works the same way. Proposals record `"fetch_method": "static" | "render"`, and
+  `--verify` re-reads a page the same way it was read first (a fact read with the renderer needs its page registered
+  with `"render": true`, so `--verify-seed` can do the same).
+- `npx tsx scripts/peek-page.ts <url> "<regex>" --render` shows what the renderer sees.
 
 ### Supabase
 

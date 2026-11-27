@@ -5,25 +5,25 @@
       "hash": "ddc0b0629ec39e796b7490b05d0e2bf20a47a84a693d8ca891f638a15d0652b5",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
       "chars": 25887,
       "extracted": false
     },
     "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html": {
-      "hash": "509685f2dd4251bb15662c257079512b49ed6600183602d4dafaef79ed941e7b",
+      "hash": "8b24986d3110ff16ed33cfc767ac0d5038c0d457deddff1051c0fef322afe07e",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
-      "chars": 4089,
+      "chars": 4334,
       "extracted": false
     },
     "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/": {
       "hash": "249951703e6185c85a14dadd279415d4e26e0d7dae7b43d8e1ef555c332c2d43",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
       "chars": 6074,
       "extracted": false
@@ -32,7 +32,7 @@
       "hash": "ceffe436ebffbdad700c6cdd732bc129730a01770608c3f4afb32dce5ac41595",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
       "chars": 24169,
       "extracted": false
@@ -41,7 +41,7 @@
       "hash": "a28d6e8280d021f5ac9da716ac25ed5c5073013e92626d4b179e9619fad6d67c",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
       "chars": 14664,
       "extracted": false
@@ -50,7 +50,7 @@
       "hash": "edbc0fe3ab4d09077996fb3ab9f413d0349d0727237c3c3ea97daabe691b6855",
       "etag": null,
       "last_modified": "Thu, 26 Nov 2026 06:34:00 GMT",
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
       "chars": 10545,
       "extracted": false
@@ -58,8 +58,8 @@
     "https://mscac.utoronto.ca/": {
       "hash": "56722667fbd4f9dad1383a78fbf902bedca7b5cfdfd65e613faeb0df11968f0f",
       "etag": null,
-      "last_modified": "Fri, 27 Nov 2026 11:29:16 GMT",
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "last_modified": "Fri, 27 Nov 2026 15:15:30 GMT",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://mscac.utoronto.ca/",
       "chars": 5048,
       "extracted": false
@@ -68,7 +68,7 @@
       "hash": "250886d4b864b872f66358a0dd094b83f00daab63366059e6182de70ba3cc010",
       "etag": "\"1795723821-gzip\"",
       "last_modified": "Thu, 26 Nov 2026 20:10:21 GMT",
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://csd.cmu.edu/academics/masters/overview",
       "chars": 5842,
       "extracted": false
@@ -77,7 +77,7 @@
       "hash": "e8dc426bd0f2e37b20a552067d4c9ffe47a1f9dec8a8ed2fa229165c75123235",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
       "chars": 8179,
       "extracted": false
@@ -86,7 +86,7 @@
       "hash": "b1307d77d676ef933f5bfd52fe2b0ee4998844a39d02f5e275be6b4940783586",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/mscs.aspx",
       "chars": 4809,
       "extracted": false
@@ -95,7 +95,7 @@
       "hash": "89292330d785df751cd0b8d59f89961040639a2e292c30df4545077031da8197",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
       "chars": 12301,
       "extracted": false
@@ -104,25 +104,25 @@
       "hash": "fad0d454c7b7531fdd23c8b6a2c073453e7e51765a84579bd0989cde709c2e5a",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
       "chars": 30935,
       "extracted": false
     },
     "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html": {
-      "hash": "20f3e0ecf51b25f87cf7c019209cd62dd22dfdcc01778d61e24837d2b0dda834",
+      "hash": "be8da720e38b042e20779c138b221ea7ead36afec31596484c4d8827e0e61afb",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
-      "chars": 3819,
+      "chars": 4072,
       "extracted": false
     },
     "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/": {
       "hash": "944857cce032317538bb64c19b8f4be9a62ea05411b0706b7b5d83bdbc0c76a1",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
       "chars": 25207,
       "extracted": false
@@ -131,7 +131,7 @@
       "hash": "a3f9b2ea11f9edffd3d1340117e3d08b1de97956258c6d51d4573b68b4dcbd52",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
       "chars": 5646,
       "extracted": false
@@ -140,7 +140,7 @@
       "hash": "e1dc68fc5cae52d0cf14cce2db1e9ba8f44704f277976de13a15d6ef03217a57",
       "etag": "\"c0d1-65dccf8e77587\"",
       "last_modified": "Wed, 14 Oct 2026 13:33:10 GMT",
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://mse.s3d.cmu.edu/applicants/mse-as/index.html",
       "chars": 5494,
       "extracted": false
@@ -149,7 +149,7 @@
       "hash": "4f4a937eadf5664935aa8d2c0488fcb8bc4d59107e5d13f4de286c1e37634931",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
       "chars": 27246,
       "extracted": false
@@ -158,7 +158,7 @@
       "hash": "ac6c2e0f3d458da42d11be868162f188f24a87be83d1758bc01734ad48591f4e",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/",
       "chars": 6513,
       "extracted": false
@@ -166,8 +166,8 @@
     "https://engineering.utdallas.edu/academics/graduate-education/software-engineering/": {
       "hash": "45242863ef7cf5356f31f6629a4a63d3d64ca69c9c06e47c3b3812094b30e64f",
       "etag": null,
-      "last_modified": "Fri, 27 Nov 2026 10:40:51 GMT",
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "last_modified": "Fri, 27 Nov 2026 14:24:27 GMT",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://engineering.utdallas.edu/academics/graduate-education/software-engineering/",
       "chars": 6441,
       "extracted": false
@@ -176,25 +176,25 @@
       "hash": "3a3c278989de41a8fa8ae0ea0eda23595d16af1635ec07b9bf367a887ede3f4e",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
       "chars": 20932,
       "extracted": false
     },
     "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html": {
-      "hash": "3d1107ed417daa4857778e99361cbbd16dce37243f8c7658a415e0c3fc0bd39d",
+      "hash": "86e7a996df39997d0a6f3f692f47fb97a3c403c4d3e3fd9ef9517cf891c1eb7c",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
-      "chars": 4064,
+      "chars": 4214,
       "extracted": false
     },
     "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/": {
       "hash": "144b741f7150efbe2100b04dbff08f8be5f5cfb9f1fcaf714c5dd9f2819caa1f",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
       "chars": 25133,
       "extracted": false
@@ -203,9 +203,36 @@
       "hash": "e703c9f9d27156db9f5c022eebcfe563f4cfb14618f4677f31cd859df5654389",
       "etag": null,
       "last_modified": null,
-      "checked_at": "2026-11-27T11:48:31.991Z",
+      "checked_at": "2026-11-27T15:40:56.622Z",
       "final_url": "https://www.ece.utoronto.ca/graduates/",
       "chars": 16754,
+      "extracted": false
+    },
+    "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/": {
+      "hash": "390ebe486fb73a6f8de174247d9230afc97dbce64095371924cc092e3165a380",
+      "etag": null,
+      "last_modified": null,
+      "checked_at": "2026-11-27T15:40:56.622Z",
+      "final_url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "chars": 26964,
+      "extracted": false
+    },
+    "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/": {
+      "hash": "84dc8c2ac549c5a0d133dd9da9ecdce5a7938ddea350c80f1a96eee0673c0347",
+      "etag": null,
+      "last_modified": null,
+      "checked_at": "2026-11-27T15:40:56.622Z",
+      "final_url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "chars": 26437,
+      "extracted": false
+    },
+    "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/": {
+      "hash": "89976406a1ad94ac2245e5838e76532bb5b571564e3ac07b66a28293e55e9323",
+      "etag": null,
+      "last_modified": null,
+      "checked_at": "2026-11-27T15:40:56.622Z",
+      "final_url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "chars": 29231,
       "extracted": false
     }
   }

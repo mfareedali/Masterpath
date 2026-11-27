@@ -62,7 +62,11 @@ export type SafeFetchErrorCode =
   | 'TOO_LARGE'
   | 'CONTENT_TYPE'
   | 'ROBOTS'
-  | 'NETWORK';
+  | 'NETWORK'
+  /** render-fetch only: a bot challenge (Radware, Cloudflare, CAPTCHA ...) was served. We stop; we never work around it. */
+  | 'BLOCKED_BY_CHALLENGE'
+  /** render-fetch only: the browser is not installed or could not start. */
+  | 'RENDER_UNAVAILABLE';
 
 export class SafeFetchError extends Error {
   readonly code: SafeFetchErrorCode;
@@ -76,6 +80,7 @@ export class SafeFetchError extends Error {
 }
 
 /** Errors caused by our own safety policy (as opposed to the remote server or the network). */
+/** (BLOCKED_BY_CHALLENGE is the remote site's choice, not ours, so it is not listed here.) */
 export const POLICY_ERROR_CODES: ReadonlySet<SafeFetchErrorCode> = new Set<SafeFetchErrorCode>([
   'BAD_URL',
   'PROTOCOL',
@@ -391,6 +396,11 @@ async function assertRobotsAllow(url: URL, o: Resolved): Promise<void> {
   if (entry.kind === 'rules' && !robotsAllows(entry.txt, url.pathname + url.search, ROBOTS_PRODUCT_TOKEN)) {
     throw new SafeFetchError('ROBOTS', `robots.txt disallows ${url.pathname} for ${ROBOTS_PRODUCT_TOKEN}`, url.toString());
   }
+}
+
+/** robots.txt check for a URL (shared cache, same user agent). Throws SafeFetchError('ROBOTS'). Used by render-fetch. */
+export async function assertRobotsAllowed(url: URL, options: SafeFetchOptions = {}): Promise<void> {
+  await assertRobotsAllow(url, resolveOptions(options));
 }
 
 /** Fetches an allowlisted official page under the safety policy above. Throws SafeFetchError. */

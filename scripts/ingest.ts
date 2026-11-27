@@ -20,7 +20,7 @@ import './load-env';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { loadSeedDataset } from '../src/lib/data/seed-source';
-import { USER_AGENT, safeFetch, type SafeResponse } from '../src/lib/net/safe-fetch';
+import { USER_AGENT, type SafeResponse } from '../src/lib/net/safe-fetch';
 import { ingestModel, makeClaudeProposer } from '../src/lib/seed/claude-proposer';
 import { isProgramFactField, type ProgramFactField } from '../src/lib/seed/fields';
 import {
@@ -37,7 +37,7 @@ import {
   type ProposalsFile,
   type ReviewResult,
 } from '../src/lib/seed/ingest';
-import { describeFetchError, PAGE_TYPES, textOfResponse } from '../src/lib/seed/page-text';
+import { describeFetchError, fetchPage, type FetchMethod } from '../src/lib/seed/page-text';
 import { RunRecorder, outcomeOfError, outcomeOfStatus } from '../src/lib/seed/run-report';
 import {
   emptyState,
@@ -126,8 +126,14 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
   console.log(`Fetching ${url} ...`);
   const t0 = Date.now();
   let page: SafeResponse;
+  let pageText = '';
+  let fetchMethod: FetchMethod = 'static';
   try {
-    page = await safeFetch(url, { acceptTypes: PAGE_TYPES });
+    const f = await fetchPage(url);
+    page = f.res;
+    pageText = f.text;
+    fetchMethod = f.method;
+    if (f.renderNote) console.warn(`Render fallback not used: ${f.renderNote}`);
   } catch (e) {
     const o = outcomeOfError(e);
     rec.entry({ kind: 'page', ref: programId, url, ...o, duration_ms: Date.now() - t0 });
@@ -139,8 +145,8 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
     writeRunReport(rec.finish());
     fail(`The page returned HTTP ${page.status}. Nothing proposed.`);
   }
-  const pageText = await textOfResponse(page);
-  if (pageText.length < 200) console.warn(`Warning: the page has only ${pageText.length} characters of text (JavaScript-only page?).`);
+  if (pageText.length < 200) console.warn(`Warning: the page has only ${pageText.length} characters of text.`);
+  if (fetchMethod === 'render') console.log('Read with the browser renderer (the page needs JavaScript).');
   if (page.redirects.length) console.log(`Redirected to ${page.url}`);
 
   const model = ingestModel();
@@ -162,7 +168,7 @@ async function propose(programId: string, url: string, fields: ProgramFactField[
   }
 
   const parsed = parseModelOutput(output);
-  const result = reviewProposals(parsed.proposals, { pageText, sourceUrl: page.url, fetchedAt: fetchedAt.toISOString(), fields });
+  const result = reviewProposals(parsed.proposals, { pageText, fetchMethod, sourceUrl: page.url, fetchedAt: fetchedAt.toISOString(), fields });
   if (parsed.error) result.rejected.push({ field: null, value: null, evidence_snippet: null, reasons: [parsed.error] });
 
   const file = buildProposalsFile({
@@ -216,7 +222,7 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
     const accepted: ReviewResult['accepted'] = [];
     const rejected: ReviewResult['rejected'] = [];
     const fieldsSeen = new Set<ProgramFactField>();
-    const pagesInfo: { url: string; final_url: string; chars: number; hash: string }[] = [];
+    const pagesInfo: { url: string; final_url: string; chars: number; hash: string; fetch_method?: FetchMethod }[] = [];
     let chars = 0;
 
     for (const page of group) {
@@ -224,8 +230,13 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
       const st = state.pages[page.url];
       const conditional = !args.force && st && (st.extracted || args.fetchOnly) ? { etag: st.etag, lastModified: st.last_modified } : undefined;
       let res: SafeResponse;
+      let text = '';
+      let method: FetchMethod = 'static';
       try {
-        res = await safeFetch(page.url, { conditional, acceptTypes: PAGE_TYPES });
+        const f = await fetchPage(page.url, { conditional, render: page.render === true });
+        res = f.res;
+        text = f.text;
+        method = f.method;
       } catch (e) {
         rec.entry({ kind: 'page', ref: page.id, url: page.url, ...outcomeOfError(e), duration_ms: Date.now() - t0 });
         console.log(`  ${page.id}: ${outcomeOfError(e).outcome} (${describeFetchError(e)})`);
@@ -242,7 +253,6 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
         console.log(`  ${page.id}: HTTP ${res.status}`);
         continue;
       }
-      const text = await textOfResponse(res);
       const hash = hashText(text);
       const unchanged = !args.force && st?.hash === hash && (st.extracted || args.fetchOnly);
       const nextState = { hash, etag: res.etag, last_modified: res.lastModified, checked_at: now.toISOString(), final_url: res.url, chars: text.length };
@@ -252,7 +262,8 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
         console.log(`  ${page.id}: unchanged, skipped`);
         continue;
       }
-      if (text.length < 200) rec.notes.push(`${page.id}: only ${text.length} characters of text (JavaScript-only page?)`);
+      if (text.length < 200) rec.notes.push(`${page.id}: only ${text.length} characters of text`);
+      if (method === 'render') rec.notes.push(`${page.id}: read with the browser renderer`);
 
       const fields = page.fields.filter(isProgramFactField);
       if (!propose || target.type !== 'program' || fields.length === 0) {
@@ -275,13 +286,13 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
         continue;
       }
       const parsed = parseModelOutput(output);
-      const result = reviewProposals(parsed.proposals, { pageText: text, sourceUrl: res.url, fetchedAt: now.toISOString(), fields });
+      const result = reviewProposals(parsed.proposals, { pageText: text, fetchMethod: method, sourceUrl: res.url, fetchedAt: now.toISOString(), fields });
       if (parsed.error) result.rejected.push({ field: null, value: null, evidence_snippet: null, reasons: [parsed.error] });
       accepted.push(...result.accepted);
       rejected.push(...result.rejected);
       fields.forEach((f) => fieldsSeen.add(f));
       chars += text.length;
-      pagesInfo.push({ url: page.url, final_url: res.url, chars: text.length, hash });
+      pagesInfo.push({ url: page.url, final_url: res.url, chars: text.length, hash, fetch_method: method });
       state.pages[page.url] = { ...nextState, extracted: true };
       rec.entry({ kind: 'page', ref: page.id, url: page.url, outcome: 'ok', http_status: res.status, detail: `${result.accepted.length} accepted, ${result.rejected.length} rejected`, duration_ms: Date.now() - t0 });
       for (const a of result.accepted) rec.accepted.push({ ref: page.id, field: a.field, source_url: a.source_url });
@@ -311,19 +322,36 @@ async function runAll(args: Extract<ReturnType<typeof parseIngestArgs>, { mode: 
 
 /* ---------------- --verify / --verify-seed ---------------- */
 
+/** URLs the registry marks "render": true. */
+function registryRenderUrls(): Set<string> {
+  const file = join(ROOT, 'data', 'sources.json');
+  if (!existsSync(file)) return new Set();
+  return new Set(readJson<SourcesFile>(file).pages.filter((p) => p.render === true).map((p) => p.url));
+}
+
+function verifyMethodFor(url: string, items: readonly { source_url: string; fetch_method?: FetchMethod }[], renderUrls: ReadonlySet<string>): FetchMethod | 'auto' {
+  const recorded = items.filter((i) => i.source_url === url).map((i) => i.fetch_method);
+  if (recorded.includes('render')) return 'render';
+  if (renderUrls.has(url)) return 'render';
+  if (recorded.length > 0 && recorded.every((m) => m === 'static')) return 'static';
+  return 'auto';
+}
+
 async function verifyItems(items: ReturnType<typeof verifyItemsFrom>['items'], mode: string, argv: string[]) {
   const rec = new RunRecorder('verify', mode, argv, USER_AGENT);
   const pages = new Map<string, string | Error>();
   const times = new Map<string, number>();
   const statuses = new Map<string, ReturnType<typeof outcomeOfError>>();
+  const renderUrls = registryRenderUrls();
   for (const url of new Set(items.map((i) => i.source_url))) {
     const t0 = Date.now();
     try {
-      const res = await safeFetch(url, { acceptTypes: PAGE_TYPES });
-      if (res.ok) pages.set(url, await textOfResponse(res));
+      // Same method that produced the snippet: recorded fetch_method, else the registry flag, else auto.
+      const res = await fetchPage(url, { fetchMethod: verifyMethodFor(url, items, renderUrls) });
+      if (res.res.ok) pages.set(url, res.text);
       else {
-        pages.set(url, new Error(`HTTP ${res.status}`));
-        statuses.set(url, outcomeOfStatus(res.status));
+        pages.set(url, new Error(`HTTP ${res.res.status}`));
+        statuses.set(url, outcomeOfStatus(res.res.status));
       }
     } catch (e) {
       pages.set(url, e instanceof Error ? e : new Error(String(e)));
