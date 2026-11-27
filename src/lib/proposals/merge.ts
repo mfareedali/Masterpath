@@ -12,7 +12,7 @@ import { valuesEqual } from '../confidence';
 import type { Fact, SourcedValue } from '../types';
 
 export interface Proposal {
-  target: 'program' | 'institution' | 'country_fact' | 'conversion_rule';
+  target: 'program' | 'institution' | 'country_fact' | 'conversion_rule' | 'fx_rate';
   id: string;
   field: string;
   value: unknown;
@@ -33,6 +33,7 @@ export interface SeedBundle {
   programs: { institutions: Record<string, unknown>[]; programs: Record<string, unknown>[]; [k: string]: unknown };
   countryFacts: { country_facts: Record<string, unknown>[]; [k: string]: unknown };
   conversionRules: { conversion_rules: Record<string, unknown>[]; [k: string]: unknown };
+  fxRates?: { fx_rates: Record<string, unknown>[]; [k: string]: unknown };
 }
 
 export type ChangeKind = 'filled' | 'evidence_added' | 'conflict_added' | 'unchanged' | 'skipped';
@@ -132,6 +133,7 @@ export function mergeProposals(seed: SeedBundle, files: ProposalFile[], date: st
   const institutions = new Map(out.programs.institutions.map((i) => [i.id as string, i]));
   const facts = new Map(out.countryFacts.country_facts.map((f) => [f.id as string, f]));
   const rules = new Map(out.conversionRules.conversion_rules.map((r) => [r.id as string, r]));
+  const fx = new Map((out.fxRates?.fx_rates ?? []).map((r) => [r.id as string, r]));
 
   for (const file of files) {
     for (const p of file.proposals ?? []) {
@@ -173,6 +175,12 @@ export function mergeProposals(seed: SeedBundle, files: ProposalFile[], date: st
         const v = p.value as { text?: unknown };
         if (!v || typeof v !== 'object' || typeof v.text !== 'string') { skip('country fact value must be {text, sort_months?, clock_note?}'); continue; }
         changes.push({ ...base, ...mergeIntoFact(f as unknown as Fact<unknown>, p, note) });
+      } else if (p.target === 'fx_rate') {
+        const rate = fx.get(p.id);
+        if (!rate) { skip('unknown fx rate id'); continue; }
+        if (p.field !== 'pkr_per_unit') { skip('fx rates only accept field "pkr_per_unit"'); continue; }
+        if (typeof p.value !== 'number' || !(p.value > 0)) { skip('fx value must be a positive number'); continue; }
+        changes.push({ ...base, ...mergeIntoFact(rate.pkr_per_unit as Fact<unknown>, p, note) });
       } else if (p.target === 'conversion_rule') {
         const rule = rules.get(p.id);
         if (!rule) { skip('unknown conversion rule id'); continue; }

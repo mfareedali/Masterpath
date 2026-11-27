@@ -15,9 +15,9 @@
           2
         ]
       },
-      "source_url": null,
-      "evidence_snippet": null,
-      "fetched_at": null,
+      "source_url": "https://www.intl.kit.edu/ostudies/13602.php",
+      "evidence_snippet": "The Conference of Ministers of Education and Cultural Affairs recommends the modified Bavarian formula as a practical basis for converting examination results.",
+      "fetched_at": "2026-11-27",
       "notes": "Modified Bavarian formula: German grade = 1 + 3 x (Nmax - Nd) / (Nmax - Nmin). Nmin (lowest passing CGPA on your transcript) differs between universities, so a range of 1.0 to 2.0 is used until you enter your own. Add the official source URL and snippet before fit decisions use this rule."
     }
   ]

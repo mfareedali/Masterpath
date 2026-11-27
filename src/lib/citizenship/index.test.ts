@@ -446,7 +446,7 @@ describe('ranked months number is a sort key, never a code-made legal paraphrase
 
   it('post-study work: the UK row is "18 months (the number this rule is ranked by)", not "18 months longest work permit"', () => {
     const r = rankCountries(rows, parseCitizenshipQuery({ rank: 'psw' }), live.fxRates, FIXED_NOW);
-    expect(names(r.ranked)).toEqual(['US', 'UK']);
+    expect(names(r.ranked)).toEqual(['CA', 'US', 'DE', 'UK']);
     const uk = r.ranked.find((x) => x.row.country === 'UK')!;
     expect(uk.key.display).toBe('18 months (the number this rule is ranked by)');
     expect(uk.key.showBadge).toBe(false);
@@ -583,21 +583,21 @@ describe('visa money (proof_of_funds): shown for every country, never ranked', (
     expect(v.pkr).toBeNull();
   });
 
-  it('DE: €11,904 per year; no verified EUR rate today, so "No verified PKR rate yet"', () => {
+  it('DE: €11,904 per year, converted with the dated State Bank of Pakistan rate', () => {
     const v = visaFundsView(liveFact('DE'), live.fxRates, FIXED_NOW);
     expect(v.confidence).toBe('Verified');
     expect(v.amount).toBe('€11,904 per year');
-    expect(pkrRate('EUR', live.fxRates, FIXED_NOW)).toBeNull(); // today: every fx row is empty
-    expect(v.pkr).toEqual({ ok: false, text: NO_PKR_RATE });
+    expect(pkrRate('EUR', live.fxRates, FIXED_NOW)).toMatchObject({ rate: 303.1114 });
+    expect(v.pkr).toMatchObject({ ok: true });
     expect(NO_PKR_RATE).toBe('No verified PKR rate yet');
     expect(v.howChecked).toContain('attested by the Embassy in Islamabad');
   });
 
-  it('CA: CA$23,448 per year; "No verified PKR rate yet"', () => {
+  it('CA: CA$23,448 per year, converted with the dated State Bank of Pakistan rate', () => {
     const v = visaFundsView(liveFact('CA'), live.fxRates, FIXED_NOW);
     expect(v.amount).toBe('CA$23,448 per year');
-    expect(pkrRate('CAD', live.fxRates, FIXED_NOW)).toBeNull();
-    expect(v.pkr).toEqual({ ok: false, text: NO_PKR_RATE });
+    expect(pkrRate('CAD', live.fxRates, FIXED_NOW)).toMatchObject({ rate: 194.0899 });
+    expect(v.pkr).toMatchObject({ ok: true });
     expect(v.text).toContain('not including tuition and transport');
   });
 

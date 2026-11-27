@@ -94,12 +94,12 @@ describe('pkrRate: a stale exchange rate never decides a PKR total', () => {
     expect(pkrRateStatus('PKR', [], FIXED_NOW)).toMatchObject({ ok: true, rate: 1 });
   });
 
-  it('the shipped seed has no usable rates yet, so every live total says why', () => {
+  it('on the shipped seed a PKR total exists only when nothing is missing, and every gap says why', () => {
     const data = loadSeedDataset();
     for (const p of data.programs) {
       const r = programTotalCost(p, data.fxRates, NOW_DEMO);
-      expect(r.pkr, p.id).toBeNull();
-      expect(r.missing.length, p.id).toBeGreaterThan(0);
+      if (r.pkr === null) expect(r.missing.length, p.id).toBeGreaterThan(0);
+      else expect(r.missing, p.id).toEqual([]);
     }
   });
 });

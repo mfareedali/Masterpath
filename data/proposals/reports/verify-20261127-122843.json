@@ -1,0 +1,1852 @@
+{
+  "tool": "verify",
+  "mode": "seed",
+  "args": [
+    "--verify-seed"
+  ],
+  "user_agent": "MastersPathIngest/0.2 (open-source evidence bot; contact URL not configured: set INGEST_CONTACT_URL)",
+  "started_at": "2026-11-27T12:25:04.162Z",
+  "finished_at": "2026-11-27T12:28:43.052Z",
+  "duration_ms": 218890,
+  "summary": {
+    "entries": 203,
+    "by_outcome": {
+      "found": 194,
+      "error": 9
+    },
+    "accepted": 0,
+    "rejected": 0
+  },
+  "accepted": [],
+  "rejections": [],
+  "entries": [
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/0/intake",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2627
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/0/deadline",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2627
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/0/duration_months",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2627
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/0/scholarship_info",
+      "url": "https://www.tum.de/en/studies/fees/tuition",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2733
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/0/sop_requirements",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2627
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/0/tests_required",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2627
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/deadline",
+      "url": "https://www.lehrbetrieb.ethz.ch/eApply/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6859
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/language_req",
+      "url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1970
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/tuition",
+      "url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1677
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/duration_months",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computer-science.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1386
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/scholarship_info",
+      "url": "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1491
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/sop_requirements",
+      "url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1970
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/lor_count",
+      "url": "https://ethz.ch/en/studies/master/application/master-informatik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1970
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/1/language_waiver",
+      "url": "https://ethz.ch/en/studies/master/application/language-requirements.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1553
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/deadline",
+      "url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2337
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/language_req",
+      "url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2337
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/tuition",
+      "url": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/degree-programmes/before-arrival/costs-and-financing",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4015
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/living_cost",
+      "url": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/degree-programmes/before-arrival/costs-and-financing",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4015
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/duration_months",
+      "url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 902
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/admissions_email",
+      "url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2337
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/2/conditional_admission",
+      "url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/master-computer-science/application/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2337
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/intake",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2688
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/language_req",
+      "url": "https://www.imperial.ac.uk/study/apply/english-language/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1151
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/tuition",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2688
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/duration_months",
+      "url": "https://www.imperial.ac.uk/computing/prospective-students/courses/pg/msc-computing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1483
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/scholarship_info",
+      "url": "https://www.imperial.ac.uk/study/fees-and-funding/scholarships-search/imperial-inspires-scholarships-postgraduate-taught-20272028.php",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1491
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/admissions_email",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2688
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/eligibility_note",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2688
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/3/language_waiver",
+      "url": "https://www.imperial.ac.uk/study/apply/english-language/english-language-exemption/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1521
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/5/status_note",
+      "url": "https://www.brookes.ac.uk/study/international-students/applying-to-arriving/how-to-apply",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2215
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/5/intake",
+      "url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1528
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/5/min_gpa_rule",
+      "url": "https://www.brookes.ac.uk/study/international-students/your-country/pakistan/entry-requirements",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1423
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/5/language_req",
+      "url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1528
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/5/tuition",
+      "url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1528
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/5/duration_months",
+      "url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1528
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/6/intake",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2469
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/6/language_req",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2469
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/6/scholarship_info",
+      "url": "https://www.qmul.ac.uk/scholarships/items/global-talent-scholarship--postgraduate-taught-september-2027.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1610
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/6/progression_requirement",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/pmp/humanities-and-social-science/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2469
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/6/eligibility_note",
+      "url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/computer-science-conversion-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 949
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/deadline",
+      "url": "https://mscac.utoronto.ca/apply/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2042
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/language_req",
+      "url": "https://www.sgs.utoronto.ca/future-students/admission-application-requirements/english-language-proficiency-testing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1979
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/duration_months",
+      "url": "https://mscac.utoronto.ca/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 163
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/scholarship_info",
+      "url": "https://mscac.utoronto.ca/apply/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2042
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/lor_count",
+      "url": "https://mscac.utoronto.ca/apply/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2042
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/tests_required",
+      "url": "https://mscac.utoronto.ca/apply/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2042
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/admissions_email",
+      "url": "https://mscac.utoronto.ca/contact/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1572
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/7/language_waiver",
+      "url": "https://mscac.utoronto.ca/apply/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2042
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/8/deadline",
+      "url": "https://csd.cmu.edu/academics/masters/admissions",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2882
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/8/duration_months",
+      "url": "https://csd.cmu.edu/academics/masters/ms-in-computer-science",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1210
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/8/scholarship_info",
+      "url": "https://csd.cmu.edu/academics/masters/admissions",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2882
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/8/lor_count",
+      "url": "https://csd.cmu.edu/academics/masters/admissions",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2882
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/8/tests_required",
+      "url": "https://csd.cmu.edu/academics/masters/admissions",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2882
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/8/language_waiver",
+      "url": "https://www.cs.cmu.edu/education/graduate-admissions",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2638
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/9/deadline",
+      "url": "https://siebelschool.illinois.edu/admissions/graduate/application-deadlines",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 10137
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/9/language_req",
+      "url": "https://grad.illinois.edu/admissions/international-applicants",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6348
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/9/lor_count",
+      "url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "duration_ms": 10016
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/9/tests_required",
+      "url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "duration_ms": 10016
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/9/admissions_email",
+      "url": "https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://siebelschool.illinois.edu/admissions/graduate/applications-process-requirements",
+      "duration_ms": 10016
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/9/language_waiver",
+      "url": "https://grad.illinois.edu/admissions/international-applicants",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6348
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/min_gpa_rule",
+      "url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1972
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/language_req",
+      "url": "https://www.nyit.edu/admissions/international/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1564
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/scholarship_info",
+      "url": "https://www.nyit.edu/admissions/international/student-aid/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1502
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/tests_required",
+      "url": "https://www.nyit.edu/academics/degrees/computer-science-ms/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1972
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/admissions_email",
+      "url": "https://www.nyit.edu/admissions/international/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1564
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/conditional_admission",
+      "url": "https://catalog.nyit.edu/engineering/computer_science_ms/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3829
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/11/language_waiver",
+      "url": "https://www.nyit.edu/admissions/international/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1564
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/12/deadline",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4260
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/12/min_gpa_rule",
+      "url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4495
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/12/language_req",
+      "url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4495
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/12/lor_count",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4260
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/12/tests_required",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4260
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/intake",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2129
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/deadline",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2129
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/min_gpa_rule",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2129
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/language_req",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2129
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/lor_count",
+      "url": "https://eas.uccs.edu/future-student-resources/how-to-apply",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1072
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/tests_required",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2129
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/13/conditional_admission",
+      "url": "https://eas.uccs.edu/academics/programs/computer-science-ms",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2129
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/intake",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/deadline",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/language_req",
+      "url": "https://www.tum.de/en/studies/application/application-info-portal/language-certificates",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2258
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/tuition",
+      "url": "https://www.tum.de/en/studies/degree-programs/detail/data-engineering-and-analytics-master-of-science-msc",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1512
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/duration_months",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/sop_requirements",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/cv_requirements",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/tests_required",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/15/eligibility_note",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1005
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/16/intake",
+      "url": "https://ethz.ch/en/studies/master/application/dates.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 477
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/16/deadline",
+      "url": "https://ethz.ch/en/studies/master/application/dates.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 477
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/16/language_req",
+      "url": "https://ethz.ch/en/studies/master/application/master-datascience.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1463
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/16/duration_months",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1497
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/16/sop_requirements",
+      "url": "https://ethz.ch/en/studies/master/application/master-datascience.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1463
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/16/lor_count",
+      "url": "https://ethz.ch/en/studies/master/application/master-datascience.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1463
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/17/intake",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1018
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/17/deadline",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1018
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/17/tuition",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1018
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/17/duration_months",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1018
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/17/eligibility_note",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1018
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/18/intake",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4260
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/18/duration_months",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2951
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/18/sop_requirements",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4260
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/18/cv_requirements",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4260
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/18/tests_required",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2951
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/18/eligibility_note",
+      "url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2951
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/intake",
+      "url": "https://mse.s3d.cmu.edu/applicants/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3013
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/deadline",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/tuition",
+      "url": "https://mse.s3d.cmu.edu/applicants/tuition.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1807
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/duration_months",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/index.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1860
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/scholarship_info",
+      "url": "https://mse.s3d.cmu.edu/applicants/tuition.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1807
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/sop_requirements",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/lor_count",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/cv_requirements",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/tests_required",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/eligibility_note",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/language_waiver",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/19/admissions_email",
+      "url": "https://mse.s3d.cmu.edu/applicants/mse-as/apply.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1750
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/intake",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 724
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/deadline",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 724
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/min_gpa_rule",
+      "url": "https://www.imperial.ac.uk/study/apply/postgraduate-taught/entry-requirements/accepted-qualifications/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1504
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/tuition",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 724
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/duration_months",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 724
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/eligibility_note",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 724
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/20/admissions_email",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-software-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 724
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/21/intake",
+      "url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2691
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/21/deadline",
+      "url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2691
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/21/min_gpa_rule",
+      "url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2691
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/21/duration_months",
+      "url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnhr/software-systems-engineering-m-sc/?lidx=1",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2688
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/21/tests_required",
+      "url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2691
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/21/eligibility_note",
+      "url": "https://sc.informatik.rwth-aachen.de/en/studium/master/sse/application-for-admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2691
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/intake",
+      "url": "https://engineering.utdallas.edu/academics/graduate-education/software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2732
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/min_gpa_rule",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/language_req",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/sop_requirements",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/lor_count",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/cv_requirements",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/tests_required",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/22/eligibility_note",
+      "url": "https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3887
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/intake",
+      "url": "https://www.tum.de/en/studies/degree-programs/detail/communications-engineering-master-of-science-msc",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 813
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/deadline",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/language_req",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/duration_months",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/sop_requirements",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/lor_count",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/cv_requirements",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/eligibility_note",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/23/admissions_email",
+      "url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-communications-electronics-engineering/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1083
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/24/intake",
+      "url": "https://ee.ethz.ch/studies/Admission.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2003
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/24/language_req",
+      "url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 645
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/24/duration_months",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/electrical-engineering-and-information-technology.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1404
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/24/sop_requirements",
+      "url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 645
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/24/lor_count",
+      "url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 645
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/24/tests_required",
+      "url": "https://ethz.ch/en/studies/master/application/master-elektrotechnik.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 645
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/intake",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 982
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/deadline",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 982
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/tuition",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 982
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/duration_months",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 982
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/scholarship_info",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 982
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/eligibility_note",
+      "url": "https://www.imperial.ac.uk/electrical-engineering/study/postgraduate/applying/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1368
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/25/admissions_email",
+      "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/future-power-networks/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 982
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/intake",
+      "url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 11405
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/deadline",
+      "url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 11405
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/language_req",
+      "url": "https://www.sgs.utoronto.ca/future-students/admission-application-requirements/english-language-proficiency-testing/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1979
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/tuition",
+      "url": "https://gradstudies.engineering.utoronto.ca/prospective-students/money-matters/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2106
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/duration_months",
+      "url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 11405
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/sop_requirements",
+      "url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 11405
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/lor_count",
+      "url": "https://www.ece.utoronto.ca/graduates/admission/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 11405
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/eligibility_note",
+      "url": "https://www.ece.utoronto.ca/graduates/minimum-admission-requirements/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6167
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/language_waiver",
+      "url": "https://www.ece.utoronto.ca/graduates/minimum-admission-requirements/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6167
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/26/admissions_email",
+      "url": "https://www.ece.utoronto.ca/graduates/minimum-admission-requirements/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6167
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/27/intake",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1921
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/27/language_req",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1921
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/27/tuition",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1921
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/27/duration_months",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1921
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/27/eligibility_note",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/computer-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1921
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/28/intake",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1504
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/28/language_req",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1504
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/28/duration_months",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1504
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/28/eligibility_note",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/data-science-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1504
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/29/intake",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1525
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/29/language_req",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1525
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/29/duration_months",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1525
+    },
+    {
+      "kind": "snippet",
+      "ref": "programs/programs/29/eligibility_note",
+      "url": "https://www.coventry.ac.uk/course-structure/pg/ees/electrical-and-electronic-engineering-msc/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1525
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/0",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/adult-minor/who.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 6345
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/1",
+      "url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2393
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/2",
+      "url": "https://www.auswaertiges-amt.de/en/229970-229970",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2393
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/3",
+      "url": "https://www.bundesregierung.de/breg-de/aktuelles/kabinett-einbuergerung-2350620",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2300
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/4",
+      "url": "https://www.gov.uk/graduate-visa",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2648
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/5",
+      "url": "https://www.gov.uk/government/consultations/earned-settlement/outcome/a-fairer-pathway-to-settlement-government-response-to-the-consultation",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 954
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/6",
+      "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 4107
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/9",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2609
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/12",
+      "url": "https://www.daad.de/en/studying-in-germany/work-career/career-planning/",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 3054
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/32",
+      "url": "https://www.gov.uk/student-visa/money",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 542
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/33",
+      "url": "https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2043
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/34",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 1717
+    },
+    {
+      "kind": "snippet",
+      "ref": "country_facts/country_facts/35",
+      "url": "https://studyinthestates.dhs.gov/students/prepare/financial-ability",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2453
+    },
+    {
+      "kind": "snippet",
+      "ref": "conversion_rules/conversion_rules/0",
+      "url": "https://www.intl.kit.edu/ostudies/13602.php",
+      "outcome": "found",
+      "http_status": null,
+      "detail": null,
+      "duration_ms": 2883
+    },
+    {
+      "kind": "snippet",
+      "ref": "fx_rates/fx_rates/0/pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "duration_ms": 11090
+    },
+    {
+      "kind": "snippet",
+      "ref": "fx_rates/fx_rates/1/pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "duration_ms": 11090
+    },
+    {
+      "kind": "snippet",
+      "ref": "fx_rates/fx_rates/2/pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "duration_ms": 11090
+    },
+    {
+      "kind": "snippet",
+      "ref": "fx_rates/fx_rates/3/pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "duration_ms": 11090
+    },
+    {
+      "kind": "snippet",
+      "ref": "fx_rates/fx_rates/4/pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "duration_ms": 11090
+    },
+    {
+      "kind": "snippet",
+      "ref": "fx_rates/fx_rates/5/pkr_per_unit",
+      "url": "https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "outcome": "error",
+      "http_status": null,
+      "detail": "Timed out after 10000 ms: https://www.sbp.org.pk/assets/document/mark-to-market-revaluation-exchange-rate-27-november-2026.pdf",
+      "duration_ms": 11090
+    }
+  ],
+  "notes": []
+}
