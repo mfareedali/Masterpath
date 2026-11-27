@@ -16,7 +16,7 @@ import { runCheck } from '@/lib/consultant/compare';
 import { MAX_INPUT_CHARS } from '@/lib/consultant/extract';
 import { checkPageUrl, parseCheckQuery, type SearchParams } from '@/lib/consultant/query';
 import { getDataset } from '@/lib/data';
-import { getNow } from '@/lib/profile-server';
+import { getNow, getRequestProfile } from '@/lib/profile-server';
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const sp = await searchParams;
@@ -57,7 +57,9 @@ function PageFooterNote() {
 
 export default async function CheckPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const query = parseCheckQuery(await searchParams);
-  const run = query.submitted && query.text ? runCheck(query.text, await getDataset(), getNow()) : null;
+  // The student's field (profile on this device): a university named without a course means its course in that field.
+  const field = query.submitted && query.text ? ((await getRequestProfile())?.field ?? null) : null;
+  const run = query.submitted && query.text ? runCheck(query.text, await getDataset(), getNow(), field) : null;
 
   let shareUrl: string | null = null;
   if (run) {

@@ -8,7 +8,7 @@
  */
 import Anthropic from '@anthropic-ai/sdk';
 import { getDataset } from '@/lib/data';
-import { getNow } from '@/lib/profile-server';
+import { getNow, getRequestProfile } from '@/lib/profile-server';
 import { createAnthropicChatModel, chatModelName } from '@/lib/chat/anthropic';
 import { answerQuestion, type ChatModelClient } from '@/lib/chat/answer';
 import { ChatBudget, clientIdFrom, clientIpFrom, limitsFromEnv } from '@/lib/chat/budget';
@@ -75,8 +75,10 @@ export async function POST(request: Request): Promise<Response> {
     console.error('[chat] dataset unavailable', err);
     return jsonError(503, 'MastersPath data is not available right now. Please try again.');
   }
+  // The student's field (profile cookie on this device), so "Imperial deadline?" means the course in their field.
+  const field = (await getRequestProfile())?.field ?? null;
   const events = answerQuestion(
-    { question: parsed.data.question, programId: parsed.data.programId, country: parsed.data.country },
+    { question: parsed.data.question, programId: parsed.data.programId, country: parsed.data.country, field },
     {
       dataset,
       now: getNow(),

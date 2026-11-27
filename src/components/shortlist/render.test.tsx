@@ -693,7 +693,8 @@ describe('budget chip, empty field, share and cost caveats', () => {
   });
 
   it('an empty field offers Computer Science in one tap, keeping grade, budget and countries (no name or university)', () => {
-    const ds = { ...PERSONA_A, field: 'ds' };
+    // 'other' has no seeded programs (Data Science, Software and Electrical Engineering do since 27 Nov 2026).
+    const ds = { ...PERSONA_A, field: 'other' };
     const s = buildShortlist({ ...live, profile: ds, now });
     const html = renderToStaticMarkup(<EmptyFieldCard shortlist={s} profile={ds} />);
     expectCleanCopy(html);

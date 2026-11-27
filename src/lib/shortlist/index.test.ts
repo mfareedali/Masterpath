@@ -1055,9 +1055,10 @@ describe('cost caveats, PKR rate availability, fallback field and the shareable 
 
   it('a field with no programs offers Computer Science (the field we have); otherwise no fallback', () => {
     const live = loadSeedDataset();
-    const ds = buildShortlist({ ...live, profile: { ...PERSONA_A, field: 'ds' }, now });
-    expect(ds.noProgramsForField).toBe(true);
-    expect(ds.fallbackField).toEqual({ slug: 'cs', label: 'Computer Science' });
+    // 'other' has no seeded programs (Data Science, Software and Electrical Engineering do since 27 Nov 2026).
+    const other = buildShortlist({ ...live, profile: { ...PERSONA_A, field: 'other' }, now });
+    expect(other.noProgramsForField).toBe(true);
+    expect(other.fallbackField).toEqual({ slug: 'cs', label: 'Computer Science' });
     expect(buildShortlist({ ...live, profile: PERSONA_A, now }).fallbackField).toBeNull();
     // No Computer Science programs in the data either: nothing to offer.
     expect(buildShortlist(input([], { profile: { ...profile, field: 'ds' } })).fallbackField).toBeNull();

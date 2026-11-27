@@ -9,6 +9,7 @@ import { allSources, computeConfidence, isUsable, usableValue } from '@/lib/conf
 import { buildConflictEmail } from '@/lib/email';
 import { SCALE_LABEL } from '@/lib/fit';
 import { countryName, formatDate, formatMoney, formatMonths, safeHref } from '@/lib/format';
+import { preferField } from '@/lib/program/field-preference';
 import { suggestName, type FuzzyCandidate } from '@/lib/text/fuzzy';
 import type {
   ConditionalAdmission,
@@ -47,6 +48,8 @@ export interface ChatScope {
   programId?: string;
   /** Default country when the question names none. */
   country?: string;
+  /** The student's field (profile). A university named without a programme means its programmes in this field. */
+  field?: string | null;
 }
 
 export interface Retrieval {
@@ -426,7 +429,7 @@ export function retrieve(question: string, scope: ChatScope, dataset: ChatDatase
   let programs: Program[] = [];
   const namedInstitutions = detectInstitutions(normalized, dataset.institutions);
   for (const instId of namedInstitutions) {
-    programs.push(...pickPrograms(normalized, dataset.programs.filter((p) => p.institution_id === instId)));
+    programs.push(...preferField(pickPrograms(normalized, dataset.programs.filter((p) => p.institution_id === instId)), scope.field));
   }
   // A near-miss name ("Imprial") is never answered with a guess, not even with the page's own program.
   const suggestion = namedInstitutions.length === 0 ? suggestInstitution(question, normalized, dataset.institutions) : null;
@@ -466,7 +469,8 @@ export function retrieve(question: string, scope: ChatScope, dataset: ChatDatase
   if (programFields.length > 0 && programsForFields.length === 0) {
     // Field asked without naming a program: every active program in the named countries (or everywhere).
     const inCountries = destCountries.length > 0 ? dataset.programs.filter((p) => destCountries.includes(p.country)) : dataset.programs;
-    programsForFields = inCountries.filter((p) => p.status === 'active');
+    // ... in the student's field ("Which deadlines are still open?" from a CS student means CS courses).
+    programsForFields = preferField(inCountries.filter((p) => p.status === 'active'), scope.field);
   }
   const wantedProgramFields: ProgramChatField[] = generalQuestion && programs.length > 0 ? PROGRAM_SUMMARY_FIELDS : programFields;
   // Companion rows (waiver beside the English requirement, conditional route beside the minimum grade) only for a

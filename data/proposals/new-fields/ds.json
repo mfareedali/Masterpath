@@ -1,0 +1,351 @@
+{
+  "programs": [
+    {
+      "id": "tum-msc-data-engineering-analytics",
+      "institution_id": "tum",
+      "name": "MSc Data Engineering and Analytics",
+      "country": "DE",
+      "degree": "MSc",
+      "field": "ds",
+      "official_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Winter semester (October) or Summer semester (April)",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "Start of program (lecture period) Winter semester: October Summer semester: April",
+          "fetched_at": "2026-11-27",
+          "review_note": "Department programme page, 'Important Dates and Deadlines' section."
+        },
+        "deadline": {
+          "value": "2027-05-31",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "For the winter semester: February 1 – March 31: recommended application deadline for applicants who need a visa February 1 – May 31: compulsory application deadline",
+          "fetched_at": "2026-11-27",
+          "basis": "inferred",
+          "note": "For the winter semester (October 2027 start). Applications open 1 February. Applicants who need a visa are recommended to apply by 31 March.",
+          "review_note": "Page gives day and month without a year; 2027-05-31 is the next future occurrence for the winter semester 2027/28 intake. The summer semester 2027 window (1 Oct - 30 Nov 2026) also exists but closes in 3 days."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 6.5,
+            "toefl_ibt": null,
+            "waiver": null,
+            "text": "Proof of English proficiency by the application deadline; TUM accepts IELTS Academic with a minimum overall band score of 6.5."
+          },
+          "source_url": "https://www.tum.de/en/studies/application/application-info-portal/language-certificates",
+          "evidence_snippet": "INTERNATIONAL ENGLISH LANGUAGE TESTING SYSTEM (IELTS) IELTS Academic with a minimum overall band score of 6.5.",
+          "fetched_at": "2026-11-27",
+          "review_note": "TUM-wide recognized English certificates page. The same page lists TOEFL 'Internet based Test (iBT): 88' but it could not fit in one snippet with IELTS, so toefl_ibt was left null. Programme page: 'Applicants also have to provide a proof of sufficient English language proficiency.'"
+        },
+        "tuition": {
+          "value": {
+            "amount": 6000,
+            "currency": "EUR",
+            "period": "semester"
+          },
+          "source_url": "https://www.tum.de/en/studies/degree-programs/detail/data-engineering-and-analytics-master-of-science-msc",
+          "evidence_snippet": "The tuition fees for international students from third countries for this degree program are 6,000 euros per semester.",
+          "fetched_at": "2026-11-27",
+          "note": "Current rate for students from non-EU countries. TUM has announced that Master's tuition fees will rise to 4,600 or 6,800 euros per semester from the winter semester 2027/28. The semester fee (student union contribution) is extra.",
+          "review_note": "Rate on the TUM programme detail page. TUM tuition page (https://www.tum.de/en/studies/fees/tuition) says: 'Tuition fees for international students from non-EU/EEA countries at TUM will increase for the winter semester 2027/28.' and 'for Master’s programs: 4,600 or 6,800 euros'. The new rate for this programme is not stated; likely 6,800 but not proposed."
+        },
+        "duration_months": {
+          "value": 24,
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "Standard Duration of Studies: 4 semesters Credits: 120 ECTS",
+          "fetched_at": "2026-11-27",
+          "review_note": "4 semesters = 24 months."
+        },
+        "tests_required": {
+          "value": "GRE (General) required for applicants with a degree from Pakistan. Minimum scores: Quantitative reasoning 164, Analytical writing 4.0 (Verbal reasoning is not taken into account). Lower scores are not accepted.",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "Applicants with a Degree from Bangladesh, China, India, Iran or Pakistan have to submit a GRE (General) Test. We have defined required minimum scores, lower scores will not be accepted! The required scores are: Verbal reasoning: (will not be taken into account anymore) Quantitative reasoning: 164 Analytical writing: 4.0",
+          "fetched_at": "2026-11-27"
+        },
+        "sop_requirements": {
+          "value": "Statement of reasons in English, no longer than two DIN-A4 pages, plus a scientific essay of about 1,000 words in English on a set topic.",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "The statement of reasons, submitted along with the online application, should not be longer than two DIN-A4 pages and must be written in English.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Essay requirement on the same page: 'The scientific essay / paper, submitted along with the online application, should be approximately 1,000 words in length and must be written in English.'"
+        },
+        "cv_requirements": {
+          "value": "CV/résumé required with the application.",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "A statement of reasons explaining why you have chosen this master’s program and TUM specifically (max. 2 pages) Your CV/résumé A scientific essay of approx. 1,000 words on a specified topic (see below)",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "Only for graduates with a Bachelor's in Informatics / Computer Science equivalent to the TUM B.Sc. Informatics; other degrees do not qualify. Two-stage aptitude assessment (documents, then possibly a written test).",
+          "source_url": "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/",
+          "evidence_snippet": "Students with a Bachelor’s degree in Informatics / Computer Science which is equivalent to the B.Sc. Informatics taught at TUM are eligible to apply. Other programs do not qualify for this Master's degree.",
+          "fetched_at": "2026-11-27"
+        },
+        "scholarship_info": {
+          "value": "TUM scholarship for international students: a one-time study grant of 500 to 1,800 euros per semester. Both academic performance and financial circumstances are considered in selection, and you can apply again each semester.",
+          "source_url": "https://www.tum.de/en/studies/fees/tuition",
+          "evidence_snippet": "TUM scholarship for international students TUM supports international students through scholarships. Both academic performance and financial circumstances are taken into account during the selection process. You can receive a one-time study grant of 500 to 1,800 euros per semester. Applications can be submitted again each semester.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same snippet as tum-msc-informatics in the seed; TUM-wide."
+        }
+      }
+    },
+    {
+      "id": "ethz-msc-data-science",
+      "institution_id": "ethz",
+      "name": "MSc Data Science",
+      "country": "CH",
+      "degree": "MSc",
+      "field": "ds",
+      "official_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Autumn Semester 2027",
+          "source_url": "https://ethz.ch/en/studies/master/application/dates.html",
+          "evidence_snippet": "Application Dates Autumn Semester 2027 ETH Zurich offers two Master's application windows: an early one for all applicants with an international Bachelor's degree and a second one only open to candidates with a Bachelor's degree from a Swiss university.",
+          "fetched_at": "2026-11-27",
+          "note": "Entry in the spring semester is not possible.",
+          "review_note": "Same page: 'Late or incomplete applications cannot be processed. Entry in the Spring Semester is not possible.'"
+        },
+        "deadline": {
+          "value": "2026-11-30",
+          "source_url": "https://ethz.ch/en/studies/master/application/dates.html",
+          "evidence_snippet": "All other candidates are also welcome to apply during this period. * Monday, 30 November 2026 11:59AM Central European Time (CET)",
+          "fetched_at": "2026-11-27",
+          "note": "Holders of a non-Swiss Bachelor's degree must apply between 1 and 30 November 2026; the window closes at 11:59 CET (before noon) on 30 November 2026. Late applications are not possible.",
+          "review_note": "ETH-wide Master's window for international Bachelor's holders (mandatory for 'students with a Bachelor's degree from outside Switzerland'). Closes 3 days after this research date. The April 2027 window is only for Swiss Bachelor's holders."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": null,
+            "toefl_ibt": null,
+            "waiver": null,
+            "text": "English, Level C1; proof of proficiency required by the application deadline (see ETH Language requirements)."
+          },
+          "source_url": "https://ethz.ch/en/studies/master/application/master-datascience.html",
+          "evidence_snippet": "English, proof of proficiency required by the application deadline: Level C1, see Language requirements",
+          "fetched_at": "2026-11-27",
+          "review_note": "No numeric IELTS/TOEFL minimum in the static HTML (same situation as ethz-msc-cs)."
+        },
+        "tuition": {
+          "value": {
+            "amount": 2190,
+            "currency": "CHF",
+            "period": "semester"
+          },
+          "source_url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+          "evidence_snippet": "Threefold tuition fee: CHF 2190 / semester All students who do not fulfil the criteria for simple tuition fee will be assigned to the second group paying a threefold tuition fee.",
+          "fetched_at": "2026-11-27",
+          "note": "Threefold fee for students who were not Swiss/Liechtenstein residents when they obtained their university entrance qualification. Semester fees are extra.",
+          "review_note": "ETH-wide; same snippet as ethz-msc-cs in the seed."
+        },
+        "duration_months": {
+          "value": 24,
+          "source_url": "https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/data-science.html",
+          "evidence_snippet": "Credits | duration 120 ECTS | 2 years",
+          "fetched_at": "2026-11-27",
+          "review_note": "2 years = 24 months."
+        },
+        "lor_count": {
+          "value": 2,
+          "source_url": "https://ethz.ch/en/studies/master/application/master-datascience.html",
+          "evidence_snippet": "Two recommendation letters in English. We strongly prefer letters from academia, or from referees with an academic background.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Listed for applicants with a non-ETH bachelor's degree."
+        },
+        "sop_requirements": {
+          "value": "Motivation letter of approximately one A4 page in English stating your motivation for choosing this specific Master's programme at ETH Zurich.",
+          "source_url": "https://ethz.ch/en/studies/master/application/master-datascience.html",
+          "evidence_snippet": "Approximately one A4 page in the language of instruction of the chosen programme, stating your motivation for choosing this specific Master's degree programme at ETH Zurich.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Language of instruction is English."
+        },
+        "language_waiver": {
+          "value": "Exempt only if the whole bachelor's programme was taught completely in English and this is officially confirmed by the university.",
+          "source_url": "https://ethz.ch/en/studies/master/application/language-requirements.html",
+          "evidence_snippet": "Applicants who complete a Bachelor’s degree programme completely taught in English. The language of instruction must be officially confirmed by the university. No confirmations are required for Bachelor's degrees from Australia, Ireland, New Zealand, the United Kingdom and the United States.",
+          "fetched_at": "2026-11-27",
+          "review_note": "ETH-wide; same snippet as ethz-msc-cs. Confirmations that do not meet the exemption lead to direct rejection."
+        },
+        "scholarship_info": {
+          "value": "Excellence Scholarship & Opportunity Programme (ESOP): scholarship, mentorship and a network of the ETH Foundation; it covers the full study and living costs during the Master's. Apply in the window 1 to 30 November 2026 for a start in autumn semester 2027 (HS27).",
+          "source_url": "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html",
+          "evidence_snippet": "The Excellence Scholarship & Opportunity Programme (ESOP) supports students with a scholarship, mentorship and a network of the ETH Foundation. The scholarship covers the full study and living costs during the Master’s degree course. The next application window is open Nov, 1 - Nov, 30 2026, 11.59h, MEZ for a start in the Master programme in HS27.",
+          "fetched_at": "2026-11-27",
+          "review_note": "ETH-wide; same snippet as ethz-msc-cs."
+        }
+      }
+    },
+    {
+      "id": "imperial-msc-artificial-intelligence",
+      "institution_id": "imperial",
+      "name": "MSc Artificial Intelligence",
+      "country": "UK",
+      "degree": "MSc",
+      "field": "ds",
+      "official_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "October 2027",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+          "evidence_snippet": "Duration 1 year Start date October 2027",
+          "fetched_at": "2026-11-27"
+        },
+        "deadline": {
+          "value": "2027-01-06",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+          "evidence_snippet": "Application deadlines – Round 2 closes on Wednesday 6 January 2027. Application rounds We operate a staged admissions process with several application rounds throughout the year.",
+          "fetched_at": "2026-11-27",
+          "note": "This is the next round closing date (23:59 UK time). Later rounds close on 10 March 2027 and 28 April 2027, but Imperial cannot guarantee places or that the course stays open in later rounds.",
+          "review_note": "Course page application rounds: Round 2 open 30 Sep 2026, close 6 Jan 2027; Round 3 close 10 Mar 2027; Round 4 close 28 Apr 2027. Round 1 is Business School only."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 7,
+            "toefl_ibt": null,
+            "waiver": null,
+            "text": "Higher university requirement: IELTS Academic 7.0 overall (minimum 6.5 in all elements)"
+          },
+          "source_url": "https://www.imperial.ac.uk/study/apply/english-language/",
+          "evidence_snippet": "IELTS – Academic (Test-Centre/UKVI SELT/Online) Standard Higher 6.5 overall (minimum 6.0 in all elements) 7.0 overall (minimum 6.5 in all elements)",
+          "fetched_at": "2026-11-27",
+          "note": "The course page says: \"For admission to this course, you must achieve the higher university requirement in the appropriate English language qualification.\"",
+          "review_note": "Course page states the higher university requirement applies. Same snippet as imperial-msc-computing in the seed."
+        },
+        "tuition": {
+          "value": {
+            "amount": 48300,
+            "currency": "GBP",
+            "period": "year"
+          },
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+          "evidence_snippet": "Overseas fee 2027 entry £48,300",
+          "fetched_at": "2026-11-27",
+          "review_note": "Overseas fee, 2027 entry, one-year course (year = total). Home fee £25,850. Application fee £90."
+        },
+        "duration_months": {
+          "value": 12,
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+          "evidence_snippet": "MSc Duration 1 year Start date October 2027",
+          "fetched_at": "2026-11-27",
+          "review_note": "1 year = 12 months."
+        },
+        "eligibility_note": {
+          "value": "Minimum entry standard: a First-Class degree in Mathematics, Physics, Engineering, Economics, or another subject with substantial mathematics content.",
+          "source_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/",
+          "evidence_snippet": "Minimum entry standard A First-Class degree in Mathematics, Physics, Engineering, Economics, or other subject with substantial Mathematics content.",
+          "fetched_at": "2026-11-27",
+          "note": "Imperial says this degree is for students with little or no previous computing qualifications, so it is not aimed at BS Computer Science graduates.",
+          "review_note": "Same page, entry requirements: 'This degree is for students with little or no previous computing qualifications.' (that sentence's neighbour mentions the maths topics, which tripped the validator's word filter, so it is quoted here instead). No Pakistan-specific numeric equivalent for a First was found, so min_gpa_rule is left empty."
+        },
+        "language_waiver": {
+          "value": "No waiver for a Pakistani degree: Imperial exempts only applicants who completed a qualification equivalent to a UK degree in Australia, Canada, Guyana, Ireland, Malta, New Zealand, South Africa, the United Kingdom, the USA or the West Indies.",
+          "source_url": "https://www.imperial.ac.uk/study/apply/english-language/english-language-exemption/",
+          "evidence_snippet": "You do not need to prove your knowledge of English as part of your application if you’ve completed a qualification equivalent to a UK degree in one of the following countries: Australia Canada Guyana Ireland Malta New Zealand South Africa United Kingdom United States of America West Indies",
+          "fetched_at": "2026-11-27",
+          "review_note": "Imperial-wide; same snippet as imperial-msc-computing."
+        },
+        "scholarship_info": {
+          "value": "Imperial Inspires Scholarships (Postgraduate taught, 2027/2028): £15,000 for international students who pay the Overseas tuition rate on a full-time course; the Department of Computing (which delivers this course) is one of the listed departments.",
+          "source_url": "https://www.imperial.ac.uk/study/fees-and-funding/scholarships-search/imperial-inspires-scholarships-postgraduate-taught-20272028.php",
+          "evidence_snippet": "Imperial Inspires Scholarships (Postgraduate taught) Scholarship overview Degree level Postgraduate taught, Master's research Value £15,000 Number of awards 200 Academic year 2027/2028 Tuition fee status Overseas Mode of study Full time",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same snippet as imperial-msc-computing. The AI course page says 'Delivered by Department of Computing' and shows a £15,000 award 'Who it's for Overseas students'. Course-level availability not separately confirmed."
+        }
+      }
+    },
+    {
+      "id": "usf-ms-artificial-intelligence",
+      "institution_id": "usf",
+      "name": "Master of Science in Artificial Intelligence",
+      "country": "US",
+      "degree": "MS",
+      "field": "ds",
+      "official_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+      "pathway_type": "direct",
+      "facts": {
+        "intake": {
+          "value": "Fall or Spring",
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+          "evidence_snippet": "We offer fall and spring admissions for all of our MSc and PhD degrees.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Bellini College prospective students page; applies to all its MS degrees including the MSAI."
+        },
+        "deadline": {
+          "value": "2027-06-01",
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+          "evidence_snippet": "MS and PhD priority deadlines: Fall: January 15 Spring: September 1 Please see the Office of Admission website for the final university deadlines. MS final university deadlines: Fall: June 1",
+          "fetched_at": "2026-11-27",
+          "basis": "inferred",
+          "note": "Final deadline for Fall 2027. Applications by the priority deadline (15 January 2027) receive maximum consideration; later ones are considered on a space-available basis.",
+          "review_note": "Page gives no year; 2027-06-01 is the next Fall MS final deadline. Same approach as usf-mscs in the seed."
+        },
+        "min_gpa_rule": {
+          "value": {
+            "scale": "cgpa_4",
+            "min": 3,
+            "text": "“B” average (3.00 on a 4.00 scale) or better in all work attempted while registered as an undergraduate student working toward a bachelor’s degree"
+          },
+          "source_url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+          "evidence_snippet": "“B” average (3.00 on a 4.00 scale) or better in all work attempted while registered as an undergraduate student working toward a bachelor’s degree",
+          "fetched_at": "2026-11-27",
+          "review_note": "USF university-wide international graduate minimum; programs may add requirements."
+        },
+        "language_req": {
+          "value": {
+            "ielts_overall": 6.5,
+            "toefl_ibt": 79,
+            "waiver": null,
+            "text": "TOEFL iBT 79 or higher (tests before 21 January 2026) or 4.5 or higher (after 21 January 2026); IELTS 6.5 or higher."
+          },
+          "source_url": "https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx",
+          "evidence_snippet": "Test of English as a Foreign Language (TOEFL iBT) prior to January 21, 2026 79 or higher Test of English as a Foreign Language (TOEFL iBT) after January 21, 2026 4.5 or higher International English Language Testing System (IELTS) 6.5 or higher",
+          "fetched_at": "2026-11-27",
+          "review_note": "University-wide international graduate minimums."
+        },
+        "duration_months": {
+          "value": 24,
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+          "evidence_snippet": "This 31-credit hour program can be completed in two years.",
+          "fetched_at": "2026-11-27",
+          "review_note": "Two years = 24 months; 31 credit hours."
+        },
+        "tests_required": {
+          "value": "GRE not required for the MSAI.",
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+          "evidence_snippet": "The Master of Science in Artificial Intelligence is available in both in-person and online formats. The GRE is not required.",
+          "fetched_at": "2026-11-27"
+        },
+        "lor_count": {
+          "value": 3,
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+          "evidence_snippet": "3 Letters of Recommendation (Must be on official letterhead with recommender’s title and contact)",
+          "fetched_at": "2026-11-27",
+          "review_note": "Part of a complete Bellini College graduate application."
+        },
+        "sop_requirements": {
+          "value": "Statement of Purpose required, with a resume and 3 letters of recommendation.",
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+          "evidence_snippet": "PDF of GRE Scores (for Master's applicants except MSAI) Resume Statement of Purpose 3 Letters of Recommendation",
+          "fetched_at": "2026-11-27"
+        },
+        "cv_requirements": {
+          "value": "Resume required.",
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/prospective-students.aspx",
+          "evidence_snippet": "Unofficial Transcripts (including the grade sheet and diploma, if applicable) PDF of GRE Scores (for Master's applicants except MSAI) Resume",
+          "fetched_at": "2026-11-27"
+        },
+        "eligibility_note": {
+          "value": "Designed for students with and without an undergraduate degree in computer science or computer engineering; those without a CS background start with three essentials courses and a Mathematics for AI course.",
+          "source_url": "https://www.usf.edu/ai-cybersecurity-computing/academics/graduate/msai.aspx",
+          "evidence_snippet": "Designed for students with and without an undergraduate degree in computer science or computer engineering",
+          "fetched_at": "2026-11-27",
+          "review_note": "Same page: 'For those without CS background, it begins with three two-credit essentials courses and a Mathematics for AI course.' Offered in-person and online."
+        }
+      }
+    }
+  ]
+}

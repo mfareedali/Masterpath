@@ -1776,9 +1776,9 @@ export function summarize(results: readonly CheckResult[]): CheckSummary {
 }
 
 /** Extract + compare in one call, plus a "Did you mean …?" suggestion for a misspelled university name. */
-export function runCheck(text: string, data: CheckData, now: Date): CheckRun {
+export function runCheck(text: string, data: CheckData, now: Date, field?: string | null): CheckRun {
   const patterns = buildAliasPatterns(data.institutions);
-  const claims = extractClaims(text, data, patterns);
+  const claims = extractClaims(text, data, patterns, field);
   const results = compareClaims(claims, data, now);
   return { claims, results, summary: summarize(results), suggestion: suggestInstitution(cleanInput(text), data.institutions, patterns) };
 }

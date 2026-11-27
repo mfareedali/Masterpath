@@ -9,6 +9,7 @@
  */
 import type { CountryCode, Institution, Money, Program, StudentScale } from '../types';
 import { buildAliasPatterns, findCountries, findInstitutions, normalizeText, stripMarks, type AliasPattern } from './aliases';
+import { preferField } from '../program/field-preference';
 
 export const MAX_INPUT_CHARS = 2000;
 export const MAX_CLAIMS = 20;
@@ -688,7 +689,7 @@ export function detectTypes(clause: string): Detected[] {
 /* Context: institution / programme / country                          */
 /* ------------------------------------------------------------------ */
 
-function programsFor(institutionIds: string[], programs: readonly Program[], scopeText: string): string[] {
+function programsFor(institutionIds: string[], programs: readonly Program[], scopeText: string, field?: string | null): string[] {
   const n = normalizeText(scopeText);
   const ids: string[] = [];
   for (const instId of institutionIds) {
@@ -698,7 +699,8 @@ function programsFor(institutionIds: string[], programs: readonly Program[], sco
       const core = normalizeText(p.name).replace(/^(msc|ms|ma|meng|mphil|master of science|master of|masters?)( in)?\s+/, '').replace(/\s*\(.*\)$/, '');
       return core.length >= 4 && n.includes(core);
     });
-    for (const p of named.length > 0 ? named : own) if (!ids.includes(p.id)) ids.push(p.id);
+    // Several programmes left (none named, or a name shared by two): prefer the student's field.
+    for (const p of preferField(named.length > 0 ? named : own, field)) if (!ids.includes(p.id)) ids.push(p.id);
   }
   return ids;
 }
@@ -715,7 +717,7 @@ function wordCount(s: string): number {
  * Extract claims from free text. `data` supplies institution names and programmes for context.
  * The input is cleaned (personal numbers removed, max 2,000 characters) before anything else happens.
  */
-export function extractClaims(rawText: string, data: ExtractData, patterns?: AliasPattern[]): Claim[] {
+export function extractClaims(rawText: string, data: ExtractData, patterns?: AliasPattern[], field?: string | null): Claim[] {
   const text = cleanInput(rawText);
   if (!text) return [];
   const aliasPatterns = patterns ?? buildAliasPatterns(data.institutions);
@@ -779,7 +781,7 @@ export function extractClaims(rawText: string, data: ExtractData, patterns?: Ali
         text: p.clause,
         sentence,
         institutionIds,
-        programIds: programsFor(institutionIds, data.programs, scope),
+        programIds: programsFor(institutionIds, data.programs, scope, field),
         countries,
         contextFrom,
       };
