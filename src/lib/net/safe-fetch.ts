@@ -21,12 +21,25 @@ import type { Readable } from 'node:stream';
 import { INGEST_ALLOWLIST, isAllowedHost, normalizeHost } from './hosts';
 import { isPrivateIp } from './ip';
 import { robotsAllows } from './robots';
+import { defaultThrottle, noThrottle, type Throttle } from './throttle';
 
 export { isPrivateIp } from './ip';
 export { INGEST_ALLOWLIST, isAllowedHost, normalizeHost } from './hosts';
 export { robotsAllows, parseRobots } from './robots';
 
-export const USER_AGENT = 'MastersPathIngest/0.1 (open-source evidence bot)';
+/**
+ * User agent with a contact URL, so a site owner can find out who is fetching and ask us to stop.
+ * The URL comes from INGEST_CONTACT_URL (or NEXT_PUBLIC_REPO_URL); it is never invented.
+ */
+export function buildUserAgent(env: Record<string, string | undefined> = process.env): string {
+  const contact = (env.INGEST_CONTACT_URL ?? env.NEXT_PUBLIC_REPO_URL ?? '').trim();
+  const valid = /^https:\/\/[^\s()]+$/.test(contact) ? contact : null;
+  return valid
+    ? `MastersPathIngest/0.2 (open-source evidence bot; +${valid})`
+    : 'MastersPathIngest/0.2 (open-source evidence bot; contact URL not configured: set INGEST_CONTACT_URL)';
+}
+
+export const USER_AGENT = buildUserAgent();
 export const ROBOTS_PRODUCT_TOKEN = 'MastersPathIngest';
 export const DEFAULT_TIMEOUT_MS = 10_000;
 export const DEFAULT_MAX_BYTES = 3 * 1024 * 1024;
@@ -115,6 +128,10 @@ export interface SafeFetchOptions {
   lookup?: LookupAllFn;
   transport?: Transport;
   userAgent?: string;
+  /** Per-host request spacing. Default: 1 request per 1.5 s per host (none when a test injects its own transport). */
+  throttle?: Throttle;
+  /** Validators from an earlier fetch: sent as If-None-Match / If-Modified-Since. A 304 sets `notModified`. */
+  conditional?: { etag?: string | null; lastModified?: string | null };
 }
 
 export interface SafeResponse {
@@ -127,6 +144,11 @@ export interface SafeResponse {
   body: string;
   bytes: number;
   redirects: string[];
+  /** HTTP 304 for a conditional request: the page has not changed since the validators were issued. */
+  notModified: boolean;
+  /** Validators the server sent (use them for the next conditional request). */
+  etag: string | null;
+  lastModified: string | null;
 }
 
 /* ---------------- pure helpers ---------------- */
@@ -245,7 +267,10 @@ export function clearRobotsCache(): void {
   DEFAULT_ROBOTS_CACHE.clear();
 }
 
-type Resolved = Required<Omit<SafeFetchOptions, 'acceptTypes'>> & { acceptTypes: readonly string[] | 'any' };
+type Resolved = Required<Omit<SafeFetchOptions, 'acceptTypes' | 'conditional'>> & {
+  acceptTypes: readonly string[] | 'any';
+  conditional: SafeFetchOptions['conditional'];
+};
 
 function resolveOptions(o: SafeFetchOptions): Resolved {
   return {
@@ -262,6 +287,9 @@ function resolveOptions(o: SafeFetchOptions): Resolved {
     lookup: o.lookup ?? defaultLookup,
     transport: o.transport ?? nodeTransport,
     userAgent: o.userAgent ?? USER_AGENT,
+    // Tests inject a fake transport and must not wait; real fetches always share the polite default.
+    throttle: o.throttle ?? (o.transport ? noThrottle : defaultThrottle),
+    conditional: o.conditional,
   };
 }
 
@@ -308,6 +336,9 @@ async function requestOnce(url: URL, method: 'GET' | 'HEAD', o: Resolved, signal
     'accept-language': 'en',
     'accept-encoding': 'gzip, br',
   };
+  if (method === 'GET' && o.conditional?.etag) headers['if-none-match'] = o.conditional.etag;
+  if (method === 'GET' && o.conditional?.lastModified) headers['if-modified-since'] = o.conditional.lastModified;
+  await o.throttle.wait(normalizeHost(url.hostname));
   let onAbort: (() => void) | null = null;
   const aborted = new Promise<never>((_, reject) => {
     onAbort = () => reject(timeoutError(url, o.timeoutMs));
@@ -334,6 +365,7 @@ async function loadRobots(url: URL, o: Resolved): Promise<RobotsEntry> {
       checkRobots: false,
       acceptTypes: 'any',
       readBody: true,
+      conditional: undefined,
       maxBytes: ROBOTS_MAX_BYTES,
     });
     if (r.ok) return { kind: 'rules', txt: r.body };
@@ -391,7 +423,17 @@ export async function safeFetch(rawUrl: string, options: SafeFetchOptions = {}):
 
     const contentType = headerValue(res.headers, 'content-type') ?? null;
     const ok = res.status >= 200 && res.status < 300;
-    const base = { requestedUrl: rawUrl, url: url.toString(), status: res.status, ok, contentType, redirects };
+    const base = {
+      requestedUrl: rawUrl,
+      url: url.toString(),
+      status: res.status,
+      ok,
+      contentType,
+      redirects,
+      notModified: res.status === 304,
+      etag: headerValue(res.headers, 'etag') ?? null,
+      lastModified: headerValue(res.headers, 'last-modified') ?? null,
+    };
     if (method === 'HEAD' || !ok || !o.readBody) {
       res.close();
       return { ...base, body: '', bytes: 0 };

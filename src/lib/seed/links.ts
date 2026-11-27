@@ -114,21 +114,30 @@ function errorResult(link: SeedLink, e: unknown): LinkResult {
   return { ...base, status: 'broken', note: e instanceof Error ? e.message : String(e) };
 }
 
-/** Runs checks with limited concurrency, preserving input order. */
+/**
+ * Runs checks across hosts in parallel but never more than ONE request at a time per host (the per-host throttle in
+ * safeFetch also spaces them 1.5 s apart). Preserves input order.
+ */
 export async function checkLinks(
   links: readonly SeedLink[],
   options: SafeFetchOptions & { concurrency?: number } = {},
 ): Promise<LinkResult[]> {
   const { concurrency = 4, ...fetchOptions } = options;
   const results: LinkResult[] = new Array(links.length);
+  const byHost = new Map<string, number[]>();
+  links.forEach((l, i) => {
+    const key = (hostOf(l.url) ?? '').toLowerCase();
+    byHost.set(key, [...(byHost.get(key) ?? []), i]);
+  });
+  const queues = [...byHost.values()];
   let next = 0;
   const worker = async () => {
-    while (next < links.length) {
-      const i = next++;
-      results[i] = await checkLink(links[i], fetchOptions);
+    while (next < queues.length) {
+      const queue = queues[next++];
+      for (const i of queue) results[i] = await checkLink(links[i], fetchOptions);
     }
   };
-  await Promise.all(Array.from({ length: Math.max(1, Math.min(concurrency, links.length)) }, worker));
+  await Promise.all(Array.from({ length: Math.max(1, Math.min(concurrency, queues.length)) }, worker));
   return results;
 }
 
