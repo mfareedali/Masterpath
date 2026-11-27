@@ -16,6 +16,7 @@
  * Every run also writes a JSON report to data/proposals/reports/ (scripts/report-io.ts).
  * Rules live in src/lib/seed/ingest.ts (unit-tested).
  */
+import './load-env';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { loadSeedDataset } from '../src/lib/data/seed-source';
@@ -54,18 +55,6 @@ import { writeRunReport } from './report-io';
 const ROOT = process.cwd();
 const PROPOSALS_DIR = resolve(ROOT, 'data', 'proposals');
 const STATE_FILE = join(PROPOSALS_DIR, 'state', 'page-hashes.json');
-
-function loadEnvLocal(): void {
-  for (const name of ['.env.local', '.env']) {
-    const file = join(ROOT, name);
-    if (!existsSync(file)) continue;
-    try {
-      process.loadEnvFile(file);
-    } catch {
-      /* unreadable env file: real environment variables still apply */
-    }
-  }
-}
 
 function fail(message: string, code = 1): never {
   console.error(message);
@@ -390,7 +379,6 @@ async function verifySeed(argv: string[]) {
 }
 
 async function main() {
-  loadEnvLocal();
   const argv = process.argv.slice(2);
   const args = parseIngestArgs(argv);
   switch (args.mode) {

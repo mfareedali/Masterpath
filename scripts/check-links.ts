@@ -9,6 +9,7 @@
  * Hosts that are not on the allowlist are NOT fetched; they are listed as warnings for a human to check.
  * Read-only: never edits the seed files. Logic lives in src/lib/seed/links.ts (unit-tested).
  */
+import './load-env';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { USER_AGENT } from '../src/lib/net/safe-fetch';
