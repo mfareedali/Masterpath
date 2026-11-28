@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './globals.css';
 import { BottomNav, TopNav } from '@/components/nav/bottom-nav';
+import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { OfflineBanner } from '@/components/pwa/offline-banner';
 import { SwRegister } from '@/components/pwa/sw-register';
 import { semantic } from '@/theme';
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteFooter />
         <BottomNav />
         <SwRegister />
+        <InstallPrompt />
       </body>
     </html>
   );
