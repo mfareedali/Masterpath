@@ -8,6 +8,18 @@ never shows admission "chances" as percentages, and the AI chat refuses to answe
 
 > Not legal or immigration advice. Always check the official website before you apply or pay anyone.
 
+## Links
+
+| | |
+| --- | --- |
+| **Live app** | https://masterpath-six.vercel.app |
+| **Download the Android app (APK)** | https://masterpath-six.vercel.app/download (direct file: [MastersPath.apk](https://masterpath-six.vercel.app/download/MastersPath.apk)) |
+| **2-minute demo video** | https://youtu.be/bm-QA92K8MQ |
+| **Source code** | https://github.com/mfareedali/Masterpath |
+
+Try it in 2 minutes: open the live app → **Load Persona A** (CGPA 2.5) → see the shortlist → open **Plan B** → paste a
+consultant's promise into **Check** → ask the chat *"What is the deadline for Imperial MSc Computing?"* (it refuses to guess).
+
 ## Watch the 2-minute demo
 
 [![MastersPath demo video](docs/video-thumbnail.jpg)](https://youtu.be/bm-QA92K8MQ)
@@ -25,6 +37,7 @@ never shows admission "chances" as percentages, and the AI chat refuses to answe
 | **Citizenship & cost** | Countries ranked by citizenship rule, post-study work, tuition or total cost, each with the exact rule, how the clock starts, a confidence badge and the official link. "Earliest rule, not a guarantee." |
 | **Consultant Check** | Paste what an agent told you ("guaranteed admission, no IELTS, total cost 25 lakh"). Each claim is compared with official pages: *matches*, *differs*, or *can't verify* — plus questions to ask them in writing and a WhatsApp share button. It compares claims; it never accuses anyone. |
 | **Chat** | Answers only from rows already in the database, cites sources and confidence, and refuses when the data isn't there (e.g. an unverified deadline). |
+| **Download the app** | `/download`: the Android APK with install steps, plus how to install the web app on iPhone or Android Chrome. Works offline for saved shortlists. |
 
 ## How it works
 
@@ -121,6 +134,19 @@ stored anywhere. "Delete my account" is a hard delete. Server code talks to the 
 Import the repo in Vercel, set the env vars above (none are required), deploy. Program pages are statically generated and
 revalidated hourly, so they are served from the edge.
 
+### Android app (APK)
+
+`android/` is a small native wrapper (`com.masterspath.app`, Android 7.0+) that opens the live site full-screen; links to
+other sites open in the phone's browser. It is built with the Android SDK command-line tools only (no Gradle):
+
+```bash
+bash android/build.sh https://masterpath-six.vercel.app   # needs JDK 17 + Android SDK build-tools and platform 35
+cp android/out/MastersPath.apk public/download/MastersPath.apk
+```
+
+The first build creates a signing key at `~/.masterspath-android.jks` (password in `~/.masterspath-android.jks.pass`).
+Keep both safe and never commit them: updates must be signed with the same key to install over an earlier version.
+
 ## Contribute data (the most valuable thing you can do)
 
 Read [CONTRIBUTING.md](./CONTRIBUTING.md). In short: every value needs an **official** `source_url` and an `evidence_snippet`
@@ -142,6 +168,8 @@ src/components/ui/       badges, buttons, chips, cards, evidence rows
 src/app/                 screens (App Router) and API routes
 scripts/                 seed validator, ingestion, link checker, snippet verifier, Supabase seeding
 supabase/migrations/     schema, RLS, evidence views, ranking functions, seed
+android/                 Android wrapper app source and build script (APK served from public/download/)
+docs/                    demo script, video script, slide outline, screenshots
 src/lib/queries.ts       typed Supabase queries (rankings, program + facts, profile, strengths, reports)
 src/types/supabase.ts    generated database types
 DECISIONS.md             every judgement call made while building, and how to undo it
