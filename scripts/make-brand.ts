@@ -4,7 +4,8 @@
  *   npm run icons
  *
  * writes
- *   public/brand/logo-mark.png            transparent, trimmed mark (used in the site header)
+ *   public/brand/logo-mark.png            transparent, trimmed mark in the original olive (for light backgrounds)
+ *   public/brand/logo-mark-light.png      the same mark recoloured light olive, keeping its shading (dark site header)
  *   public/icons/icon-192.png, icon-512.png, maskable-512.png   PWA icons (manifest + service-worker precache)
  *   src/app/icon.png, src/app/apple-icon.png, src/app/favicon.ico   Next.js file-convention icons
  *
@@ -42,6 +43,28 @@ async function transparentMark(): Promise<Buffer> {
     out[i * 4 + 3] = Math.round(a * 255);
   }
   return sharp(out, { raw: { width, height, channels: 4 } }).trim({ threshold: 1 }).png().toBuffer();
+}
+
+/** Recolours the mark for dark backgrounds: its shading (dark to light) is mapped onto LIGHT_LO to LIGHT_HI. */
+const LIGHT_LO = [150, 168, 90];
+const LIGHT_HI = [228, 235, 207];
+async function lightMark(mark: Buffer): Promise<Buffer> {
+  const { data, info } = await sharp(mark).raw().toBuffer({ resolveWithObject: true });
+  const n = info.width * info.height;
+  const lum = (i: number) => 0.299 * data[i * 4] + 0.587 * data[i * 4 + 1] + 0.114 * data[i * 4 + 2];
+  let lo = 255, hi = 0;
+  for (let i = 0; i < n; i++) {
+    if (data[i * 4 + 3] > 200) {
+      lo = Math.min(lo, lum(i));
+      hi = Math.max(hi, lum(i));
+    }
+  }
+  const out = Buffer.from(data);
+  for (let i = 0; i < n; i++) {
+    const t = Math.min(1, Math.max(0, (lum(i) - lo) / (hi - lo || 1)));
+    for (let k = 0; k < 3; k++) out[i * 4 + k] = Math.round(LIGHT_LO[k] + (LIGHT_HI[k] - LIGHT_LO[k]) * t);
+  }
+  return sharp(out, { raw: { width: info.width, height: info.height, channels: 4 } }).png({ compressionLevel: 9 }).toBuffer();
 }
 
 /** The mark centred on a cream square; `scale` is the mark's share of the tile width; `radius` rounds the corners. */
@@ -89,7 +112,9 @@ function write(rel: string, buf: Buffer) {
 
 async function main() {
   const mark = await transparentMark();
-  write('public/brand/logo-mark.png', await sharp(mark).resize({ height: 160 }).png({ compressionLevel: 9 }).toBuffer());
+  const small = await sharp(mark).resize({ height: 160 }).png({ compressionLevel: 9 }).toBuffer();
+  write('public/brand/logo-mark.png', small);
+  write('public/brand/logo-mark-light.png', await lightMark(small));
   write('public/icons/icon-192.png', await tile(mark, 192, 0.74, 0.18));
   write('public/icons/icon-512.png', await tile(mark, 512, 0.74, 0.18));
   // Maskable: full bleed, artwork inside the central 80% safe-zone circle.
