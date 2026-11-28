@@ -13,7 +13,7 @@
  */
 'use strict';
 
-const VERSION = 'v1';
+const VERSION = 'v2';
 const PREFIX = 'masterspath-';
 const PRECACHE = `${PREFIX}precache-${VERSION}`;
 const STATIC_CACHE = `${PREFIX}static-${VERSION}`;

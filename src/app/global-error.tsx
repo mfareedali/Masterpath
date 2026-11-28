@@ -9,6 +9,8 @@ export default function GlobalError({ reset }: { error: Error & { digest?: strin
       <body className="min-h-dvh font-ui text-ink antialiased">
         <main className="mx-auto max-w-xl px-4 pt-10">
           <div className="rounded-card border border-line bg-surface p-5 shadow-card" role="alert">
+            {/* eslint-disable-next-line @next/next/no-img-element -- the layout (and next/image setup) may be what failed */}
+            <img src="/brand/logo-mark.png" alt="MastersPath" width={57} height={40} className="mb-3" />
             <h1 className="text-2xl font-bold">MastersPath could not load</h1>
             <p className="mt-2 text-ink">Please try again. If it keeps happening, come back in a few minutes.</p>
             <button

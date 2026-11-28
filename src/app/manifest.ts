@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { semantic } from '@/theme';
 
-/** Web app manifest, served at /manifest.webmanifest (linked from the root layout). Icons: scripts/make-icons.ts. */
+/** Web app manifest, served at /manifest.webmanifest (linked from the root layout). Icons: scripts/make-brand.ts (npm run icons). */
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: '/',

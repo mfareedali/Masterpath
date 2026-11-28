@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import './globals.css';
 import { BottomNav, TopNav } from '@/components/nav/bottom-nav';
@@ -27,7 +28,9 @@ function SiteHeader() {
     <header className="on-chrome sticky top-0 z-30 bg-chrome text-on-chrome">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4">
         <Link href="/" className="inline-flex min-h-tap items-center gap-2 text-lg font-semibold tracking-tight text-on-chrome no-underline">
-          <span aria-hidden="true" className="inline-block h-5 w-1.5 rounded-full bg-accent" />
+          <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-stone-50">
+            <Image src="/brand/logo-mark.png" alt="" width={227} height={160} priority className="h-auto w-7" />
+          </span>
           MastersPath
         </Link>
         <TopNav />

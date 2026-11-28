@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { inflateSync } from 'node:zlib';
-import { ICON_COLORS, ICON_FILES, PNG_SIGNATURE, crc32, drawIcon, encodePng, hexToRgba, iconPng, pngChunk } from './make-icons';
+import { ICON_COLORS, ICON_FILES, PNG_SIGNATURE, crc32, drawIcon, encodePng, hexToRgba, pngChunk } from './make-icons';
 
 interface Chunk {
   type: string;
@@ -91,16 +91,13 @@ describe('drawIcon', () => {
 });
 
 describe('generated icon files', () => {
-  it.each(ICON_FILES)('public/icons/$name exists with the right IHDR size', ({ name, size, maskable }) => {
+  it.each(ICON_FILES)('public/icons/$name exists with the right IHDR size', ({ name, size }) => {
     const file = readFileSync(join(process.cwd(), 'public', 'icons', name));
     expect(file.subarray(0, 8).equals(PNG_SIGNATURE)).toBe(true);
     const ihdr = readChunks(file)[0];
     expect(ihdr.type).toBe('IHDR');
     expect(ihdr.data.readUInt32BE(0)).toBe(size);
     expect(ihdr.data.readUInt32BE(4)).toBe(size);
-    // The committed pixels match what the generator draws today (run `npx tsx scripts/make-icons.ts` after edits).
-    // Compare decompressed scanlines, not bytes: deflate output may differ between zlib versions.
-    const idat = (png: Buffer) => inflateSync(Buffer.concat(readChunks(png).filter((c) => c.type === 'IDAT').map((c) => c.data)));
-    expect(idat(file).equals(idat(iconPng(size, { maskable })))).toBe(true);
+    // Pixels come from the logo artwork (scripts/make-brand.ts), so only the format and size are pinned here.
   });
 });

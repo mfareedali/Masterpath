@@ -188,7 +188,7 @@ describe('service worker lifecycle', () => {
     const net = onlineNet();
     const sw = loadWorker(net);
     await sw.lifecycle('install');
-    const pre = sw.caches.stores.get('masterspath-precache-v1')!;
+    const pre = sw.caches.stores.get('masterspath-precache-v2')!;
     expect([...pre.entries.keys()].sort()).toEqual(
       [
         `${ORIGIN}/`,
@@ -200,7 +200,7 @@ describe('service worker lifecycle', () => {
         `${ORIGIN}/icons/maskable-512.png`,
       ].sort(),
     );
-    const stat = sw.caches.stores.get('masterspath-static-v1')!;
+    const stat = sw.caches.stores.get('masterspath-static-v2')!;
     expect([...stat.entries.keys()].sort()).toEqual([`${ORIGIN}/_next/static/chunks/main.js`, `${ORIGIN}/_next/static/css/app.css`]);
     expect(sw.self.skipWaiting).toHaveBeenCalled();
   });
@@ -211,7 +211,7 @@ describe('service worker lifecycle', () => {
     net.routes.delete(`${ORIGIN}/saved`);
     const sw = loadWorker(net);
     await sw.lifecycle('install');
-    const pre = sw.caches.stores.get('masterspath-precache-v1')!;
+    const pre = sw.caches.stores.get('masterspath-precache-v2')!;
     expect(pre.entries.has(`${ORIGIN}/`)).toBe(false);
     expect(pre.entries.has(`${ORIGIN}/saved`)).toBe(false);
     expect(pre.entries.has(`${ORIGIN}/offline`)).toBe(true);
@@ -220,11 +220,11 @@ describe('service worker lifecycle', () => {
   it('activate deletes old MastersPath caches only, enables navigation preload and claims clients', async () => {
     const net = onlineNet();
     const sw = loadWorker(net, { navigationPreload: true });
-    await sw.caches.open('masterspath-pages-v0');
     await sw.caches.open('masterspath-pages-v1');
+    await sw.caches.open('masterspath-pages-v2');
     await sw.caches.open('someone-else');
     await sw.lifecycle('activate');
-    expect((await sw.caches.keys()).sort()).toEqual(['masterspath-pages-v1', 'someone-else']);
+    expect((await sw.caches.keys()).sort()).toEqual(['masterspath-pages-v2', 'someone-else']);
     expect(sw.preloadEnabled.value).toBe(true);
     expect(sw.self.clients.claim).toHaveBeenCalled();
   });

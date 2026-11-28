@@ -1,4 +1,7 @@
 /**
+ * Superseded: the shipped icons now come from the real logo via scripts/make-brand.ts (`npm run icons`).
+ * Kept for its PNG helpers and tests.
+ *
  * Generates the PWA icons in pure Node (no image libraries):
  *
  *   npx tsx scripts/make-icons.ts
