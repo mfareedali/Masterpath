@@ -56,6 +56,7 @@ function SiteFooter() {
           <li><Link href="/glossary" className="inline-flex min-h-tap items-center">Glossary</Link></li>
           <li><Link href="/account" className="inline-flex min-h-tap items-center">Your data</Link></li>
           <li><Link href="/roadmap" className="inline-flex min-h-tap items-center">Roadmap</Link></li>
+          <li><Link href="/download" className="inline-flex min-h-tap items-center">Download the app</Link></li>
         </ul>
       </div>
     </footer>
