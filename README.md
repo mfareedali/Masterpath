@@ -8,6 +8,12 @@ never shows admission "chances" as percentages, and the AI chat refuses to answe
 
 > Not legal or immigration advice. Always check the official website before you apply or pay anyone.
 
+## Watch the 2-minute demo
+
+[![MastersPath demo video](docs/video-thumbnail.jpg)](https://youtu.be/bm-QA92K8MQ)
+
+**Video:** https://youtu.be/bm-QA92K8MQ (1:46, recorded from the real app at phone size)
+
 ## What it does
 
 | Screen | What you get |
