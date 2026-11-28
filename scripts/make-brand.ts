@@ -5,8 +5,9 @@
  *
  * writes
  *   public/brand/logo-mark.png            transparent, trimmed mark in the original olive (for light backgrounds)
- *   public/brand/logo-mark-light.png      the same mark recoloured light olive, keeping its shading (dark site header)
- *   public/icons/icon-192.png, icon-512.png, maskable-512.png   PWA icons (manifest + service-worker precache)
+ *   public/brand/logo-mark-light.png      the same mark recoloured muted olive, keeping its shading (dark site header, icons)
+ *   public/icons/icon-192.png, icon-512.png, maskable-512.png   PWA icons (manifest + service-worker precache):
+ *                                         the muted-olive mark on a forest-950 tile
  *   src/app/icon.png, src/app/apple-icon.png, src/app/favicon.ico   Next.js file-convention icons
  *
  * The cream background is keyed out by brightness: pixels at or above BG_LUM are transparent, at or below SOLID_LUM
@@ -21,7 +22,8 @@ const ROOT = process.cwd();
 const SOURCE = join(ROOT, 'assets', 'brand', 'logo-source.jpg');
 const BG_LUM = 226;
 const SOLID_LUM = 175;
-const TILE = palette['stone-50'];
+/** Icon tiles use the header colour (forest-950), so the installed app matches the site chrome. */
+const TILE = palette['forest-950'];
 
 async function transparentMark(): Promise<Buffer> {
   const { data, info } = await sharp(SOURCE).removeAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -45,9 +47,12 @@ async function transparentMark(): Promise<Buffer> {
   return sharp(out, { raw: { width, height, channels: 4 } }).trim({ threshold: 1 }).png().toBuffer();
 }
 
-/** Recolours the mark for dark backgrounds: its shading (dark to light) is mapped onto LIGHT_LO to LIGHT_HI. */
-const LIGHT_LO = [150, 168, 90];
-const LIGHT_HI = [228, 235, 207];
+/**
+ * Recolours the mark for dark backgrounds: its shading (dark to light) is mapped onto LIGHT_LO to LIGHT_HI, a muted
+ * olive that sits between olive-600 and olive-100 so it does not glare against forest-950.
+ */
+const LIGHT_LO = [128, 140, 84];
+const LIGHT_HI = [206, 210, 180];
 async function lightMark(mark: Buffer): Promise<Buffer> {
   const { data, info } = await sharp(mark).raw().toBuffer({ resolveWithObject: true });
   const n = info.width * info.height;
@@ -114,14 +119,17 @@ async function main() {
   const mark = await transparentMark();
   const small = await sharp(mark).resize({ height: 160 }).png({ compressionLevel: 9 }).toBuffer();
   write('public/brand/logo-mark.png', small);
-  write('public/brand/logo-mark-light.png', await lightMark(small));
-  write('public/icons/icon-192.png', await tile(mark, 192, 0.74, 0.18));
-  write('public/icons/icon-512.png', await tile(mark, 512, 0.74, 0.18));
+  const light = await lightMark(small);
+  write('public/brand/logo-mark-light.png', light);
+  // Icons are built from the full-resolution mark so small sizes stay sharp.
+  const iconMark = await lightMark(mark);
+  write('public/icons/icon-192.png', await tile(iconMark, 192, 0.74, 0.18));
+  write('public/icons/icon-512.png', await tile(iconMark, 512, 0.74, 0.18));
   // Maskable: full bleed, artwork inside the central 80% safe-zone circle.
-  write('public/icons/maskable-512.png', await tile(mark, 512, 0.56, 0));
-  write('src/app/icon.png', await tile(mark, 192, 0.8, 0.18));
-  write('src/app/apple-icon.png', await tile(mark, 180, 0.7, 0));
-  const favs = await Promise.all([16, 32, 48].map(async (size) => ({ size, png: await tile(mark, size, 0.9, 0.15) })));
+  write('public/icons/maskable-512.png', await tile(iconMark, 512, 0.56, 0));
+  write('src/app/icon.png', await tile(iconMark, 192, 0.8, 0.18));
+  write('src/app/apple-icon.png', await tile(iconMark, 180, 0.7, 0));
+  const favs = await Promise.all([16, 32, 48].map(async (size) => ({ size, png: await tile(iconMark, size, 0.9, 0.15) })));
   write('src/app/favicon.ico', ico(favs));
 }
 
